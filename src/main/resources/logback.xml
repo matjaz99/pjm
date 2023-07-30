@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- debug="true" -> show status to console -->
+<!-- scan="true" -> auto reload of configuration in case of changes -->
+<!-- packagingData="true" -> includes packaging information in stack-trace if throwable is logged -->
+<configuration debug="true" scan="true" scanPeriod="30 seconds" packagingData="true">
+
+  <contextName>pjm</contextName>
+
+  <property scope="local" name="logDir" value="./log" />
+  <property name="logToConsole" value="true" />
+
+  <timestamp key="secondsStamp" datePattern="yyyyMMdd'T'HHmmss" />
+
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>%d{dd-MM-yyyy HH:mm:ss.SSS} %magenta([%thread]) %highlight(%-5level) %logger{36}.%M - %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>${logDir}/pjm.log</file>
+    <append>true</append>
+    <prudent>false</prudent>
+    <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+      <fileNamePattern>${logDir}/${CONTEXT_NAME}-%d{yyyy-MM-dd}.%i.gz
+      </fileNamePattern>
+      <maxFileSize>20MB</maxFileSize>
+      <maxHistory>10</maxHistory>
+      <totalSizeCap>1GB</totalSizeCap>
+    </rollingPolicy>
+    <encoder>
+      <pattern>%d{dd-MM-yyyy HH:mm:ss.SSS} [%contextName] [%thread] [%-5level] [%logger{10}] [%file:%line] [%mdc] - %msg%n</pattern>
+      <outputPatternAsHeader>true</outputPatternAsHeader>
+    </encoder>
+  </appender>
+
+  <!-- level -> TRACE, DEBUG, INFO, WARN, ERROR, ALL, OFF, INHERITED or NULL -->
+  <root level="INFO">
+    <appender-ref ref="FILE" />
+    <appender-ref ref="STDOUT" />
+  </root>
+
+  <logger name="org.apache" level="WARN" />
+  <logger name="si.matjazcerkvenik" level="INFO" />
+</configuration>

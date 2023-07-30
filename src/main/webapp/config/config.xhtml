@@ -1,0 +1,48 @@
+<ui:composition template="/templates/pageTemplate.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<div id="contentFrame">
+		<ui:define name="contentFrame">
+
+			<p:outputLabel value="Runtime configuration" style="font-weight: bold; font-size: 24px;"/>
+
+			<br/>
+
+			<h:form id="configForm">
+
+				<p:panelGrid columns="2">
+
+					<p:outputLabel value="Runtime ID: " class="boldtext"/>
+					<p:outputLabel value="#{uiConfigBean.runtimeId}" />
+
+					<p:outputLabel value="Version: " class="boldtext"/>
+					<p:outputLabel value="#{uiConfigBean.version}" />
+
+					<p:outputLabel value="Local IP address: " class="boldtext"/>
+					<p:outputLabel value="#{uiConfigBean.localIpAddress}" />
+
+					<p:outputLabel value="Containerized: " class="boldtext"/>
+					<p:outputLabel value="#{uiConfigBean.containerized}" />
+
+					<p:outputLabel value="Start time: " class="boldtext"/>
+					<p:outputLabel value="#{uiConfigBean.startTime}" />
+
+					<p:outputLabel value="Up time: " class="boldtext"/>
+					<p:outputLabel value="#{uiConfigBean.upTime}" />
+
+					<p:outputLabel value="Projects directory: " class="boldtext"/>
+					<p:outputLabel value="#{uiConfigBean.projectsDirectoryPath}" />
+
+				</p:panelGrid>
+
+			</h:form>
+
+		</ui:define>
+	</div>
+
+</ui:composition>
+

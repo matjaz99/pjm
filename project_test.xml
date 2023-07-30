@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<project>
+    <projectName>Test1</projectName>
+    <requirements>
+        <requirement id="A1">
+            <title>AAA</title>
+        </requirement>
+        <requirement id="A2">
+            <title>AAB</title>
+        </requirement>
+    </requirements>
+</project>

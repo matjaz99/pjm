@@ -1,0 +1,60 @@
+<ui:composition template="/templates/pageTemplate.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<div id="contentFrame">
+		<ui:define name="contentFrame">
+
+			<p:outputLabel value="Project #{uiBean.project.projectName}" style="font-weight: bold; font-size: 24px;"/>
+
+			<br/>
+
+			<h:form id="projectsForm">
+
+				<p:panelGrid columns="2">
+
+					<p:outputLabel value="Project name: " class="boldtext"/>
+					<p:inplace editor="true">
+						<p:inputText value="#{uiBean.projectName}" required="true" label="text"/>
+					</p:inplace>
+
+					<p:outputLabel value="Project ID: " class="boldtext"/>
+					<p:outputLabel value="#{uiBean.project.projectId}" />
+
+					<p:outputLabel value="Project path: " class="boldtext"/>
+					<p:outputLabel value="#{uiBean.project.projectPath}" />
+
+				</p:panelGrid>
+
+				<p:commandButton value="New requirement" type="button" icon="pi pi-external-link" onclick="PF('dlg3').show()"/>
+				<p:dialog header="Header" widgetVar="dlg3" minHeight="40" width="350" showEffect="fade">
+					<p:panelGrid columns="2">
+						<p:outputLabel value="ID: " class="boldtext"/>
+						<p:inputText value="#{uiBean.newReqId}"
+									 required="true" requiredMessage="Missing ID">
+						</p:inputText>
+						<p:outputLabel value="Title: " class="boldtext"/>
+						<p:inputText value="#{uiBean.newReqTitle}"
+									 required="true" requiredMessage="Missing title">
+						</p:inputText>
+					</p:panelGrid>
+					<f:facet name="footer">
+						<p:commandButton value="Add"
+										 action="#{uiBean.addNewReqAction}"
+										 update="growl projectsForm"
+										 oncomplete="handleDialogRequest('dlg3', xhr, status, args)"
+										 styleClass="ui-button-flat mr-2" style="width: 6rem"/>
+						<p:commandButton type="button" value="Cancel" onclick="PF('dlg3').hide();" style="width: 5rem" />
+					</f:facet>
+				</p:dialog>
+
+			</h:form>
+
+		</ui:define>
+	</div>
+
+</ui:composition>
+

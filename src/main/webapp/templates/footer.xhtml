@@ -1,0 +1,20 @@
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+
+	<br/><br/><br/>
+	<h:panelGrid columns="1" cellpadding="0" cellspacing="0" width="100%">
+
+		<p:notificationBar position="bottom" autoDisplay="true" effect="slide" styleClass="top" widgetVar="bar">
+			<h:outputText value="Version: #{uiConfigBean.version}" />
+			<h:outputText value=" | " style="margin: 0 5px; font-weight: bold;" />
+			<h:outputText value="IP address: #{uiConfigBean.localIpAddress}" />
+			<h:outputText value=" | " style="margin: 0 5px; font-weight: bold;" />
+			<h:outputText value="Up time: #{uiConfigBean.upTime}" />
+		</p:notificationBar>
+
+	</h:panelGrid>
+    
+</ui:composition>
