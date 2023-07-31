@@ -1,0 +1,22 @@
+version: '3.6'
+
+networks:
+  net:
+    driver: overlay
+    attachable: true
+
+services:
+
+  pjm:
+    image: matjaz99/pjm:latest
+    ports:
+      - 8080:8080
+    networks:
+      - net
+    environment:
+      - TZ=${TZ}
+    volumes:
+      - /var/log:/opt/pjm/log
+    deploy:
+      mode: replicated
+      replicas: 1
