@@ -7,19 +7,19 @@ import java.util.List;
 
 public class Requirements {
 
-    private List<Requirement> requirements;
+    private List<Requirement> requirementsList;
 
-    public List<Requirement> getRequirements() {
-        return requirements;
+    public List<Requirement> getRequirementsList() {
+        return requirementsList;
     }
 
     @XmlElement(name = "requirement")
-    public void setRequirements(List<Requirement> requirements) {
-        this.requirements = requirements;
+    public void setRequirementsList(List<Requirement> requirementsList) {
+        this.requirementsList = requirementsList;
     }
 
     public void addNewRequirement(Requirement req) {
-        if (requirements == null) requirements = new ArrayList<>();
-        requirements.add(req);
+        if (requirementsList == null) requirementsList = new ArrayList<>();
+        requirementsList.add(req);
     }
 }

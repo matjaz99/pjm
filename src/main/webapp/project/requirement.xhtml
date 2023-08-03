@@ -8,26 +8,35 @@
 	<div id="contentFrame">
 		<ui:define name="contentFrame">
 
-			<p:outputLabel value="Requirement #{uiBean.project.projectName}" style="font-weight: bold; font-size: 24px;"/>
+			<p:outputLabel value="Requirement #{uiRequirementBean.requirement.title}" style="font-weight: bold; font-size: 24px;"/>
+			<p:outputLabel value="Project #{uiRequirementBean.uiBean.project.projectName}"/>
 
 			<br/>
 
-			<h:form id="theForm">
+			<h:form id="reqForm">
 
-				<p:panelGrid columns="2">
-
-					<p:outputLabel value="Project name: " class="boldtext"/>
-					<p:inplace editor="true">
-						<p:inputText value="#{uiBean.projectName}" required="true" label="text"/>
-					</p:inplace>
-
-					<p:outputLabel value="Project ID: " class="boldtext"/>
-					<p:outputLabel value="#{uiBean.project.projectId}" />
-
-					<p:outputLabel value="Project path: " class="boldtext"/>
-					<p:outputLabel value="#{uiBean.project.projectPath}" />
-
-				</p:panelGrid>
+				<p:textEditor widgetVar="editor2"
+							  value="#{uiRequirementBean.requirement.description}"
+							  height="300"
+							  placeholder="Enter your content"
+							  secure="false"
+							  required="true">
+					<f:facet name="toolbar">
+						<span class="ql-formats">
+							<button class="ql-bold"></button>
+							<button class="ql-italic"></button>
+							<button class="ql-underline"></button>
+							<button class="ql-strike"></button>
+						</span>
+						<span class="ql-formats">
+							<select class="ql-font"></select>
+							<select class="ql-size"></select>
+						</span>
+					</f:facet>
+				</p:textEditor>
+				<p:commandButton value="Save"
+								 action="#{uiRequirementBean.saveDescription()}"
+								 update="@form" icon="pi pi-check"/>
 
 			</h:form>
 

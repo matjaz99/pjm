@@ -6,11 +6,14 @@ import si.matjazcerkvenik.pjm.DAO;
 import si.matjazcerkvenik.pjm.Props;
 import si.matjazcerkvenik.pjm.model.Project;
 import si.matjazcerkvenik.pjm.model.Requirement;
+import si.matjazcerkvenik.pjm.util.MD5Checksum;
+import si.matjazcerkvenik.pjm.util.Utils;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
 import java.io.Serializable;
+import java.util.Iterator;
 
 @ManagedBean
 //@SessionScoped
@@ -60,13 +63,28 @@ public class UiBean implements Serializable {
     }
 
     public void addNewReqAction() {
-        logger.info("addNewReqAction: new req: " + newReqId);
+        logger.info("addNewReqAction: new req id: " + newReqId + ", title: " + newReqTitle);
+        if (Utils.isNullOrEmpty(newReqTitle)) return;
+        if (Utils.isNullOrEmpty(newReqId)) newReqId = MD5Checksum.getMd5ChecksumShort(newReqTitle);
         Requirement r = new Requirement();
         r.setId(newReqId);
         r.setTitle(newReqTitle);
         project.addNewRequirement(r);
+        logger.info("addNewReqAction: new req: " + newReqId);
         DAO.getInstance().saveProject(project);
         newReqId = null;
         newReqTitle = null;
+    }
+
+    public void deleteReqAction(String id) {
+        for (Iterator<Requirement> it = project.getRequirements().getRequirementsList().iterator(); it.hasNext();) {
+            Requirement r = it.next();
+            if (r.getId().equals(id)) {
+                it.remove();
+                logger.info("deleteReqAction: req: " + id);
+                break;
+            }
+        }
+        DAO.getInstance().saveProject(project);
     }
 }

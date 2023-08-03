@@ -80,7 +80,7 @@ public class OnStartListener implements ServletContextListener {
         // initialize DAO
         DAO.getInstance();
 
-        PjmMetrics.pjm_build_info.labels("Alertmonitor", Props.RUNTIME_ID, Props.VERSION, System.getProperty("os.name")).set(Props.START_UP_TIME);
+        PjmMetrics.pjm_build_info.labels("PJM", Props.RUNTIME_ID, Props.VERSION, System.getProperty("os.name")).set(Props.START_UP_TIME);
 
 //        File f = new File("./project_test.xml");
 //        if (!f.exists()) logger.warn("NO FILE");

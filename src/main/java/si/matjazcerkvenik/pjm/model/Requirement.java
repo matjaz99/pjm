@@ -8,6 +8,8 @@ public class Requirement {
     private String id;
     private String title;
 
+    private String description;
+
     public String getId() {
         return id;
     }
@@ -24,5 +26,14 @@ public class Requirement {
     @XmlElement
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    @XmlElement
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

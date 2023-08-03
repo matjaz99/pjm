@@ -7,18 +7,20 @@ import jakarta.xml.bind.Unmarshaller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import si.matjazcerkvenik.pjm.model.Project;
+import si.matjazcerkvenik.pjm.util.MD5Checksum;
 
-//import javax.xml.bind.JAXBContext;
-//import javax.xml.bind.JAXBException;
-//import javax.xml.bind.Marshaller;
-//import javax.xml.bind.Unmarshaller;
 import java.io.File;
+import java.io.FileFilter;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class DAO {
 
     private static DAO instance;
     private static final Logger logger = LoggerFactory.getLogger(DAO.class);
+
+    private Map<String, Project> projects = new HashMap<>();
 
     private DAO() {
     }
@@ -30,9 +32,20 @@ public class DAO {
         return instance;
     }
 
-    public List<String> loadAllProjects() {
-        // TODO load all projects
-        return null;
+    public void loadAllProjects() {
+        File dir = new File("projects");
+        File[] files = dir.listFiles(new FileFilter() {
+            @Override
+            public boolean accept(File pathname) {
+                return pathname.isFile() && pathname.getAbsolutePath().endsWith(".xml");
+            }
+        });
+
+        for (int i = 0; i < files.length; i++) {
+            Project p = loadProject(files[i].getAbsolutePath());
+            projects.put(p.getProjectId(), p);
+            logger.info("DAO:loadAllProjects: adding " + files[i].getAbsolutePath());
+        }
     }
 
     public Project loadProject(String path) {
@@ -56,7 +69,7 @@ public class DAO {
             project = (Project) jaxbUnmarshaller.unmarshal(file);
 
             project.setProjectPath(file.getAbsolutePath());
-            project.setProjectId(project.hashCode() + "");
+            project.setProjectId(MD5Checksum.getMd5Checksum(project.getProjectName()));
 
             logger.info("DAO:loadProject: " + file.getAbsolutePath());
 

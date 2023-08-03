@@ -27,14 +27,18 @@
 					<p:outputLabel value="Project path: " class="boldtext"/>
 					<p:outputLabel value="#{uiBean.project.projectPath}" />
 
+					<p:outputLabel value="Requirements: " class="boldtext"/>
+					<p:outputLabel value="#{uiBean.project.requirements.requirementsList.size()}" />
+
 				</p:panelGrid>
 
+				<br/>
+
 				<p:commandButton value="New requirement" type="button" icon="pi pi-external-link" onclick="PF('dlg3').show()"/>
-				<p:dialog header="Header" widgetVar="dlg3" minHeight="40" width="350" showEffect="fade">
+				<p:dialog header="Header" widgetVar="dlg3" minHeight="40" showEffect="fade">
 					<p:panelGrid columns="2">
 						<p:outputLabel value="ID: " class="boldtext"/>
-						<p:inputText value="#{uiBean.newReqId}"
-									 required="true" requiredMessage="Missing ID">
+						<p:inputText value="#{uiBean.newReqId}">
 						</p:inputText>
 						<p:outputLabel value="Title: " class="boldtext"/>
 						<p:inputText value="#{uiBean.newReqTitle}"
@@ -42,14 +46,45 @@
 						</p:inputText>
 					</p:panelGrid>
 					<f:facet name="footer">
+						<p:commandButton type="button"
+										 value="Cancel"
+										 onclick="PF('dlg3').hide();"
+										 style="width: 5rem"
+										 styleClass="ui-button-flat mr-2" />
 						<p:commandButton value="Add"
 										 action="#{uiBean.addNewReqAction}"
-										 update="growl projectsForm"
+										 update="growl projectsForm requirementsForm"
 										 oncomplete="handleDialogRequest('dlg3', xhr, status, args)"
-										 styleClass="ui-button-flat mr-2" style="width: 6rem"/>
-						<p:commandButton type="button" value="Cancel" onclick="PF('dlg3').hide();" style="width: 5rem" />
+										 styleClass="ui-button mr-2"
+										 style="width: 6rem"/>
 					</f:facet>
 				</p:dialog>
+
+			</h:form>
+
+			<br/>
+
+			<h:form id="requirementsForm">
+
+				<p:dataTable value="#{uiBean.project.requirements.requirementsList}" var="req"
+							 cellpadding="0" cellspacing="0">
+					<p:column headerText="ID">
+						<h:link value="#{req.id}" outcome="/project/requirement">
+							<f:param name="id" value="#{req.id}" />
+						</h:link>
+<!--						<p:outputLabel value="#{req.id}"/>-->
+					</p:column>
+					<p:column headerText="Title">
+						<p:outputLabel value="#{req.title}"/>
+					</p:column>
+					<p:column headerText="Action">
+						<p:outputLabel value="XXX"/>
+						<p:commandButton value="Delete"
+										 action="#{uiBean.deleteReqAction(req.id)}"
+										 update="growl projectsForm requirementsForm"
+										 styleClass="ui-button-flat mr-2" />
+					</p:column>
+				</p:dataTable>
 
 			</h:form>
 
