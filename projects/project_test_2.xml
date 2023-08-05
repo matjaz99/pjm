@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<project>
-    <projectName>Test1</projectName>
+<project id="sdfaewf">
+    <name>Test_222</name>
     <requirements>
         <requirement id="A5">
             <title>AAD</title>

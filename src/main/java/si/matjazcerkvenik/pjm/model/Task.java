@@ -5,14 +5,13 @@ import jakarta.xml.bind.annotation.XmlElement;
 
 import java.io.Serializable;
 
-public class Requirement implements Serializable {
+public class Task implements Serializable {
 
-    private static final long serialVersionUID = 17864122354L;
+    private static final long serialVersionUID = 1611228713055L;
 
     private String id;
     private String title;
     private String description;
-    private Tasks tasks;
 
     public String getId() {
         return id;
@@ -39,21 +38,5 @@ public class Requirement implements Serializable {
     @XmlElement
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public Tasks getTasks() {
-        return tasks;
-    }
-
-    @XmlElement
-    public void setTasks(Tasks tasks) {
-        this.tasks = tasks;
-    }
-
-    public void addNewTask(Task taks) {
-        if (tasks == null) {
-            tasks = new Tasks();
-        }
-        tasks.addNewTask(taks);
     }
 }

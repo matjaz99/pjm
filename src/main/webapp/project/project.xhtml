@@ -8,85 +8,90 @@
 	<div id="contentFrame">
 		<ui:define name="contentFrame">
 
-			<p:outputLabel value="Project #{uiBean.project.projectName}" style="font-weight: bold; font-size: 24px;"/>
+			<p:outputLabel value="Project #{uiSessBean.project.name}" style="font-weight: bold; font-size: 24px;"/>
+			<div class="card">
+				<h:form>
+					<p:breadCrumb>
+						<p:menuitem value="Home" url="/pjm"/>
+						<p:menuitem value="#{uiSessBean.project.name}" url="/pjm/project/project.xhtml?projectId=#{uiSessBean.project.id}"/>
+					</p:breadCrumb>
+				</h:form>
+			</div>
 
 			<br/>
 
-			<h:form id="projectsForm">
+			<h:form id="projectMetaForm">
 
 				<p:panelGrid columns="2">
 
 					<p:outputLabel value="Project name: " class="boldtext"/>
 					<p:inplace editor="true">
-						<p:inputText value="#{uiBean.projectName}" required="true" label="text"/>
+						<p:inputText value="#{uiSessBean.projectName}" required="true" label="text"/>
 					</p:inplace>
 
 					<p:outputLabel value="Project ID: " class="boldtext"/>
-					<p:outputLabel value="#{uiBean.project.projectId}" />
+					<p:outputLabel value="#{uiSessBean.project.id}" />
 
 					<p:outputLabel value="Project path: " class="boldtext"/>
-					<p:outputLabel value="#{uiBean.project.projectPath}" />
-
-					<p:outputLabel value="Requirements: " class="boldtext"/>
-					<p:outputLabel value="#{uiBean.project.requirements.requirementsList.size()}" />
+					<p:outputLabel value="#{uiSessBean.project.projectPath}" />
 
 				</p:panelGrid>
-
-				<br/>
-
-				<p:commandButton value="New requirement" type="button" icon="pi pi-external-link" onclick="PF('dlg3').show()"/>
-				<p:dialog header="Header" widgetVar="dlg3" minHeight="40" showEffect="fade">
-					<p:panelGrid columns="2">
-						<p:outputLabel value="ID: " class="boldtext"/>
-						<p:inputText value="#{uiBean.newReqId}">
-						</p:inputText>
-						<p:outputLabel value="Title: " class="boldtext"/>
-						<p:inputText value="#{uiBean.newReqTitle}"
-									 required="true" requiredMessage="Missing title">
-						</p:inputText>
-					</p:panelGrid>
-					<f:facet name="footer">
-						<p:commandButton type="button"
-										 value="Cancel"
-										 onclick="PF('dlg3').hide();"
-										 style="width: 5rem"
-										 styleClass="ui-button-flat mr-2" />
-						<p:commandButton value="Add"
-										 action="#{uiBean.addNewReqAction}"
-										 update="growl projectsForm requirementsForm"
-										 oncomplete="handleDialogRequest('dlg3', xhr, status, args)"
-										 styleClass="ui-button mr-2"
-										 style="width: 6rem"/>
-					</f:facet>
-				</p:dialog>
-
 			</h:form>
 
 			<br/>
 
+			<p:outputLabel value="Project requirements (#{uiSessBean.project.requirements.list.size()})" style="font-weight: bold; font-size: 24px;"/>
+
 			<h:form id="requirementsForm">
 
-				<p:dataTable value="#{uiBean.project.requirements.requirementsList}" var="req"
+				<p:dataTable value="#{uiSessBean.project.requirements.list}" var="req"
 							 cellpadding="0" cellspacing="0">
-					<p:column headerText="ID">
-						<h:link value="#{req.id}" outcome="/project/requirement">
-							<f:param name="id" value="#{req.id}" />
-						</h:link>
-<!--						<p:outputLabel value="#{req.id}"/>-->
-					</p:column>
 					<p:column headerText="Title">
-						<p:outputLabel value="#{req.title}"/>
+						<h:link value="#{req.title}" outcome="/project/requirement">
+							<f:param name="projectId" value="#{uiSessBean.project.id}" />
+							<f:param name="reqId" value="#{req.id}" />
+						</h:link>
+					</p:column>
+					<p:column headerText="Tasks">
+						<p:outputLabel value="#{req.tasks.list.size()}"/>
 					</p:column>
 					<p:column headerText="Action">
-						<p:outputLabel value="XXX"/>
 						<p:commandButton value="Delete"
-										 action="#{uiBean.deleteReqAction(req.id)}"
-										 update="growl projectsForm requirementsForm"
+										 action="#{uiSessBean.deleteReqAction(req.id)}"
+										 update="growl projectMetaForm requirementsForm"
 										 styleClass="ui-button-flat mr-2" />
 					</p:column>
 				</p:dataTable>
 
 			</h:form>
+
+			<br/>
+
+			<p:commandButton value="New requirement" type="button" icon="pi pi-external-link" onclick="PF('dlg3').show()"/>
+			<p:dialog header="Header" widgetVar="dlg3" minHeight="40" showEffect="fade">
+				<h:form id="newRequirementForm">
+					<p:panelGrid columns="2">
+						<p:outputLabel value="Title: " class="boldtext"/>
+						<p:inputText value="#{uiSessBean.newReqTitle}"
+									 required="true" requiredMessage="Missing title">
+						</p:inputText>
+						<p:outputLabel value="ID: " class="boldtext"/>
+						<p:inputText value="#{uiSessBean.newReqId}">
+						</p:inputText>
+					</p:panelGrid>
+					<p:commandButton type="button"
+									 value="Cancel"
+									 onclick="PF('dlg3').hide();"
+									 style="width: 5rem"
+									 styleClass="ui-button-flat mr-2" />
+					<p:commandButton value="Add"
+									 action="#{uiSessBean.addNewReqAction}"
+									 update="growl newRequirementForm requirementsForm projectMetaForm"
+									 oncomplete="PF('dlg3').hide();"
+									 styleClass="ui-button mr-2"
+									 style="width: 6rem"/>
+				</h:form>
+			</p:dialog>
 
 		</ui:define>
 	</div>

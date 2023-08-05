@@ -1,5 +1,6 @@
 package si.matjazcerkvenik.pjm.model;
 
+import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
 import jakarta.xml.bind.annotation.XmlTransient;
@@ -11,27 +12,27 @@ public class Project implements Serializable {
 
     private static final long serialVersionUID = 17224348209L;
 
-    private String projectId;
-    private String projectName;
+    private String id;
+    private String name;
     private String projectPath;
     private Requirements requirements;
 
-    public String getProjectId() {
-        return projectId;
+    public String getId() {
+        return id;
     }
 
-    @XmlTransient
-    public void setProjectId(String projectId) {
-        this.projectId = projectId;
+    @XmlAttribute
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public String getProjectName() {
-        return projectName;
+    public String getName() {
+        return name;
     }
 
     @XmlElement
-    public void setProjectName(String projectName) {
-        this.projectName = projectName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getProjectPath() {

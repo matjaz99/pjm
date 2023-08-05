@@ -11,3 +11,8 @@ https://stackoverflow.com/questions/20427307/where-to-put-logback-xml-in-tomcat
 https://shibboleth.atlassian.net/wiki/spaces/KB/pages/1404895579/Apache+Tomcat+logging+with+Logback
 
 
+
+
+
+oncomplete="handleDialogRequest('dlg3', xhr, status, args)"
+

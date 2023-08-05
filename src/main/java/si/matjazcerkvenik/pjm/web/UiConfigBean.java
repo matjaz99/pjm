@@ -15,7 +15,7 @@
  */
 package si.matjazcerkvenik.pjm.web;
 
-import si.matjazcerkvenik.pjm.Props;
+import si.matjazcerkvenik.pjm.util.Props;
 import si.matjazcerkvenik.pjm.util.Formatter;
 import si.matjazcerkvenik.pjm.util.PjmDateFormat;
 

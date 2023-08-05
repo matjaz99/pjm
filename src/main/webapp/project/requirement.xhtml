@@ -8,20 +8,40 @@
 	<div id="contentFrame">
 		<ui:define name="contentFrame">
 
-			<p:outputLabel value="Requirement #{uiRequirementBean.requirement.title}" style="font-weight: bold; font-size: 24px;"/>
-			<p:outputLabel value="Project #{uiRequirementBean.uiBean.project.projectName}"/>
+			<div class="card">
+				<h:form>
+					<p:breadCrumb>
+						<p:menuitem value="Home" url="/pjm"/>
+						<p:menuitem value="#{uiSessBean.project.name}" url="/pjm/project/project.xhtml?projectId=#{uiSessBean.project.id}"/>
+						<p:menuitem value="#{uiRequirementBean.requirement.title}" url="/pjm/project/requirement.xhtml?projectId=#{uiSessBean.project.id}&amp;reqId=#{uiRequirementBean.requirement.id}"/>
+					</p:breadCrumb>
+				</h:form>
+			</div>
+			<h:form>
+				<p:panelGrid columns="3" styleClass="ui-noborder">
+					<p:inplace editor="true" style="font-weight: bold; font-size: 24px;">
+						<p:inputText value="#{uiRequirementBean.requirementId}" required="true" label="text"/>
+					</p:inplace>
+					<p:outputLabel value=":" style="font-weight: bold; font-size: 24px;"/>
+					<p:inplace editor="true" style="font-weight: bold; font-size: 24px;">
+						<p:inputText value="#{uiRequirementBean.requirementTitle}" required="true" label="text"/>
+					</p:inplace>
+				</p:panelGrid>
+			</h:form>
 
-			<br/>
-
-			<h:form id="reqForm">
+			<h:form id="editorForm">
 
 				<p:textEditor widgetVar="editor2"
 							  value="#{uiRequirementBean.requirement.description}"
 							  height="300"
 							  placeholder="Enter your content"
-							  secure="false"
+							  secure="true"
 							  required="true">
 					<f:facet name="toolbar">
+						<span class="ql-formats">
+							<select class="ql-font"></select>
+							<select class="ql-size"></select>
+						</span>
 						<span class="ql-formats">
 							<button class="ql-bold"></button>
 							<button class="ql-italic"></button>
@@ -29,8 +49,23 @@
 							<button class="ql-strike"></button>
 						</span>
 						<span class="ql-formats">
-							<select class="ql-font"></select>
-							<select class="ql-size"></select>
+							<select class="ql-color" />
+							<select class="ql-background" />
+						</span>
+						<span class="ql-formats">
+							<button class="ql-header" value="1" />
+							<button class="ql-header" value="2" />
+							<button class="ql-blockquote" />
+							<button class="ql-code-block" />
+						</span>
+										<span class="ql-formats">
+							<button class="ql-list" value="ordered" />
+							<button class="ql-list" value="bullet" />
+							<button class="ql-indent" value="-1" />
+							<button class="ql-indent" value="+1" />
+						</span>
+						<span class="ql-formats">
+							<button class="ql-clean" />
 						</span>
 					</f:facet>
 				</p:textEditor>
@@ -39,6 +74,59 @@
 								 update="@form" icon="pi pi-check"/>
 
 			</h:form>
+
+			<br/>
+
+			<p:outputLabel value="Tasks" style="font-weight: bold; font-size: 24px;"/>
+
+			<h:form id="tasksForm">
+
+				<p:dataTable value="#{uiRequirementBean.requirement.tasks.list}" var="tsk"
+							 cellpadding="0" cellspacing="0">
+					<p:column headerText="Title">
+						<h:link value="#{tsk.title}" outcome="/project/task">
+							<f:param name="projectId" value="#{uiSessBean.project.id}" />
+							<f:param name="reqId" value="#{req.id}" />
+							<f:param name="tskId" value="#{tsk.id}" />
+						</h:link>
+					</p:column>
+					<p:column headerText="Action">
+						<p:commandButton value="Delete"
+										 action="#{uiRequirementBean.deleteTaskAction(tsk.id)}"
+										 update="growl tasksForm"
+										 styleClass="ui-button-flat mr-2" />
+					</p:column>
+				</p:dataTable>
+
+			</h:form>
+
+			<br/>
+
+			<p:commandButton value="New task" type="button" icon="pi pi-external-link" onclick="PF('dlg3').show()"/>
+			<p:dialog header="Header" widgetVar="dlg3" minHeight="40" showEffect="fade">
+				<h:form id="newTaskForm">
+					<p:panelGrid columns="2">
+						<p:outputLabel value="Title: " class="boldtext"/>
+						<p:inputText value="#{uiRequirementBean.newTskTitle}"
+									 required="true" requiredMessage="Missing title">
+						</p:inputText>
+						<p:outputLabel value="ID: " class="boldtext"/>
+						<p:inputText value="#{uiRequirementBean.newTskId}">
+						</p:inputText>
+					</p:panelGrid>
+					<p:commandButton type="button"
+									 value="Cancel"
+									 onclick="PF('dlg3').hide();"
+									 style="width: 5rem"
+									 styleClass="ui-button-flat mr-2" />
+					<p:commandButton value="Add"
+									 action="#{uiRequirementBean.addNewTaskAction}"
+									 update="growl newTaskForm tasksForm"
+									 oncomplete="PF('dlg3').hide();"
+									 styleClass="ui-button mr-2"
+									 style="width: 6rem"/>
+				</h:form>
+			</p:dialog>
 
 		</ui:define>
 	</div>

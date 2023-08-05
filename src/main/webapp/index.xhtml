@@ -14,15 +14,58 @@
 
 	<br/>
 
-	<h:outputLink value="/pjm/project" >
-		/project
-	</h:outputLink>
-
-	<br/>
-
 	<h:outputLink value="/pjm/metrics" >
 		/metrics
 	</h:outputLink>
+
+
+
+	<p:dataTable id="projectsTable" value="#{uiAppBean.projects}" var="project"
+				 cellpadding="0" cellspacing="0">
+		<p:column headerText="Name">
+			<h:link value="#{project.name}" outcome="/project/project">
+				<f:param name="projectId" value="#{project.id}" />
+			</h:link>
+		</p:column>
+		<p:column headerText="Requirements">
+			<p:outputLabel value="#{project.requirements.list.size()}"/>
+		</p:column>
+		<p:column headerText="Action">
+			<h:form id="actionsForm">
+			<p:outputLabel value="XXX"/>
+			<p:commandButton value="Delete"
+							 action="#{uiAppBean.deleteProjectAction(project)}"
+							 update="projectsTable"
+							 styleClass="ui-button-flat mr-2" />
+			</h:form>
+		</p:column>
+	</p:dataTable>
+
+	<br/>
+
+	<p:commandButton value="New project" type="button" icon="pi pi-external-link" onclick="PF('dlg3').show()"/>
+	<p:dialog header="New project" widgetVar="dlg3" minHeight="40" showEffect="fade">
+		<h:form id="dialogForm">
+			<p:panelGrid columns="2">
+				<p:outputLabel value="Name: " class="boldtext"/>
+				<p:inputText value="#{uiAppBean.newProjectName}">
+				</p:inputText>
+			</p:panelGrid>
+			<p:commandButton type="button"
+							 value="Cancel"
+							 onclick="PF('dlg3').hide();"
+							 style="width: 5rem"
+							 styleClass="ui-button-flat mr-2" />
+			<p:commandButton value="Add"
+							 action="#{uiAppBean.addNewProjectAction}"
+							 update="dialogForm projectsTable"
+							 oncomplete="PF('dlg3').hide();"
+							 styleClass="ui-button mr-2"
+							 style="width: 6rem"/>
+		</h:form>
+	</p:dialog>
+
+
 
 </h:body>
 </html>

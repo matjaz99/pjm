@@ -15,8 +15,6 @@
  */
 package si.matjazcerkvenik.pjm.util;
 
-import si.matjazcerkvenik.pjm.Props;
-
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 

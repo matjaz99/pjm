@@ -2,24 +2,27 @@ package si.matjazcerkvenik.pjm.model;
 
 import jakarta.xml.bind.annotation.XmlElement;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Requirements {
+public class Requirements implements Serializable {
 
-    private List<Requirement> requirementsList;
+    private static final long serialVersionUID = 1711749401L;
 
-    public List<Requirement> getRequirementsList() {
-        return requirementsList;
+    private List<Requirement> list;
+
+    public List<Requirement> getList() {
+        return list;
     }
 
     @XmlElement(name = "requirement")
-    public void setRequirementsList(List<Requirement> requirementsList) {
-        this.requirementsList = requirementsList;
+    public void setList(List<Requirement> list) {
+        this.list = list;
     }
 
     public void addNewRequirement(Requirement req) {
-        if (requirementsList == null) requirementsList = new ArrayList<>();
-        requirementsList.add(req);
+        if (list == null) list = new ArrayList<>();
+        list.add(req);
     }
 }

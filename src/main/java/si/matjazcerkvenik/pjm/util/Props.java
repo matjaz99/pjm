@@ -1,4 +1,4 @@
-package si.matjazcerkvenik.pjm;
+package si.matjazcerkvenik.pjm.util;
 
 import java.io.File;
 
@@ -21,7 +21,8 @@ public class Props {
         PJM_PROJECTS_DIRECTORY = System.getenv().getOrDefault("PJM_PROJECTS_DIRECTORY", "/opt/pjm/projects").trim();
 
         if (new File("/Users/matjaz").exists()) {
-            PJM_PROJECTS_DIRECTORY = "/Users/matjaz/Library/CloudStorage/Dropbox/monis/other_stacks/pjm/projects";
+//            PJM_PROJECTS_DIRECTORY = "/Users/matjaz/Library/CloudStorage/Dropbox/monis/other_stacks/pjm/projects";
+            PJM_PROJECTS_DIRECTORY = "projects";
         }
 
     }
