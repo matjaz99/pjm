@@ -3,13 +3,19 @@
     <name>Test1</name>
     <requirements>
         <requirement id="A5">
+            <description>&lt;p&gt;Do some AADs&lt;/p&gt;</description>
+            <tasks>
+                <task id="774f9526">
+                    <title>Produce AAD</title>
+                </task>
+            </tasks>
             <title>AAD</title>
         </requirement>
-        <requirement id="1aabac6">
-            <title>dd</title>
+        <requirement id="A1">
+            <title>AAA</title>
         </requirement>
-        <requirement id="a3aca29">
-            <title>hhh</title>
+        <requirement id="A2">
+            <title>AAB</title>
         </requirement>
         <requirement id="343d904">
             <title>fff</title>
@@ -18,7 +24,7 @@
             <description>&lt;p&gt;Potrebno izdelati podvozje, kamor se namestijo amortizerji in kolesa.&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;Avto mora imeti &lt;strong&gt;4&lt;/strong&gt; kolesa.&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;</description>
             <tasks>
                 <task id="5abdd6b7">
-                    <title>Izdelti ogrodje</title>
+                    <title>Izdelati ogrodje</title>
                 </task>
                 <task id="ecfa1e76">
                     <title>Pritrditi amortizerje</title>
@@ -28,6 +34,9 @@
                 </task>
                 <task id="fd6357f9">
                     <title>Naroči 4 pnevmatike</title>
+                </task>
+                <task id="df65bde3">
+                    <title>Napisati dokument</title>
                 </task>
             </tasks>
             <title>AAC</title>

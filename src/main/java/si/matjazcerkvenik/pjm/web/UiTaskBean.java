@@ -21,29 +21,35 @@ import java.util.Map;
 @ManagedBean
 @ViewScoped
 @SuppressWarnings("unused")
-public class UiRequirementBean implements Serializable {
+public class UiTaskBean implements Serializable {
 
-    private static final long serialVersionUID = 27734903592L;
+    private static final long serialVersionUID = 131646875422L;
 
-    private static final Logger logger = LoggerFactory.getLogger(UiRequirementBean.class);
+    private static final Logger logger = LoggerFactory.getLogger(UiTaskBean.class);
 
     @ManagedProperty(value="#{uiAppBean}")
     private UiAppBean uiAppBean;
-    
-    private Requirement requirement;
+
     private Project project;
+    private Requirement requirement;
+    private Task task;
 
     @PostConstruct
     public void init() {
         Map<String, String> requestParameterMap = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
         String projId = requestParameterMap.getOrDefault("projectId", null);
         String reqId = requestParameterMap.getOrDefault("reqId", null);
+        String tskId = requestParameterMap.getOrDefault("tskId", null);
         project = uiAppBean.getProject(projId);
-
-        if (project.getRequirements() == null) return;
         for (Requirement r : project.getRequirements().getList()) {
             if (r.getId().equals(reqId)) {
                 requirement = r;
+                for (Task t : r.getTasks().getList()) {
+                    if (t.getId().equals(tskId)) {
+                        task = t;
+                        break;
+                    }
+                }
                 break;
             }
         }
