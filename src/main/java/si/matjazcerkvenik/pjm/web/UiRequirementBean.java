@@ -58,6 +58,14 @@ public class UiRequirementBean implements Serializable {
         this.uiAppBean = uiAppBean;
     }
 
+    public Project getProject() {
+        return project;
+    }
+
+    public void setProject(Project project) {
+        this.project = project;
+    }
+
     public Requirement getRequirement() {
         return requirement;
     }

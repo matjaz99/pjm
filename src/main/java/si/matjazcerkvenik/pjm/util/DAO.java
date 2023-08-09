@@ -76,15 +76,13 @@ public class DAO {
 
         try {
 
-            logger.info("DAO:saveProject1: " + project.getName());
-
             File file = new File(project.getProjectPath());
             JAXBContext jaxbContext = JAXBContext.newInstance(Project.class);
             Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
             jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
             jaxbMarshaller.marshal(project, file);
 
-            logger.info("DAO:saveProject: " + file.getAbsolutePath());
+            logger.info("DAO:saveProject: " + project.getName() + " on path: " + file.getAbsolutePath());
 
         } catch (JAXBException e) {
             logger.error("DAO:saveProject: JAXBException: ", e);

@@ -12,8 +12,8 @@
 				<h:form>
 					<p:breadCrumb>
 						<p:menuitem value="Home" url="/pjm"/>
-						<p:menuitem value="#{uiSessBean.project.name}" url="/pjm/project/project.xhtml?projectId=#{uiSessBean.project.id}"/>
-						<p:menuitem value="#{uiRequirementBean.requirement.title}" url="/pjm/project/requirement.xhtml?projectId=#{uiSessBean.project.id}&amp;reqId=#{uiRequirementBean.requirement.id}"/>
+						<p:menuitem value="#{uiRequirementBean.project.name}" url="/pjm/project/project.xhtml?projectId=#{uiRequirementBean.project.id}"/>
+						<p:menuitem value="#{uiRequirementBean.requirement.title}" url="/pjm/project/requirement.xhtml?projectId=#{uiRequirementBean.project.id}&amp;reqId=#{uiRequirementBean.requirement.id}"/>
 					</p:breadCrumb>
 				</h:form>
 			</div>
@@ -85,8 +85,8 @@
 							 cellpadding="0" cellspacing="0">
 					<p:column headerText="Title">
 						<h:link value="#{tsk.title}" outcome="/project/task">
-							<f:param name="projectId" value="#{uiSessBean.project.id}" />
-							<f:param name="reqId" value="#{req.id}" />
+							<f:param name="projectId" value="#{uiRequirementBean.project.id}" />
+							<f:param name="reqId" value="#{uiRequirementBean.requirement.id}" />
 							<f:param name="tskId" value="#{tsk.id}" />
 						</h:link>
 					</p:column>

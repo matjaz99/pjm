@@ -6,6 +6,7 @@
             <description>&lt;p&gt;aaa&lt;/p&gt;&lt;p&gt;&lt;strong&gt;ggg&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;kkk&lt;/p&gt;</description>
             <tasks>
                 <task id="110e9647">
+                    <description>&lt;p&gt;Todo&lt;/p&gt;</description>
                     <title>TODO 1</title>
                 </task>
                 <task id="088dbf41">
@@ -21,9 +22,13 @@
             <title>Zahteva 1</title>
         </requirement>
         <requirement id="REQ-02">
+            <description>&lt;p&gt;The product must produce:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Tiny beans&lt;/li&gt;&lt;li&gt;Hot apples&lt;/li&gt;&lt;li&gt;Top bananas&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;Products must be packed in 1 and 5 kilogram boxes.&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;</description>
             <tasks>
-                <task id="088dbf41">
-                    <title>TODO 2</title>
+                <task id="1b1f4e54">
+                    <title>Bake some Hot apples</title>
+                </task>
+                <task id="b2a18753">
+                    <title>Pack the Hot apples in boxes</title>
                 </task>
             </tasks>
             <title>Zahteva 2</title>

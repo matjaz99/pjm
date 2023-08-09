@@ -23,7 +23,7 @@ import java.util.Map;
 @SuppressWarnings("unused")
 public class UiTaskBean implements Serializable {
 
-    private static final long serialVersionUID = 131646875422L;
+    private static final long serialVersionUID = 131146824402L;
 
     private static final Logger logger = LoggerFactory.getLogger(UiTaskBean.class);
 
@@ -64,6 +64,14 @@ public class UiTaskBean implements Serializable {
         this.uiAppBean = uiAppBean;
     }
 
+    public Project getProject() {
+        return project;
+    }
+
+    public void setProject(Project project) {
+        this.project = project;
+    }
+
     public Requirement getRequirement() {
         return requirement;
     }
@@ -72,79 +80,29 @@ public class UiTaskBean implements Serializable {
         this.requirement = requirement;
     }
 
+    public Task getTask() {
+        return task;
+    }
 
-    /*  Edit requirement  */
+    public void setTask(Task task) {
+        this.task = task;
+    }
+
+    /*  Edit task  */
 
     public void saveDescription() {
-        logger.info("saveDescription: " + requirement.getDescription());
-        DAO.getInstance().saveProject(project);
-    }
-
-    public String getRequirementId() {
-        return requirement.getId();
-    }
-
-    public void setRequirementId(String id) {
-        requirement.setId(id);
+        logger.info("saveDescription: " + task.getDescription());
         DAO.getInstance().saveProject(project);
     }
 
     public String getRequirementTitle() {
-        return requirement.getTitle();
+        return task.getTitle();
     }
 
     public void setRequirementTitle(String title) {
-        requirement.setTitle(title);
+        task.setTitle(title);
         DAO.getInstance().saveProject(project);
     }
 
-
-
-    /*  Create new task  */
-
-    private String newTskId;
-    private String newTskTitle;
-
-    public String getNewTskId() {
-        return newTskId;
-    }
-
-    public void setNewTskId(String newTskId) {
-        this.newTskId = newTskId;
-    }
-
-    public String getNewTskTitle() {
-        return newTskTitle;
-    }
-
-    public void setNewTskTitle(String newTskTitle) {
-        this.newTskTitle = newTskTitle;
-    }
-
-    public void addNewTaskAction() {
-        logger.info("addNewReqAction: new tsk id: " + newTskId + ", title: " + newTskTitle);
-        if (Utils.isNullOrEmpty(newTskTitle)) return;
-        if (Utils.isNullOrEmpty(newTskId)) newTskId = MD5Checksum.getMd5ChecksumShort(newTskTitle);
-        Task t = new Task();
-        t.setId(newTskId);
-        t.setTitle(newTskTitle);
-        requirement.addNewTask(t);
-        logger.info("addNewReqAction: new tsk: " + newTskId);
-        DAO.getInstance().saveProject(project);
-        newTskId = null;
-        newTskTitle = null;
-    }
-
-    public void deleteTaskAction(String id) {
-        for (Iterator<Task> it = requirement.getTasks().getList().iterator(); it.hasNext();) {
-            Task t = it.next();
-            if (t.getId().equals(id)) {
-                it.remove();
-                logger.info("deleteTaskAction: tsk: " + id);
-                break;
-            }
-        }
-        DAO.getInstance().saveProject(project);
-    }
 
 }
