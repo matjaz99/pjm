@@ -46,4 +46,14 @@ public class MD5Checksum {
         return result.substring(0, 8);
     }
 
+    /**
+     * Same as above, except that it adds a random factor to string to make MD5 more random.
+     * @param s
+     * @return
+     */
+    public static String getMd5ChecksumShortSalted(String s) {
+        String result = getMd5Checksum(s + System.currentTimeMillis());
+        return result.substring(0, 8);
+    }
+
 }

@@ -13,6 +13,7 @@ public class Requirement implements Serializable {
     private String title;
     private String description;
     private Tasks tasks;
+    private Comments comments;
 
     public String getId() {
         return id;
@@ -51,9 +52,21 @@ public class Requirement implements Serializable {
     }
 
     public void addNewTask(Task taks) {
-        if (tasks == null) {
-            tasks = new Tasks();
-        }
+        if (tasks == null) tasks = new Tasks();
         tasks.addNewTask(taks);
+    }
+
+    public Comments getComments() {
+        return comments;
+    }
+
+    @XmlElement
+    public void setComments(Comments comments) {
+        this.comments = comments;
+    }
+
+    public void addNewComment(Comment comment) {
+        if (comments == null) comments = new Comments();
+        comments.addNewComment(comment);
     }
 }

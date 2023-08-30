@@ -15,8 +15,12 @@
  */
 package si.matjazcerkvenik.pjm.util;
 
+import javax.xml.datatype.DatatypeFactory;
+import javax.xml.datatype.XMLGregorianCalendar;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
 public class Formatter {
 
@@ -71,6 +75,20 @@ public class Formatter {
         }
 
         return resp;
+    }
+
+
+    public static XMLGregorianCalendar getXmlGregorianCalendarNow() {
+        Date current_date = new Date();
+        XMLGregorianCalendar xmlDate = null;
+        GregorianCalendar gc = new GregorianCalendar();
+        gc.setTime(current_date);
+        try {
+            xmlDate = DatatypeFactory.newInstance().newXMLGregorianCalendar(gc);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return xmlDate;
     }
 
 

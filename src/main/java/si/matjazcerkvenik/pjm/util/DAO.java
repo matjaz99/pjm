@@ -93,6 +93,7 @@ public class DAO {
     public void deleteProject(Project project) {
         File file = new File(project.getProjectPath());
         file.delete();
+        logger.info("DAO:deleteProject: " + project.getName() + " on path: " + file.getAbsolutePath());
     }
 
 }

@@ -3,6 +3,13 @@
     <name>Projekt E</name>
     <requirements>
         <requirement id="REQ-01">
+            <comments>
+                <comment id="ba248c98" lastModified="2023-08-30T00:25:21.399+02:00">ggg</comment>
+                <comment id="44f437ce" lastModified="2023-08-30T00:25:29.576+02:00">rrr</comment>
+                <comment id="42bd5e4c" lastModified="2023-08-30T00:25:33.792+02:00">fghfghfgf</comment>
+                <comment id="77963b7a" lastModified="2023-08-30T23:11:58.141+02:00">ddd</comment>
+                <comment id="9f6e6800" lastModified="2023-08-30T23:12:02.954+02:00">sss</comment>
+            </comments>
             <description>&lt;p&gt;aaa&lt;/p&gt;&lt;p&gt;&lt;strong&gt;ggg&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;kkk&lt;/p&gt;</description>
             <tasks>
                 <task id="110e9647">
@@ -22,6 +29,9 @@
             <title>Zahteva 1</title>
         </requirement>
         <requirement id="REQ-02">
+            <comments>
+                <comment id="3d3dc8ab" lastModified="2023-08-30T23:20:14.718+02:00">Add some sugar</comment>
+            </comments>
             <description>&lt;p&gt;The product must produce:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Tiny beans&lt;/li&gt;&lt;li&gt;Hot apples&lt;/li&gt;&lt;li&gt;Top bananas&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;Products must be packed in 1 and 5 kilogram boxes.&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;</description>
             <tasks>
                 <task id="1b1f4e54">
@@ -34,7 +44,82 @@
             <title>Zahteva 2</title>
         </requirement>
         <requirement id="REQ-03">
+            <description>&lt;p&gt;afasd falkj &lt;span style="background-color:rgb( 255 , 255 , 0 )"&gt;falksdj&lt;/span&gt; &lt;span style="color:rgb( 230 , 0 , 0 )"&gt;falksjda&lt;/span&gt; fksjf asjd &lt;strong&gt;faskdjalkjdslfak&lt;/strong&gt; f jjjjsjdkjf.&lt;/p&gt;</description>
+            <tasks>
+                <task id="27f237e6">
+                    <title>A1</title>
+                </task>
+                <task id="c6bdf6f6">
+                    <title>A2</title>
+                </task>
+                <task id="6593d7b1">
+                    <title>A3</title>
+                </task>
+                <task id="c9512565">
+                    <title>B1</title>
+                </task>
+                <task id="bbd97b00">
+                    <title>B2</title>
+                </task>
+                <task id="1a2ddc2d">
+                    <title>C1</title>
+                </task>
+            </tasks>
             <title>Zahteva 3</title>
+        </requirement>
+        <requirement id="443f79c9">
+            <description>&lt;p&gt;adfa adsf asd sdsd asffdds.&lt;/p&gt;</description>
+            <tasks>
+                <task id="10c30788">
+                    <title>Todo 4.1</title>
+                </task>
+                <task id="6bdb8aa6">
+                    <title>Todo 4.2</title>
+                </task>
+            </tasks>
+            <title>Zahteva 4</title>
+        </requirement>
+        <requirement id="dff1b0b3">
+            <description>&lt;p&gt;Na REQ ali na TASK je potrebno dodati možnost dodajanja komentarjev. Komentarje je možno spremeniti. Zabeleži se zadnji čas spremembe komentarja.&lt;/p&gt;</description>
+            <tasks>
+                <task id="89de3318">
+                    <title>Dodaj komentarje na requirement</title>
+                    <status>Complete</status>
+                </task>
+                <task id="1d7f4e4c">
+                    <title>Dodaj komentarje na task</title>
+                    <status>In progress</status>
+                </task>
+                <task id="a75a44e1">
+                    <status>Draft</status>
+                    <title>jknkj</title>
+                </task>
+            </tasks>
+            <title>Komentarji</title>
+        </requirement>
+        <requirement id="fff87e50">
+            <description>&lt;p&gt;Produkt mora podpirati dodajanje opomnikov. Na opomniku mora biti nastavljiv čas, kdaj uporabnika opozori.&lt;/p&gt;&lt;p&gt;Lahko pa se nastavi opomnik ko se spremeni status zahteve ali taska.&lt;/p&gt;</description>
+            <tasks>
+                <task id="3c27cca0">
+                    <title>Implementacija opomikov</title>
+                </task>
+                <task id="f3bbe084">
+                    <title>Calendar view</title>
+                </task>
+            </tasks>
+            <title>Opomniki</title>
+        </requirement>
+        <requirement id="eed13c84">
+            <description>&lt;p&gt;Možni statusi taskov:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Draft&lt;/li&gt;&lt;li&gt;In progress&lt;/li&gt;&lt;li&gt;Clarify&lt;/li&gt;&lt;li&gt;Waiting&lt;/li&gt;&lt;li&gt;Complete&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;</description>
+            <title>Status taskov</title>
+        </requirement>
+        <requirement id="d50ae403">
+            <description>&lt;p&gt;Zahteve je možno razdeliti po releasih. Release ima verzijo in planiran rok.&lt;/p&gt;</description>
+            <title>Releases</title>
+        </requirement>
+        <requirement id="5c104635">
+            <description>&lt;p&gt;Zahteve je možno grupirati v funkcionalne grupe. Npr. omrežja, vmesniki, aplikacija, logi...&lt;/p&gt;</description>
+            <title>Requirement groups</title>
         </requirement>
     </requirements>
 </project>

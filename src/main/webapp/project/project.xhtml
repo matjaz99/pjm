@@ -8,7 +8,6 @@
 	<div id="contentFrame">
 		<ui:define name="contentFrame">
 
-			<p:outputLabel value="Project #{uiSessBean.project.name}" style="font-weight: bold; font-size: 24px;"/>
 			<div class="card">
 				<h:form>
 					<p:breadCrumb>
@@ -18,16 +17,54 @@
 				</h:form>
 			</div>
 
-			<br/>
+			<h:form>
+				<p:panelGrid columns="1" styleClass="ui-noborder">
+					<p:inplace editor="true" style="font-weight: bold; font-size: 24px;">
+						<p:inputText value="#{uiSessBean.projectName}" required="true" label="text" />
+					</p:inplace>
+				</p:panelGrid>
+			</h:form>
+
+			<p:panelGrid columns="8">
+				<p:panel>
+					<div class="card">
+						<i class="pi pi-calendar" style="font-size: 14 rem"></i>
+					</div>
+					<p:outputLabel value="Calendar" class="boldtext"/>
+				</p:panel>
+				<p:panel>
+					<div class="card">
+						<i class="pi pi-file" style="font-size: 14 rem"></i>
+					</div>
+					<p:outputLabel value="Report" class="boldtext"/>
+				</p:panel>
+				<p:panel>
+					<div class="card">
+						<i class="pi pi-chart-line" style="font-size: 14 rem"></i>
+					</div>
+					<p:outputLabel value="Statistics" class="boldtext"/>
+				</p:panel>
+				<p:panel>
+					<div class="card">
+						<i class="pi pi-bell" style="font-size: 14 rem"></i>
+					</div>
+					<p:outputLabel value="Alarms" class="boldtext"/>
+				</p:panel>
+				<p:panel>
+					<div class="card">
+						<i class="pi pi-cog" style="font-size: 14 rem"></i>
+					</div>
+					<p:outputLabel value="Configuration" class="boldtext"/>
+				</p:panel>
+			</p:panelGrid>
+
 
 			<h:form id="projectMetaForm">
 
 				<p:panelGrid columns="2">
 
 					<p:outputLabel value="Project name: " class="boldtext"/>
-					<p:inplace editor="true">
-						<p:inputText value="#{uiSessBean.projectName}" required="true" label="text"/>
-					</p:inplace>
+					<p:outputLabel value="#{uiSessBean.project.name}" />
 
 					<p:outputLabel value="Project ID: " class="boldtext"/>
 					<p:outputLabel value="#{uiSessBean.project.id}" />

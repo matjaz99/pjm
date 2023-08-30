@@ -20,10 +20,6 @@
 			<h:form>
 				<p:panelGrid columns="3" styleClass="ui-noborder">
 					<p:inplace editor="true" style="font-weight: bold; font-size: 24px;">
-						<p:inputText value="#{uiRequirementBean.requirementId}" required="true" label="text"/>
-					</p:inplace>
-					<p:outputLabel value=":" style="font-weight: bold; font-size: 24px;"/>
-					<p:inplace editor="true" style="font-weight: bold; font-size: 24px;">
 						<p:inputText value="#{uiRequirementBean.requirementTitle}" required="true" label="text"/>
 					</p:inplace>
 				</p:panelGrid>
@@ -34,7 +30,7 @@
 				<p:textEditor widgetVar="editor2"
 							  value="#{uiRequirementBean.requirement.description}"
 							  height="300"
-							  placeholder="Enter your content"
+							  placeholder="Your content"
 							  secure="true"
 							  required="true">
 					<f:facet name="toolbar">
@@ -58,7 +54,7 @@
 							<button class="ql-blockquote" />
 							<button class="ql-code-block" />
 						</span>
-										<span class="ql-formats">
+						<span class="ql-formats">
 							<button class="ql-list" value="ordered" />
 							<button class="ql-list" value="bullet" />
 							<button class="ql-indent" value="-1" />
@@ -77,6 +73,46 @@
 
 			<br/>
 
+			<p:outputLabel value="Comments (#{uiRequirementBean.requirement.comments.list.size()})" style="font-weight: bold; font-size: 24px;"/>
+
+			<h:form id="commentsForm">
+				<p:dataTable value="#{uiRequirementBean.requirement.comments.list}" var="cmt"
+							 cellpadding="0" cellspacing="0">
+					<p:column headerText="Comment">
+						<p:outputLabel value="#{cmt.id}"/>
+						<p:outputLabel value=" [#{cmt.lastModified}]"/>
+						<p:inplace editor="true">
+							<p:inputText value="#{cmt.description}" required="true" label="text"/>
+						</p:inplace>
+					</p:column>
+				</p:dataTable>
+			</h:form>
+
+			<p:commandButton value="New comment" type="button" icon="pi pi-external-link" onclick="PF('dlg2').show()"/>
+			<p:dialog header="Header" widgetVar="dlg2" minHeight="40" showEffect="fade">
+				<h:form id="newCommentForm">
+					<p:panelGrid columns="2">
+						<p:outputLabel value="Description: " class="boldtext"/>
+						<p:inputText value="#{uiRequirementBean.newCommentTitle}"
+									 required="true" requiredMessage="Missing title">
+						</p:inputText>
+					</p:panelGrid>
+					<p:commandButton type="button"
+									 value="Cancel"
+									 onclick="PF('dlg2').hide();"
+									 style="width: 5rem"
+									 styleClass="ui-button-flat mr-2" />
+					<p:commandButton value="Add"
+									 action="#{uiRequirementBean.addNewCommentAction}"
+									 update="growl newCommentForm commentsForm"
+									 oncomplete="PF('dlg2').hide();"
+									 styleClass="ui-button mr-2"
+									 style="width: 6rem"/>
+				</h:form>
+			</p:dialog>
+
+			<br/>
+
 			<p:outputLabel value="Tasks (#{uiRequirementBean.requirement.tasks.list.size()})" style="font-weight: bold; font-size: 24px;"/>
 
 			<h:form id="tasksForm">
@@ -91,8 +127,7 @@
 						</h:link>
 					</p:column>
 					<p:column headerText="Status">
-						<p:tag styleClass="mr-2" value="In progress"></p:tag>
-						<p:tag styleClass="mr-2" severity="warning" value="Clarify"></p:tag>
+						<p:tag styleClass="mr-2" value="#{tsk.status}"></p:tag>
 					</p:column>
 					<p:column headerText="Action">
 						<p:commandButton value="Delete"

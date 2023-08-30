@@ -63,7 +63,7 @@ public class UiAppBean implements Serializable {
         }
         Project p = new Project();
         p.setName(newProjectName);
-        p.setId(MD5Checksum.getMd5ChecksumShort(newProjectName));
+        p.setId(MD5Checksum.getMd5ChecksumShortSalted(newProjectName));
         p.setProjectPath(Props.PJM_PROJECTS_DIRECTORY + "/" + newProjectName + ".xml");
         projects.add(p);
         DAO.getInstance().saveProject(p);

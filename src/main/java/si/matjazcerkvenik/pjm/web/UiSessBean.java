@@ -91,7 +91,7 @@ public class UiSessBean implements Serializable {
     public void addNewReqAction() {
         logger.info("addNewReqAction: new req id: " + newReqId + ", title: " + newReqTitle);
         if (Utils.isNullOrEmpty(newReqTitle)) return;
-        if (Utils.isNullOrEmpty(newReqId)) newReqId = MD5Checksum.getMd5ChecksumShort(newReqTitle);
+        if (Utils.isNullOrEmpty(newReqId)) newReqId = MD5Checksum.getMd5ChecksumShortSalted(newReqTitle);
         Requirement r = new Requirement();
         r.setId(newReqId);
         r.setTitle(newReqTitle);

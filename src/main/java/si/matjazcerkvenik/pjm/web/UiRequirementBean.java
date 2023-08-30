@@ -2,10 +2,9 @@ package si.matjazcerkvenik.pjm.web;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import si.matjazcerkvenik.pjm.model.Project;
-import si.matjazcerkvenik.pjm.model.Requirement;
-import si.matjazcerkvenik.pjm.model.Task;
+import si.matjazcerkvenik.pjm.model.*;
 import si.matjazcerkvenik.pjm.util.DAO;
+import si.matjazcerkvenik.pjm.util.Formatter;
 import si.matjazcerkvenik.pjm.util.MD5Checksum;
 import si.matjazcerkvenik.pjm.util.Utils;
 
@@ -124,14 +123,14 @@ public class UiRequirementBean implements Serializable {
     }
 
     public void addNewTaskAction() {
-        logger.info("addNewReqAction: new tsk id: " + newTskId + ", title: " + newTskTitle);
         if (Utils.isNullOrEmpty(newTskTitle)) return;
-        if (Utils.isNullOrEmpty(newTskId)) newTskId = MD5Checksum.getMd5ChecksumShort(newTskTitle);
+        if (Utils.isNullOrEmpty(newTskId)) newTskId = MD5Checksum.getMd5ChecksumShortSalted(newTskTitle);
         Task t = new Task();
         t.setId(newTskId);
         t.setTitle(newTskTitle);
+        t.setStatus(TaskStatus.DRAFT.label);
         requirement.addNewTask(t);
-        logger.info("addNewReqAction: new tsk: " + newTskId);
+        logger.info("addNewTaskAction: id: " + newTskId + ", title: " + newTskTitle);
         DAO.getInstance().saveProject(project);
         newTskId = null;
         newTskTitle = null;
@@ -147,6 +146,34 @@ public class UiRequirementBean implements Serializable {
             }
         }
         DAO.getInstance().saveProject(project);
+    }
+
+
+
+
+
+    /*  Create new remark  */
+
+    private String newCommentTitle;
+
+    public String getNewCommentTitle() {
+        return newCommentTitle;
+    }
+
+    public void setNewCommentTitle(String newCommentTitle) {
+        this.newCommentTitle = newCommentTitle;
+    }
+
+    public void addNewCommentAction() {
+        if (Utils.isNullOrEmpty(newCommentTitle)) return;
+        Comment t = new Comment();
+        t.setId(MD5Checksum.getMd5ChecksumShortSalted(newCommentTitle));
+        t.setDescription(newCommentTitle);
+        t.setLastModified(Formatter.getXmlGregorianCalendarNow());
+        requirement.addNewComment(t);
+        logger.info("addNewCommentAction: id: " + t.getId() + ", title: " + newCommentTitle);
+        DAO.getInstance().saveProject(project);
+        newCommentTitle = null;
     }
 
 }

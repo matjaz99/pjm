@@ -10,14 +10,13 @@
 </h:head>
 <h:body>
 
-	<p:outputLabel value="Hello PJM" />
+	<h:form>
+		<p:breadCrumb>
+			<p:menuitem value="Home" url="/pjm"/>
+		</p:breadCrumb>
+	</h:form>
 
 	<br/>
-
-	<h:outputLink value="/pjm/metrics" >
-		/metrics
-	</h:outputLink>
-
 
 
 	<p:dataTable id="projectsTable" value="#{uiAppBean.projects}" var="project"
@@ -65,6 +64,16 @@
 		</h:form>
 	</p:dialog>
 
+	<br/>
+	<br/>
+	<br/>
+	<h:outputLink value="/pjm/metrics" >
+		/metrics
+	</h:outputLink>
+	<br/>
+	<h:outputLink value="/pjm/config" >
+		/config
+	</h:outputLink>
 
 
 </h:body>

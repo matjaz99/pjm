@@ -12,6 +12,7 @@ public class Task implements Serializable {
     private String id;
     private String title;
     private String description;
+    private String status;
 
     public String getId() {
         return id;
@@ -38,5 +39,14 @@ public class Task implements Serializable {
     @XmlElement
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    @XmlElement
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

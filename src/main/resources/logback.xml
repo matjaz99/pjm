@@ -7,7 +7,7 @@
 
   <contextName>pjm</contextName>
 
-  <property scope="local" name="logDir" value="./log" />
+  <property scope="local" name="logDir" value="log" />
   <property name="logToConsole" value="true" />
 
   <timestamp key="secondsStamp" datePattern="yyyyMMdd'T'HHmmss" />
