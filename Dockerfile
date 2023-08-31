@@ -6,7 +6,8 @@ COPY pom.xml /home/app
 RUN mvn -f /home/app/pom.xml clean package
 
 # Package stage
-FROM tomcat:8.5-jre8-alpine
+#FROM tomcat:8.5-jre8-alpine
+FROM tomcat:8.5.93-jdk17
 #FROM tomcat:9.0.64-jre11-openjdk
 
 RUN apk --no-cache add curl
