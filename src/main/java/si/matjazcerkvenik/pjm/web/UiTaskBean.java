@@ -34,6 +34,8 @@ public class UiTaskBean implements Serializable {
     private Requirement requirement;
     private Task task;
 
+    private String selectedTaskStatus = "Draft";
+
     @PostConstruct
     public void init() {
         Map<String, String> requestParameterMap = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
@@ -53,7 +55,7 @@ public class UiTaskBean implements Serializable {
                 break;
             }
         }
-
+        if (task.getStatus() != null) selectedTaskStatus = task.getStatus();
     }
 
     public UiAppBean getUiAppBean() {
@@ -86,6 +88,16 @@ public class UiTaskBean implements Serializable {
 
     public void setTask(Task task) {
         this.task = task;
+    }
+
+    public String getSelectedTaskStatus() {
+        return selectedTaskStatus;
+    }
+
+    public void setSelectedTaskStatus(String selectedTaskStatus) {
+        this.selectedTaskStatus = selectedTaskStatus;
+        task.setStatus(selectedTaskStatus);
+        DAO.getInstance().saveProject(project);
     }
 
     /*  Edit task  */

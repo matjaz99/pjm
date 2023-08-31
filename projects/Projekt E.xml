@@ -83,12 +83,12 @@
             <description>&lt;p&gt;Na REQ ali na TASK je potrebno dodati možnost dodajanja komentarjev. Komentarje je možno spremeniti. Zabeleži se zadnji čas spremembe komentarja.&lt;/p&gt;</description>
             <tasks>
                 <task id="89de3318">
-                    <title>Dodaj komentarje na requirement</title>
                     <status>Complete</status>
+                    <title>Dodaj komentarje na requirement</title>
                 </task>
                 <task id="1d7f4e4c">
-                    <title>Dodaj komentarje na task</title>
                     <status>In progress</status>
+                    <title>Dodaj komentarje na task</title>
                 </task>
                 <task id="a75a44e1">
                     <status>Draft</status>
@@ -120,6 +120,24 @@
         <requirement id="5c104635">
             <description>&lt;p&gt;Zahteve je možno grupirati v funkcionalne grupe. Npr. omrežja, vmesniki, aplikacija, logi...&lt;/p&gt;</description>
             <title>Requirement groups</title>
+        </requirement>
+        <requirement id="8501b953">
+            <description>&lt;p&gt;Popis omrežja, IP naslovov, strežniki, produkti, linki, uporabniška imena, gesla&lt;/p&gt;</description>
+            <title>Testno okolje</title>
+        </requirement>
+        <requirement id="ac733b04">
+            <description>&lt;p&gt;Splaniraj agendo za vnaprej. Daj v koledar kot sestanek. Opomnik pred sestankom. Zapisnik. Relacije na zahteve.&lt;/p&gt;</description>
+            <title>Sestanki, zapisniki in agende</title>
+        </requirement>
+        <requirement id="d28f9a84">
+            <title>Linki na dokumente</title>
+        </requirement>
+        <requirement id="cea96daf">
+            <title>Dodaj growl sporočila</title>
+        </requirement>
+        <requirement id="bd3f7410">
+            <description>&lt;p&gt;Možnost definiranja poljubnih tagov. Tagi morajo imeti možnost izbire barve. Tag se lahko doda na REQ&lt;/p&gt;</description>
+            <title>Tags (labels)</title>
         </requirement>
     </requirements>
 </project>

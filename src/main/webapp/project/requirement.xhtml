@@ -89,14 +89,15 @@
 			</h:form>
 
 			<p:commandButton value="New comment" type="button" icon="pi pi-external-link" onclick="PF('dlg2').show()"/>
-			<p:dialog header="Header" widgetVar="dlg2" minHeight="40" showEffect="fade">
+			<p:dialog header="Add comment" widgetVar="dlg2" minHeight="40" showEffect="fade">
 				<h:form id="newCommentForm">
-					<p:panelGrid columns="2">
+					<p:panelGrid columns="2" styleClass="ui-noborder">
 						<p:outputLabel value="Description: " class="boldtext"/>
-						<p:inputText value="#{uiRequirementBean.newCommentTitle}"
+						<p:inputText value="#{uiRequirementBean.newCommentTitle}" size="60"
 									 required="true" requiredMessage="Missing title">
 						</p:inputText>
 					</p:panelGrid>
+					<br/>
 					<p:commandButton type="button"
 									 value="Cancel"
 									 onclick="PF('dlg2').hide();"
@@ -127,7 +128,7 @@
 						</h:link>
 					</p:column>
 					<p:column headerText="Status">
-						<p:tag styleClass="mr-2" value="#{tsk.status}"></p:tag>
+						<p:tag styleClass="mr-2" severity="#{uiRequirementBean.convertStatusToSeverity(tsk.status)}" value="#{tsk.status}"></p:tag>
 					</p:column>
 					<p:column headerText="Action">
 						<p:commandButton value="Delete"
@@ -142,17 +143,15 @@
 			<br/>
 
 			<p:commandButton value="New task" type="button" icon="pi pi-external-link" onclick="PF('dlg3').show()"/>
-			<p:dialog header="Header" widgetVar="dlg3" minHeight="40" showEffect="fade">
+			<p:dialog header="New task" widgetVar="dlg3" minHeight="40" showEffect="fade">
 				<h:form id="newTaskForm">
-					<p:panelGrid columns="2">
+					<p:panelGrid columns="2" styleClass="ui-noborder">
 						<p:outputLabel value="Title: " class="boldtext"/>
-						<p:inputText value="#{uiRequirementBean.newTskTitle}"
+						<p:inputText value="#{uiRequirementBean.newTskTitle}" size="60"
 									 required="true" requiredMessage="Missing title">
 						</p:inputText>
-						<p:outputLabel value="ID: " class="boldtext"/>
-						<p:inputText value="#{uiRequirementBean.newTskId}">
-						</p:inputText>
 					</p:panelGrid>
+					<br/>
 					<p:commandButton type="button"
 									 value="Cancel"
 									 onclick="PF('dlg3').hide();"

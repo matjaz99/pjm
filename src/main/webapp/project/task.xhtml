@@ -69,6 +69,18 @@
 			<br/>
 
 
+			<h:form id="configForm">
+				<p:panelGrid columns="2">
+					<p:outputLabel value="Status: " class="boldtext"/>
+					<p:selectOneMenu id="selectedStatus" value="#{uiTaskBean.selectedTaskStatus}" dynamic="true" onchange="submit()">
+						<f:selectItem itemLabel="Draft" itemValue="Draft"/>
+						<f:selectItem itemLabel="In progress" itemValue="In progress"/>
+						<f:selectItem itemLabel="Clarify" itemValue="Clarify"/>
+						<f:selectItem itemLabel="Waiting" itemValue="Waiting"/>
+						<f:selectItem itemLabel="Complete" itemValue="Complete"/>
+					</p:selectOneMenu>
+				</p:panelGrid>
+			</h:form>
 
 		</ui:define>
 	</div>

@@ -9,6 +9,7 @@ import si.matjazcerkvenik.pjm.util.MD5Checksum;
 import si.matjazcerkvenik.pjm.util.Utils;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
@@ -99,20 +100,26 @@ public class UiRequirementBean implements Serializable {
         DAO.getInstance().saveProject(project);
     }
 
+    public String convertStatusToSeverity(String status) {
+        if (status.equalsIgnoreCase("Draft")) {
+            return "primary";
+        } else if (status.equalsIgnoreCase("In progress")) {
+            return "info";
+        } else if (status.equalsIgnoreCase("Clarify")) {
+            return "warning";
+        } else if (status.equalsIgnoreCase("Waiting")) {
+            return "danger";
+        } else if (status.equalsIgnoreCase("Complete")) {
+            return "success";
+        }
+        return "primary";
+    }
+
 
 
     /*  Create new task  */
 
-    private String newTskId;
     private String newTskTitle;
-
-    public String getNewTskId() {
-        return newTskId;
-    }
-
-    public void setNewTskId(String newTskId) {
-        this.newTskId = newTskId;
-    }
 
     public String getNewTskTitle() {
         return newTskTitle;
@@ -124,16 +131,16 @@ public class UiRequirementBean implements Serializable {
 
     public void addNewTaskAction() {
         if (Utils.isNullOrEmpty(newTskTitle)) return;
-        if (Utils.isNullOrEmpty(newTskId)) newTskId = MD5Checksum.getMd5ChecksumShortSalted(newTskTitle);
         Task t = new Task();
-        t.setId(newTskId);
+        t.setId(MD5Checksum.getMd5ChecksumShortSalted(newTskTitle));
         t.setTitle(newTskTitle);
         t.setStatus(TaskStatus.DRAFT.label);
         requirement.addNewTask(t);
-        logger.info("addNewTaskAction: id: " + newTskId + ", title: " + newTskTitle);
+        logger.info("addNewTaskAction: id: " + t.getId() + ", title: " + newTskTitle);
         DAO.getInstance().saveProject(project);
-        newTskId = null;
         newTskTitle = null;
+        FacesContext.getCurrentInstance().
+                addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "New task created", null));
     }
 
     public void deleteTaskAction(String id) {
@@ -146,6 +153,8 @@ public class UiRequirementBean implements Serializable {
             }
         }
         DAO.getInstance().saveProject(project);
+        FacesContext.getCurrentInstance().
+                addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Task deleted", null));
     }
 
 

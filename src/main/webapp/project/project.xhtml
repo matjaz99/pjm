@@ -28,25 +28,27 @@
 			<p:panelGrid columns="8">
 				<p:panel>
 					<div class="card">
-						<i class="pi pi-calendar" style="font-size: 4rem"></i>
+						<p:badge value="2" severity="info">
+							<i class="pi pi-calendar" style="font-size: 4rem"></i>
+						</p:badge>
 					</div>
 					<p:outputLabel value="Calendar" class="boldtext"/>
 				</p:panel>
 				<p:panel>
 					<div class="card">
-						<i class="pi pi-file" style="font-size: 4rem"></i>
+						<p:badge value="!" severity="warning">
+							<i class="pi pi-chart-line" style="font-size: 4rem"></i>
+						</p:badge>
 					</div>
-					<p:outputLabel value="Report" class="boldtext"/>
+					<p:link outcome="statistics" value="Statistics" class="boldtext">
+						<f:param name="projectId" value="#{uiSessBean.project.id}"/>
+					</p:link>
 				</p:panel>
 				<p:panel>
 					<div class="card">
-						<i class="pi pi-chart-line" style="font-size: 4rem"></i>
-					</div>
-					<p:outputLabel value="Statistics" class="boldtext"/>
-				</p:panel>
-				<p:panel>
-					<div class="card">
-						<i class="pi pi-bell" style="font-size: 4rem"></i>
+						<p:badge value="10+" severity="danger">
+							<i class="pi pi-bell" style="font-size: 4rem"></i>
+						</p:badge>
 					</div>
 					<p:outputLabel value="Alarms" class="boldtext"/>
 				</p:panel>
@@ -77,9 +79,6 @@
 
 					<p:outputLabel value="Project name: " class="boldtext"/>
 					<p:outputLabel value="#{uiSessBean.project.name}" />
-
-					<p:outputLabel value="Project ID: " class="boldtext"/>
-					<p:outputLabel value="#{uiSessBean.project.id}" />
 
 					<p:outputLabel value="Project path: " class="boldtext"/>
 					<p:outputLabel value="#{uiSessBean.project.projectPath}" />
@@ -117,17 +116,15 @@
 			<br/>
 
 			<p:commandButton value="New requirement" type="button" icon="pi pi-external-link" onclick="PF('dlg3').show()"/>
-			<p:dialog header="Header" widgetVar="dlg3" minHeight="40" showEffect="fade">
+			<p:dialog header="New requirement" widgetVar="dlg3" minHeight="40" showEffect="fade">
 				<h:form id="newRequirementForm">
-					<p:panelGrid columns="2">
+					<p:panelGrid columns="2" styleClass="ui-noborder">
 						<p:outputLabel value="Title: " class="boldtext"/>
-						<p:inputText value="#{uiSessBean.newReqTitle}"
+						<p:inputText value="#{uiSessBean.newReqTitle}" size="60"
 									 required="true" requiredMessage="Missing title">
 						</p:inputText>
-						<p:outputLabel value="ID: " class="boldtext"/>
-						<p:inputText value="#{uiSessBean.newReqId}">
-						</p:inputText>
 					</p:panelGrid>
+					<br/>
 					<p:commandButton type="button"
 									 value="Cancel"
 									 onclick="PF('dlg3').hide();"

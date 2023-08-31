@@ -9,6 +9,7 @@ import si.matjazcerkvenik.pjm.util.MD5Checksum;
 import si.matjazcerkvenik.pjm.util.Utils;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
@@ -36,7 +37,7 @@ public class UiSessBean implements Serializable {
         Map<String, String> requestParameterMap = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
         String id = requestParameterMap.getOrDefault("projectId", null);
         project = uiAppBean.getProject(id);
-        logger.info("UiSessBean:init loaded " + project.getName());
+        logger.info("UiSessBean:init: loaded " + project.getName());
     }
 
     public UiAppBean getUiAppBean() {
@@ -69,16 +70,7 @@ public class UiSessBean implements Serializable {
     }
 
 
-    private String newReqId;
     private String newReqTitle;
-
-    public String getNewReqId() {
-        return newReqId;
-    }
-
-    public void setNewReqId(String newReqId) {
-        this.newReqId = newReqId;
-    }
 
     public String getNewReqTitle() {
         return newReqTitle;
@@ -89,17 +81,16 @@ public class UiSessBean implements Serializable {
     }
 
     public void addNewReqAction() {
-        logger.info("addNewReqAction: new req id: " + newReqId + ", title: " + newReqTitle);
         if (Utils.isNullOrEmpty(newReqTitle)) return;
-        if (Utils.isNullOrEmpty(newReqId)) newReqId = MD5Checksum.getMd5ChecksumShortSalted(newReqTitle);
         Requirement r = new Requirement();
-        r.setId(newReqId);
+        r.setId(MD5Checksum.getMd5ChecksumShortSalted(newReqTitle));
         r.setTitle(newReqTitle);
         project.addNewRequirement(r);
-        logger.info("addNewReqAction: new req: " + newReqId);
+        logger.info("addNewReqAction: req: " + r.getId() + ", title: " + newReqTitle);
         DAO.getInstance().saveProject(project);
-        newReqId = null;
         newReqTitle = null;
+        FacesContext.getCurrentInstance().
+                addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "New requirement created", null));
     }
 
     public void deleteReqAction(String id) {
@@ -112,6 +103,8 @@ public class UiSessBean implements Serializable {
             }
         }
         DAO.getInstance().saveProject(project);
+        FacesContext.getCurrentInstance().
+                addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Requirement deleted", null));
     }
 
 }

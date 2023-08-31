@@ -1,0 +1,40 @@
+<ui:composition template="/templates/pageTemplate.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<div id="contentFrame">
+		<ui:define name="contentFrame">
+
+			<div class="card">
+				<h:form>
+					<p:breadCrumb>
+						<p:menuitem value="Home" url="/pjm"/>
+						<p:menuitem value="#{uiSessBean.project.name}" url="/pjm/project/project.xhtml?projectId=#{uiSessBean.project.id}"/>
+						<p:menuitem value="Statistics"/>
+					</p:breadCrumb>
+				</h:form>
+			</div>
+
+
+
+			<br/>
+
+			<p:panel>
+				<p:outputLabel value="Statistics" style="font-weight: bold; font-size: 24px;"/>
+				<br/>
+				<p:panelGrid columns="2">
+					<p:outputLabel value="Total requirements:" class="boldtext"/>
+					<p:outputLabel value="#{uiSessBean.project.requirements.list.size()}"/>
+					<p:outputLabel value="Total requirements:" class="boldtext"/>
+					<p:outputLabel value="#{uiSessBean.project.requirements.list.size()}"/>
+				</p:panelGrid>
+			</p:panel>
+
+		</ui:define>
+	</div>
+
+</ui:composition>
+
