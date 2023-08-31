@@ -13,6 +13,7 @@ services:
       - net
     environment:
       - TZ=${TZ}
+      - PJM_PROJECTS_DIRECTORY=/opt/pjm/projects
     volumes:
       - /var/log:/opt/pjm/log
       - /opt/pjm/projects:/opt/pjm/projects
