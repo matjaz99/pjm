@@ -10,8 +10,8 @@ RUN mvn -f /home/app/pom.xml clean package
 FROM tomcat:8.5.93-jdk17
 #FROM tomcat:9.0.64-jre11-openjdk
 
-RUN apk --no-cache add curl
-RUN apk add tzdata
+#RUN apk --no-cache add curl
+#RUN apk add tzdata
 
 COPY --from=build  /home/app/target/pjm.war /usr/local/tomcat/webapps/pjm.war
 
