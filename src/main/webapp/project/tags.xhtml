@@ -1,0 +1,68 @@
+<ui:composition template="/templates/pageTemplate.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pjm="http://pjm.io/facelets">
+
+	<div id="contentFrame">
+		<ui:define name="contentFrame">
+
+			<div class="card">
+				<h:form>
+					<p:breadCrumb>
+						<p:menuitem value="Home" url="/pjm"/>
+						<p:menuitem value="#{uiTagsBean.project.name}" url="/pjm/project/project.xhtml?projectId=#{uiTagsBean.project.id}"/>
+						<p:menuitem value="Tags"/>
+					</p:breadCrumb>
+				</h:form>
+			</div>
+
+			<br/>
+
+			TODO: List of tags
+
+			<p:panelGrid columns="2">
+
+				<ui:repeat var="tag" value="#{uiTagsBean.tagDefinitions}">
+					<pjm:tag value="#{tag}" color="#9BB588">
+						<p:outputLabel value="#{tag.name}" />
+					</pjm:tag>
+
+					<p:outputLabel value="To je ta barva" />
+				</ui:repeat>
+
+
+			</p:panelGrid>
+
+			<p:commandButton value="New tag" type="button" icon="pi pi-external-link" onclick="PF('dlg3').show()"/>
+			<p:dialog header="New tag" widgetVar="dlg3" minHeight="40" showEffect="fade">
+				<h:form id="newTagForm">
+					<p:panelGrid columns="2" styleClass="ui-noborder">
+						<p:outputLabel value="Title: " class="boldtext"/>
+						<p:inputText value="#{uiProjectBean.newReqTitle}" size="60"
+									 required="true" requiredMessage="Missing title">
+						</p:inputText>
+					</p:panelGrid>
+					<br/>
+					<p:commandButton type="button"
+									 value="Cancel"
+									 onclick="PF('dlg3').hide();"
+									 style="width: 5rem"
+									 styleClass="ui-button-flat mr-2" />
+					<p:commandButton value="Add"
+									 action="#{uiProjectBean.addNewReqAction}"
+									 update="growl newTagForm requirementsForm projectMetaForm"
+									 oncomplete="PF('dlg3').hide();"
+									 styleClass="ui-button mr-2"
+									 style="width: 6rem"/>
+				</h:form>
+			</p:dialog>
+
+
+		</ui:define>
+	</div>
+
+</ui:composition>
+

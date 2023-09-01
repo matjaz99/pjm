@@ -25,6 +25,12 @@
         <listener-class>si.matjazcerkvenik.pjm.util.OnStartListener</listener-class>
     </listener>
 
+    <!-- Load custom tag into JSF web application -->
+    <context-param>
+        <param-name>javax.faces.FACELETS_LIBRARIES</param-name>
+        <param-value>/WEB-INF/pjm.taglib.xml</param-value>
+    </context-param>
+
     <!-- Restricted access to resources -->
     <security-constraint>
         <display-name>Restrict direct access to the web folders</display-name>

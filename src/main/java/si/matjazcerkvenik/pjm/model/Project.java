@@ -10,12 +10,13 @@ import java.io.Serializable;
 @XmlRootElement
 public class Project implements Serializable {
 
-    private static final long serialVersionUID = 17224348209L;
+    private static final long serialVersionUID = 17224348208L;
 
     private String id;
     private String name;
     private String projectPath;
     private Requirements requirements;
+    private Tags tagDefinitions;
 
     public String getId() {
         return id;
@@ -60,4 +61,12 @@ public class Project implements Serializable {
         requirements.addNewRequirement(req);
     }
 
+    public Tags getTagDefinitions() {
+        return tagDefinitions;
+    }
+
+    @XmlElement(name = "tagDefs")
+    public void setTagDefinitions(Tags tagDefinitions) {
+        this.tagDefinitions = tagDefinitions;
+    }
 }

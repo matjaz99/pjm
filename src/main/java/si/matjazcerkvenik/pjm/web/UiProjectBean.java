@@ -9,7 +9,6 @@ import si.matjazcerkvenik.pjm.util.MD5Checksum;
 import si.matjazcerkvenik.pjm.util.Utils;
 
 import javax.annotation.PostConstruct;
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
@@ -19,13 +18,12 @@ import java.util.Iterator;
 import java.util.Map;
 
 @ManagedBean
-//@SessionScoped
 @ViewScoped
-public class UiSessBean implements Serializable {
+public class UiProjectBean extends UiBean implements Serializable {
 
     private static final long serialVersionUID = 22483045884L;
 
-    private static final Logger logger = LoggerFactory.getLogger(UiSessBean.class);
+    private static final Logger logger = LoggerFactory.getLogger(UiProjectBean.class);
 
     @ManagedProperty(value="#{uiAppBean}")
     private UiAppBean uiAppBean;
@@ -37,7 +35,7 @@ public class UiSessBean implements Serializable {
         Map<String, String> requestParameterMap = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
         String id = requestParameterMap.getOrDefault("projectId", null);
         project = uiAppBean.getProject(id);
-        logger.info("UiSessBean:init: loaded " + project.getName());
+        logger.info("UiProjectBean:init: loaded " + project.getName());
     }
 
     public UiAppBean getUiAppBean() {
@@ -89,8 +87,7 @@ public class UiSessBean implements Serializable {
         logger.info("addNewReqAction: req: " + r.getId() + ", title: " + newReqTitle);
         DAO.getInstance().saveProject(project);
         newReqTitle = null;
-        FacesContext.getCurrentInstance().
-                addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "New requirement created", null));
+        growlInfoMessage("New requirement created");
     }
 
     public void deleteReqAction(String id) {
@@ -103,8 +100,7 @@ public class UiSessBean implements Serializable {
             }
         }
         DAO.getInstance().saveProject(project);
-        FacesContext.getCurrentInstance().
-                addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Requirement deleted", null));
+        growlInfoMessage("Requirement deleted");
     }
 
 }

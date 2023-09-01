@@ -10,6 +10,7 @@ import si.matjazcerkvenik.pjm.util.MD5Checksum;
 import si.matjazcerkvenik.pjm.util.Utils;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
@@ -21,7 +22,7 @@ import java.util.Map;
 @ManagedBean
 @ViewScoped
 @SuppressWarnings("unused")
-public class UiTaskBean implements Serializable {
+public class UiTaskBean extends UiBean implements Serializable {
 
     private static final long serialVersionUID = 131146824402L;
 
@@ -98,6 +99,7 @@ public class UiTaskBean implements Serializable {
         this.selectedTaskStatus = selectedTaskStatus;
         task.setStatus(selectedTaskStatus);
         DAO.getInstance().saveProject(project);
+        growlInfoMessage("New status: " + selectedTaskStatus);
     }
 
     /*  Edit task  */
@@ -105,6 +107,7 @@ public class UiTaskBean implements Serializable {
     public void saveDescription() {
         logger.info("saveDescription: " + task.getDescription());
         DAO.getInstance().saveProject(project);
+        growlInfoMessage("Saved");
     }
 
     public String getRequirementTitle() {

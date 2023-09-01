@@ -33,4 +33,16 @@ public class PjmMetrics {
             .help("Number of available processors")
             .register();
 
+    public static final Gauge pjm_projects_total = Gauge.build()
+            .name("pjm_projects_total")
+            .help("All projects")
+            .labelNames("projectName")
+            .register();
+
+    public static final Gauge pjm_requirements_total = Gauge.build()
+            .name("pjm_requirements_total")
+            .help("All projects")
+            .labelNames("projectName")
+            .register();
+
 }

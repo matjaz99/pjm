@@ -21,7 +21,7 @@ import java.util.Map;
 @ManagedBean
 @ViewScoped
 @SuppressWarnings("unused")
-public class UiRequirementBean implements Serializable {
+public class UiRequirementBean extends UiBean implements Serializable {
 
     private static final long serialVersionUID = 27734903592L;
 
@@ -80,6 +80,7 @@ public class UiRequirementBean implements Serializable {
     public void saveDescription() {
         logger.info("saveDescription: " + requirement.getDescription());
         DAO.getInstance().saveProject(project);
+        growlInfoMessage("Saved");
     }
 
     public String getRequirementId() {
@@ -100,20 +101,20 @@ public class UiRequirementBean implements Serializable {
         DAO.getInstance().saveProject(project);
     }
 
-    public String convertStatusToSeverity(String status) {
-        if (status.equalsIgnoreCase("Draft")) {
-            return "primary";
-        } else if (status.equalsIgnoreCase("In progress")) {
-            return "info";
-        } else if (status.equalsIgnoreCase("Clarify")) {
-            return "warning";
-        } else if (status.equalsIgnoreCase("Waiting")) {
-            return "danger";
-        } else if (status.equalsIgnoreCase("Complete")) {
-            return "success";
-        }
-        return "primary";
-    }
+//    public String convertStatusToSeverity(String status) {
+//        if (status.equalsIgnoreCase("Draft")) {
+//            return "primary";
+//        } else if (status.equalsIgnoreCase("In progress")) {
+//            return "info";
+//        } else if (status.equalsIgnoreCase("Clarify")) {
+//            return "warning";
+//        } else if (status.equalsIgnoreCase("Waiting")) {
+//            return "danger";
+//        } else if (status.equalsIgnoreCase("Complete")) {
+//            return "success";
+//        }
+//        return "primary";
+//    }
 
 
 
@@ -139,8 +140,7 @@ public class UiRequirementBean implements Serializable {
         logger.info("addNewTaskAction: id: " + t.getId() + ", title: " + newTskTitle);
         DAO.getInstance().saveProject(project);
         newTskTitle = null;
-        FacesContext.getCurrentInstance().
-                addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "New task created", null));
+        growlInfoMessage("New task created");
     }
 
     public void deleteTaskAction(String id) {
@@ -153,8 +153,7 @@ public class UiRequirementBean implements Serializable {
             }
         }
         DAO.getInstance().saveProject(project);
-        FacesContext.getCurrentInstance().
-                addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Task deleted", null));
+        growlInfoMessage("Task deleted");
     }
 
 
@@ -183,6 +182,8 @@ public class UiRequirementBean implements Serializable {
         logger.info("addNewCommentAction: id: " + t.getId() + ", title: " + newCommentTitle);
         DAO.getInstance().saveProject(project);
         newCommentTitle = null;
+        growlInfoMessage("Comment added");
     }
+
 
 }

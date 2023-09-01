@@ -16,8 +16,10 @@
 package si.matjazcerkvenik.pjm.web;
 
 import io.prometheus.client.exporter.common.TextFormat;
+import si.matjazcerkvenik.pjm.model.Project;
 import si.matjazcerkvenik.pjm.util.PjmMetrics;
 
+import javax.faces.bean.ManagedProperty;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -39,7 +41,6 @@ public class MetricsServlet extends HttpServlet implements Serializable {
 
     private static final long serialVersionUID = 35765534391L;
 
-
     public MetricsServlet() {
     }
 
@@ -53,6 +54,11 @@ public class MetricsServlet extends HttpServlet implements Serializable {
         PjmMetrics.pjm_memory_max_bytes.set(instance.maxMemory());
         // used memory = total - free
         PjmMetrics.pjm_available_processors.set(instance.availableProcessors());
+
+        // FIXME: move projects to DAO to make this work; or how to access uiAppBean from here?
+//        for (Project p : uiAppBean.getProjects()) {
+//            PjmMetrics.pjm_projects_total.labels(p.getName()).set(1);
+//        }
 
         resp.setStatus(HttpServletResponse.SC_OK);
         resp.setContentType(TextFormat.CONTENT_TYPE_004);

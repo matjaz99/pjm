@@ -12,7 +12,7 @@
 				<h:form>
 					<p:breadCrumb>
 						<p:menuitem value="Home" url="/pjm"/>
-						<p:menuitem value="#{uiSessBean.project.name}" url="/pjm/project/project.xhtml?projectId=#{uiSessBean.project.id}"/>
+						<p:menuitem value="#{uiStatisticsBean.project.name}" url="/pjm/project/project.xhtml?projectId=#{uiStatisticsBean.project.id}"/>
 						<p:menuitem value="Statistics"/>
 					</p:breadCrumb>
 				</h:form>
@@ -22,15 +22,17 @@
 
 			<br/>
 
-			<p:panel>
-				<p:outputLabel value="Statistics" style="font-weight: bold; font-size: 24px;"/>
-				<br/>
+			<p:panel header="Overview" styleClass="bottom-margin">
 				<p:panelGrid columns="2">
 					<p:outputLabel value="Total requirements:" class="boldtext"/>
-					<p:outputLabel value="#{uiSessBean.project.requirements.list.size()}"/>
-					<p:outputLabel value="Total requirements:" class="boldtext"/>
-					<p:outputLabel value="#{uiSessBean.project.requirements.list.size()}"/>
+					<p:outputLabel value="#{uiStatisticsBean.requirementsTotalCount}"/>
+					<p:outputLabel value="Total tasks:" class="boldtext"/>
+					<p:outputLabel value="#{uiStatisticsBean.getTasksTotalCount('null')}"/>
 				</p:panelGrid>
+			</p:panel>
+
+			<p:panel header="Overview" styleClass="bottom-margin">
+				<p:barChart model="#{uiStatisticsBean.barModel}" style="width: 100%; height: 300px;"/>
 			</p:panel>
 
 		</ui:define>

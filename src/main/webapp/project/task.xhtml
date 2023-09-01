@@ -19,6 +19,7 @@
 				</h:form>
 			</div>
 			<p:outputLabel value="#{uiTaskBean.task.title}" class="boldtext"/>
+			<p:tag styleClass="mr-2" severity="#{uiTaskBean.convertStatusToSeverity(uiTaskBean.task.status)}" value="#{uiTaskBean.task.status}"></p:tag>
 
 			<h:form id="editorForm">
 

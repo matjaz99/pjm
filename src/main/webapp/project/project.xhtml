@@ -12,7 +12,7 @@
 				<h:form>
 					<p:breadCrumb>
 						<p:menuitem value="Home" url="/pjm"/>
-						<p:menuitem value="#{uiSessBean.project.name}" url="/pjm/project/project.xhtml?projectId=#{uiSessBean.project.id}"/>
+						<p:menuitem value="#{uiProjectBean.project.name}" url="/pjm/project/project.xhtml?projectId=#{uiProjectBean.project.id}"/>
 					</p:breadCrumb>
 				</h:form>
 			</div>
@@ -20,7 +20,7 @@
 			<h:form>
 				<p:panelGrid columns="1" styleClass="ui-noborder">
 					<p:inplace editor="true" style="font-weight: bold; font-size: 24px;">
-						<p:inputText value="#{uiSessBean.projectName}" required="true" label="text" />
+						<p:inputText value="#{uiProjectBean.projectName}" required="true" label="text" />
 					</p:inplace>
 				</p:panelGrid>
 			</h:form>
@@ -41,7 +41,7 @@
 						</p:badge>
 					</div>
 					<p:link outcome="statistics" value="Statistics" class="boldtext">
-						<f:param name="projectId" value="#{uiSessBean.project.id}"/>
+						<f:param name="projectId" value="#{uiProjectBean.project.id}"/>
 					</p:link>
 				</p:panel>
 				<p:panel>
@@ -66,6 +66,14 @@
 				</p:panel>
 				<p:panel>
 					<div class="card">
+						<i class="pi pi-tags" style="font-size: 4rem"></i>
+					</div>
+					<p:link outcome="tags" value="Tags" class="boldtext">
+						<f:param name="projectId" value="#{uiProjectBean.project.id}"/>
+					</p:link>
+				</p:panel>
+				<p:panel>
+					<div class="card">
 						<i class="pi pi-cog" style="font-size: 4rem"></i>
 					</div>
 					<p:outputLabel value="Configuration" class="boldtext"/>
@@ -78,25 +86,25 @@
 				<p:panelGrid columns="2">
 
 					<p:outputLabel value="Project name: " class="boldtext"/>
-					<p:outputLabel value="#{uiSessBean.project.name}" />
+					<p:outputLabel value="#{uiProjectBean.project.name}" />
 
 					<p:outputLabel value="Project path: " class="boldtext"/>
-					<p:outputLabel value="#{uiSessBean.project.projectPath}" />
+					<p:outputLabel value="#{uiProjectBean.project.projectPath}" />
 
 				</p:panelGrid>
 			</h:form>
 
 			<br/>
 
-			<p:outputLabel value="Project requirements (#{uiSessBean.project.requirements.list.size()})" style="font-weight: bold; font-size: 24px;"/>
+			<p:outputLabel value="Project requirements" style="font-weight: bold; font-size: 24px;"/>
 
 			<h:form id="requirementsForm">
 
-				<p:dataTable value="#{uiSessBean.project.requirements.list}" var="req"
+				<p:dataTable value="#{uiProjectBean.project.requirements.list}" var="req"
 							 cellpadding="0" cellspacing="0">
 					<p:column headerText="Title">
 						<h:link value="#{req.title}" outcome="/project/requirement">
-							<f:param name="projectId" value="#{uiSessBean.project.id}" />
+							<f:param name="projectId" value="#{uiProjectBean.project.id}" />
 							<f:param name="reqId" value="#{req.id}" />
 						</h:link>
 					</p:column>
@@ -105,7 +113,7 @@
 					</p:column>
 					<p:column headerText="Action">
 						<p:commandButton value="Delete"
-										 action="#{uiSessBean.deleteReqAction(req.id)}"
+										 action="#{uiProjectBean.deleteReqAction(req.id)}"
 										 update="growl projectMetaForm requirementsForm"
 										 styleClass="ui-button-flat mr-2" />
 					</p:column>
@@ -120,7 +128,7 @@
 				<h:form id="newRequirementForm">
 					<p:panelGrid columns="2" styleClass="ui-noborder">
 						<p:outputLabel value="Title: " class="boldtext"/>
-						<p:inputText value="#{uiSessBean.newReqTitle}" size="60"
+						<p:inputText value="#{uiProjectBean.newReqTitle}" size="60"
 									 required="true" requiredMessage="Missing title">
 						</p:inputText>
 					</p:panelGrid>
@@ -131,7 +139,7 @@
 									 style="width: 5rem"
 									 styleClass="ui-button-flat mr-2" />
 					<p:commandButton value="Add"
-									 action="#{uiSessBean.addNewReqAction}"
+									 action="#{uiProjectBean.addNewReqAction}"
 									 update="growl newRequirementForm requirementsForm projectMetaForm"
 									 oncomplete="PF('dlg3').hide();"
 									 styleClass="ui-button mr-2"
