@@ -55,9 +55,7 @@ public class Project implements Serializable {
     }
 
     public void addNewRequirement(Requirement req) {
-        if (requirements == null) {
-            requirements = new Requirements();
-        }
+        if (requirements == null) requirements = new Requirements();
         requirements.addNewRequirement(req);
     }
 
@@ -68,5 +66,10 @@ public class Project implements Serializable {
     @XmlElement(name = "tagDefs")
     public void setTagDefinitions(Tags tagDefinitions) {
         this.tagDefinitions = tagDefinitions;
+    }
+
+    public void addNewTag(Tag req) {
+        if (tagDefinitions == null) tagDefinitions = new Tags();
+        tagDefinitions.addNewTag(req);
     }
 }

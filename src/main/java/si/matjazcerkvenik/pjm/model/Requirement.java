@@ -15,6 +15,8 @@ public class Requirement implements Serializable {
     private Tasks tasks;
     private Comments comments;
 
+    private Tags tags;
+
     public String getId() {
         return id;
     }
@@ -68,5 +70,13 @@ public class Requirement implements Serializable {
     public void addNewComment(Comment comment) {
         if (comments == null) comments = new Comments();
         comments.addNewComment(comment);
+    }
+
+    public Tags getTags() {
+        return tags;
+    }
+
+    public void setTags(Tags tags) {
+        this.tags = tags;
     }
 }

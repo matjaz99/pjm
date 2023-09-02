@@ -25,7 +25,7 @@
 				</p:panelGrid>
 			</h:form>
 
-			<p:panelGrid columns="8">
+			<p:panelGrid columns="12">
 				<p:panel>
 					<div class="card">
 						<p:badge value="2" severity="info">
@@ -124,7 +124,8 @@
 			<br/>
 
 			<p:commandButton value="New requirement" type="button" icon="pi pi-external-link" onclick="PF('dlg3').show()"/>
-			<p:dialog header="New requirement" widgetVar="dlg3" minHeight="40" showEffect="fade">
+			<p:dialog header="New requirement" widgetVar="dlg3"
+					  showEffect="fade" hideEffect="explode" closable="false">
 				<h:form id="newRequirementForm">
 					<p:panelGrid columns="2" styleClass="ui-noborder">
 						<p:outputLabel value="Title: " class="boldtext"/>

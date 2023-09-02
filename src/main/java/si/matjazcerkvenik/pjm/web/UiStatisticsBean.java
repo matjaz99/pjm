@@ -82,7 +82,7 @@ public class UiStatisticsBean implements Serializable {
                     continue;
                 }
                 for (Task t : r.getTasks().getList()) {
-                    if (t.getStatus().equalsIgnoreCase(byStatus)) count += 1;
+                    if (t.getStatus() != null && t.getStatus().equalsIgnoreCase(byStatus)) count += 1;
                 }
             }
         }

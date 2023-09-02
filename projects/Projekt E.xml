@@ -14,15 +14,19 @@
             <tasks>
                 <task id="110e9647">
                     <description>&lt;p&gt;Todo&lt;/p&gt;</description>
+                    <status>In progress</status>
                     <title>TODO 1</title>
                 </task>
                 <task id="088dbf41">
+                    <status>In progress</status>
                     <title>TODO 2</title>
                 </task>
                 <task id="f450af9d">
+                    <status>Waiting</status>
                     <title>TODO 3</title>
                 </task>
                 <task id="db05a5e9">
+                    <status>Complete</status>
                     <title>TODO 4</title>
                 </task>
             </tasks>
@@ -111,6 +115,12 @@
         </requirement>
         <requirement id="eed13c84">
             <description>&lt;p&gt;Možni statusi taskov:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Draft&lt;/li&gt;&lt;li&gt;In progress&lt;/li&gt;&lt;li&gt;Clarify&lt;/li&gt;&lt;li&gt;Waiting&lt;/li&gt;&lt;li&gt;Complete&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;</description>
+            <tasks>
+                <task id="452676c1">
+                    <status>Draft</status>
+                    <title>Implement</title>
+                </task>
+            </tasks>
             <title>Status taskov</title>
         </requirement>
         <requirement id="d50ae403">
@@ -133,11 +143,53 @@
             <title>Linki na dokumente</title>
         </requirement>
         <requirement id="cea96daf">
+            <tasks>
+                <task id="7c51a837">
+                    <status>Complete</status>
+                    <title>Dodaj growl</title>
+                </task>
+            </tasks>
             <title>Dodaj growl sporočila</title>
         </requirement>
         <requirement id="bd3f7410">
             <description>&lt;p&gt;Možnost definiranja poljubnih tagov. Tagi morajo imeti možnost izbire barve. Tag se lahko doda na REQ&lt;/p&gt;</description>
+            <tasks>
+                <task id="01f2a8ac">
+                    <status>Complete</status>
+                    <title>Model tagov</title>
+                </task>
+                <task id="fc711f80">
+                    <status>Complete</status>
+                    <title>Izbira barve</title>
+                </task>
+                <task id="9e76ff6e">
+                    <status>Waiting</status>
+                    <title>Spreminjanje barve</title>
+                </task>
+                <task id="1a425d90">
+                    <status>Complete</status>
+                    <title>Dialog za kreiranje tagov</title>
+                </task>
+                <task id="37214a4b">
+                    <status>Complete</status>
+                    <title>Brisanje tagov</title>
+                </task>
+            </tasks>
             <title>Tags (labels)</title>
         </requirement>
+        <requirement id="be6cd4c4">
+            <title>asdfds</title>
+        </requirement>
+        <requirement id="a3231dc2">
+            <title>asdasdf</title>
+        </requirement>
+        <requirement id="1b7a7a30">
+            <title>asdfasfew</title>
+        </requirement>
     </requirements>
+    <tagDefs>
+        <tag color="#0579ed" id="a41adc67">GUI</tag>
+        <tag color="#f672c3" id="b703ef27">metrics</tag>
+        <tag color="#71f571" id="4a6c3d9e">storage</tag>
+    </tagDefs>
 </project>

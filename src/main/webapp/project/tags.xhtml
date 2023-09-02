@@ -21,29 +21,22 @@
 
 			<br/>
 
-			TODO: List of tags
-
-			<p:panelGrid columns="2">
-
-				<ui:repeat var="tag" value="#{uiTagsBean.tagDefinitions}">
-					<pjm:tag value="#{tag}" color="#9BB588">
-						<p:outputLabel value="#{tag.name}" />
-					</pjm:tag>
-
-					<p:outputLabel value="To je ta barva" />
-				</ui:repeat>
-
-
-			</p:panelGrid>
-
-			<p:commandButton value="New tag" type="button" icon="pi pi-external-link" onclick="PF('dlg3').show()"/>
-			<p:dialog header="New tag" widgetVar="dlg3" minHeight="40" showEffect="fade">
+			<p:commandButton value="New tag" type="button" icon="pi pi-external-link" onclick="PF('dlg3').show()"
+							 styleClass="ui-button-raised ui-button-secondary ui-button-flat"/>
+			<p:dialog header="New tag" widgetVar="dlg3" showEffect="fade">
 				<h:form id="newTagForm">
 					<p:panelGrid columns="2" styleClass="ui-noborder">
 						<p:outputLabel value="Title: " class="boldtext"/>
-						<p:inputText value="#{uiProjectBean.newReqTitle}" size="60"
+						<p:inputText value="#{uiTagsBean.newTagTitle}"
 									 required="true" requiredMessage="Missing title">
 						</p:inputText>
+						<p:outputLabel value="Color: " class="boldtext"/>
+						<p:colorPicker id="light" value="#{uiTagsBean.newTagColor}" theme="pill"
+									   themeMode="light" clearButton="true" closeButton="true"
+									   formatToggle="true" alpha="false"
+									   swatches="#067bc2, #84bcda, #80e377,  #ecc30b, #f37748, #d56062">
+
+						</p:colorPicker>
 					</p:panelGrid>
 					<br/>
 					<p:commandButton type="button"
@@ -52,14 +45,57 @@
 									 style="width: 5rem"
 									 styleClass="ui-button-flat mr-2" />
 					<p:commandButton value="Add"
-									 action="#{uiProjectBean.addNewReqAction}"
-									 update="growl newTagForm requirementsForm projectMetaForm"
+									 action="#{uiTagsBean.addNewTagAction}"
+									 update="growl newTagForm tagsForm"
 									 oncomplete="PF('dlg3').hide();"
 									 styleClass="ui-button mr-2"
 									 style="width: 6rem"/>
 				</h:form>
 			</p:dialog>
 
+			<h:form id="tagsForm">
+				<p:dataTable value="#{uiTagsBean.tagDefinitions}" var="tag"
+							 cellpadding="0" cellspacing="0">
+					<p:column headerText="Tag">
+						<pjm:tag value="#{tag}" color="#{tag.color}">
+							<p:outputLabel value="#{tag.name}" />
+						</pjm:tag>
+					</p:column>
+					<p:column headerText="Color">
+						<p:colorPicker id="light" value="#{tag.color}" theme="pill"
+									   themeMode="light" clearButton="true" closeButton="true"
+									   formatToggle="true" alpha="false"
+									   swatches="#067bc2, #84bcda, #80e377,  #ecc30b, #f37748, #d56062">
+							<p:ajax event="change" listener="#{uiTagsBean.onColorChange}" />
+						</p:colorPicker>
+					</p:column>
+					<p:column headerText="Label">
+						<p:inplace editor="true">
+							<p:inputText value="#{tag.name}" required="true" label="text" />
+						</p:inplace>
+					</p:column>
+					<p:column headerText="Tasks">
+						<p:commandButton value="Delete"
+										 action="#{uiTagsBean.deleteTagAction(tag.id)}"
+										 update="growl tagsForm"
+										 styleClass="ui-button-flat mr-2" />
+					</p:column>
+				</p:dataTable>
+
+				<br/>
+
+				<p:commandButton value="Save changes"
+								 action="#{uiTagsBean.saveChanges()}"
+								 update="growl newTagForm tagsForm"
+								 styleClass="ui-button-flat mr-2"
+								 style="width: 10rem"/>
+			</h:form>
+
+
+
+			<h:form>
+
+			</h:form>
 
 		</ui:define>
 	</div>

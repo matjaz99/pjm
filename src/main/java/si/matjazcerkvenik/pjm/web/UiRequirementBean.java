@@ -174,15 +174,28 @@ public class UiRequirementBean extends UiBean implements Serializable {
 
     public void addNewCommentAction() {
         if (Utils.isNullOrEmpty(newCommentTitle)) return;
-        Comment t = new Comment();
-        t.setId(MD5Checksum.getMd5ChecksumShortSalted(newCommentTitle));
-        t.setDescription(newCommentTitle);
-        t.setLastModified(Formatter.getXmlGregorianCalendarNow());
-        requirement.addNewComment(t);
-        logger.info("addNewCommentAction: id: " + t.getId() + ", title: " + newCommentTitle);
+        Comment c = new Comment();
+        c.setId(MD5Checksum.getMd5ChecksumShortSalted(newCommentTitle));
+        c.setDescription(newCommentTitle);
+        c.setLastModified(Formatter.getXmlGregorianCalendarNow());
+        requirement.addNewComment(c);
+        logger.info("addNewCommentAction: id: " + c.getId() + ", title: " + newCommentTitle);
         DAO.getInstance().saveProject(project);
         newCommentTitle = null;
         growlInfoMessage("Comment added");
+    }
+
+    public void deleteCommentAction(String id) {
+        for (Iterator<Comment> it = requirement.getComments().getList().iterator(); it.hasNext();) {
+            Comment c = it.next();
+            if (c.getId().equals(id)) {
+                it.remove();
+                logger.info("deleteCommentAction: tsk: " + id);
+                break;
+            }
+        }
+        DAO.getInstance().saveProject(project);
+        growlInfoMessage("Comment deleted");
     }
 
 
