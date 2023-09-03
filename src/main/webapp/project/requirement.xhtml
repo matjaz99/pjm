@@ -3,7 +3,8 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pjm="http://pjm.io/facelets">
 
 	<div id="contentFrame">
 		<ui:define name="contentFrame">
@@ -69,6 +70,41 @@
 								 action="#{uiRequirementBean.saveDescription()}"
 								 update="@form" icon="pi pi-check"/>
 
+			</h:form>
+
+			<br/>
+
+			<h:form>
+				<p:selectCheckboxMenu id="tagsCheckboxMenu"
+									  filter="true" filterMatchMode="startsWith" filterNormalize="true"
+									  label="Tags" multiple="true"
+									  scrollHeight="250"
+									  value="#{uiRequirementBean.selectedTagsList}"
+									  var="t"
+									  style="min-width: 15rem">
+					<f:selectItems value="#{uiRequirementBean.project.getTagDefinitions().getList()}"/>
+
+					<p:column>
+						<f:facet name="header">
+							<h:outputText value="Tag"/>
+						</f:facet>
+						<pjm:tag value="#{t}" color="#{t.color}">
+							<p:outputLabel value="#{t.name}" />
+						</pjm:tag>
+					</p:column>
+
+					<p:column>
+						<f:facet name="header">
+							<h:outputText value="Name"/>
+						</f:facet>
+						<h:outputText value="#{t.name}"/>
+					</p:column>
+
+					<f:facet name="footer">
+						<h:outputText value="#{uiRequirementBean.project.getTagDefinitions().getList().size()} tags"
+									  styleClass="py-1 block font-bold"/>
+					</f:facet>
+				</p:selectCheckboxMenu>
 			</h:form>
 
 			<br/>

@@ -61,4 +61,9 @@ public class Tag implements Serializable {
     public void setSelected(boolean selected) {
         this.selected = selected;
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }

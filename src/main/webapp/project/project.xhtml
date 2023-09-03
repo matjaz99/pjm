@@ -56,7 +56,9 @@
 					<div class="card">
 						<i class="pi pi-folder" style="font-size: 4rem"></i>
 					</div>
-					<p:outputLabel value="Documents" class="boldtext"/>
+					<p:link outcome="documents" value="Documents" class="boldtext">
+						<f:param name="projectId" value="#{uiProjectBean.project.id}"/>
+					</p:link>
 				</p:panel>
 				<p:panel>
 					<div class="card">

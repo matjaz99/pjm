@@ -118,4 +118,7 @@ public class UiTagsBean extends UiBean implements Serializable {
     public void saveChanges() {
         DAO.getInstance().saveProject(project);
     }
+
+
+    
 }

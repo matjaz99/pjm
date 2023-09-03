@@ -76,6 +76,7 @@ public class Requirement implements Serializable {
         return tags;
     }
 
+    @XmlElement
     public void setTags(Tags tags) {
         this.tags = tags;
     }

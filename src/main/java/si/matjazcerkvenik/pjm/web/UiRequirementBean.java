@@ -16,6 +16,7 @@ import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import java.io.Serializable;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 @ManagedBean
@@ -196,6 +197,30 @@ public class UiRequirementBean extends UiBean implements Serializable {
         }
         DAO.getInstance().saveProject(project);
         growlInfoMessage("Comment deleted");
+    }
+
+
+
+
+    /* For tag selector menu */
+
+    private List<Tag> tagsList;
+    private List<Tag> selectedTagsList;
+
+    public List<Tag> getTagsList() {
+        return tagsList;
+    }
+
+    public void setTagsList(List<Tag> tagsList) {
+        this.tagsList = tagsList;
+    }
+
+    public List<Tag> getSelectedTagsList() {
+        return selectedTagsList;
+    }
+
+    public void setSelectedTagsList(List<Tag> selectedTagsList) {
+        this.selectedTagsList = selectedTagsList;
     }
 
 
