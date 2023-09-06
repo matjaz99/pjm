@@ -35,6 +35,45 @@
 				<p:barChart model="#{uiStatisticsBean.barModel}" style="width: 100%; height: 300px;"/>
 			</p:panel>
 
+			<p:panel header="Requirements without tasks" styleClass="bottom-margin">
+				<p:outputLabel value="There are total #{uiStatisticsBean.getRequirementsWithoutTasks().size()} requirements without a single task. There should be at least 1 task for each requirement."/>
+				<p:dataTable value="#{uiStatisticsBean.getRequirementsWithoutTasks()}" var="req"
+							 cellpadding="0" cellspacing="0">
+					<p:column headerText="Title">
+						<h:link value="#{req.title}" outcome="/project/requirement">
+							<f:param name="projectId" value="#{uiStatisticsBean.project.id}" />
+							<f:param name="reqId" value="#{req.id}" />
+						</h:link>
+					</p:column>
+				</p:dataTable>
+			</p:panel>
+
+			<p:panel header="Requirements that need clarification" styleClass="bottom-margin">
+				<p:outputLabel value="The following #{uiStatisticsBean.getRequirementsWithTaskStatus('clarify').size()} requirements need to be clarified."/>
+				<p:dataTable value="#{uiStatisticsBean.getRequirementsWithTaskStatus('clarify')}" var="req"
+							 cellpadding="0" cellspacing="0">
+					<p:column headerText="Title">
+						<h:link value="#{req.title}" outcome="/project/requirement">
+							<f:param name="projectId" value="#{uiStatisticsBean.project.id}" />
+							<f:param name="reqId" value="#{req.id}" />
+						</h:link>
+					</p:column>
+				</p:dataTable>
+			</p:panel>
+
+			<p:panel header="Requirements that are blocked (contains waiting tasks)" styleClass="bottom-margin">
+				<p:outputLabel value="The following #{uiStatisticsBean.getRequirementsWithTaskStatus('waiting').size()} requirements have tasks in status waiting. This might be blocking the process."/>
+				<p:dataTable value="#{uiStatisticsBean.getRequirementsWithTaskStatus('waiting')}" var="req"
+							 cellpadding="0" cellspacing="0">
+					<p:column headerText="Title">
+						<h:link value="#{req.title}" outcome="/project/requirement">
+							<f:param name="projectId" value="#{uiStatisticsBean.project.id}" />
+							<f:param name="reqId" value="#{req.id}" />
+						</h:link>
+					</p:column>
+				</p:dataTable>
+			</p:panel>
+
 		</ui:define>
 	</div>
 

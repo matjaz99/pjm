@@ -132,7 +132,7 @@ public class UiRequirementBean extends UiBean implements Serializable {
     }
 
     public void addNewTaskAction() {
-        if (Utils.isNullOrEmpty(newTskTitle)) return;
+        if (Formatter.isNullOrEmpty(newTskTitle)) return;
         Task t = new Task();
         t.setId(MD5Checksum.getMd5ChecksumShortSalted(newTskTitle));
         t.setTitle(newTskTitle);
@@ -174,7 +174,7 @@ public class UiRequirementBean extends UiBean implements Serializable {
     }
 
     public void addNewCommentAction() {
-        if (Utils.isNullOrEmpty(newCommentTitle)) return;
+        if (Formatter.isNullOrEmpty(newCommentTitle)) return;
         Comment c = new Comment();
         c.setId(MD5Checksum.getMd5ChecksumShortSalted(newCommentTitle));
         c.setDescription(newCommentTitle);

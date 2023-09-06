@@ -17,6 +17,8 @@ import si.matjazcerkvenik.pjm.model.Project;
 import si.matjazcerkvenik.pjm.model.Requirement;
 import si.matjazcerkvenik.pjm.model.Task;
 import si.matjazcerkvenik.pjm.model.TaskStatus;
+import si.matjazcerkvenik.pjm.util.DAO;
+import si.matjazcerkvenik.pjm.util.Utils;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
@@ -70,23 +72,31 @@ public class UiStatisticsBean implements Serializable {
         return project.getRequirements().getList().size();
     }
 
-    public int getTasksTotalCount(String byStatus) {
+    public int getTasksTotalCount(String status) {
         if (project.getRequirements().getList() == null) return 0;
         int count = 0;
         for (Requirement r : project.getRequirements().getList()) {
             if (r.getTasks() == null || r.getTasks().getList() == null) {
                 continue;
             } else {
-                if (byStatus.equalsIgnoreCase("null")) {
+                if (status.equalsIgnoreCase("null")) {
                     count += r.getTasks().getList().size();
                     continue;
                 }
                 for (Task t : r.getTasks().getList()) {
-                    if (t.getStatus() != null && t.getStatus().equalsIgnoreCase(byStatus)) count += 1;
+                    if (t.getStatus() != null && t.getStatus().equalsIgnoreCase(status)) count += 1;
                 }
             }
         }
         return count;
+    }
+
+    public List<Requirement> getRequirementsWithTaskStatus(String status) {
+        return Utils.getRequirementsWithTaskStatus(project, status);
+    }
+
+    public List<Requirement> getRequirementsWithoutTasks() {
+        return Utils.getRequirementsWithoutTasks(project);
     }
 
     private BarChartModel barModel;

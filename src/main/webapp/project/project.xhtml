@@ -46,11 +46,13 @@
 				</p:panel>
 				<p:panel>
 					<div class="card">
-						<p:badge value="10+" severity="danger">
+						<p:badge value="#{uiAlarmsBean.getBadgeAlarmsCount()}" severity="#{(uiAlarmsBean.getAlarmList().size() > 0 ? 'danger' : 'info')}">
 							<i class="pi pi-bell" style="font-size: 4rem"></i>
 						</p:badge>
 					</div>
-					<p:outputLabel value="Alarms" class="boldtext"/>
+					<p:link outcome="alarms" value="Alarms" class="boldtext">
+						<f:param name="projectId" value="#{uiProjectBean.project.id}"/>
+					</p:link>
 				</p:panel>
 				<p:panel>
 					<div class="card">

@@ -25,6 +25,16 @@ import java.util.GregorianCalendar;
 public class Formatter {
 
     /**
+     * Return true if string equals null or is empty (length = 0)
+     * @param s
+     * @return
+     */
+    public static boolean isNullOrEmpty(String s) {
+        if (s == null || s.trim().length() == 0) return true;
+        return false;
+    }
+
+    /**
      * Format timestamp from millis into readable form.
      * @param timestamp unix timestamp in millis
      * @return readable date

@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import si.matjazcerkvenik.pjm.util.DAO;
 import si.matjazcerkvenik.pjm.model.Project;
 import si.matjazcerkvenik.pjm.model.Requirement;
+import si.matjazcerkvenik.pjm.util.Formatter;
 import si.matjazcerkvenik.pjm.util.MD5Checksum;
 import si.matjazcerkvenik.pjm.util.Utils;
 
@@ -79,7 +80,7 @@ public class UiProjectBean extends UiBean implements Serializable {
     }
 
     public void addNewReqAction() {
-        if (Utils.isNullOrEmpty(newReqTitle)) return;
+        if (Formatter.isNullOrEmpty(newReqTitle)) return;
         Requirement r = new Requirement();
         r.setId(MD5Checksum.getMd5ChecksumShortSalted(newReqTitle));
         r.setTitle(newReqTitle);

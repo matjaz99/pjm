@@ -2,6 +2,7 @@ package si.matjazcerkvenik.pjm.web;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import si.matjazcerkvenik.pjm.model.PeriodicTask;
 import si.matjazcerkvenik.pjm.util.DAO;
 import si.matjazcerkvenik.pjm.util.Props;
 import si.matjazcerkvenik.pjm.model.Project;
@@ -12,6 +13,7 @@ import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import java.io.Serializable;
 import java.util.List;
+import java.util.Timer;
 
 @ManagedBean(eager=true)
 @ApplicationScoped
@@ -23,12 +25,20 @@ public class UiAppBean implements Serializable {
 
     private List<Project> projects;
 
+    protected Timer periodicTimer = null;
+    private PeriodicTask periodicTask = null;
+
     @PostConstruct
     public void init() {
         if (projects == null) {
             projects = DAO.getInstance().loadAllProjects();
             logger.info("UiAppBean:init");
         }
+
+        periodicTimer = new Timer("PeriodicTimer");
+        periodicTask = new PeriodicTask(projects);
+        periodicTimer.schedule(periodicTask, 30 * 1000, 5 * 60 * 1000);
+        logger.info("periodic timer started");
     }
 
     public List<Project> getProjects() {

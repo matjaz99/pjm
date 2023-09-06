@@ -5,6 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import si.matjazcerkvenik.pjm.model.*;
 import si.matjazcerkvenik.pjm.util.DAO;
+import si.matjazcerkvenik.pjm.util.Formatter;
 import si.matjazcerkvenik.pjm.util.MD5Checksum;
 import si.matjazcerkvenik.pjm.util.Utils;
 
@@ -83,7 +84,7 @@ public class UiTagsBean extends UiBean implements Serializable {
     }
 
     public void addNewTagAction() {
-        if (Utils.isNullOrEmpty(newTagTitle)) return;
+        if (Formatter.isNullOrEmpty(newTagTitle)) return;
         if (!newTagColor.startsWith("#")) newTagColor = "#" + newTagColor;
         Tag t = new Tag();
         t.setId(MD5Checksum.getMd5ChecksumShortSalted(newTagTitle));
