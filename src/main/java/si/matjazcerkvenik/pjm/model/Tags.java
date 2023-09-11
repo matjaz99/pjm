@@ -10,7 +10,7 @@ public class Tags implements Serializable {
 
     private static final long serialVersionUID = 278118847105L;
 
-    private List<Tag> list;
+    private List<Tag> list = new ArrayList<>();
 
     public List<Tag> getList() {
         return list;
@@ -22,7 +22,6 @@ public class Tags implements Serializable {
     }
 
     public void addNewTag(Tag tag) {
-        if (list == null) list = new ArrayList<>();
         list.add(tag);
     }
 }

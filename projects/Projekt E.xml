@@ -10,6 +10,10 @@
                 <comment id="77963b7a" lastModified="2023-08-30T23:11:58.141+02:00">ddd</comment>
             </comments>
             <description>&lt;p&gt;aaa&lt;/p&gt;&lt;p&gt;&lt;strong&gt;ggg&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;kkk&lt;/p&gt;</description>
+            <tags>
+                <tag id="2b62afe1" refId="a41adc67"/>
+                <tag id="00c06b7d" refId="4a6c3d9e"/>
+            </tags>
             <tasks>
                 <task id="110e9647">
                     <description>&lt;p&gt;Todo&lt;/p&gt;</description>
@@ -36,6 +40,7 @@
                 <comment id="3d3dc8ab" lastModified="2023-08-30T23:20:14.718+02:00">Add some sugar</comment>
             </comments>
             <description>&lt;p&gt;The product must produce:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Tiny beans&lt;/li&gt;&lt;li&gt;Hot apples&lt;/li&gt;&lt;li&gt;Top bananas&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;Products must be packed in 1 and 5 kilogram boxes.&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;</description>
+            <tags/>
             <tasks>
                 <task id="1b1f4e54">
                     <title>Bake some Hot apples</title>
@@ -48,6 +53,7 @@
         </requirement>
         <requirement id="REQ-03">
             <description>&lt;p&gt;afasd falkj &lt;span style="background-color:rgb( 255 , 255 , 0 )"&gt;falksdj&lt;/span&gt; &lt;span style="color:rgb( 230 , 0 , 0 )"&gt;falksjda&lt;/span&gt; fksjf asjd &lt;strong&gt;faskdjalkjdslfak&lt;/strong&gt; f jjjjsjdkjf.&lt;/p&gt;</description>
+            <tags/>
             <tasks>
                 <task id="27f237e6">
                     <title>A1</title>
@@ -72,6 +78,7 @@
         </requirement>
         <requirement id="443f79c9">
             <description>&lt;p&gt;adfa adsf asd sdsd asffdds.&lt;/p&gt;</description>
+            <tags/>
             <tasks>
                 <task id="10c30788">
                     <title>Todo 4.1</title>
@@ -84,6 +91,7 @@
         </requirement>
         <requirement id="dff1b0b3">
             <description>&lt;p&gt;Na REQ ali na TASK je potrebno dodati možnost dodajanja komentarjev. Komentarje je možno spremeniti. Zabeleži se zadnji čas spremembe komentarja.&lt;/p&gt;</description>
+            <tags/>
             <tasks>
                 <task id="89de3318">
                     <status>Complete</status>
@@ -102,6 +110,7 @@
         </requirement>
         <requirement id="fff87e50">
             <description>&lt;p&gt;Produkt mora podpirati dodajanje opomnikov. Na opomniku mora biti nastavljiv čas, kdaj uporabnika opozori.&lt;/p&gt;&lt;p&gt;Lahko pa se nastavi opomnik ko se spremeni status zahteve ali taska.&lt;/p&gt;</description>
+            <tags/>
             <tasks>
                 <task id="3c27cca0">
                     <title>Implementacija opomikov</title>
@@ -114,9 +123,12 @@
         </requirement>
         <requirement id="eed13c84">
             <description>&lt;p&gt;Možni statusi taskov:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Draft&lt;/li&gt;&lt;li&gt;In progress&lt;/li&gt;&lt;li&gt;Clarify&lt;/li&gt;&lt;li&gt;Waiting&lt;/li&gt;&lt;li&gt;Complete&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;</description>
+            <tags>
+                <tag id="a4769c36" refId="a41adc67"/>
+            </tags>
             <tasks>
                 <task id="452676c1">
-                    <status>Draft</status>
+                    <status>Complete</status>
                     <title>Implement</title>
                 </task>
             </tasks>
@@ -124,24 +136,33 @@
         </requirement>
         <requirement id="d50ae403">
             <description>&lt;p&gt;Zahteve je možno razdeliti po releasih. Release ima verzijo in planiran rok.&lt;/p&gt;</description>
+            <tags/>
             <title>Releases</title>
         </requirement>
         <requirement id="5c104635">
             <description>&lt;p&gt;Zahteve je možno grupirati v funkcionalne grupe. Npr. omrežja, vmesniki, aplikacija, logi...&lt;/p&gt;</description>
+            <tags/>
             <title>Requirement groups</title>
         </requirement>
         <requirement id="8501b953">
             <description>&lt;p&gt;Popis omrežja, IP naslovov, strežniki, produkti, linki, uporabniška imena, gesla&lt;/p&gt;</description>
+            <tags/>
             <title>Testno okolje</title>
         </requirement>
         <requirement id="ac733b04">
             <description>&lt;p&gt;Splaniraj agendo za vnaprej. Daj v koledar kot sestanek. Opomnik pred sestankom. Zapisnik. Relacije na zahteve.&lt;/p&gt;</description>
+            <tags>
+                <tag id="4f179bca" refId="a41adc67"/>
+                <tag id="59f58bd0" refId="90cca284"/>
+            </tags>
             <title>Sestanki, zapisniki in agende</title>
         </requirement>
         <requirement id="d28f9a84">
+            <tags/>
             <title>Linki na dokumente</title>
         </requirement>
         <requirement id="cea96daf">
+            <tags/>
             <tasks>
                 <task id="7c51a837">
                     <status>Complete</status>
@@ -152,6 +173,7 @@
         </requirement>
         <requirement id="bd3f7410">
             <description>&lt;p&gt;Možnost definiranja poljubnih tagov. Tagi morajo imeti možnost izbire barve. Tag se lahko doda na REQ&lt;/p&gt;</description>
+            <tags/>
             <tasks>
                 <task id="01f2a8ac">
                     <status>Complete</status>
@@ -170,14 +192,12 @@
                     <title>Dialog za kreiranje tagov</title>
                 </task>
                 <task id="37214a4b">
-                    <status>Complete</status>
+                    <description>&lt;p&gt;Brisanje tag definitionov in iz requirementsov.&lt;/p&gt;</description>
+                    <status>In progress</status>
                     <title>Brisanje tagov</title>
                 </task>
             </tasks>
             <title>Tags (labels)</title>
-        </requirement>
-        <requirement id="1b7a7a30">
-            <title>asdfasfew</title>
         </requirement>
     </requirements>
     <tagDefs>
@@ -185,5 +205,8 @@
         <tag color="#f672c3" id="b703ef27">metrics</tag>
         <tag color="#71f571" id="4a6c3d9e">storage</tag>
         <tag color="#00fae9" id="7dee1dd7">xml</tag>
+        <tag color="#faf200" id="b7625ae9">tags</tag>
+        <tag color="#f7cc68" id="90cca284">calendar</tag>
+        <tag color="#b37ff6" id="bec5f781">statistics</tag>
     </tagDefs>
 </project>

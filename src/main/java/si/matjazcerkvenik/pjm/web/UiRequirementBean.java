@@ -14,10 +14,9 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
+import javax.faces.event.ValueChangeEvent;
 import java.io.Serializable;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @ManagedBean
 @ViewScoped
@@ -32,7 +31,6 @@ public class UiRequirementBean extends UiBean implements Serializable {
     private UiAppBean uiAppBean;
     
     private Requirement requirement;
-    private Project project;
 
     @PostConstruct
     public void init() {
@@ -57,14 +55,6 @@ public class UiRequirementBean extends UiBean implements Serializable {
 
     public void setUiAppBean(UiAppBean uiAppBean) {
         this.uiAppBean = uiAppBean;
-    }
-
-    public Project getProject() {
-        return project;
-    }
-
-    public void setProject(Project project) {
-        this.project = project;
     }
 
     public Requirement getRequirement() {
@@ -202,25 +192,69 @@ public class UiRequirementBean extends UiBean implements Serializable {
 
 
 
+
+
     /* For tag selector menu */
 
-    private List<Tag> tagsList;
-    private List<Tag> selectedTagsList;
 
-    public List<Tag> getTagsList() {
-        return tagsList;
-    }
+    private List<String> selectedTagsList;
 
-    public void setTagsList(List<Tag> tagsList) {
-        this.tagsList = tagsList;
-    }
-
-    public List<Tag> getSelectedTagsList() {
+    public List<String> getSelectedTagsList() {
+        if (selectedTagsList == null) selectedTagsList = new ArrayList<>();
+        selectedTagsList.clear();
+        if (requirement.getTags() == null)
+            return new ArrayList<>();
+        for (Tag tag : requirement.getTags().getList()) {
+            Tag tagDef = tag2TagDef(tag);
+            selectedTagsList.add(tagDef.getName());
+        }
         return selectedTagsList;
     }
 
-    public void setSelectedTagsList(List<Tag> selectedTagsList) {
+
+
+    private Tag tagDef2Tag(String name) {
+        Tag tagDef = null;
+        for (Tag td : project.getTagDefinitions().getList()) {
+            if (td.getName().equalsIgnoreCase(name)) {
+                tagDef = td;
+            }
+        }
+        Tag tag = new Tag();
+        tag.setRefId(tagDef.getId());
+        tag.setId(MD5Checksum.getMd5ChecksumShortSalted(tagDef.getName() + tagDef.getColor()));
+        return tag;
+    }
+
+    public void setSelectedTagsList(List<String> selectedTagsList) {
         this.selectedTagsList = selectedTagsList;
+//        if (requirement.getTags() == null) {
+//            Tags tags = new Tags();
+//            tags.setList(new ArrayList<>());
+//            requirement.setTags(tags);
+//        }
+//        requirement.getTags().getList().clear();
+//        for (String tagDef : selectedTagsList) {
+//            Tag tag = tagDef2Tag(tagDef);
+//            requirement.getTags().getList().add(tag);
+//            System.out.println("setSelectedTagsList: " + tag.getRefId());
+//        }
+    }
+
+    public void selectedTagChangeEvent(ValueChangeEvent event) {
+        List<String> tagList = (List<String>) event.getNewValue();
+        requirement.getTags().getList().clear();
+        for (String tagDef : tagList) {
+            Tag tag = tagDef2Tag(tagDef);
+            requirement.getTags().getList().add(tag);
+            System.out.println("selectedTagChangeEvent add: " + tag.getRefId());
+        }
+        logger.info("selectedTagChangeEvent: tagList:" + tagList);
+        DAO.getInstance().saveProject(project);
+    }
+
+    public void saveTagsOnRequirement() {
+        System.out.println("selected: " + selectedTagsList);
     }
 
 

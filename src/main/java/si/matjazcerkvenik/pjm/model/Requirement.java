@@ -15,7 +15,7 @@ public class Requirement implements Serializable {
     private Tasks tasks;
     private Comments comments;
 
-    private Tags tags;
+    private Tags tags = new Tags();
 
     public String getId() {
         return id;

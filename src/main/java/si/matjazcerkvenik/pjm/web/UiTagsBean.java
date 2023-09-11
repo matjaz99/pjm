@@ -32,8 +32,6 @@ public class UiTagsBean extends UiBean implements Serializable {
     @ManagedProperty(value="#{uiAppBean}")
     private UiAppBean uiAppBean;
 
-    private Project project;
-
     @PostConstruct
     public void init() {
         Map<String, String> requestParameterMap = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
@@ -48,14 +46,6 @@ public class UiTagsBean extends UiBean implements Serializable {
 
     public void setUiAppBean(UiAppBean uiAppBean) {
         this.uiAppBean = uiAppBean;
-    }
-
-    public Project getProject() {
-        return project;
-    }
-
-    public void setProject(Project project) {
-        this.project = project;
     }
 
     public List<Tag> getTagDefinitions() {
@@ -109,6 +99,7 @@ public class UiTagsBean extends UiBean implements Serializable {
         }
         DAO.getInstance().saveProject(project);
         growlInfoMessage("Tag deleted");
+        // TODO also delete tags on requirements
     }
 
     public void onColorChange(AjaxBehaviorEvent e) {

@@ -23,7 +23,7 @@ public class UiDocumentsBean extends UiBean implements Serializable {
     @ManagedProperty(value="#{uiAppBean}")
     private UiAppBean uiAppBean;
 
-    private Project project;
+
 
     @PostConstruct
     public void init() {
@@ -39,14 +39,6 @@ public class UiDocumentsBean extends UiBean implements Serializable {
 
     public void setUiAppBean(UiAppBean uiAppBean) {
         this.uiAppBean = uiAppBean;
-    }
-
-    public Project getProject() {
-        return project;
-    }
-
-    public void setProject(Project project) {
-        this.project = project;
     }
 
 }

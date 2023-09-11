@@ -26,6 +26,15 @@
 				</p:panelGrid>
 			</h:form>
 
+			<p:panel id="tagsPanel">
+				<ui:repeat var="t" value="#{uiRequirementBean.requirement.tags.list}">
+					<pjm:tag value="#{uiRequirementBean.tag2TagDef(t)}" color="#{uiRequirementBean.tag2TagDef(t).color}">
+						<p:outputLabel value="#{uiRequirementBean.tag2TagDef(t).name}" />
+					</pjm:tag>
+				</ui:repeat>
+			</p:panel>
+
+
 			<h:form id="editorForm">
 
 				<p:textEditor widgetVar="editor2"
@@ -74,14 +83,19 @@
 
 			<br/>
 
+			<p:outputLabel value="Set tags" style="font-weight: bold; font-size: 24px;"/>
+
 			<h:form>
 				<p:selectCheckboxMenu id="tagsCheckboxMenu"
 									  filter="true" filterMatchMode="startsWith" filterNormalize="true"
-									  label="Tags" multiple="true"
-									  scrollHeight="250"
+									  label="Tags"
+									  multiple="true"
+									  scrollHeight="350"
 									  value="#{uiRequirementBean.selectedTagsList}"
 									  var="t"
+									  valueChangeListener="#{uiRequirementBean.selectedTagChangeEvent}"
 									  style="min-width: 15rem">
+					<p:ajax update="growl, tagsCheckboxMenu, tagsPanel"/>
 					<f:selectItems value="#{uiRequirementBean.project.getTagDefinitions().getList()}"/>
 
 					<p:column>
@@ -93,18 +107,16 @@
 						</pjm:tag>
 					</p:column>
 
-					<p:column>
-						<f:facet name="header">
-							<h:outputText value="Name"/>
-						</f:facet>
-						<h:outputText value="#{t.name}"/>
-					</p:column>
-
 					<f:facet name="footer">
 						<h:outputText value="#{uiRequirementBean.project.getTagDefinitions().getList().size()} tags"
 									  styleClass="py-1 block font-bold"/>
 					</f:facet>
 				</p:selectCheckboxMenu>
+				<p:commandButton value="Save tags"
+								 action="#{uiRequirementBean.saveTagsOnRequirement()}"
+								 update="growl tagsCheckboxMenu"
+								 styleClass="ui-button-flat mr-2"
+								 style="width: 10rem"/>
 			</h:form>
 
 			<br/>

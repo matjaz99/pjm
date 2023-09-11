@@ -30,8 +30,6 @@ public class UiTaskBean extends UiBean implements Serializable {
 
     @ManagedProperty(value="#{uiAppBean}")
     private UiAppBean uiAppBean;
-
-    private Project project;
     private Requirement requirement;
     private Task task;
 
@@ -65,14 +63,6 @@ public class UiTaskBean extends UiBean implements Serializable {
 
     public void setUiAppBean(UiAppBean uiAppBean) {
         this.uiAppBean = uiAppBean;
-    }
-
-    public Project getProject() {
-        return project;
-    }
-
-    public void setProject(Project project) {
-        this.project = project;
     }
 
     public Requirement getRequirement() {

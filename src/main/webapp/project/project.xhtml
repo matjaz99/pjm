@@ -3,7 +3,8 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pjm="http://pjm.io/facelets">
 
 	<div id="contentFrame">
 		<ui:define name="contentFrame">
@@ -78,9 +79,9 @@
 				</p:panel>
 				<p:panel>
 					<div class="card">
-						<i class="pi pi-cog" style="font-size: 4rem"></i>
+						<i class="pi pi-users" style="font-size: 4rem"></i>
 					</div>
-					<p:outputLabel value="Configuration" class="boldtext"/>
+					<p:outputLabel value="Members" class="boldtext"/>
 				</p:panel>
 			</p:panelGrid>
 
@@ -111,6 +112,13 @@
 							<f:param name="projectId" value="#{uiProjectBean.project.id}" />
 							<f:param name="reqId" value="#{req.id}" />
 						</h:link>
+					</p:column>
+					<p:column headerText="Tags">
+						<ui:repeat var="tag" value="#{req.tags.list}">
+							<pjm:tag value="#{uiProjectBean.tag2TagDef(tag)}" color="#{uiProjectBean.tag2TagDef(tag).color}">
+								<p:outputLabel value="#{uiProjectBean.tag2TagDef(tag).name}" />
+							</pjm:tag>
+						</ui:repeat>
 					</p:column>
 					<p:column headerText="Tasks">
 						<p:outputLabel value="#{req.tasks.list.size()}"/>
