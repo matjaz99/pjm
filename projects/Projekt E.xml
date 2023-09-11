@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <project id="d2f2297d">
+    <links>
+        <link id="867cce29">
+            <description>ghfd</description>
+        </link>
+        <link id="6a5351cd">
+            <description>rth</description>
+        </link>
+    </links>
     <name>Projekt E</name>
     <requirements>
         <requirement id="REQ-01">
@@ -8,11 +16,13 @@
                 <comment id="44f437ce" lastModified="2023-08-30T00:25:29.576+02:00">rrr</comment>
                 <comment id="42bd5e4c" lastModified="2023-08-30T00:25:33.792+02:00">fghfghfgf</comment>
                 <comment id="77963b7a" lastModified="2023-08-30T23:11:58.141+02:00">ddd</comment>
+                <comment created="2023-09-11T21:03:21.908+02:00" id="0587c913" lastModified="2023-09-11T21:03:21.908+02:00">jiuhuyg</comment>
             </comments>
             <description>&lt;p&gt;aaa&lt;/p&gt;&lt;p&gt;&lt;strong&gt;ggg&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;kkk&lt;/p&gt;</description>
             <tags>
-                <tag id="2b62afe1" refId="a41adc67"/>
-                <tag id="00c06b7d" refId="4a6c3d9e"/>
+                <tag id="74ff45b5" refId="a41adc67"></tag>
+                <tag id="d6f834a4" refId="4a6c3d9e"></tag>
+                <tag id="d72a23b7" refId="7dee1dd7"></tag>
             </tags>
             <tasks>
                 <task id="110e9647">
@@ -40,7 +50,9 @@
                 <comment id="3d3dc8ab" lastModified="2023-08-30T23:20:14.718+02:00">Add some sugar</comment>
             </comments>
             <description>&lt;p&gt;The product must produce:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Tiny beans&lt;/li&gt;&lt;li&gt;Hot apples&lt;/li&gt;&lt;li&gt;Top bananas&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;Products must be packed in 1 and 5 kilogram boxes.&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;</description>
-            <tags/>
+            <tags>
+                <tag id="1beef720" refId="7dee1dd7"></tag>
+            </tags>
             <tasks>
                 <task id="1b1f4e54">
                     <title>Bake some Hot apples</title>
@@ -53,7 +65,9 @@
         </requirement>
         <requirement id="REQ-03">
             <description>&lt;p&gt;afasd falkj &lt;span style="background-color:rgb( 255 , 255 , 0 )"&gt;falksdj&lt;/span&gt; &lt;span style="color:rgb( 230 , 0 , 0 )"&gt;falksjda&lt;/span&gt; fksjf asjd &lt;strong&gt;faskdjalkjdslfak&lt;/strong&gt; f jjjjsjdkjf.&lt;/p&gt;</description>
-            <tags/>
+            <tags>
+                <tag id="09e52c22" refId="b703ef27"></tag>
+            </tags>
             <tasks>
                 <task id="27f237e6">
                     <title>A1</title>
@@ -124,7 +138,7 @@
         <requirement id="eed13c84">
             <description>&lt;p&gt;Možni statusi taskov:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Draft&lt;/li&gt;&lt;li&gt;In progress&lt;/li&gt;&lt;li&gt;Clarify&lt;/li&gt;&lt;li&gt;Waiting&lt;/li&gt;&lt;li&gt;Complete&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;</description>
             <tags>
-                <tag id="a4769c36" refId="a41adc67"/>
+                <tag id="a4769c36" refId="a41adc67"></tag>
             </tags>
             <tasks>
                 <task id="452676c1">
@@ -152,8 +166,8 @@
         <requirement id="ac733b04">
             <description>&lt;p&gt;Splaniraj agendo za vnaprej. Daj v koledar kot sestanek. Opomnik pred sestankom. Zapisnik. Relacije na zahteve.&lt;/p&gt;</description>
             <tags>
-                <tag id="4f179bca" refId="a41adc67"/>
-                <tag id="59f58bd0" refId="90cca284"/>
+                <tag id="4f179bca" refId="a41adc67"></tag>
+                <tag id="59f58bd0" refId="90cca284"></tag>
             </tags>
             <title>Sestanki, zapisniki in agende</title>
         </requirement>
@@ -199,9 +213,24 @@
             </tasks>
             <title>Tags (labels)</title>
         </requirement>
+        <requirement created="2023-09-11T21:14:06.486+02:00" id="65e76145">
+            <comments>
+                <comment created="2023-09-11T21:14:23.360+02:00" id="691d29aa" lastModified="2023-09-11T21:14:23.360+02:00">kk</comment>
+            </comments>
+            <tags>
+                <tag id="a56e32ee" refId="b703ef27"></tag>
+            </tags>
+            <tasks>
+                <task created="2023-09-11T21:14:29.198+02:00" id="752323e5">
+                    <status>Draft</status>
+                    <title>kkkk</title>
+                </task>
+            </tasks>
+            <title>YYY</title>
+        </requirement>
     </requirements>
     <tagDefs>
-        <tag color="#0579ed" id="a41adc67">GUI</tag>
+        <tag color="#419bf5" id="a41adc67">GUI</tag>
         <tag color="#f672c3" id="b703ef27">metrics</tag>
         <tag color="#71f571" id="4a6c3d9e">storage</tag>
         <tag color="#00fae9" id="7dee1dd7">xml</tag>

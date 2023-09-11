@@ -127,6 +127,7 @@ public class UiRequirementBean extends UiBean implements Serializable {
         t.setId(MD5Checksum.getMd5ChecksumShortSalted(newTskTitle));
         t.setTitle(newTskTitle);
         t.setStatus(TaskStatus.DRAFT.label);
+        t.setCreated(Formatter.getXmlGregorianCalendarNow());
         requirement.addNewTask(t);
         logger.info("addNewTaskAction: id: " + t.getId() + ", title: " + newTskTitle);
         DAO.getInstance().saveProject(project);
@@ -168,6 +169,7 @@ public class UiRequirementBean extends UiBean implements Serializable {
         Comment c = new Comment();
         c.setId(MD5Checksum.getMd5ChecksumShortSalted(newCommentTitle));
         c.setDescription(newCommentTitle);
+        c.setCreated(Formatter.getXmlGregorianCalendarNow());
         c.setLastModified(Formatter.getXmlGregorianCalendarNow());
         requirement.addNewComment(c);
         logger.info("addNewCommentAction: id: " + c.getId() + ", title: " + newCommentTitle);
@@ -188,6 +190,8 @@ public class UiRequirementBean extends UiBean implements Serializable {
         DAO.getInstance().saveProject(project);
         growlInfoMessage("Comment deleted");
     }
+
+    // TODO add method to modify comment and update the lastModified timestamp
 
 
 

@@ -11,6 +11,7 @@ public class Comment implements Serializable {
     private static final long serialVersionUID = 24887164804L;
 
     private String id;
+    private XMLGregorianCalendar created;
     private XMLGregorianCalendar lastModified;
     private String description;
 
@@ -21,6 +22,15 @@ public class Comment implements Serializable {
     @XmlAttribute
     public void setId(String id) {
         this.id = id;
+    }
+
+    public XMLGregorianCalendar getCreated() {
+        return created;
+    }
+
+    @XmlAttribute(name = "created")
+    public void setCreated(XMLGregorianCalendar created) {
+        this.created = created;
     }
 
     public XMLGregorianCalendar getLastModified() {

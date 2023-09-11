@@ -34,7 +34,7 @@ public class UiProjectBean extends UiBean implements Serializable {
         Map<String, String> requestParameterMap = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
         String id = requestParameterMap.getOrDefault("projectId", null);
         project = uiAppBean.getProject(id);
-        logger.info("UiProjectBean:init: loaded " + project.getName());
+        logger.info("loaded: " + project.getName());
     }
 
     public UiAppBean getUiAppBean() {
@@ -74,8 +74,9 @@ public class UiProjectBean extends UiBean implements Serializable {
         Requirement r = new Requirement();
         r.setId(MD5Checksum.getMd5ChecksumShortSalted(newReqTitle));
         r.setTitle(newReqTitle);
+        r.setCreated(Formatter.getXmlGregorianCalendarNow());
         project.addNewRequirement(r);
-        logger.info("addNewReqAction: req: " + r.getId() + ", title: " + newReqTitle);
+        logger.info("new req: " + r.getId() + ", title: " + newReqTitle);
         DAO.getInstance().saveProject(project);
         newReqTitle = null;
         growlInfoMessage("New requirement created");

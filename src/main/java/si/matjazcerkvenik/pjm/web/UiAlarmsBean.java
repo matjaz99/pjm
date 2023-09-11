@@ -3,7 +3,6 @@ package si.matjazcerkvenik.pjm.web;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import si.matjazcerkvenik.pjm.model.Alarm;
-import si.matjazcerkvenik.pjm.model.Project;
 import si.matjazcerkvenik.pjm.util.DAO;
 
 import javax.annotation.PostConstruct;
@@ -17,7 +16,7 @@ import java.util.Map;
 
 @ManagedBean
 @ViewScoped
-public class UiAlarmsBean implements Serializable {
+public class UiAlarmsBean extends UiBean implements Serializable {
 
     private static final long serialVersionUID = 2477412501L;
 
@@ -26,14 +25,12 @@ public class UiAlarmsBean implements Serializable {
     @ManagedProperty(value="#{uiAppBean}")
     private UiAppBean uiAppBean;
 
-    private Project project;
-
     @PostConstruct
     public void init() {
         Map<String, String> requestParameterMap = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
         String id = requestParameterMap.getOrDefault("projectId", null);
         project = uiAppBean.getProject(id);
-        logger.info("initialized " + project.getName());
+        logger.info("loaded: " + project.getName());
     }
 
     public UiAppBean getUiAppBean() {
@@ -42,14 +39,6 @@ public class UiAlarmsBean implements Serializable {
 
     public void setUiAppBean(UiAppBean uiAppBean) {
         this.uiAppBean = uiAppBean;
-    }
-
-    public Project getProject() {
-        return project;
-    }
-
-    public void setProject(Project project) {
-        this.project = project;
     }
 
     public List<Alarm> getAlarmList() {

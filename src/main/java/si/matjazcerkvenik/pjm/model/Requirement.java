@@ -3,6 +3,7 @@ package si.matjazcerkvenik.pjm.model;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 
+import javax.xml.datatype.XMLGregorianCalendar;
 import java.io.Serializable;
 
 public class Requirement implements Serializable {
@@ -12,6 +13,7 @@ public class Requirement implements Serializable {
     private String id;
     private String title;
     private String description;
+    private XMLGregorianCalendar created;
     private Tasks tasks;
     private Comments comments;
 
@@ -42,6 +44,15 @@ public class Requirement implements Serializable {
     @XmlElement
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public XMLGregorianCalendar getCreated() {
+        return created;
+    }
+
+    @XmlAttribute(name = "created")
+    public void setCreated(XMLGregorianCalendar created) {
+        this.created = created;
     }
 
     public Tasks getTasks() {

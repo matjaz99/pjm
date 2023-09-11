@@ -1,0 +1,81 @@
+<ui:composition template="/templates/pageTemplate.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pjm="http://pjm.io/facelets">
+
+	<div id="contentFrame">
+		<ui:define name="contentFrame">
+
+			<div class="card">
+				<h:form>
+					<p:breadCrumb>
+						<p:menuitem value="Home" url="/pjm"/>
+						<p:menuitem value="#{uiLinksBean.project.name}" url="/pjm/project/project.xhtml?projectId=#{uiLinksBean.project.id}"/>
+						<p:menuitem value="Links"/>
+					</p:breadCrumb>
+				</h:form>
+			</div>
+
+			<br/>
+
+			<p:outputLabel value="Links" class="boldtext"/>
+
+			<br/>
+
+			<p:commandButton value="New link" type="button" icon="pi pi-external-link" onclick="PF('dlg3').show()"/>
+			<p:dialog header="New link" widgetVar="dlg3"
+					  showEffect="fade" hideEffect="explode" closable="false">
+				<h:form id="newLinkForm">
+					<p:panelGrid columns="2" styleClass="ui-noborder">
+						<p:outputLabel value="Description: " class="boldtext"/>
+						<p:inputText value="#{uiLinksBean.newLinkDesc}" size="60"
+									 required="true" requiredMessage="Missing description">
+						</p:inputText>
+						<p:outputLabel value="Link: " class="boldtext"/>
+						<p:inputText value="#{uiLinksBean.newLink}" size="60"
+									 required="true" requiredMessage="Missing link">
+						</p:inputText>
+					</p:panelGrid>
+					<br/>
+					<p:commandButton type="button"
+									 value="Cancel"
+									 onclick="PF('dlg3').hide();"
+									 style="width: 5rem"
+									 styleClass="ui-button-flat mr-2" />
+					<p:commandButton value="Add"
+									 action="#{uiLinksBean.addNewLinkAction}"
+									 update="growl newLinkForm linksForm"
+									 oncomplete="PF('dlg3').hide();"
+									 styleClass="ui-button mr-2"
+									 style="width: 6rem"/>
+				</h:form>
+			</p:dialog>
+
+
+
+			<h:form id="linksForm">
+				<p:dataTable value="#{uiLinksBean.project.links.list}" var="link"
+							 cellpadding="0" cellspacing="0">
+					<p:column headerText="Name">
+						<p:outputLabel value="#{link.description}"/>
+					</p:column>
+					<p:column headerText="Link">
+						<p:outputLabel value="#{link.link}"/>
+					</p:column>
+					<p:column headerText="Action">
+						<p:commandButton value="Delete"
+										 action="#{uiLinksBean.deleteLinkAction(link.id)}"
+										 update="growl linksForm"
+										 styleClass="ui-button-flat mr-2" />
+					</p:column>
+				</p:dataTable>
+			</h:form>
+
+		</ui:define>
+	</div>
+
+</ui:composition>
+
