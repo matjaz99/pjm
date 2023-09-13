@@ -21,9 +21,15 @@
 
 			<br/>
 
-			<p:commandButton value="New tag" type="button" icon="pi pi-external-link" onclick="PF('dlg3').show()"
-							 styleClass="ui-button-raised ui-button-secondary ui-button-flat"/>
-			<p:dialog header="New tag" widgetVar="dlg3" showEffect="fade">
+			<p:commandButton value="New tag" type="button" icon="pi pi-external-link" onclick="PF('dlg3').show()"/>
+			<p:commandButton value="Save changes"
+							 action="#{uiTagsBean.saveChanges()}"
+							 icon="pi pi-save"
+							 update="growl newTagForm tagsForm"
+							 style="width: 10rem"/>
+			<p:dialog header="New tag" widgetVar="dlg3" showEffect="fade" hideEffect="puff"
+					  closable="false" closeOnEscape="true"
+					  minWidth="450" minHeight="250">
 				<h:form id="newTagForm">
 					<p:panelGrid columns="2" styleClass="ui-noborder">
 						<p:outputLabel value="Title: " class="boldtext"/>
@@ -84,11 +90,7 @@
 
 				<br/>
 
-				<p:commandButton value="Save changes"
-								 action="#{uiTagsBean.saveChanges()}"
-								 update="growl newTagForm tagsForm"
-								 styleClass="ui-button-flat mr-2"
-								 style="width: 10rem"/>
+
 			</h:form>
 
 

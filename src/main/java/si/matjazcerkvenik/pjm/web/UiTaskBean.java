@@ -2,21 +2,15 @@ package si.matjazcerkvenik.pjm.web;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import si.matjazcerkvenik.pjm.model.Project;
 import si.matjazcerkvenik.pjm.model.Requirement;
 import si.matjazcerkvenik.pjm.model.Task;
 import si.matjazcerkvenik.pjm.util.DAO;
-import si.matjazcerkvenik.pjm.util.MD5Checksum;
-import si.matjazcerkvenik.pjm.util.Utils;
 
 import javax.annotation.PostConstruct;
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import java.io.Serializable;
-import java.util.Iterator;
 import java.util.Map;
 
 @ManagedBean
@@ -28,8 +22,6 @@ public class UiTaskBean extends UiBean implements Serializable {
 
     private static final Logger logger = LoggerFactory.getLogger(UiTaskBean.class);
 
-    @ManagedProperty(value="#{uiAppBean}")
-    private UiAppBean uiAppBean;
     private Requirement requirement;
     private Task task;
 
@@ -57,13 +49,6 @@ public class UiTaskBean extends UiBean implements Serializable {
         if (task.getStatus() != null) selectedTaskStatus = task.getStatus();
     }
 
-    public UiAppBean getUiAppBean() {
-        return uiAppBean;
-    }
-
-    public void setUiAppBean(UiAppBean uiAppBean) {
-        this.uiAppBean = uiAppBean;
-    }
 
     public Requirement getRequirement() {
         return requirement;

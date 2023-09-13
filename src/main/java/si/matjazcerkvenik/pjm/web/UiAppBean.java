@@ -7,7 +7,6 @@ import si.matjazcerkvenik.pjm.util.DAO;
 import si.matjazcerkvenik.pjm.util.Formatter;
 import si.matjazcerkvenik.pjm.util.Props;
 import si.matjazcerkvenik.pjm.model.Project;
-import si.matjazcerkvenik.pjm.util.MD5Checksum;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ApplicationScoped;
@@ -74,7 +73,7 @@ public class UiAppBean implements Serializable {
         }
         Project p = new Project();
         p.setName(newProjectName);
-        p.setId(MD5Checksum.getMd5ChecksumShortSalted(newProjectName));
+        p.setId(Formatter.getMd5ChecksumShortSalted(newProjectName));
         p.setProjectPath(Props.PJM_PROJECTS_DIRECTORY + "/" + newProjectName + ".xml");
         p.setCreated(Formatter.getXmlGregorianCalendarNow());
         projects.add(p);

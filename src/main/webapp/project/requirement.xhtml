@@ -71,20 +71,23 @@
 							<button class="ql-indent" value="+1" />
 						</span>
 						<span class="ql-formats">
+							<button class="ql-link" />
+						</span>
+						<span class="ql-formats">
 							<button class="ql-clean" />
 						</span>
 					</f:facet>
 				</p:textEditor>
 				<p:commandButton value="Save"
 								 action="#{uiRequirementBean.saveDescription()}"
-								 update="@form" icon="pi pi-check"/>
+								 update="@form" icon="pi pi-save"
+								 styleClass="ui-button-flat"/>
 
 			</h:form>
 
 			<br/>
 
 			<p:outputLabel value="Set tags" style="font-weight: bold; font-size: 24px;"/>
-
 			<h:form>
 				<p:selectCheckboxMenu id="tagsCheckboxMenu"
 									  filter="true" filterMatchMode="startsWith" filterNormalize="true"
@@ -116,13 +119,70 @@
 								 action="#{uiRequirementBean.saveTagsOnRequirement()}"
 								 update="growl tagsCheckboxMenu"
 								 styleClass="ui-button-flat mr-2"
-								 style="width: 10rem"/>
+								 style="width: 10rem"
+								 icon="pi pi-save"/>
 			</h:form>
+
 
 			<br/>
 
-			<p:outputLabel value="Comments (#{uiRequirementBean.requirement.comments.list.size()})" style="font-weight: bold; font-size: 24px;"/>
+			<p:outputLabel value="Issues" style="font-weight: bold; font-size: 24px;"/>
+			<h:form id="issuesForm">
+				<p:dataTable value="#{uiRequirementBean.requirement.issues.list}" var="issue"
+							 cellpadding="0" cellspacing="0">
+					<p:column headerText="Problem">
+						<p:inplace editor="true">
+							<p:inputText value="#{issue.problem}" required="true" label="text"/>
+						</p:inplace>
+					</p:column>
+					<p:column headerText="Solution">
+						<p:inplace editor="true">
+							<p:inputText value="#{issue.solution}" required="true" label="text"/>
+						</p:inplace>
+					</p:column>
+					<p:column headerText="Is resolved?">
+						<p:selectBooleanCheckbox value="#{issue.resolved}" itemLabel="">
+							<p:ajax update="growl issuesForm" listener="#{uiRequirementBean.resolveIssueAction(issue.id)}"/>
+						</p:selectBooleanCheckbox>
+					</p:column>
+					<p:column headerText="Action">
+						<p:commandButton value="Delete"
+										 action="#{uiRequirementBean.deleteIssueAction(issue.id)}"
+										 update="growl issuesForm"
+										 styleClass="ui-button-danger ui-button-flat" />
+					</p:column>
+				</p:dataTable>
+			</h:form>
 
+			<p:commandButton value="New issue" type="button" icon="pi pi-external-link"
+							 styleClass="ui-button-flat" onclick="PF('dlg1').show()"/>
+			<p:dialog header="What's the problem?" widgetVar="dlg1" minHeight="40" showEffect="fade">
+				<h:form id="newIssueForm">
+					<p:panelGrid columns="2" styleClass="ui-noborder">
+						<p:outputLabel value="Description: " class="boldtext"/>
+						<p:inputText value="#{uiRequirementBean.newIssueTitle}" size="60"
+									 required="true" requiredMessage="Missing title">
+						</p:inputText>
+					</p:panelGrid>
+					<br/>
+					<p:commandButton type="button"
+									 value="Cancel"
+									 onclick="PF('dlg1').hide();"
+									 style="width: 5rem"
+									 styleClass="ui-button-flat mr-2" />
+					<p:commandButton value="Add"
+									 action="#{uiRequirementBean.addNewIssueAction}"
+									 update="growl newIssueForm issuesForm"
+									 oncomplete="PF('dlg1').hide();"
+									 styleClass="ui-button mr-2"
+									 style="width: 6rem"/>
+				</h:form>
+			</p:dialog>
+
+
+			<br/>
+
+			<p:outputLabel value="Comments" style="font-weight: bold; font-size: 24px;"/>
 			<h:form id="commentsForm">
 				<p:dataTable value="#{uiRequirementBean.requirement.comments.list}" var="cmt"
 							 cellpadding="0" cellspacing="0">
@@ -134,12 +194,13 @@
 						<p:commandButton value="Delete"
 										 action="#{uiRequirementBean.deleteCommentAction(cmt.id)}"
 										 update="growl commentsForm"
-										 styleClass="ui-button-flat mr-2" />
+										 styleClass="ui-button-danger ui-button-flat" />
 					</p:column>
 				</p:dataTable>
 			</h:form>
 
-			<p:commandButton value="New comment" type="button" icon="pi pi-external-link" onclick="PF('dlg2').show()"/>
+			<p:commandButton value="New comment" type="button" icon="pi pi-external-link"
+							 styleClass="ui-button-flat" onclick="PF('dlg2').show()"/>
 			<p:dialog header="Add comment" widgetVar="dlg2" minHeight="40" showEffect="fade">
 				<h:form id="newCommentForm">
 					<p:panelGrid columns="2" styleClass="ui-noborder">
@@ -166,7 +227,6 @@
 			<br/>
 
 			<p:outputLabel value="Tasks (#{uiRequirementBean.requirement.tasks.list.size()})" style="font-weight: bold; font-size: 24px;"/>
-
 			<h:form id="tasksForm">
 
 				<p:dataTable value="#{uiRequirementBean.requirement.tasks.list}" var="tsk"
@@ -185,7 +245,7 @@
 						<p:commandButton value="Delete"
 										 action="#{uiRequirementBean.deleteTaskAction(tsk.id)}"
 										 update="growl tasksForm"
-										 styleClass="ui-button-flat mr-2" />
+										 styleClass="ui-button-danger ui-button-flat" />
 					</p:column>
 				</p:dataTable>
 
@@ -193,7 +253,8 @@
 
 			<br/>
 
-			<p:commandButton value="New task" type="button" icon="pi pi-external-link" onclick="PF('dlg3').show()"/>
+			<p:commandButton value="New task" type="button" icon="pi pi-external-link"
+							 styleClass="ui-button-flat" onclick="PF('dlg3').show()"/>
 			<p:dialog header="New task" widgetVar="dlg3" minHeight="40" showEffect="fade">
 				<h:form id="newTaskForm">
 					<p:panelGrid columns="2" styleClass="ui-noborder">

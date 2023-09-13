@@ -19,7 +19,6 @@ public class Project implements Serializable {
     private String projectPath;
     private Requirements requirements;
     private Tags tagDefinitions;
-
     private Links links = new Links();
 
     public String getId() {
@@ -98,4 +97,5 @@ public class Project implements Serializable {
     public void addNewLink(Link link) {
         links.addNewLink(link);
     }
+
 }

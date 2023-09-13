@@ -5,13 +5,9 @@ import org.slf4j.LoggerFactory;
 import si.matjazcerkvenik.pjm.model.*;
 import si.matjazcerkvenik.pjm.util.DAO;
 import si.matjazcerkvenik.pjm.util.Formatter;
-import si.matjazcerkvenik.pjm.util.MD5Checksum;
-import si.matjazcerkvenik.pjm.util.Utils;
 
 import javax.annotation.PostConstruct;
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ValueChangeEvent;
@@ -27,8 +23,6 @@ public class UiRequirementBean extends UiBean implements Serializable {
 
     private static final Logger logger = LoggerFactory.getLogger(UiRequirementBean.class);
 
-    @ManagedProperty(value="#{uiAppBean}")
-    private UiAppBean uiAppBean;
     
     private Requirement requirement;
 
@@ -47,14 +41,6 @@ public class UiRequirementBean extends UiBean implements Serializable {
             }
         }
 
-    }
-
-    public UiAppBean getUiAppBean() {
-        return uiAppBean;
-    }
-
-    public void setUiAppBean(UiAppBean uiAppBean) {
-        this.uiAppBean = uiAppBean;
     }
 
     public Requirement getRequirement() {
@@ -124,7 +110,7 @@ public class UiRequirementBean extends UiBean implements Serializable {
     public void addNewTaskAction() {
         if (Formatter.isNullOrEmpty(newTskTitle)) return;
         Task t = new Task();
-        t.setId(MD5Checksum.getMd5ChecksumShortSalted(newTskTitle));
+        t.setId(Formatter.getMd5ChecksumShortSalted(newTskTitle));
         t.setTitle(newTskTitle);
         t.setStatus(TaskStatus.DRAFT.label);
         t.setCreated(Formatter.getXmlGregorianCalendarNow());
@@ -167,7 +153,7 @@ public class UiRequirementBean extends UiBean implements Serializable {
     public void addNewCommentAction() {
         if (Formatter.isNullOrEmpty(newCommentTitle)) return;
         Comment c = new Comment();
-        c.setId(MD5Checksum.getMd5ChecksumShortSalted(newCommentTitle));
+        c.setId(Formatter.getMd5ChecksumShortSalted(newCommentTitle));
         c.setDescription(newCommentTitle);
         c.setCreated(Formatter.getXmlGregorianCalendarNow());
         c.setLastModified(Formatter.getXmlGregorianCalendarNow());
@@ -226,7 +212,7 @@ public class UiRequirementBean extends UiBean implements Serializable {
         }
         Tag tag = new Tag();
         tag.setRefId(tagDef.getId());
-        tag.setId(MD5Checksum.getMd5ChecksumShortSalted(tagDef.getName() + tagDef.getColor()));
+        tag.setId(Formatter.getMd5ChecksumShortSalted(tagDef.getName() + tagDef.getColor()));
         return tag;
     }
 
@@ -259,6 +245,60 @@ public class UiRequirementBean extends UiBean implements Serializable {
 
     public void saveTagsOnRequirement() {
         System.out.println("selected: " + selectedTagsList);
+    }
+
+
+
+
+
+
+
+    private String newIssueTitle;
+
+    public String getNewIssueTitle() {
+        return newIssueTitle;
+    }
+
+    public void setNewIssueTitle(String newIssueTitle) {
+        this.newIssueTitle = newIssueTitle;
+    }
+
+    public void addNewIssueAction() {
+        if (Formatter.isNullOrEmpty(newIssueTitle)) return;
+        Issue issue = new Issue();
+        issue.setId(Formatter.getMd5ChecksumShortSalted(newIssueTitle));
+        issue.setProblem(newIssueTitle);
+        issue.setCreated(Formatter.getXmlGregorianCalendarNow());
+        requirement.addNewIssue(issue);
+        logger.info("addNewIssueAction: id=" + issue.getId());
+        DAO.getInstance().saveProject(project);
+        newIssueTitle = null;
+        growlInfoMessage("Issue added");
+    }
+
+    public void deleteIssueAction(String id) {
+        for (Iterator<Issue> it = requirement.getIssues().getList().iterator(); it.hasNext();) {
+            Issue issue = it.next();
+            if (issue.getId().equals(id)) {
+                it.remove();
+                logger.info("deleteIssueAction: id=" + id);
+                break;
+            }
+        }
+        DAO.getInstance().saveProject(project);
+        growlInfoMessage("Issue deleted");
+    }
+
+    public void resolveIssueAction(String id) {
+        for (Issue issue : requirement.getIssues().getList()) {
+            if (issue.getId().equals(id)) {
+                issue.setResolved(!issue.isResolved());
+                logger.info("issue resolved: id=" + id);
+                break;
+            }
+        }
+        DAO.getInstance().saveProject(project);
+        growlInfoMessage("Congratulations!");
     }
 
 

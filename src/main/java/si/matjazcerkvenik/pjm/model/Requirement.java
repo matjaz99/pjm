@@ -16,8 +16,8 @@ public class Requirement implements Serializable {
     private XMLGregorianCalendar created;
     private Tasks tasks;
     private Comments comments;
-
     private Tags tags = new Tags();
+    private Issues issues = new Issues();
 
     public String getId() {
         return id;
@@ -90,5 +90,18 @@ public class Requirement implements Serializable {
     @XmlElement
     public void setTags(Tags tags) {
         this.tags = tags;
+    }
+
+    public Issues getIssues() {
+        return issues;
+    }
+
+    @XmlElement
+    public void setIssues(Issues issues) {
+        this.issues = issues;
+    }
+
+    public void addNewIssue(Issue issue) {
+        issues.addNewIssue(issue);
     }
 }

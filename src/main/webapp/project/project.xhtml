@@ -93,9 +93,13 @@
 				</p:panel>
 				<p:panel>
 					<div class="card">
-						<i class="pi pi-eye" style="font-size: 4rem"></i>
+						<p:badge value="#{uiIssuesBean.getIssuesList().size()}" severity="danger">
+							<i class="pi pi-eye" style="font-size: 4rem"></i>
+						</p:badge>
 					</div>
-					<p:outputLabel value="Issues" class="boldtext"/>
+					<p:link outcome="issues" value="Issues" class="boldtext">
+						<f:param name="projectId" value="#{uiProjectBean.project.id}"/>
+					</p:link>
 				</p:panel>
 				<p:panel>
 					<div class="card">

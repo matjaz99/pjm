@@ -22,8 +22,6 @@ public class UiAlarmsBean extends UiBean implements Serializable {
 
     private static final Logger logger = LoggerFactory.getLogger(UiAlarmsBean.class);
 
-    @ManagedProperty(value="#{uiAppBean}")
-    private UiAppBean uiAppBean;
 
     @PostConstruct
     public void init() {
@@ -33,13 +31,7 @@ public class UiAlarmsBean extends UiBean implements Serializable {
         logger.info("loaded: " + project.getName());
     }
 
-    public UiAppBean getUiAppBean() {
-        return uiAppBean;
-    }
 
-    public void setUiAppBean(UiAppBean uiAppBean) {
-        this.uiAppBean = uiAppBean;
-    }
 
     public List<Alarm> getAlarmList() {
         return DAO.getInstance().getAlarmList(project.getId());

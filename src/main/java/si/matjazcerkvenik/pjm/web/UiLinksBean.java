@@ -5,11 +5,9 @@ import org.slf4j.LoggerFactory;
 import si.matjazcerkvenik.pjm.model.Link;
 import si.matjazcerkvenik.pjm.util.DAO;
 import si.matjazcerkvenik.pjm.util.Formatter;
-import si.matjazcerkvenik.pjm.util.MD5Checksum;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import java.io.Serializable;
@@ -22,10 +20,7 @@ public class UiLinksBean extends UiBean implements Serializable {
 
     private static final long serialVersionUID = 26544808411L;
 
-    private static final Logger logger = LoggerFactory.getLogger(UiStatisticsBean.class);
-
-    @ManagedProperty(value="#{uiAppBean}")
-    private UiAppBean uiAppBean;
+    private static final Logger logger = LoggerFactory.getLogger(UiLinksBean.class);
 
 
 
@@ -35,14 +30,6 @@ public class UiLinksBean extends UiBean implements Serializable {
         String id = requestParameterMap.getOrDefault("projectId", null);
         project = uiAppBean.getProject(id);
         logger.info("loaded: " + project.getName());
-    }
-
-    public UiAppBean getUiAppBean() {
-        return uiAppBean;
-    }
-
-    public void setUiAppBean(UiAppBean uiAppBean) {
-        this.uiAppBean = uiAppBean;
     }
 
 
@@ -70,7 +57,7 @@ public class UiLinksBean extends UiBean implements Serializable {
         if (Formatter.isNullOrEmpty(newLinkDesc)) return;
         if (Formatter.isNullOrEmpty(newLink)) return;
         Link link = new Link();
-        link.setId(MD5Checksum.getMd5ChecksumShortSalted(newLinkDesc));
+        link.setId(Formatter.getMd5ChecksumShortSalted(newLinkDesc));
         link.setDescription(newLinkDesc);
         link.setLink(newLink);
         project.addNewLink(link);

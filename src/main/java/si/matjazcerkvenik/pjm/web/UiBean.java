@@ -4,11 +4,23 @@ import si.matjazcerkvenik.pjm.model.Project;
 import si.matjazcerkvenik.pjm.model.Tag;
 
 import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.context.FacesContext;
 
 public class UiBean {
 
+    @ManagedProperty(value="#{uiAppBean}")
+    protected UiAppBean uiAppBean;
+
     protected Project project;
+
+    public UiAppBean getUiAppBean() {
+        return uiAppBean;
+    }
+
+    public void setUiAppBean(UiAppBean uiAppBean) {
+        this.uiAppBean = uiAppBean;
+    }
 
     public Project getProject() {
         return project;

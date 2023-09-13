@@ -32,14 +32,12 @@ import java.util.Map;
 
 @ManagedBean
 @ViewScoped
-public class UiStatisticsBean implements Serializable {
+public class UiStatisticsBean extends UiBean implements Serializable {
 
     private static final long serialVersionUID = 2104684905L;
 
     private static final Logger logger = LoggerFactory.getLogger(UiStatisticsBean.class);
 
-    @ManagedProperty(value="#{uiAppBean}")
-    private UiAppBean uiAppBean;
 
     private Project project;
 
@@ -48,15 +46,7 @@ public class UiStatisticsBean implements Serializable {
         Map<String, String> requestParameterMap = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
         String id = requestParameterMap.getOrDefault("projectId", null);
         project = uiAppBean.getProject(id);
-        logger.info("UiStatisticsBean:init: loaded " + project.getName());
-    }
-
-    public UiAppBean getUiAppBean() {
-        return uiAppBean;
-    }
-
-    public void setUiAppBean(UiAppBean uiAppBean) {
-        this.uiAppBean = uiAppBean;
+        logger.info("loaded: " + project.getName());
     }
 
     public Project getProject() {

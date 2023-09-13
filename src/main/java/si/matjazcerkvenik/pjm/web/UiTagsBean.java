@@ -6,12 +6,9 @@ import org.slf4j.LoggerFactory;
 import si.matjazcerkvenik.pjm.model.*;
 import si.matjazcerkvenik.pjm.util.DAO;
 import si.matjazcerkvenik.pjm.util.Formatter;
-import si.matjazcerkvenik.pjm.util.MD5Checksum;
-import si.matjazcerkvenik.pjm.util.Utils;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.AjaxBehaviorEvent;
@@ -29,23 +26,12 @@ public class UiTagsBean extends UiBean implements Serializable {
 
     private static final Logger logger = LoggerFactory.getLogger(UiTagsBean.class);
 
-    @ManagedProperty(value="#{uiAppBean}")
-    private UiAppBean uiAppBean;
-
     @PostConstruct
     public void init() {
         Map<String, String> requestParameterMap = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
         String id = requestParameterMap.getOrDefault("projectId", null);
         project = uiAppBean.getProject(id);
         logger.info("UiTagsBean:init: loaded " + project.getName());
-    }
-
-    public UiAppBean getUiAppBean() {
-        return uiAppBean;
-    }
-
-    public void setUiAppBean(UiAppBean uiAppBean) {
-        this.uiAppBean = uiAppBean;
     }
 
     public List<Tag> getTagDefinitions() {
@@ -77,7 +63,7 @@ public class UiTagsBean extends UiBean implements Serializable {
         if (Formatter.isNullOrEmpty(newTagTitle)) return;
         if (!newTagColor.startsWith("#")) newTagColor = "#" + newTagColor;
         Tag t = new Tag();
-        t.setId(MD5Checksum.getMd5ChecksumShortSalted(newTagTitle));
+        t.setId(Formatter.getMd5ChecksumShortSalted(newTagTitle));
         t.setName(newTagTitle);
         t.setColor(newTagColor);
         project.addNewTag(t);

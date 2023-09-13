@@ -14,7 +14,7 @@ hr {
 
 .boldtext {
     font-weight: bold;
-    font-size: 10px;
+    /*font-size: 10px;*/
 }
 
 .tagBorder {
@@ -50,7 +50,7 @@ hr {
 	font-size: 11px;
 }
 body .ui-panelgrid .ui-panelgrid-cell {
-    padding: 0.5rem;
+    padding: 0.0rem;
 }
 
 
