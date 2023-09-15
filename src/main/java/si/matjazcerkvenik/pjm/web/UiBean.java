@@ -35,6 +35,11 @@ public class UiBean {
                 addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, s, null));
     }
 
+    public void growlErrorMessage(String s) {
+        FacesContext.getCurrentInstance().
+                addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, s, null));
+    }
+
     public String convertStatusToSeverity(String status) {
         if (status.equalsIgnoreCase("Draft")) {
             return "primary";

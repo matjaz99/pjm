@@ -14,8 +14,8 @@ public class Requirement implements Serializable {
     private String title;
     private String description;
     private XMLGregorianCalendar created;
-    private Tasks tasks;
-    private Comments comments;
+    private Tasks tasks = new Tasks();
+    private Comments comments = new Comments();;
     private Tags tags = new Tags();
     private Issues issues = new Issues();
 
@@ -65,7 +65,6 @@ public class Requirement implements Serializable {
     }
 
     public void addNewTask(Task taks) {
-        if (tasks == null) tasks = new Tasks();
         tasks.addNewTask(taks);
     }
 
@@ -79,7 +78,6 @@ public class Requirement implements Serializable {
     }
 
     public void addNewComment(Comment comment) {
-        if (comments == null) comments = new Comments();
         comments.addNewComment(comment);
     }
 
@@ -103,5 +101,15 @@ public class Requirement implements Serializable {
 
     public void addNewIssue(Issue issue) {
         issues.addNewIssue(issue);
+    }
+
+    public int calculateProgressOnRequirement() {
+        if (tasks.getList().size() == 0) return 0;
+        int all = tasks.getList().size();
+        int complete = 0;
+        for (Task t : tasks.getList()) {
+            if (t.getStatus() != null && t.getStatus().equalsIgnoreCase(TaskStatus.COMPLETE.label)) complete++;
+        }
+        return (int) complete * 100 / all;
     }
 }

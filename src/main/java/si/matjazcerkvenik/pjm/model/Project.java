@@ -17,8 +17,8 @@ public class Project implements Serializable {
     private String name;
     private XMLGregorianCalendar created;
     private String projectPath;
-    private Requirements requirements;
-    private Tags tagDefinitions;
+    private Requirements requirements = new Requirements();
+    private Tags tagDefinitions = new Tags();
     private Links links = new Links();
 
     public String getId() {
@@ -67,7 +67,6 @@ public class Project implements Serializable {
     }
 
     public void addNewRequirement(Requirement req) {
-        if (requirements == null) requirements = new Requirements();
         requirements.addNewRequirement(req);
     }
 
@@ -81,7 +80,6 @@ public class Project implements Serializable {
     }
 
     public void addNewTag(Tag req) {
-        if (tagDefinitions == null) tagDefinitions = new Tags();
         tagDefinitions.addNewTag(req);
     }
 
@@ -97,5 +95,8 @@ public class Project implements Serializable {
     public void addNewLink(Link link) {
         links.addNewLink(link);
     }
+
+
+
 
 }

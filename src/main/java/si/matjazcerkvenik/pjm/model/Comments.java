@@ -10,7 +10,7 @@ public class Comments implements Serializable {
 
     private static final long serialVersionUID = 26250947005L;
 
-    private List<Comment> list;
+    private List<Comment> list = new ArrayList<>();
 
     public List<Comment> getList() {
         return list;
@@ -22,7 +22,6 @@ public class Comments implements Serializable {
     }
 
     public void addNewComment(Comment remark) {
-        if (list == null) list = new ArrayList<>();
         list.add(remark);
     }
 }

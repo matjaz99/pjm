@@ -28,16 +28,18 @@
 					<p:outputLabel value="#{uiStatisticsBean.requirementsTotalCount}"/>
 					<p:outputLabel value="Total tasks:" class="boldtext"/>
 					<p:outputLabel value="#{uiStatisticsBean.getTasksTotalCount('null')}"/>
-					<p:outputLabel value=" - Drafts:" class="boldtext"/>
+					<p:outputLabel value=" - Drafts:"/>
 					<p:outputLabel value="#{uiStatisticsBean.getTasksTotalCount('draft')}"/>
-					<p:outputLabel value=" - In progress:" class="boldtext"/>
+					<p:outputLabel value=" - In progress:"/>
 					<p:outputLabel value="#{uiStatisticsBean.getTasksTotalCount('in progress')}"/>
-					<p:outputLabel value=" - Waiting:" class="boldtext"/>
+					<p:outputLabel value=" - Waiting:"/>
 					<p:outputLabel value="#{uiStatisticsBean.getTasksTotalCount('waiting')}"/>
-					<p:outputLabel value=" - To be clarified:" class="boldtext"/>
+					<p:outputLabel value=" - To be clarified:"/>
 					<p:outputLabel value="#{uiStatisticsBean.getTasksTotalCount('clarify')}"/>
-					<p:outputLabel value=" - Complete:" class="boldtext"/>
+					<p:outputLabel value=" - Complete:"/>
 					<p:outputLabel value="#{uiStatisticsBean.getTasksTotalCount('complete')}"/>
+					<p:outputLabel value="Total issues:" class="boldtext"/>
+					<p:outputLabel value="#{uiStatisticsBean.getIssuesTotalCount()}"/>
 				</p:panelGrid>
 			</p:panel>
 

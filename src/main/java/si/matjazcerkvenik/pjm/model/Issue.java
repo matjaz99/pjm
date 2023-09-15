@@ -2,6 +2,7 @@ package si.matjazcerkvenik.pjm.model;
 
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlTransient;
 
 import javax.xml.datatype.XMLGregorianCalendar;
 import java.io.Serializable;
@@ -14,6 +15,8 @@ public class Issue implements Serializable {
     private String solution;
     private String problem;
     private boolean resolved = false;
+    /** Reference to requirement ID */
+    private String reqRefId;
     private XMLGregorianCalendar created;
 
     public String getId() {
@@ -50,6 +53,15 @@ public class Issue implements Serializable {
     @XmlElement
     public void setResolved(boolean resolved) {
         this.resolved = resolved;
+    }
+
+    public String getReqRefId() {
+        return reqRefId;
+    }
+
+    @XmlTransient
+    public void setReqRefId(String reqRefId) {
+        this.reqRefId = reqRefId;
     }
 
     public XMLGregorianCalendar getCreated() {

@@ -2,6 +2,8 @@ package si.matjazcerkvenik.pjm.web;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import si.matjazcerkvenik.pjm.model.Task;
+import si.matjazcerkvenik.pjm.model.TaskStatus;
 import si.matjazcerkvenik.pjm.util.DAO;
 import si.matjazcerkvenik.pjm.model.Requirement;
 import si.matjazcerkvenik.pjm.util.Formatter;
@@ -44,6 +46,27 @@ public class UiProjectBean extends UiBean implements Serializable {
         DAO.getInstance().saveProject(project);
     }
 
+    public int calculateProgressOnRequirement(String reqId) {
+        for (Requirement r : project.getRequirements().getList()) {
+            if (r.getId().equals(reqId)) {
+                return r.calculateProgressOnRequirement();
+            }
+        }
+        return 0;
+    }
+
+    public boolean hasRequirementOpenIssues(String reqId) {
+        for (Requirement r : project.getRequirements().getList()) {
+            if (r.getId().equals(reqId)) {
+                if (r.getIssues().getList().size() > 0) return true;
+            }
+        }
+        return false;
+    }
+
+
+
+    /* Handling of new requirement dialog */
 
     private String newReqTitle;
 

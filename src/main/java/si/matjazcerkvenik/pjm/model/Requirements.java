@@ -10,7 +10,7 @@ public class Requirements implements Serializable {
 
     private static final long serialVersionUID = 1711749401L;
 
-    private List<Requirement> list;
+    private List<Requirement> list = new ArrayList<>();
 
     public List<Requirement> getList() {
         return list;
@@ -22,7 +22,6 @@ public class Requirements implements Serializable {
     }
 
     public void addNewRequirement(Requirement req) {
-        if (list == null) list = new ArrayList<>();
         list.add(req);
     }
 }

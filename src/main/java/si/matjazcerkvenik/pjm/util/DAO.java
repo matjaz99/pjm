@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import si.matjazcerkvenik.pjm.model.Alarm;
 import si.matjazcerkvenik.pjm.model.Project;
+import si.matjazcerkvenik.pjm.model.Requirement;
 
 import java.io.File;
 import java.io.FileFilter;
@@ -69,6 +70,13 @@ public class DAO {
             project.setProjectPath(file.getAbsolutePath());
 
             logger.info("DAO:loadProject: " + file.getAbsolutePath());
+
+
+            for (Requirement req : project.getRequirements().getList()) {
+
+                // make sure every requirement has created timestamp
+                if (req.getCreated() == null) req.setCreated(Formatter.getXmlGregorianCalendarNow());
+            }
 
         } catch (JAXBException e) {
             logger.error("DAO:loadProject: JAXBException: ", e);

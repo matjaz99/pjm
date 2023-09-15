@@ -2,11 +2,14 @@ package si.matjazcerkvenik.pjm.web;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import si.matjazcerkvenik.pjm.model.PeriodicTask;
+import si.matjazcerkvenik.pjm.model.Project;
+import si.matjazcerkvenik.pjm.model.Requirement;
+import si.matjazcerkvenik.pjm.model.Task;
+import si.matjazcerkvenik.pjm.model.TaskStatus;
+import si.matjazcerkvenik.pjm.timertasks.PeriodicTask;
 import si.matjazcerkvenik.pjm.util.DAO;
 import si.matjazcerkvenik.pjm.util.Formatter;
 import si.matjazcerkvenik.pjm.util.Props;
-import si.matjazcerkvenik.pjm.model.Project;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ApplicationScoped;
@@ -25,19 +28,20 @@ public class UiAppBean implements Serializable {
 
     private List<Project> projects;
 
-    protected Timer periodicTimer = null;
-    private PeriodicTask periodicTask = null;
+    protected Timer periodicTimer;
+
+    public PeriodicTask periodicTask;
 
     @PostConstruct
     public void init() {
         if (projects == null) {
             projects = DAO.getInstance().loadAllProjects();
-            logger.info("UiAppBean:init");
+            logger.info("init");
         }
 
         periodicTimer = new Timer("PeriodicTimer");
         periodicTask = new PeriodicTask(projects);
-        periodicTimer.schedule(periodicTask, 30 * 1000, 5 * 60 * 1000);
+        periodicTimer.schedule(periodicTask, 3 * 1000, 5 * 60 * 1000);
         logger.info("periodic timer started");
     }
 
@@ -54,6 +58,35 @@ public class UiAppBean implements Serializable {
             if (p.getId().equals(id)) return p;
         }
         return null;
+    }
+
+    /**
+     * This method works slightly different that <code>Ui.ProjectBean.calculateProgressOnRequirement</code>
+     * because it takes into account also requirements without tasks. In this case it is assumed that
+     * requirement is not fulfilled and counts as 1 incomplete task.
+     * @param projectId
+     * @return progress in percentage
+     */
+    public int calculateProgressOnProject(String projectId) {
+        int all = 0;
+        int complete = 0;
+        for (Project p : projects) {
+            if (p.getId().equals(projectId)) {
+                if (p.getRequirements().getList().size() == 0) return 0;
+                for (Requirement r : p.getRequirements().getList()) {
+                    if (r.getTasks().getList().size() == 0) {
+                        all++;
+                    } else {
+                        all = all + r.getTasks().getList().size();
+                        for (Task t : r.getTasks().getList()) {
+                            if (t.getStatus() != null && t.getStatus().equalsIgnoreCase(TaskStatus.COMPLETE.label)) complete++;
+                        }
+                    }
+                }
+                return (int) complete * 100 / all;
+            }
+        }
+        return 0;
     }
 
     private String newProjectName;

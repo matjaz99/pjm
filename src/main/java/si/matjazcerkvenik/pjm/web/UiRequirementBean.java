@@ -292,8 +292,12 @@ public class UiRequirementBean extends UiBean implements Serializable {
     public void resolveIssueAction(String id) {
         for (Issue issue : requirement.getIssues().getList()) {
             if (issue.getId().equals(id)) {
+//                if (Formatter.isNullOrEmpty(issue.getSolution())) {
+//                    growlErrorMessage("No solution to the problem!");
+//                    return;
+//                }
                 issue.setResolved(!issue.isResolved());
-                logger.info("issue resolved: id=" + id);
+                logger.info("issue resolved: id=" + id + ", resolved=" + issue.isResolved());
                 break;
             }
         }

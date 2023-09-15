@@ -89,6 +89,14 @@ public class UiStatisticsBean extends UiBean implements Serializable {
         return Utils.getRequirementsWithoutTasks(project);
     }
 
+    public int getIssuesTotalCount() {
+        int count = 0;
+        for (Requirement r : project.getRequirements().getList()) {
+            if (r.getIssues().getList().size() > 0) count = count + r.getIssues().getList().size();
+        }
+        return count;
+    }
+
     private BarChartModel barModel;
 
     public BarChartModel getBarModel() {

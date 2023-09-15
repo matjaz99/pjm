@@ -1,5 +1,9 @@
-package si.matjazcerkvenik.pjm.model;
+package si.matjazcerkvenik.pjm.timertasks;
 
+import si.matjazcerkvenik.pjm.model.Alarms;
+import si.matjazcerkvenik.pjm.model.Project;
+import si.matjazcerkvenik.pjm.model.Requirement;
+import si.matjazcerkvenik.pjm.model.TaskStatus;
 import si.matjazcerkvenik.pjm.util.DAO;
 import si.matjazcerkvenik.pjm.util.Utils;
 
@@ -16,6 +20,8 @@ public class PeriodicTask extends TimerTask {
 
     @Override
     public void run() {
+
+        boolean openedIssues = false;
 
         for (Project project : projects) {
 
@@ -42,6 +48,8 @@ public class PeriodicTask extends TimerTask {
             } else {
                 DAO.getInstance().clearAlarm(project.getId(), Alarms.reqsWithClarifyTasks);
             }
+
+            // check if there are opened issues
         }
 
 

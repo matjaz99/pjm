@@ -31,7 +31,7 @@
 					<div class="card">
 						<i class="pi pi-globe" style="font-size: 4rem"></i>
 					</div>
-					<p:link outcome="planning" value="Planning" class="boldtext">
+					<p:link outcome="planning" value="Project" class="boldtext">
 						<f:param name="projectId" value="#{uiProjectBean.project.id}"/>
 					</p:link>
 				</p:panel>
@@ -116,7 +116,7 @@
 
 			<h:form id="requirementsForm">
 
-				<p:dataTable value="#{uiProjectBean.project.requirements.list}" var="req"
+				<p:dataTable id="requirementsTable" value="#{uiProjectBean.project.requirements.list}" var="req"
 							 cellpadding="0" cellspacing="0">
 					<p:column headerText="Title">
 						<h:link id="content-#{uiProjectBean.project.id}" value="#{req.title}" outcome="/project/requirement">
@@ -138,6 +138,12 @@
 					</p:column>
 					<p:column headerText="Tasks">
 						<p:outputLabel value="#{req.tasks.list.size()}"/>
+						<p:panel rendered="#{req.issues.list.size() > 0 ? true : false}">
+							<span class="pi pi-exclamation-triangle"></span>
+						</p:panel>
+					</p:column>
+					<p:column headerText="Progress">
+						<p:progressBar value="#{uiProjectBean.calculateProgressOnRequirement(req.id)}" labelTemplate="{value}%" displayOnly="true"/>
 					</p:column>
 					<p:column headerText="Action">
 						<p:commandButton value="Delete"

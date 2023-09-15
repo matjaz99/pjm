@@ -10,7 +10,7 @@ public class Tasks implements Serializable {
 
     private static final long serialVersionUID = 16484961015L;
 
-    private List<Task> list;
+    private List<Task> list = new ArrayList<>();
 
     public List<Task> getList() {
         return list;
@@ -22,7 +22,6 @@ public class Tasks implements Serializable {
     }
 
     public void addNewTask(Task task) {
-        if (list == null) list = new ArrayList<>();
         list.add(task);
     }
 }

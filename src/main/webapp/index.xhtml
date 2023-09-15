@@ -29,9 +29,11 @@
 		<p:column headerText="Requirements">
 			<p:outputLabel value="#{project.requirements.list.size()}"/>
 		</p:column>
+		<p:column headerText="Progress">
+			<p:progressBar value="#{uiAppBean.calculateProgressOnProject(project.id)}" labelTemplate="{value}%" displayOnly="true"/>
+		</p:column>
 		<p:column headerText="Action">
 			<h:form id="actionsForm">
-			<p:outputLabel value="XXX"/>
 			<p:commandButton value="Delete"
 							 action="#{uiAppBean.deleteProjectAction(project)}"
 							 update="projectsTable"
