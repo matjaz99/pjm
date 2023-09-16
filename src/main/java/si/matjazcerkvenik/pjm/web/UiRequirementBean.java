@@ -52,22 +52,18 @@ public class UiRequirementBean extends UiBean implements Serializable {
     }
 
 
+
     /*  Edit requirement  */
 
-    public void saveDescription() {
-        logger.info("saveDescription: " + requirement.getDescription());
-        DAO.getInstance().saveProject(project);
-        growlInfoMessage("Saved");
-    }
 
-    public String getRequirementId() {
-        return requirement.getId();
-    }
-
-    public void setRequirementId(String id) {
-        requirement.setId(id);
-        DAO.getInstance().saveProject(project);
-    }
+//    public String getRequirementId() {
+//        return requirement.getId();
+//    }
+//
+//    public void setRequirementId(String id) {
+//        requirement.setId(id);
+//        DAO.getInstance().saveProject(project);
+//    }
 
     public String getRequirementTitle() {
         return requirement.getTitle();
@@ -75,23 +71,17 @@ public class UiRequirementBean extends UiBean implements Serializable {
 
     public void setRequirementTitle(String title) {
         requirement.setTitle(title);
-        DAO.getInstance().saveProject(project);
+        saveProjectModifications("Saved");
     }
 
-//    public String convertStatusToSeverity(String status) {
-//        if (status.equalsIgnoreCase("Draft")) {
-//            return "primary";
-//        } else if (status.equalsIgnoreCase("In progress")) {
-//            return "info";
-//        } else if (status.equalsIgnoreCase("Clarify")) {
-//            return "warning";
-//        } else if (status.equalsIgnoreCase("Waiting")) {
-//            return "danger";
-//        } else if (status.equalsIgnoreCase("Complete")) {
-//            return "success";
-//        }
-//        return "primary";
-//    }
+
+
+    public String deleteRequirement() {
+        // FIXME tole še ne dela
+        System.out.println("DELETE " + requirement.getTitle());
+        return "project.xhtml?projectId=" + project.getId();
+    }
+
 
 
 
@@ -116,9 +106,8 @@ public class UiRequirementBean extends UiBean implements Serializable {
         t.setCreated(Formatter.getXmlGregorianCalendarNow());
         requirement.addNewTask(t);
         logger.info("addNewTaskAction: id: " + t.getId() + ", title: " + newTskTitle);
-        DAO.getInstance().saveProject(project);
         newTskTitle = null;
-        growlInfoMessage("New task created");
+        saveProjectModifications("New task created");
     }
 
     public void deleteTaskAction(String id) {
@@ -177,7 +166,7 @@ public class UiRequirementBean extends UiBean implements Serializable {
         growlInfoMessage("Comment deleted");
     }
 
-    // TODO add method to modify comment and update the lastModified timestamp
+    // TODO modify comment and update the lastModified timestamp
 
 
 
@@ -201,21 +190,6 @@ public class UiRequirementBean extends UiBean implements Serializable {
         return selectedTagsList;
     }
 
-
-
-    private Tag tagDef2Tag(String name) {
-        Tag tagDef = null;
-        for (Tag td : project.getTagDefinitions().getList()) {
-            if (td.getName().equalsIgnoreCase(name)) {
-                tagDef = td;
-            }
-        }
-        Tag tag = new Tag();
-        tag.setRefId(tagDef.getId());
-        tag.setId(Formatter.getMd5ChecksumShortSalted(tagDef.getName() + tagDef.getColor()));
-        return tag;
-    }
-
     public void setSelectedTagsList(List<String> selectedTagsList) {
         this.selectedTagsList = selectedTagsList;
 //        if (requirement.getTags() == null) {
@@ -231,21 +205,31 @@ public class UiRequirementBean extends UiBean implements Serializable {
 //        }
     }
 
+
+    private Tag tagDef2Tag(String name) {
+        Tag tagDef = null;
+        for (Tag td : project.getTagDefinitions().getList()) {
+            if (td.getName().equalsIgnoreCase(name)) {
+                tagDef = td;
+            }
+        }
+        Tag tag = new Tag();
+        tag.setRefId(tagDef.getId());
+        tag.setId(Formatter.getMd5ChecksumShortSalted(tagDef.getName() + tagDef.getColor()));
+        return tag;
+    }
+
     public void selectedTagChangeEvent(ValueChangeEvent event) {
         List<String> tagList = (List<String>) event.getNewValue();
         requirement.getTags().getList().clear();
         for (String tagDef : tagList) {
             Tag tag = tagDef2Tag(tagDef);
             requirement.getTags().getList().add(tag);
-            System.out.println("selectedTagChangeEvent add: " + tag.getRefId());
         }
-        logger.info("selectedTagChangeEvent: tagList:" + tagList);
+        logger.info("tagList:" + tagList);
         DAO.getInstance().saveProject(project);
     }
 
-    public void saveTagsOnRequirement() {
-        System.out.println("selected: " + selectedTagsList);
-    }
 
 
 

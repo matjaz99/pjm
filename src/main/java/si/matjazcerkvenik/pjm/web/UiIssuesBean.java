@@ -37,7 +37,7 @@ public class UiIssuesBean extends UiBean implements Serializable {
     }
 
 
-    public List<Issue> getIssuesList() {
+    public List<Issue> getOpenIssuesList() {
         List<Issue> list = new ArrayList<>();
         for (Requirement req : project.getRequirements().getList()) {
             for (Issue issue : req.getIssues().getList()) {
@@ -55,11 +55,12 @@ public class UiIssuesBean extends UiBean implements Serializable {
             for (Issue issue : req.getIssues().getList()) {
                 if (issue.getId().equals(id)) {
                     issue.setResolved(!issue.isResolved());
+                    DAO.getInstance().saveProject(project);
+                    growlInfoMessage("Issue resolved");
+                    return;
                 }
             }
         }
-        DAO.getInstance().saveProject(project);
-        growlInfoMessage("Issue resolved");
     }
 
     public Requirement findRequirement(String reqId) {

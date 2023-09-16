@@ -24,7 +24,7 @@
 			<p:outputLabel value="Open issues" style="font-weight: bold; font-size: 24px;"/>
 
 			<h:form id="issuesForm">
-				<p:dataTable value="#{uiIssuesBean.getIssuesList()}" var="issue"
+				<p:dataTable value="#{uiIssuesBean.getOpenIssuesList()}" var="issue"
 							 cellpadding="0" cellspacing="0">
 					<p:column headerText="Requirement">
 						<h:link value="#{uiIssuesBean.findRequirement(issue.reqRefId).title}" outcome="/project/requirement">
@@ -35,11 +35,13 @@
 					<p:column headerText="Problem">
 						<p:inplace editor="true">
 							<p:inputText value="#{issue.problem}" required="true" label="text"/>
+							<p:ajax event="save" listener="#{uiIssuesBean.saveProjectModifications('Saved')}" update="growl issuesForm" />
 						</p:inplace>
 					</p:column>
 					<p:column headerText="Solution">
 						<p:inplace editor="true">
 							<p:inputText value="#{issue.solution}" required="true" label="text"/>
+							<p:ajax event="save" listener="#{uiIssuesBean.saveProjectModifications('Saved')}" update="growl issuesForm" />
 						</p:inplace>
 					</p:column>
 					<p:column headerText="Action">

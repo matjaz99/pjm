@@ -1,6 +1,6 @@
 package si.matjazcerkvenik.pjm.model;
 
-public class Alarms {
+public class AlarmDefs {
 
     // info, warning, danger
 

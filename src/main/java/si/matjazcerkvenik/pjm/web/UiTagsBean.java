@@ -79,13 +79,26 @@ public class UiTagsBean extends UiBean implements Serializable {
             Tag r = it.next();
             if (r.getId().equals(id)) {
                 it.remove();
-                logger.info("deleteTagAction: tag: " + id);
+                logger.info("tagId=" + id);
                 break;
             }
         }
+
+        // also delete tags on requirements
+        for (Requirement r : project.getRequirements().getList()) {
+            for (Iterator<Tag> it = r.getTags().getList().iterator(); it.hasNext();) {
+                Tag t = it.next();
+                if (t.getRefId().equals(id)) {
+                    it.remove();
+                    logger.info("tagId=" + id + " on req=" + r.getId());
+                    break;
+                }
+            }
+        }
+
         DAO.getInstance().saveProject(project);
         growlInfoMessage("Tag deleted");
-        // TODO also delete tags on requirements
+
     }
 
     public void onColorChange(AjaxBehaviorEvent e) {

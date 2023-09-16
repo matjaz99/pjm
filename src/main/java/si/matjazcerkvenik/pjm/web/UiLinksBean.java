@@ -35,7 +35,7 @@ public class UiLinksBean extends UiBean implements Serializable {
 
 
     private String newLinkDesc;
-    private String newLink;
+    private String newLinkHref;
 
     public String getNewLinkDesc() {
         return newLinkDesc;
@@ -45,26 +45,26 @@ public class UiLinksBean extends UiBean implements Serializable {
         this.newLinkDesc = newLinkDesc;
     }
 
-    public String getNewLink() {
-        return newLink;
+    public String getNewLinkHref() {
+        return newLinkHref;
     }
 
-    public void setNewLink(String newLink) {
-        this.newLink = newLink;
+    public void setNewLinkHref(String newLinkHref) {
+        this.newLinkHref = newLinkHref;
     }
 
     public void addNewLinkAction() {
         if (Formatter.isNullOrEmpty(newLinkDesc)) return;
-        if (Formatter.isNullOrEmpty(newLink)) return;
+        if (Formatter.isNullOrEmpty(newLinkHref)) return;
         Link link = new Link();
         link.setId(Formatter.getMd5ChecksumShortSalted(newLinkDesc));
         link.setDescription(newLinkDesc);
-        link.setLink(newLink);
+        link.setHref(newLinkHref);
         project.addNewLink(link);
-        logger.info("new link: " + newLink);
+        logger.info("new link: " + newLinkHref);
         DAO.getInstance().saveProject(project);
         newLinkDesc = null;
-        newLink = null;
+        newLinkHref = null;
         growlInfoMessage("New link created");
     }
 

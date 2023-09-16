@@ -7,11 +7,11 @@ import java.io.Serializable;
 
 public class Link implements Serializable {
 
-    private static final long serialVersionUID = 306458499L;
+    private static final long serialVersionUID = 306215849L;
 
     private String id;
     private String description;
-    private String link;
+    private String href;
 
     public String getId() {
         return id;
@@ -31,12 +31,12 @@ public class Link implements Serializable {
         this.description = description;
     }
 
-    public String getLink() {
-        return link;
+    public String getHref() {
+        return href;
     }
 
     @XmlElement
-    public void setLink(String link) {
-        this.link = link;
+    public void setHref(String href) {
+        this.href = href;
     }
 }

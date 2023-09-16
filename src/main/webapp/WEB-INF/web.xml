@@ -31,6 +31,12 @@
         <param-value>/WEB-INF/pjm.taglib.xml</param-value>
     </context-param>
 
+    <!-- Primefaces themes: arya, luna-amber, luna-blue, luna-green, luna-pink, nova-colored, nova-dark, nova-light, saga (DEFAULT), vela -->
+    <context-param>
+        <param-name>primefaces.THEME</param-name>
+        <param-value>saga</param-value>
+    </context-param>
+
     <!-- Restricted access to resources -->
     <security-constraint>
         <display-name>Restrict direct access to the web folders</display-name>

@@ -2,6 +2,7 @@ package si.matjazcerkvenik.pjm.web;
 
 import si.matjazcerkvenik.pjm.model.Project;
 import si.matjazcerkvenik.pjm.model.Tag;
+import si.matjazcerkvenik.pjm.util.DAO;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedProperty;
@@ -28,6 +29,14 @@ public class UiBean {
 
     public void setProject(Project project) {
         this.project = project;
+    }
+
+    /**
+     * Something was changed. Just save to disk.
+     */
+    public void saveProjectModifications(String message) {
+        DAO.getInstance().saveProject(project);
+        growlInfoMessage(message);
     }
 
     public void growlInfoMessage(String s) {

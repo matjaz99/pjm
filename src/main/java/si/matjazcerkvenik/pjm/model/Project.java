@@ -89,7 +89,7 @@ public class Project implements Serializable {
 
     @XmlElement(name = "links")
     public void setLinks(Links links) {
-        this.links = this.links;
+        this.links = links;
     }
 
     public void addNewLink(Link link) {

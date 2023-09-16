@@ -3,34 +3,34 @@
     <links>
         <link id="62ffcf46">
             <description>sfdg</description>
-            <link>http</link>
         </link>
     </links>
     <name>Projekt E</name>
     <requirements>
-        <requirement id="REQ-01">
+        <requirement created="2023-09-16T10:25:27.194+02:00" id="REQ-01">
             <comments>
-                <comment id="ba248c98" lastModified="2023-08-30T00:25:21.399+02:00">ggg</comment>
-                <comment id="44f437ce" lastModified="2023-08-30T00:25:29.576+02:00">rrr</comment>
+                <comment id="ba248c98" lastModified="2023-08-30T00:25:21.399+02:00">g2345</comment>
+                <comment id="44f437ce" lastModified="2023-08-30T00:25:29.576+02:00">RRR</comment>
                 <comment id="42bd5e4c" lastModified="2023-08-30T00:25:33.792+02:00">fghfghfgf</comment>
                 <comment id="77963b7a" lastModified="2023-08-30T23:11:58.141+02:00">ddd</comment>
                 <comment created="2023-09-11T21:03:21.908+02:00" id="0587c913" lastModified="2023-09-11T21:03:21.908+02:00">jiuhuyg</comment>
+                <comment created="2023-09-16T15:14:01.460+02:00" id="3c012f51" lastModified="2023-09-16T15:14:01.460+02:00">fffff</comment>
             </comments>
-            <description>&lt;p&gt;aaa&lt;/p&gt;&lt;p&gt;&lt;strong&gt;ggg&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;kkk&lt;/p&gt;</description>
+            <description>&lt;p&gt;Shranjevanje v xml file.&lt;/p&gt;</description>
             <issues>
                 <issue created="2023-09-15T23:35:58.185+02:00" id="e8d128fd">
-                    <problem>adsfasdfasdfasdf</problem>
-                    <resolved>false</resolved>
+                    <problem>aaaaaaaa</problem>
+                    <resolved>true</resolved>
+                    <solution>bbbbb</solution>
                 </issue>
                 <issue created="2023-09-15T23:36:14.017+02:00" id="7a5bd450">
                     <problem>gffgf</problem>
-                    <resolved>false</resolved>
+                    <resolved>true</resolved>
                 </issue>
             </issues>
             <tags>
-                <tag id="74ff45b5" refId="a41adc67"></tag>
-                <tag id="d6f834a4" refId="4a6c3d9e"></tag>
-                <tag id="d72a23b7" refId="7dee1dd7"></tag>
+                <tag id="507a9109" refId="4a6c3d9e"/>
+                <tag id="20ae84c7" refId="7dee1dd7"/>
             </tags>
             <tasks>
                 <task id="110e9647">
@@ -50,94 +50,99 @@
                     <status>Complete</status>
                     <title>TODO 4</title>
                 </task>
+                <task created="2023-09-16T15:14:54.733+02:00" id="fc1a0494">
+                    <description>&lt;p&gt;asdfsdfgertge werer wer wergwerqewrf rwrefwer&lt;/p&gt;</description>
+                    <status>Waiting</status>
+                    <title>ASW</title>
+                </task>
             </tasks>
-            <title>Zahteva 1</title>
+            <title>Zahteva 1.1</title>
         </requirement>
-        <requirement id="REQ-02">
+        <requirement created="2023-09-16T10:25:27.194+02:00" id="REQ-02">
             <comments>
-                <comment id="3d3dc8ab" lastModified="2023-08-30T23:20:14.718+02:00">Add some sugar</comment>
+                <comment created="2023-09-16T15:36:18.973+02:00" id="f895a376" lastModified="2023-09-16T15:36:18.974+02:00">kjooo</comment>
+                <comment created="2023-09-16T15:36:31.826+02:00" id="40d994d4" lastModified="2023-09-16T15:36:31.826+02:00">fds</comment>
             </comments>
-            <description>&lt;p&gt;The product must produce:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Tiny beans&lt;/li&gt;&lt;li&gt;Hot apples&lt;/li&gt;&lt;li&gt;Top bananas&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;Products must be packed in 1 and 5 kilogram boxes.&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;</description>
-            <issues/>
+            <description>&lt;p&gt;Zahteva ima naslov, opis, tage, issue, komentarje, taske..&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;</description>
+            <issues>
+                <issue created="2023-09-16T15:25:23.683+02:00" id="04706983">
+                    <problem>rrreeeqq</problem>
+                    <resolved>false</resolved>
+                    <solution>hjjjh</solution>
+                </issue>
+                <issue created="2023-09-16T15:34:07.208+02:00" id="a976a617">
+                    <problem>rrreeekkk</problem>
+                    <resolved>false</resolved>
+                    <solution>123</solution>
+                </issue>
+            </issues>
             <tags>
-                <tag id="1beef720" refId="7dee1dd7"></tag>
+                <tag id="462d255b" refId="7dee1dd7"/>
+                <tag id="91f3bf7c" refId="cbd62164"/>
             </tags>
             <tasks>
-                <task id="1b1f4e54">
-                    <title>Bake some Hot apples</title>
+                <task created="2023-09-16T18:45:52.307+02:00" id="bd88d9e8">
+                    <status>Complete</status>
+                    <title>Model requirementsov</title>
                 </task>
-                <task id="b2a18753">
-                    <title>Pack the Hot apples in boxes</title>
+                <task created="2023-09-16T18:46:08.256+02:00" id="febe215b">
+                    <status>Complete</status>
+                    <title>Pripenjanje tagov</title>
+                </task>
+                <task created="2023-09-16T18:46:21.250+02:00" id="3e9d1689">
+                    <status>Complete</status>
+                    <title>Pripenjanje issuev</title>
+                </task>
+                <task created="2023-09-16T18:46:29.259+02:00" id="dbe74d9e">
+                    <status>Complete</status>
+                    <title>Dodajanje komentarjev</title>
+                </task>
+                <task created="2023-09-16T18:46:39.260+02:00" id="f257f63a">
+                    <status>Complete</status>
+                    <title>Dodajanje taskov</title>
                 </task>
             </tasks>
-            <title>Zahteva 2</title>
+            <title>Zahteve</title>
         </requirement>
-        <requirement id="REQ-03">
+        <requirement created="2023-09-16T10:25:27.195+02:00" id="REQ-03">
             <comments/>
-            <description>&lt;p&gt;afasd falkj &lt;span style="background-color:rgb( 255 , 255 , 0 )"&gt;falksdj&lt;/span&gt; &lt;span style="color:rgb( 230 , 0 , 0 )"&gt;falksjda&lt;/span&gt; fksjf asjd &lt;strong&gt;faskdjalkjdslfak&lt;/strong&gt; f jjjjsjdkjf.&lt;/p&gt;</description>
+            <description>&lt;p&gt;Metrike se zapisujeo v file, ki ga je enostavno sparsati (npr csv). Metrike se prikazujejo na grafih.&lt;/p&gt;</description>
             <issues/>
             <tags>
                 <tag id="09e52c22" refId="b703ef27"></tag>
             </tags>
             <tasks>
-                <task id="27f237e6">
-                    <title>A1</title>
+                <task created="2023-09-16T18:33:22.271+02:00" id="fa5071e5">
+                    <status>Draft</status>
+                    <title>DAO write to file</title>
                 </task>
-                <task id="c6bdf6f6">
-                    <title>A2</title>
-                </task>
-                <task id="6593d7b1">
-                    <title>A3</title>
-                </task>
-                <task id="c9512565">
-                    <title>B1</title>
-                </task>
-                <task id="bbd97b00">
-                    <title>B2</title>
-                </task>
-                <task id="1a2ddc2d">
-                    <title>C1</title>
+                <task created="2023-09-16T18:33:37.129+02:00" id="33f65394">
+                    <status>Draft</status>
+                    <title>DAO read file</title>
                 </task>
             </tasks>
-            <title>Zahteva 3</title>
+            <title>Metrike</title>
         </requirement>
-        <requirement id="443f79c9">
-            <comments/>
-            <description>&lt;p&gt;adfa adsf asd sdsd asffdds.&lt;/p&gt;</description>
-            <issues/>
-            <tags/>
-            <tasks>
-                <task id="10c30788">
-                    <title>Todo 4.1</title>
-                </task>
-                <task id="6bdb8aa6">
-                    <title>Todo 4.2</title>
-                </task>
-            </tasks>
-            <title>Zahteva 4</title>
-        </requirement>
-        <requirement id="dff1b0b3">
+        <requirement created="2023-09-16T10:25:27.195+02:00" id="dff1b0b3">
             <comments/>
             <description>&lt;p&gt;Na REQ ali na TASK je potrebno dodati možnost dodajanja komentarjev. Komentarje je možno spremeniti. Zabeleži se zadnji čas spremembe komentarja.&lt;/p&gt;</description>
             <issues/>
-            <tags/>
+            <tags>
+                <tag id="b0ec0d21" refId="9efc4469"/>
+            </tags>
             <tasks>
                 <task id="89de3318">
                     <status>Complete</status>
                     <title>Dodaj komentarje na requirement</title>
                 </task>
                 <task id="1d7f4e4c">
-                    <status>In progress</status>
-                    <title>Dodaj komentarje na task</title>
-                </task>
-                <task id="a75a44e1">
                     <status>Draft</status>
-                    <title>jknkj</title>
+                    <title>Dodaj komentarje na task</title>
                 </task>
             </tasks>
             <title>Komentarji</title>
         </requirement>
-        <requirement id="fff87e50">
+        <requirement created="2023-09-16T10:25:27.195+02:00" id="fff87e50">
             <comments/>
             <description>&lt;p&gt;Produkt mora podpirati dodajanje opomnikov. Na opomniku mora biti nastavljiv čas, kdaj uporabnika opozori.&lt;/p&gt;&lt;p&gt;Lahko pa se nastavi opomnik ko se spremeni status zahteve ali taska.&lt;/p&gt;</description>
             <issues/>
@@ -152,13 +157,11 @@
             </tasks>
             <title>Opomniki</title>
         </requirement>
-        <requirement id="eed13c84">
+        <requirement created="2023-09-16T10:25:27.195+02:00" id="eed13c84">
             <comments/>
             <description>&lt;p&gt;Možni statusi taskov:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Draft&lt;/li&gt;&lt;li&gt;In progress&lt;/li&gt;&lt;li&gt;Clarify&lt;/li&gt;&lt;li&gt;Waiting&lt;/li&gt;&lt;li&gt;Complete&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;</description>
             <issues/>
-            <tags>
-                <tag id="a4769c36" refId="a41adc67"></tag>
-            </tags>
+            <tags/>
             <tasks>
                 <task id="452676c1">
                     <status>Complete</status>
@@ -167,49 +170,109 @@
             </tasks>
             <title>Status taskov</title>
         </requirement>
-        <requirement id="d50ae403">
+        <requirement created="2023-09-16T10:25:27.195+02:00" id="d50ae403">
             <comments/>
             <description>&lt;p&gt;Zahteve je možno razdeliti po releasih. Release ima verzijo in planiran rok.&lt;/p&gt;</description>
-            <issues/>
+            <issues>
+                <issue created="2023-09-16T18:15:19.956+02:00" id="40874aa9">
+                    <problem>A je lahko release kot tag?</problem>
+                    <resolved>false</resolved>
+                </issue>
+            </issues>
             <tags/>
-            <tasks/>
+            <tasks>
+                <task created="2023-09-16T18:15:47.503+02:00" id="a2a6b0ef">
+                    <status>Draft</status>
+                    <title>Model releasov</title>
+                </task>
+            </tasks>
             <title>Releases</title>
         </requirement>
-        <requirement id="5c104635">
+        <requirement created="2023-09-16T10:25:27.195+02:00" id="5c104635">
             <comments/>
-            <description>&lt;p&gt;Zahteve je možno grupirati v funkcionalne grupe. Npr. omrežja, vmesniki, aplikacija, logi...&lt;/p&gt;</description>
+            <description>&lt;p&gt;Zahteve je možno grupirati v &lt;span style="color:rgb( 230 , 0 , 0 )"&gt;funkcionalne grupe&lt;/span&gt;. Npr. omrežja, vmesniki, aplikacija, logi...&lt;/p&gt;</description>
             <issues/>
-            <tags/>
-            <tasks/>
+            <tags>
+                <tag id="3bede463" refId="cbd62164"/>
+            </tags>
+            <tasks>
+                <task created="2023-09-16T18:17:14.168+02:00" id="7fc013c0">
+                    <status>Draft</status>
+                    <title>Dodaj grupo na requirement</title>
+                </task>
+            </tasks>
             <title>Requirement groups</title>
         </requirement>
-        <requirement id="8501b953">
+        <requirement created="2023-09-16T10:25:27.195+02:00" id="8501b953">
             <comments/>
             <description>&lt;p&gt;Popis omrežja, IP naslovov, strežniki, produkti, linki, uporabniška imena, gesla&lt;/p&gt;</description>
             <issues/>
             <tags/>
-            <tasks/>
+            <tasks>
+                <task created="2023-09-16T18:25:58.250+02:00" id="03e8700a">
+                    <status>Draft</status>
+                    <title>Analyze which PF component to use</title>
+                </task>
+                <task created="2023-09-16T18:26:11.961+02:00" id="6731dfab">
+                    <status>Draft</status>
+                    <title>Implement model</title>
+                </task>
+                <task created="2023-09-16T18:26:26.485+02:00" id="bd3a53b6">
+                    <status>Draft</status>
+                    <title>Page view</title>
+                </task>
+            </tasks>
             <title>Testno okolje</title>
         </requirement>
-        <requirement id="ac733b04">
+        <requirement created="2023-09-16T10:25:27.195+02:00" id="ac733b04">
             <comments/>
             <description>&lt;p&gt;Splaniraj agendo za vnaprej. Daj v koledar kot sestanek. Opomnik pred sestankom. Zapisnik. Relacije na zahteve.&lt;/p&gt;</description>
             <issues/>
             <tags>
-                <tag id="4f179bca" refId="a41adc67"></tag>
                 <tag id="59f58bd0" refId="90cca284"></tag>
             </tags>
-            <tasks/>
+            <tasks>
+                <task created="2023-09-16T18:29:15.722+02:00" id="c84c16a5">
+                    <status>Draft</status>
+                    <title>Model agende</title>
+                </task>
+                <task created="2023-09-16T18:29:23.722+02:00" id="588b8b5a">
+                    <status>Draft</status>
+                    <title>Checkboxi na agendi</title>
+                </task>
+                <task created="2023-09-16T18:30:04.763+02:00" id="a0e6e6ae">
+                    <status>Draft</status>
+                    <title>Periodika agend</title>
+                </task>
+                <task created="2023-09-16T18:30:45.259+02:00" id="829b05b0">
+                    <status>Draft</status>
+                    <title>Model sestankov</title>
+                </task>
+                <task created="2023-09-16T18:30:56.117+02:00" id="3ec270c7">
+                    <status>Draft</status>
+                    <title>Zapisnik sestanka</title>
+                </task>
+                <task created="2023-09-16T18:31:08.039+02:00" id="cb6e1840">
+                    <status>Draft</status>
+                    <title>Koledar</title>
+                </task>
+            </tasks>
             <title>Sestanki, zapisniki in agende</title>
         </requirement>
-        <requirement id="d28f9a84">
+        <requirement created="2023-09-16T10:25:27.195+02:00" id="d28f9a84">
             <comments/>
+            <description>&lt;p&gt;Http link&lt;/p&gt;</description>
             <issues/>
             <tags/>
-            <tasks/>
-            <title>Linki na dokumente</title>
+            <tasks>
+                <task created="2023-09-16T18:13:29.493+02:00" id="e8d47751">
+                    <status>Complete</status>
+                    <title>Implementacija</title>
+                </task>
+            </tasks>
+            <title>Linki</title>
         </requirement>
-        <requirement id="cea96daf">
+        <requirement created="2023-09-16T10:25:27.195+02:00" id="cea96daf">
             <comments/>
             <issues/>
             <tags/>
@@ -221,11 +284,13 @@
             </tasks>
             <title>Dodaj growl sporočila</title>
         </requirement>
-        <requirement id="bd3f7410">
+        <requirement created="2023-09-16T10:25:27.195+02:00" id="bd3f7410">
             <comments/>
             <description>&lt;p&gt;Možnost definiranja poljubnih tagov. Tagi morajo imeti možnost izbire barve. Tag se lahko doda na REQ&lt;/p&gt;</description>
             <issues/>
-            <tags/>
+            <tags>
+                <tag id="0ac2e150" refId="b7625ae9"/>
+            </tags>
             <tasks>
                 <task id="01f2a8ac">
                     <status>Complete</status>
@@ -236,7 +301,7 @@
                     <title>Izbira barve</title>
                 </task>
                 <task id="9e76ff6e">
-                    <status>Waiting</status>
+                    <status>Complete</status>
                     <title>Spreminjanje barve</title>
                 </task>
                 <task id="1a425d90">
@@ -245,7 +310,7 @@
                 </task>
                 <task id="37214a4b">
                     <description>&lt;p&gt;Brisanje tag definitionov in iz requirementsov.&lt;/p&gt;</description>
-                    <status>In progress</status>
+                    <status>Complete</status>
                     <title>Brisanje tagov</title>
                 </task>
             </tasks>
@@ -255,9 +320,10 @@
             <comments>
                 <comment created="2023-09-11T21:14:23.360+02:00" id="691d29aa" lastModified="2023-09-11T21:14:23.360+02:00">kk</comment>
             </comments>
+            <description>&lt;p&gt;Filtriranje zahtev po:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;grupi&lt;/li&gt;&lt;li&gt;tagu (kombinacije AND, OR)&lt;/li&gt;&lt;li&gt;text (name, content, comment, issue, task name, task content)&lt;/li&gt;&lt;/ul&gt;</description>
             <issues/>
             <tags>
-                <tag id="a56e32ee" refId="b703ef27"></tag>
+                <tag id="e6353822" refId="4a6c3d9e"/>
             </tags>
             <tasks>
                 <task created="2023-09-11T21:14:29.198+02:00" id="752323e5">
@@ -265,16 +331,61 @@
                     <title>kkkk</title>
                 </task>
             </tasks>
-            <title>YYY</title>
+            <title>Filtriranje</title>
+        </requirement>
+        <requirement created="2023-09-16T18:21:57.172+02:00" id="ab1a5bbc">
+            <comments/>
+            <description>&lt;p&gt;Start date, end date&lt;/p&gt;&lt;p&gt;Checklists&lt;/p&gt;</description>
+            <issues/>
+            <tags/>
+            <tasks>
+                <task created="2023-09-16T18:27:27.787+02:00" id="16f5f277">
+                    <status>Draft</status>
+                    <title>Add timestamps</title>
+                </task>
+                <task created="2023-09-16T18:27:44.761+02:00" id="5ce75b53">
+                    <status>Draft</status>
+                    <title>Milestones</title>
+                </task>
+                <task created="2023-09-16T18:28:06.031+02:00" id="1477f2b7">
+                    <status>Draft</status>
+                    <title>Checkboxes</title>
+                </task>
+            </tasks>
+            <title>Project plan</title>
+        </requirement>
+        <requirement created="2023-09-16T18:22:04.110+02:00" id="31f38aec">
+            <comments/>
+            <description>&lt;p&gt;Issues on request. From project page an overview of opened issues and link to them.&lt;/p&gt;</description>
+            <issues/>
+            <tags>
+                <tag id="12a48de7" refId="d78b032e"/>
+            </tags>
+            <tasks>
+                <task created="2023-09-16T18:23:30.238+02:00" id="71b8f72c">
+                    <status>Complete</status>
+                    <title>Issues model</title>
+                </task>
+                <task created="2023-09-16T18:23:46.193+02:00" id="7d1a1987">
+                    <status>Complete</status>
+                    <title>Issues page</title>
+                </task>
+                <task created="2023-09-16T18:24:16.643+02:00" id="f9edca44">
+                    <status>Complete</status>
+                    <title>Issues modify and resolve</title>
+                </task>
+            </tasks>
+            <title>Issues</title>
         </requirement>
     </requirements>
     <tagDefs>
-        <tag color="#419bf5" id="a41adc67">GUI</tag>
         <tag color="#f672c3" id="b703ef27">metrics</tag>
         <tag color="#71f571" id="4a6c3d9e">storage</tag>
         <tag color="#00fae9" id="7dee1dd7">xml</tag>
         <tag color="#faf200" id="b7625ae9">tags</tag>
         <tag color="#f7cc68" id="90cca284">calendar</tag>
-        <tag color="#b37ff6" id="bec5f781">statistics</tag>
+        <tag color="#55ffc3" id="d78b032e">issues</tag>
+        <tag color="#c180ff" id="cbd62164">requirements</tag>
+        <tag color="#7ba5ff" id="9efc4469">comments</tag>
     </tagDefs>
 </project>

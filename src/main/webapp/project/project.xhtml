@@ -37,6 +37,12 @@
 				</p:panel>
 				<p:panel>
 					<div class="card">
+						<i class="pi pi-box" style="font-size: 4rem"></i>
+					</div>
+					<p:outputLabel value="Releases" class="boldtext"/>
+				</p:panel>
+				<p:panel>
+					<div class="card">
 						<p:badge value="2" severity="info">
 							<i class="pi pi-calendar" style="font-size: 4rem"></i>
 						</p:badge>
@@ -93,7 +99,7 @@
 				</p:panel>
 				<p:panel>
 					<div class="card">
-						<p:badge value="#{uiIssuesBean.getIssuesList().size()}" severity="danger">
+						<p:badge value="#{uiIssuesBean.getOpenIssuesList().size()}" severity="danger">
 							<i class="pi pi-eye" style="font-size: 4rem"></i>
 						</p:badge>
 					</div>
@@ -113,6 +119,8 @@
 			<br/>
 
 			<p:outputLabel value="Project requirements" style="font-weight: bold; font-size: 24px;"/>
+			<p:commandButton value="New requirement" type="button" icon="pi pi-external-link"
+							 onclick="PF('dlg3').show()" styleClass="ui-button-flat"/>
 
 			<h:form id="requirementsForm">
 
@@ -149,7 +157,7 @@
 						<p:commandButton value="Delete"
 										 action="#{uiProjectBean.deleteReqAction(req.id)}"
 										 update="growl requirementsForm"
-										 styleClass="ui-button-flat mr-2" />
+										 styleClass="ui-button-danger ui-button-flat mr-2" />
 					</p:column>
 				</p:dataTable>
 
@@ -157,7 +165,8 @@
 
 			<br/>
 
-			<p:commandButton value="New requirement" type="button" icon="pi pi-external-link" onclick="PF('dlg3').show()"/>
+			<p:commandButton value="New requirement" type="button" icon="pi pi-external-link"
+							 onclick="PF('dlg3').show()" styleClass="ui-button-flat"/>
 			<p:dialog header="New requirement" widgetVar="dlg3"
 					  showEffect="fade" hideEffect="explode" closable="false">
 				<h:form id="newRequirementForm">

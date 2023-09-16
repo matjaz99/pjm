@@ -25,8 +25,9 @@
 
 			<br/>
 
-			<p:commandButton value="New link" type="button" icon="pi pi-external-link" onclick="PF('dlg3').show()"/>
-			<p:dialog header="New link" widgetVar="dlg3"
+			<p:commandButton value="New link" type="button" icon="pi pi-external-link"
+							 onclick="PF('newLinkDialog').show()" styleClass="ui-button-flat"/>
+			<p:dialog header="New link" widgetVar="newLinkDialog"
 					  showEffect="fade" hideEffect="explode" closable="false">
 				<h:form id="newLinkForm">
 					<p:panelGrid columns="2" styleClass="ui-noborder">
@@ -35,20 +36,20 @@
 									 required="true" requiredMessage="Missing description">
 						</p:inputText>
 						<p:outputLabel value="Link: " class="boldtext"/>
-						<p:inputText value="#{uiLinksBean.newLink}" size="60"
+						<p:inputText value="#{uiLinksBean.newLinkHref}" size="60"
 									 required="true" requiredMessage="Missing link">
 						</p:inputText>
 					</p:panelGrid>
 					<br/>
 					<p:commandButton type="button"
 									 value="Cancel"
-									 onclick="PF('dlg3').hide();"
+									 onclick="PF('newLinkDialog').hide();"
 									 style="width: 5rem"
 									 styleClass="ui-button-flat mr-2" />
 					<p:commandButton value="Add"
 									 action="#{uiLinksBean.addNewLinkAction}"
 									 update="growl newLinkForm linksForm"
-									 oncomplete="PF('dlg3').hide();"
+									 oncomplete="PF('newLinkDialog').hide();"
 									 styleClass="ui-button mr-2"
 									 style="width: 6rem"/>
 				</h:form>
@@ -63,7 +64,7 @@
 						<p:outputLabel value="#{link.description}"/>
 					</p:column>
 					<p:column headerText="Link">
-						<p:outputLabel value="#{link.link}"/>
+						<p:outputLabel value="#{link.href}"/>
 					</p:column>
 					<p:column headerText="Action">
 						<p:commandButton value="Delete"

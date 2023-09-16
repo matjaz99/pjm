@@ -8,7 +8,7 @@ import java.util.List;
 
 public class Links implements Serializable {
 
-    private static final long serialVersionUID = 3018449321L;
+    private static final long serialVersionUID = 3214449521L;
 
     private List<Link> list = new ArrayList<>();
 

@@ -79,8 +79,8 @@
 					</f:facet>
 				</p:textEditor>
 				<p:commandButton value="Save"
-								 action="#{uiRequirementBean.saveDescription()}"
-								 update="@form" icon="pi pi-save"
+								 action="#{uiRequirementBean.saveProjectModifications('Saved')}"
+								 update="growl @form" icon="pi pi-save"
 								 styleClass="ui-button-flat"/>
 
 			</h:form>
@@ -115,12 +115,6 @@
 									  styleClass="py-1 block font-bold"/>
 					</f:facet>
 				</p:selectCheckboxMenu>
-				<p:commandButton value="Save tags"
-								 action="#{uiRequirementBean.saveTagsOnRequirement()}"
-								 update="growl tagsCheckboxMenu"
-								 styleClass="ui-button-flat mr-2"
-								 style="width: 10rem"
-								 icon="pi pi-save"/>
 			</h:form>
 
 
@@ -133,16 +127,18 @@
 					<p:column headerText="Problem">
 						<p:inplace editor="true">
 							<p:inputText value="#{issue.problem}" required="true" label="text"/>
+							<p:ajax event="save" listener="#{uiRequirementBean.saveProjectModifications('Issue updated')}" update="growl issuesForm" />
 						</p:inplace>
 					</p:column>
 					<p:column headerText="Solution">
 						<p:inplace editor="true">
 							<p:inputText value="#{issue.solution}" required="true" label="text"/>
+							<p:ajax event="save" listener="#{uiRequirementBean.saveProjectModifications('Issue updated')}" update="growl issuesForm" />
 						</p:inplace>
 					</p:column>
 					<p:column headerText="Is resolved?">
 						<p:selectBooleanCheckbox value="#{issue.resolved}" itemLabel="">
-							<p:ajax update="growl issuesForm" listener="#{uiRequirementBean.resolveIssueAction(issue.id)}"/>
+							<p:ajax listener="#{uiRequirementBean.resolveIssueAction(issue.id)}" update="growl issuesForm"/>
 						</p:selectBooleanCheckbox>
 					</p:column>
 					<p:column headerText="Action">
@@ -190,6 +186,7 @@
 						<p:outputLabel value=" [#{cmt.lastModified}]"/>
 						<p:inplace editor="true">
 							<p:inputText value="#{cmt.description}" required="true" label="text"/>
+							<p:ajax event="save" listener="#{uiRequirementBean.saveProjectModifications('Comment updated')}" update="growl commentsForm" />
 						</p:inplace>
 						<p:commandButton value="Delete"
 										 action="#{uiRequirementBean.deleteCommentAction(cmt.id)}"
@@ -277,6 +274,19 @@
 									 style="width: 6rem"/>
 				</h:form>
 			</p:dialog>
+
+			<br/>
+			<br/>
+			<br/>
+			<hr/>
+			<br/>
+
+			<p:commandButton value="Delete requirement"
+							 action="#{uiRequirementBean.deleteRequirement()}"
+							 styleClass="ui-button-danger mr-2"
+							 style="width: 6rem"/>
+
+
 
 		</ui:define>
 	</div>
