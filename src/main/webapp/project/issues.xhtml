@@ -47,7 +47,7 @@
 					<p:column headerText="Action">
 						<p:column headerText="Is resolved?">
 							<p:selectBooleanCheckbox value="#{issue.resolved}" itemLabel="">
-								<p:ajax update="growl issuesForm" listener="#{uiIssuesBean.resolveIssueAction(issue.id)}"/>
+								<p:ajax update="growl issuesForm" listener="#{uiIssuesBean.saveProjectModifications('Issue resolved')}"/>
 							</p:selectBooleanCheckbox>
 						</p:column>
 					</p:column>

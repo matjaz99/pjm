@@ -35,6 +35,17 @@
 			</p:panel>
 
 
+<!--			<p:outputPanel id="reqDescPanel">-->
+<!--				<p:panel>-->
+<!--					<p:outputLabel value="#{uiRequirementBean.requirement.description}" escape="false" rendered="#{!uiRequirementBean.editModeOn}" />-->
+<!--				</p:panel>-->
+<!--				<p:commandButton value="Edit"-->
+<!--								 action="#{uiRequirementBean.setEditModeOn(true)}"-->
+<!--								 update="growl editorForm reqDescPanel" icon="pi pi-pencil"-->
+<!--								 styleClass="ui-button-flat"-->
+<!--								 rendered="#{!uiRequirementBean.editModeOn}"/>-->
+<!--			</p:outputPanel>-->
+
 			<h:form id="editorForm">
 
 				<p:textEditor widgetVar="editor2"
@@ -138,7 +149,7 @@
 					</p:column>
 					<p:column headerText="Is resolved?">
 						<p:selectBooleanCheckbox value="#{issue.resolved}" itemLabel="">
-							<p:ajax listener="#{uiRequirementBean.resolveIssueAction(issue.id)}" update="growl issuesForm"/>
+							<p:ajax listener="#{uiRequirementBean.saveProjectModifications('Issue resolved')}" update="growl issuesForm"/>
 						</p:selectBooleanCheckbox>
 					</p:column>
 					<p:column headerText="Action">
@@ -151,8 +162,8 @@
 			</h:form>
 
 			<p:commandButton value="New issue" type="button" icon="pi pi-external-link"
-							 styleClass="ui-button-flat" onclick="PF('dlg1').show()"/>
-			<p:dialog header="What's the problem?" widgetVar="dlg1" minHeight="40" showEffect="fade">
+							 styleClass="ui-button-flat" onclick="PF('newIssueDialog').show()"/>
+			<p:dialog header="What's the problem?" widgetVar="newIssueDialog" minHeight="40" showEffect="fade">
 				<h:form id="newIssueForm">
 					<p:panelGrid columns="2" styleClass="ui-noborder">
 						<p:outputLabel value="Description: " class="boldtext"/>
@@ -163,13 +174,13 @@
 					<br/>
 					<p:commandButton type="button"
 									 value="Cancel"
-									 onclick="PF('dlg1').hide();"
+									 onclick="PF('newIssueDialog').hide();"
 									 style="width: 5rem"
 									 styleClass="ui-button-flat mr-2" />
 					<p:commandButton value="Add"
 									 action="#{uiRequirementBean.addNewIssueAction}"
 									 update="growl newIssueForm issuesForm"
-									 oncomplete="PF('dlg1').hide();"
+									 oncomplete="PF('newIssueDialog').hide();"
 									 styleClass="ui-button mr-2"
 									 style="width: 6rem"/>
 				</h:form>
@@ -186,7 +197,7 @@
 						<p:outputLabel value=" [#{cmt.lastModified}]"/>
 						<p:inplace editor="true">
 							<p:inputText value="#{cmt.description}" required="true" label="text"/>
-							<p:ajax event="save" listener="#{uiRequirementBean.saveProjectModifications('Comment updated')}" update="growl commentsForm" />
+							<p:ajax event="save" listener="#{uiRequirementBean.editCommentAction(cmt)}" update="growl commentsForm" />
 						</p:inplace>
 						<p:commandButton value="Delete"
 										 action="#{uiRequirementBean.deleteCommentAction(cmt.id)}"
@@ -197,8 +208,8 @@
 			</h:form>
 
 			<p:commandButton value="New comment" type="button" icon="pi pi-external-link"
-							 styleClass="ui-button-flat" onclick="PF('dlg2').show()"/>
-			<p:dialog header="Add comment" widgetVar="dlg2" minHeight="40" showEffect="fade">
+							 styleClass="ui-button-flat" onclick="PF('newCommentDialog').show()"/>
+			<p:dialog header="Add comment" widgetVar="newCommentDialog" minHeight="40" showEffect="fade">
 				<h:form id="newCommentForm">
 					<p:panelGrid columns="2" styleClass="ui-noborder">
 						<p:outputLabel value="Description: " class="boldtext"/>
@@ -209,13 +220,13 @@
 					<br/>
 					<p:commandButton type="button"
 									 value="Cancel"
-									 onclick="PF('dlg2').hide();"
+									 onclick="PF('newCommentDialog').hide();"
 									 style="width: 5rem"
 									 styleClass="ui-button-flat mr-2" />
 					<p:commandButton value="Add"
 									 action="#{uiRequirementBean.addNewCommentAction}"
 									 update="growl newCommentForm commentsForm"
-									 oncomplete="PF('dlg2').hide();"
+									 oncomplete="PF('newCommentDialog').hide();"
 									 styleClass="ui-button mr-2"
 									 style="width: 6rem"/>
 				</h:form>
@@ -251,8 +262,8 @@
 			<br/>
 
 			<p:commandButton value="New task" type="button" icon="pi pi-external-link"
-							 styleClass="ui-button-flat" onclick="PF('dlg3').show()"/>
-			<p:dialog header="New task" widgetVar="dlg3" minHeight="40" showEffect="fade">
+							 styleClass="ui-button-flat" onclick="PF('newTaskDialog').show()"/>
+			<p:dialog header="New task" widgetVar="newTaskDialog" minHeight="40" showEffect="fade">
 				<h:form id="newTaskForm">
 					<p:panelGrid columns="2" styleClass="ui-noborder">
 						<p:outputLabel value="Title: " class="boldtext"/>
@@ -263,13 +274,13 @@
 					<br/>
 					<p:commandButton type="button"
 									 value="Cancel"
-									 onclick="PF('dlg3').hide();"
+									 onclick="PF('newTaskDialog').hide();"
 									 style="width: 5rem"
 									 styleClass="ui-button-flat mr-2" />
 					<p:commandButton value="Add"
 									 action="#{uiRequirementBean.addNewTaskAction}"
 									 update="growl newTaskForm tasksForm"
-									 oncomplete="PF('dlg3').hide();"
+									 oncomplete="PF('newTaskDialog').hide();"
 									 styleClass="ui-button mr-2"
 									 style="width: 6rem"/>
 				</h:form>

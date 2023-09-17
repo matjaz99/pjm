@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import si.matjazcerkvenik.pjm.model.*;
 import si.matjazcerkvenik.pjm.util.DAO;
 import si.matjazcerkvenik.pjm.util.Formatter;
+import si.matjazcerkvenik.pjm.util.Utils;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
@@ -22,9 +23,8 @@ public class UiRequirementBean extends UiBean implements Serializable {
     private static final long serialVersionUID = 27734903592L;
 
     private static final Logger logger = LoggerFactory.getLogger(UiRequirementBean.class);
-
-    
     private Requirement requirement;
+    private boolean editModeOn = false;
 
     @PostConstruct
     public void init() {
@@ -51,7 +51,13 @@ public class UiRequirementBean extends UiBean implements Serializable {
         this.requirement = requirement;
     }
 
+    public boolean isEditModeOn() {
+        return editModeOn;
+    }
 
+    public void setEditModeOn(boolean editModeOn) {
+        this.editModeOn = editModeOn;
+    }
 
     /*  Edit requirement  */
 
@@ -151,6 +157,11 @@ public class UiRequirementBean extends UiBean implements Serializable {
         DAO.getInstance().saveProject(project);
         newCommentTitle = null;
         growlInfoMessage("Comment added");
+    }
+
+    public void editCommentAction(Comment comment) {
+        comment.setLastModified(Formatter.getXmlGregorianCalendarNow());
+        saveProjectModifications("Comment updated");
     }
 
     public void deleteCommentAction(String id) {
@@ -271,22 +282,6 @@ public class UiRequirementBean extends UiBean implements Serializable {
         }
         DAO.getInstance().saveProject(project);
         growlInfoMessage("Issue deleted");
-    }
-
-    public void resolveIssueAction(String id) {
-        for (Issue issue : requirement.getIssues().getList()) {
-            if (issue.getId().equals(id)) {
-//                if (Formatter.isNullOrEmpty(issue.getSolution())) {
-//                    growlErrorMessage("No solution to the problem!");
-//                    return;
-//                }
-                issue.setResolved(!issue.isResolved());
-                logger.info("issue resolved: id=" + id + ", resolved=" + issue.isResolved());
-                break;
-            }
-        }
-        DAO.getInstance().saveProject(project);
-        growlInfoMessage("Congratulations!");
     }
 
 

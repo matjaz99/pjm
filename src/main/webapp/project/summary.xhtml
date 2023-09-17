@@ -1,0 +1,42 @@
+<ui:composition template="/templates/pageTemplate.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<div id="contentFrame">
+		<ui:define name="contentFrame">
+
+			<div class="card">
+				<h:form>
+					<p:breadCrumb>
+						<p:menuitem value="Home" url="/pjm"/>
+						<p:menuitem value="#{uiProjectBean.project.name}" url="/pjm/project/project.xhtml?projectId=#{uiProjectBean.project.id}"/>
+						<p:menuitem value="Summary"/>
+					</p:breadCrumb>
+				</h:form>
+			</div>
+
+			<br/>
+
+			<p:outputLabel value="Project requirements summary" style="font-weight: bold; font-size: 24px;"/>
+
+			<ui:repeat var="req" value="#{uiProjectBean.project.requirements.list}">
+				<p:panel header="#{req.title}" styleClass="bottom-margin">
+					<p:outputLabel value="#{req.description}" escape="false"/>
+					<h:link value="Open" outcome="/project/requirement">
+						<f:param name="projectId" value="#{uiProjectBean.project.id}" />
+						<f:param name="reqId" value="#{req.id}" />
+					</h:link>
+				</p:panel>
+				<br/>
+			</ui:repeat>
+
+
+
+		</ui:define>
+	</div>
+
+</ui:composition>
+
