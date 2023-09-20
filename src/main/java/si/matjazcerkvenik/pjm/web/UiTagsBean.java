@@ -31,7 +31,7 @@ public class UiTagsBean extends UiBean implements Serializable {
         Map<String, String> requestParameterMap = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
         String id = requestParameterMap.getOrDefault("projectId", null);
         project = uiAppBean.getProject(id);
-        logger.info("UiTagsBean:init: loaded " + project.getName());
+        logger.info("loaded " + project.getName());
     }
 
     public List<Tag> getTagDefinitions() {

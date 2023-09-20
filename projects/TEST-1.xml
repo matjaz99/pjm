@@ -1,27 +1,61 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <project id="ghtrvvd3">
+    <links/>
     <name>Test1</name>
     <requirements>
-        <requirement id="A5">
+        <requirement created="2023-09-20T21:12:29.405+02:00" id="A5">
+            <comments/>
             <description>&lt;p&gt;Do some AADs&lt;/p&gt;</description>
+            <issues>
+                <issue created="2023-09-20T22:12:48.398+02:00" id="d550a5ce">
+                    <problem>asdf</problem>
+                    <resolved>false</resolved>
+                </issue>
+            </issues>
+            <tags/>
             <tasks>
                 <task id="774f9526">
+                    <status>In progress</status>
                     <title>Produce AAD</title>
                 </task>
             </tasks>
             <title>AAD</title>
         </requirement>
-        <requirement id="A1">
+        <requirement created="2023-09-20T21:12:29.405+02:00" id="A1">
+            <comments/>
+            <issues/>
+            <tags/>
+            <tasks>
+                <task created="2023-09-20T23:12:49.931+02:00" id="1b1ceb9f">
+                    <status>Waiting</status>
+                    <title>eeeee</title>
+                </task>
+                <task created="2023-09-20T23:12:54.394+02:00" id="a858e9c1">
+                    <status>Draft</status>
+                    <title>rrrrr</title>
+                </task>
+            </tasks>
             <title>AAA</title>
         </requirement>
-        <requirement id="A2">
+        <requirement created="2023-09-20T21:12:29.405+02:00" id="A2">
+            <comments/>
+            <issues/>
+            <tags/>
+            <tasks/>
             <title>AAB</title>
         </requirement>
-        <requirement id="343d904">
+        <requirement created="2023-09-20T21:12:29.405+02:00" id="343d904">
+            <comments/>
+            <issues/>
+            <tags/>
+            <tasks/>
             <title>fff</title>
         </requirement>
-        <requirement id="A3">
+        <requirement created="2023-09-20T21:12:29.405+02:00" id="A3">
+            <comments/>
             <description>&lt;p&gt;Potrebno izdelati podvozje, kamor se namestijo amortizerji in kolesa.&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;Avto mora imeti &lt;strong&gt;4&lt;/strong&gt; kolesa.&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;</description>
+            <issues/>
+            <tags/>
             <tasks>
                 <task id="5abdd6b7">
                     <title>Izdelati ogrodje</title>
@@ -41,8 +75,6 @@
             </tasks>
             <title>AAC</title>
         </requirement>
-        <requirement id="4889655d">
-            <title>asdasd</title>
-        </requirement>
     </requirements>
+    <tagDefs/>
 </project>

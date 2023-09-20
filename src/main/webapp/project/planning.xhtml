@@ -39,9 +39,67 @@
 				</p:panelGrid>
 			</h:form>
 
-			<h:link value="Summary report" outcome="/project/summary">
+			<h:link value="Requirements summary" outcome="/project/summary">
 				<f:param name="projectId" value="#{uiPlanningBean.project.id}" />
 			</h:link>
+
+			<br/>
+
+			<p:outputLabel value="Notes" style="font-weight: bold; font-size: 24px;"/>
+
+			<h:form id="editorForm">
+
+
+
+				<p:commandButton value="Save"
+								 action="#{uiPlanningBean.saveNotes()}"
+								 update="@form growl" icon="pi pi-save"
+								 styleClass="ui-button-outlined"/>
+
+				<p:textEditor widgetVar="editor2"
+							  value="#{uiPlanningBean.project.notes}"
+							  height="300"
+							  placeholder="Enter your content"
+							  secure="true"
+							  required="true">
+					<f:facet name="toolbar">
+						<span class="ql-formats">
+							<select class="ql-font"></select>
+							<select class="ql-size"></select>
+						</span>
+						<span class="ql-formats">
+							<button class="ql-bold"></button>
+							<button class="ql-italic"></button>
+							<button class="ql-underline"></button>
+							<button class="ql-strike"></button>
+						</span>
+						<span class="ql-formats">
+							<select class="ql-color" />
+							<select class="ql-background" />
+						</span>
+						<span class="ql-formats">
+							<button class="ql-header" value="1" />
+							<button class="ql-header" value="2" />
+							<button class="ql-blockquote" />
+							<button class="ql-code-block" />
+						</span>
+						<span class="ql-formats">
+							<button class="ql-list" value="ordered" />
+							<button class="ql-list" value="bullet" />
+							<button class="ql-indent" value="-1" />
+							<button class="ql-indent" value="+1" />
+						</span>
+						<span class="ql-formats">
+							<button class="ql-clean" />
+						</span>
+					</f:facet>
+				</p:textEditor>
+				<p:commandButton value="Save"
+								 action="#{uiPlanningBean.saveNotes()}"
+								 update="@form growl" icon="pi pi-save"
+								 styleClass="ui-button-outlined"/>
+
+			</h:form>
 
 		</ui:define>
 	</div>

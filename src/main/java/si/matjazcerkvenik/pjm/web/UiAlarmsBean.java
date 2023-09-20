@@ -7,10 +7,10 @@ import si.matjazcerkvenik.pjm.util.DAO;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -34,13 +34,12 @@ public class UiAlarmsBean extends UiBean implements Serializable {
 
 
     public List<Alarm> getAlarmList() {
-        return DAO.getInstance().getAlarmList(project.getId());
+        return new ArrayList<>(project.getActiveAlarms().values());
     }
 
     public String getBadgeAlarmsCount() {
-        int i = DAO.getInstance().getAlarmList(project.getId()).size();
-        if (i < 10) return Integer.toString(i);
-        return "10+";
+        int i = project.getActiveAlarms().size();
+        return Integer.toString(i);
     }
 
 }

@@ -6,6 +6,10 @@ public class Alarm {
     private String name;
     private String addInfo;
     private String severity;
+    private String href;
+
+    public Alarm() {
+    }
 
     public Alarm(String id, String name, String addInfo, String severity) {
         this.id = id;
@@ -44,5 +48,13 @@ public class Alarm {
 
     public void setSeverity(String severity) {
         this.severity = severity;
+    }
+
+    public String getHref() {
+        return href;
+    }
+
+    public void setHref(String href) {
+        this.href = href;
     }
 }

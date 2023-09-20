@@ -19,16 +19,14 @@
 				</h:form>
 			</div>
 
-			<br/>
-
 			<p:commandButton value="New tag" type="button" icon="pi pi-external-link"
-							 onclick="PF('dlg3').show()" styleClass="ui-button-flat"/>
+							 onclick="PF('dlg3').show()" styleClass="ui-button-outlined"/>
 			<p:commandButton value="Save changes"
 							 action="#{uiTagsBean.saveChanges()}"
 							 icon="pi pi-save"
 							 update="growl newTagForm tagsForm"
 							 style="width: 10rem"
-							 styleClass="ui-button-flat"/>
+							 styleClass="ui-button-outlined"/>
 			<p:dialog header="New tag" widgetVar="dlg3" showEffect="fade" hideEffect="puff"
 					  closable="false" closeOnEscape="true"
 					  minWidth="450" minHeight="250">

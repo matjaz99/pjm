@@ -17,16 +17,4 @@ public class Utils {
         return result;
     }
 
-    public static List<Requirement> getRequirementsWithTaskStatus(Project project, String status) {
-        List<Requirement> list = new ArrayList<>();
-        for (Requirement r : project.getRequirements().getList()) {
-            if (r.getTasks() != null && r.getTasks().getList() != null) {
-                for (Task t : r.getTasks().getList()) {
-                    if (t.getStatus() != null && t.getStatus().equalsIgnoreCase(status)) list.add(r);
-                }
-            }
-        }
-        return list;
-    }
-
 }

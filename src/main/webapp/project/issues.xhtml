@@ -44,7 +44,7 @@
 							<p:ajax event="save" listener="#{uiIssuesBean.saveProjectModifications('Saved')}" update="growl issuesForm" />
 						</p:inplace>
 					</p:column>
-					<p:column headerText="Action">
+					<p:column headerText="Resolved">
 						<p:column headerText="Is resolved?">
 							<p:selectBooleanCheckbox value="#{issue.resolved}" itemLabel="">
 								<p:ajax update="growl issuesForm" listener="#{uiIssuesBean.saveProjectModifications('Issue resolved')}"/>

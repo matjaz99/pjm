@@ -41,7 +41,7 @@ public class UiAppBean implements Serializable {
 
         periodicTimer = new Timer("PeriodicTimer");
         periodicTask = new PeriodicTask(projects);
-        periodicTimer.schedule(periodicTask, 3 * 1000, 5 * 60 * 1000);
+        periodicTimer.schedule(periodicTask, 30 * 1000, 5 * 60 * 1000);
         logger.info("periodic timer started");
     }
 

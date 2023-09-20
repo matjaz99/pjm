@@ -103,6 +103,21 @@ public class Formatter {
         return xmlDate;
     }
 
+    public static long getMillis(XMLGregorianCalendar xmlGregorianCalendar) {
+        return xmlGregorianCalendar.toGregorianCalendar().getTimeInMillis();
+    }
+
+    /**
+     * Get days since
+     * @param xmlGregorianCalendar
+     * @return days
+     */
+    public static int getAgeInDays(XMLGregorianCalendar xmlGregorianCalendar) {
+        long age = System.currentTimeMillis() - xmlGregorianCalendar.toGregorianCalendar().getTimeInMillis();
+//        System.out.println("age: " + (int) (age / 1000 / 3600 / 24));
+        return (int) (age / 1000 / 3600 / 24);
+    }
+
 
     /**
      * Return MD5 checksum of a string.

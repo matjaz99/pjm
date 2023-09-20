@@ -7,6 +7,10 @@ import jakarta.xml.bind.annotation.XmlTransient;
 
 import javax.xml.datatype.XMLGregorianCalendar;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @XmlRootElement
 public class Project implements Serializable {
@@ -20,6 +24,8 @@ public class Project implements Serializable {
     private Requirements requirements = new Requirements();
     private Tags tagDefinitions = new Tags();
     private Links links = new Links();
+    private String notes;
+    private Map<String, Alarm> activeAlarms = new HashMap<>();
 
     public String getId() {
         return id;
@@ -96,7 +102,51 @@ public class Project implements Serializable {
         links.addNewLink(link);
     }
 
+    public String getNotes() {
+        return notes;
+    }
 
+    @XmlElement(name = "notes")
+    public void setNotes(String notes) {
+        this.notes = notes;
+    }
 
+    public Map<String, Alarm> getActiveAlarms() {
+        return activeAlarms;
+    }
+
+    @XmlTransient
+    public void setActiveAlarms(Map<String, Alarm> activeAlarms) {
+        this.activeAlarms = activeAlarms;
+    }
+
+    public void raiseAlarm(Alarm a) {
+        if (!activeAlarms.containsKey(a.getId())) activeAlarms.put(a.getId(), a);
+    }
+
+    public List<Issue> getAllOpenIssues() {
+        List<Issue> list = new ArrayList<>();
+        for (Requirement req : requirements.getList()) {
+            for (Issue issue : req.getIssues().getList()) {
+                if (!issue.isResolved()) {
+                    issue.setReqRefId(req.getId());
+                    list.add(issue);
+                }
+            }
+        }
+        return list;
+    }
+
+    public List<Requirement> getRequirementsByTaskStatus(String status) {
+        List<Requirement> list = new ArrayList<>();
+        for (Requirement r : requirements.getList()) {
+            if (r.getTasks() != null && r.getTasks().getList() != null) {
+                for (Task t : r.getTasks().getList()) {
+                    if (t.getStatus() != null && t.getStatus().equalsIgnoreCase(status)) list.add(r);
+                }
+            }
+        }
+        return list;
+    }
 
 }

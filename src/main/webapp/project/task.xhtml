@@ -63,16 +63,17 @@
 				</p:textEditor>
 				<p:commandButton value="Save"
 								 action="#{uiTaskBean.saveDescription()}"
-								 update="@form" icon="pi pi-save"
-								 styleClass="ui-button-flat"/>
+								 update="@form growl" icon="pi pi-save"
+								 styleClass="ui-button-outlined"/>
 
 			</h:form>
 
 			<br/>
+			<br/>
 
 
 			<h:form id="configForm">
-				<p:panelGrid columns="2">
+				<p:outputPanel>
 					<p:outputLabel value="Status: " class="boldtext"/>
 					<p:selectOneMenu id="selectedStatus" value="#{uiTaskBean.selectedTaskStatus}" dynamic="true" onchange="submit()">
 						<f:selectItem itemLabel="Draft" itemValue="Draft"/>
@@ -81,7 +82,7 @@
 						<f:selectItem itemLabel="Waiting" itemValue="Waiting"/>
 						<f:selectItem itemLabel="Complete" itemValue="Complete"/>
 					</p:selectOneMenu>
-				</p:panelGrid>
+				</p:outputPanel>
 			</h:form>
 
 		</ui:define>

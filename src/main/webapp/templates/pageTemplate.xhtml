@@ -30,6 +30,13 @@
 		<div id="footerFrame">
 			<ui:include src="/templates/footer.xhtml"/>
 		</div>
+
+		<p:confirmDialog global="true" showEffect="fade" hideEffect="fade"
+						 responsive="true" width="350"
+						 closable="false" closeOnEscape="true">
+			<p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no ui-button-flat"/>
+			<p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" />
+		</p:confirmDialog>
 		
 	</div>
 

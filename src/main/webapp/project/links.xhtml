@@ -19,16 +19,12 @@
 				</h:form>
 			</div>
 
-			<br/>
-
 			<p:outputLabel value="Links" class="boldtext"/>
 
-			<br/>
-
 			<p:commandButton value="New link" type="button" icon="pi pi-external-link"
-							 onclick="PF('newLinkDialog').show()" styleClass="ui-button-flat"/>
+							 onclick="PF('newLinkDialog').show()" styleClass="ui-button-outlined"/>
 			<p:dialog header="New link" widgetVar="newLinkDialog"
-					  showEffect="fade" hideEffect="explode" closable="false">
+					  showEffect="fade" hideEffect="explode" closable="false" closeOnEscape="true">
 				<h:form id="newLinkForm">
 					<p:panelGrid columns="2" styleClass="ui-noborder">
 						<p:outputLabel value="Description: " class="boldtext"/>
@@ -70,7 +66,9 @@
 						<p:commandButton value="Delete"
 										 action="#{uiLinksBean.deleteLinkAction(link.id)}"
 										 update="growl linksForm"
-										 styleClass="ui-button-flat mr-2" />
+										 styleClass="ui-button-danger ui-button-flat" >
+							<p:confirm message="Are you sure you want to delete link?" icon="pi pi-info-circle"/>
+						</p:commandButton>
 					</p:column>
 				</p:dataTable>
 			</h:form>

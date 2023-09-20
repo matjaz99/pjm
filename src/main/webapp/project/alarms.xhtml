@@ -18,7 +18,7 @@
 				</h:form>
 			</div>
 
-			<p:outputLabel value="Alarms" class="boldtext"/>
+			<p:outputLabel value="Active alarms" class="boldtext"/>
 
 			<br/>
 
@@ -30,8 +30,11 @@
 				<p:column headerText="Severity">
 					<p:tag styleClass="mr-2" severity="#{alarm.severity}" value="#{alarm.severity}"></p:tag>
 				</p:column>
-				<p:column headerText="Additional info">
+				<p:column headerText="Source">
 					<p:outputLabel value="#{alarm.addInfo}"/>
+				</p:column>
+				<p:column headerText="Link">
+					<h:link value="Open" outcome="#{alarm.href}" />
 				</p:column>
 			</p:dataTable>
 

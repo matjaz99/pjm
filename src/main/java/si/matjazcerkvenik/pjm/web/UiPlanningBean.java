@@ -2,6 +2,8 @@ package si.matjazcerkvenik.pjm.web;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import si.matjazcerkvenik.pjm.util.DAO;
+import si.matjazcerkvenik.pjm.util.Formatter;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
@@ -24,6 +26,11 @@ public class UiPlanningBean extends UiBean implements Serializable {
         String id = requestParameterMap.getOrDefault("projectId", null);
         project = uiAppBean.getProject(id);
         logger.info("loaded: " + project.getName());
+    }
+
+    public void saveNotes() {
+        DAO.getInstance().saveProject(project);
+        growlInfoMessage("Saved");
     }
 
 

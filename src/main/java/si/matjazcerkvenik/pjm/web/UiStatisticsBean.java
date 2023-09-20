@@ -82,7 +82,7 @@ public class UiStatisticsBean extends UiBean implements Serializable {
     }
 
     public List<Requirement> getRequirementsWithTaskStatus(String status) {
-        return Utils.getRequirementsWithTaskStatus(project, status);
+        return project.getRequirementsByTaskStatus(status);
     }
 
     public List<Requirement> getRequirementsWithoutTasks() {

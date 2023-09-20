@@ -38,16 +38,7 @@ public class UiIssuesBean extends UiBean implements Serializable {
 
 
     public List<Issue> getOpenIssuesList() {
-        List<Issue> list = new ArrayList<>();
-        for (Requirement req : project.getRequirements().getList()) {
-            for (Issue issue : req.getIssues().getList()) {
-                if (!issue.isResolved()) {
-                    issue.setReqRefId(req.getId());
-                    list.add(issue);
-                }
-            }
-        }
-        return list;
+        return project.getAllOpenIssues();
     }
 
     public Requirement findRequirement(String reqId) {

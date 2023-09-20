@@ -6,24 +6,17 @@ import jakarta.xml.bind.Marshaller;
 import jakarta.xml.bind.Unmarshaller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import si.matjazcerkvenik.pjm.model.Alarm;
-import si.matjazcerkvenik.pjm.model.Project;
-import si.matjazcerkvenik.pjm.model.Requirement;
+import si.matjazcerkvenik.pjm.model.*;
 
 import java.io.File;
 import java.io.FileFilter;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class DAO {
 
     private static final Logger logger = LoggerFactory.getLogger(DAO.class);
     private static DAO instance;
-
-    /** A map of projects (IDs) and their alarm maps (alarm ID / alarm) */
-    private Map<String, Map<String, Alarm>> alarmMap = new HashMap<>();
 
     private DAO() {
     }
@@ -47,7 +40,7 @@ public class DAO {
             }
         });
 
-        logger.info("DAO:loadAllProjects: " + files.length + " projects found");
+        logger.info(files.length + " projects found");
 
         for (int i = 0; i < files.length; i++) {
             Project p = loadProject(files[i].getAbsolutePath());
@@ -69,13 +62,27 @@ public class DAO {
 
             project.setProjectPath(file.getAbsolutePath());
 
-            logger.info("DAO:loadProject: " + file.getAbsolutePath());
+            logger.info(file.getAbsolutePath());
 
 
             for (Requirement req : project.getRequirements().getList()) {
 
                 // make sure every requirement has created timestamp
                 if (req.getCreated() == null) req.setCreated(Formatter.getXmlGregorianCalendarNow());
+
+
+                for (Task task : req.getTasks().getList()) {
+
+                    // every task must have created timestamp; if not use req created time
+                    if (task.getCreated() == null) task.setCreated(req.getCreated());
+
+                    // every task must have lastModified; if not use created time
+                    if (task.getLastModified() == null) task.setLastModified(task.getCreated());
+
+                    // every task must have status; if not use draft as default
+                    if (task.getStatus() == null) task.setStatus(TaskStatus.DRAFT.label);
+
+                }
             }
 
         } catch (JAXBException e) {
@@ -96,7 +103,7 @@ public class DAO {
             jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
             jaxbMarshaller.marshal(project, file);
 
-            logger.info("DAO:saveProject: " + project.getName() + " on path: " + file.getAbsolutePath());
+            logger.info(project.getName() + " on path: " + file.getAbsolutePath());
 
         } catch (JAXBException e) {
             logger.error("DAO:saveProject: JAXBException: ", e);
@@ -107,22 +114,14 @@ public class DAO {
     public void deleteProject(Project project) {
         File file = new File(project.getProjectPath());
         file.delete();
-        logger.info("DAO:deleteProject: " + project.getName() + " on path: " + file.getAbsolutePath());
+        logger.info(project.getName() + " on path: " + file.getAbsolutePath());
     }
 
-    public void raiseAlarm(String projectId, Alarm a) {
-        if (!alarmMap.containsKey(projectId)) alarmMap.put(projectId, new HashMap<>());
-        if (!alarmMap.get(projectId).containsKey(a.getId())) alarmMap.get(projectId).put(a.getId(), a);
-    }
 
-    public void clearAlarm(String projectId, Alarm a) {
-        if (!alarmMap.containsKey(projectId)) return;
-        if (alarmMap.get(projectId).containsKey(a.getId())) alarmMap.get(projectId).remove(a.getId());
-    }
 
-    public List<Alarm> getAlarmList(String projectId) {
-        if (!alarmMap.containsKey(projectId)) return new ArrayList<>();
-        return new ArrayList<>(alarmMap.get(projectId).values());
-    }
+//    public List<Alarm> getAlarmList(String projectId) {
+//        if (!alarmMap.containsKey(projectId)) return new ArrayList<>();
+//        return new ArrayList<>(alarmMap.get(projectId).values());
+//    }
 
 }

@@ -92,7 +92,7 @@
 				<p:commandButton value="Save"
 								 action="#{uiRequirementBean.saveProjectModifications('Saved')}"
 								 update="growl @form" icon="pi pi-save"
-								 styleClass="ui-button-flat"/>
+								 styleClass="ui-button-outlined"/>
 
 			</h:form>
 
@@ -143,7 +143,7 @@
 					</p:column>
 					<p:column headerText="Solution">
 						<p:inplace editor="true">
-							<p:inputText value="#{issue.solution}" required="true" label="text"/>
+							<p:inputText value="#{issue.solution}" label="text"/>
 							<p:ajax event="save" listener="#{uiRequirementBean.saveProjectModifications('Issue updated')}" update="growl issuesForm" />
 						</p:inplace>
 					</p:column>
@@ -156,14 +156,16 @@
 						<p:commandButton value="Delete"
 										 action="#{uiRequirementBean.deleteIssueAction(issue.id)}"
 										 update="growl issuesForm"
-										 styleClass="ui-button-danger ui-button-flat" />
+										 styleClass="ui-button-danger ui-button-flat" >
+							<p:confirm message="Are you sure you want to delete issue?" icon="pi pi-info-circle"/>
+						</p:commandButton>
 					</p:column>
 				</p:dataTable>
 			</h:form>
 
 			<p:commandButton value="New issue" type="button" icon="pi pi-external-link"
-							 styleClass="ui-button-flat" onclick="PF('newIssueDialog').show()"/>
-			<p:dialog header="What's the problem?" widgetVar="newIssueDialog" minHeight="40" showEffect="fade">
+							 styleClass="ui-button-outlined" onclick="PF('newIssueDialog').show()"/>
+			<p:dialog header="What's the problem?" widgetVar="newIssueDialog" minHeight="40" showEffect="fade" closable="false" closeOnEscape="true">
 				<h:form id="newIssueForm">
 					<p:panelGrid columns="2" styleClass="ui-noborder">
 						<p:outputLabel value="Description: " class="boldtext"/>
@@ -193,23 +195,29 @@
 			<h:form id="commentsForm">
 				<p:dataTable value="#{uiRequirementBean.requirement.comments.list}" var="cmt"
 							 cellpadding="0" cellspacing="0">
-					<p:column headerText="Comment">
+					<p:column headerText="Time">
 						<p:outputLabel value=" [#{cmt.lastModified}]"/>
+					</p:column>
+					<p:column headerText="Comment">
 						<p:inplace editor="true">
 							<p:inputText value="#{cmt.description}" required="true" label="text"/>
 							<p:ajax event="save" listener="#{uiRequirementBean.editCommentAction(cmt)}" update="growl commentsForm" />
 						</p:inplace>
+					</p:column>
+					<p:column headerText="Actions">
 						<p:commandButton value="Delete"
 										 action="#{uiRequirementBean.deleteCommentAction(cmt.id)}"
 										 update="growl commentsForm"
-										 styleClass="ui-button-danger ui-button-flat" />
+										 styleClass="ui-button-danger ui-button-flat" >
+							<p:confirm message="Are you sure you want to delete comment?" icon="pi pi-info-circle"/>
+						</p:commandButton>
 					</p:column>
 				</p:dataTable>
 			</h:form>
 
 			<p:commandButton value="New comment" type="button" icon="pi pi-external-link"
-							 styleClass="ui-button-flat" onclick="PF('newCommentDialog').show()"/>
-			<p:dialog header="Add comment" widgetVar="newCommentDialog" minHeight="40" showEffect="fade">
+							 styleClass="ui-button-outlined" onclick="PF('newCommentDialog').show()"/>
+			<p:dialog header="Add comment" widgetVar="newCommentDialog" minHeight="40" showEffect="fade" closable="false" closeOnEscape="true">
 				<h:form id="newCommentForm">
 					<p:panelGrid columns="2" styleClass="ui-noborder">
 						<p:outputLabel value="Description: " class="boldtext"/>
@@ -253,7 +261,9 @@
 						<p:commandButton value="Delete"
 										 action="#{uiRequirementBean.deleteTaskAction(tsk.id)}"
 										 update="growl tasksForm"
-										 styleClass="ui-button-danger ui-button-flat" />
+										 styleClass="ui-button-danger ui-button-flat" >
+							<p:confirm message="Are you sure you want to delete task?" icon="pi pi-info-circle"/>
+						</p:commandButton>
 					</p:column>
 				</p:dataTable>
 
@@ -262,8 +272,8 @@
 			<br/>
 
 			<p:commandButton value="New task" type="button" icon="pi pi-external-link"
-							 styleClass="ui-button-flat" onclick="PF('newTaskDialog').show()"/>
-			<p:dialog header="New task" widgetVar="newTaskDialog" minHeight="40" showEffect="fade">
+							 styleClass="ui-button-outlined" onclick="PF('newTaskDialog').show()"/>
+			<p:dialog header="New task" widgetVar="newTaskDialog" minHeight="40" showEffect="fade" closable="false" closeOnEscape="true">
 				<h:form id="newTaskForm">
 					<p:panelGrid columns="2" styleClass="ui-noborder">
 						<p:outputLabel value="Title: " class="boldtext"/>

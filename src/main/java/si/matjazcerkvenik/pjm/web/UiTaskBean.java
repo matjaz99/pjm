@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import si.matjazcerkvenik.pjm.model.Requirement;
 import si.matjazcerkvenik.pjm.model.Task;
 import si.matjazcerkvenik.pjm.util.DAO;
+import si.matjazcerkvenik.pjm.util.Formatter;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
@@ -73,6 +74,7 @@ public class UiTaskBean extends UiBean implements Serializable {
     public void setSelectedTaskStatus(String selectedTaskStatus) {
         this.selectedTaskStatus = selectedTaskStatus;
         task.setStatus(selectedTaskStatus);
+        task.setLastModified(Formatter.getXmlGregorianCalendarNow());
         DAO.getInstance().saveProject(project);
         growlInfoMessage("New status: " + selectedTaskStatus);
     }
@@ -80,7 +82,7 @@ public class UiTaskBean extends UiBean implements Serializable {
     /*  Edit task  */
 
     public void saveDescription() {
-        logger.info("saveDescription: " + task.getDescription());
+        task.setLastModified(Formatter.getXmlGregorianCalendarNow());
         DAO.getInstance().saveProject(project);
         growlInfoMessage("Saved");
     }
@@ -90,6 +92,7 @@ public class UiTaskBean extends UiBean implements Serializable {
     }
 
     public void setRequirementTitle(String title) {
+        // TODO is this used anywhere or it should be called setTaskTitle???
         task.setTitle(title);
         DAO.getInstance().saveProject(project);
     }
