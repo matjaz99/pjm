@@ -92,15 +92,7 @@ public class Formatter {
 
     public static XMLGregorianCalendar getXmlGregorianCalendarNow() {
         Date current_date = new Date();
-        XMLGregorianCalendar xmlDate = null;
-        GregorianCalendar gc = new GregorianCalendar();
-        gc.setTime(current_date);
-        try {
-            xmlDate = DatatypeFactory.newInstance().newXMLGregorianCalendar(gc);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return xmlDate;
+        return dateToGregorianCalendar(current_date);
     }
 
     public static long getMillis(XMLGregorianCalendar xmlGregorianCalendar) {
@@ -116,6 +108,22 @@ public class Formatter {
         long age = System.currentTimeMillis() - xmlGregorianCalendar.toGregorianCalendar().getTimeInMillis();
 //        System.out.println("age: " + (int) (age / 1000 / 3600 / 24));
         return (int) (age / 1000 / 3600 / 24);
+    }
+
+    public static Date gregorianCalendarToDate(XMLGregorianCalendar xmlGregorianCalendar) {
+        return xmlGregorianCalendar.toGregorianCalendar().getTime();
+    }
+
+    public static XMLGregorianCalendar dateToGregorianCalendar(Date date) {
+        XMLGregorianCalendar xmlDate = null;
+        GregorianCalendar gc = new GregorianCalendar();
+        gc.setTime(date);
+        try {
+            xmlDate = DatatypeFactory.newInstance().newXMLGregorianCalendar(gc);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return xmlDate;
     }
 
 

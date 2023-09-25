@@ -29,7 +29,9 @@
 			<p:panelGrid columns="12">
 				<p:panel>
 					<div class="card">
-						<i class="pi pi-globe" style="font-size: 4rem"></i>
+						<p:badge value="#{uiProjectBean.project.calculateProgressOnProject()}%" severity="info">
+							<i class="pi pi-globe" style="font-size: 4rem"></i>
+						</p:badge>
 					</div>
 					<p:link outcome="planning" value="Project" class="boldtext">
 						<f:param name="projectId" value="#{uiProjectBean.project.id}"/>
@@ -51,9 +53,7 @@
 				</p:panel>
 				<p:panel>
 					<div class="card">
-						<p:badge value="!" severity="warning">
-							<i class="pi pi-chart-line" style="font-size: 4rem"></i>
-						</p:badge>
+						<i class="pi pi-chart-line" style="font-size: 4rem"></i>
 					</div>
 					<p:link outcome="statistics" value="Statistics" class="boldtext">
 						<f:param name="projectId" value="#{uiProjectBean.project.id}"/>
@@ -135,7 +135,7 @@
 						<p:overlayPanel for="content-#{uiProjectBean.project.id}" style="width:550px"
 										showEvent="mouseover" hideEvent="mouseout" autoHide="false"
 										dynamic="true">
-							<p:outputLabel value="#{req.description}" escape="false"/>
+							<p:outputLabel value="#{req.shortDescription}" escape="false"/>
 						</p:overlayPanel>
 					</p:column>
 					<p:column headerText="Tags">

@@ -2,6 +2,7 @@ package si.matjazcerkvenik.pjm.web;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import si.matjazcerkvenik.pjm.model.Member;
 import si.matjazcerkvenik.pjm.model.Task;
 import si.matjazcerkvenik.pjm.model.TaskStatus;
 import si.matjazcerkvenik.pjm.util.DAO;
@@ -92,6 +93,48 @@ public class UiProjectBean extends UiBean implements Serializable {
     }
 
     public void deleteReqAction(String id) {
+        for (Iterator<Requirement> it = project.getRequirements().getList().iterator(); it.hasNext();) {
+            Requirement r = it.next();
+            if (r.getId().equals(id)) {
+                it.remove();
+                logger.info("deleteReqAction: req: " + id);
+                break;
+            }
+        }
+        DAO.getInstance().saveProject(project);
+        growlInfoMessage("Requirement deleted");
+    }
+
+
+
+
+
+
+    /* MEMBERS */
+
+    private String newMemberName;
+
+    public String getNewMemberName() {
+        return newMemberName;
+    }
+
+    public void setNewMemberName(String newMemberName) {
+        this.newMemberName = newMemberName;
+    }
+
+    public void addNewMemberAction() {
+        if (Formatter.isNullOrEmpty(newMemberName)) return;
+        Member r = new Member();
+        r.setId(Formatter.getMd5ChecksumShortSalted(newMemberName));
+        r.setRole(newReqTitle);
+        project.addNewMember(r);
+        logger.info("new member: " + r.getId() + ", name: " + newMemberName);
+        DAO.getInstance().saveProject(project);
+        newMemberName = null;
+        growlInfoMessage("New member joined");
+    }
+
+    public void deleteMemberAction(String id) {
         for (Iterator<Requirement> it = project.getRequirements().getList().iterator(); it.hasNext();) {
             Requirement r = it.next();
             if (r.getId().equals(id)) {

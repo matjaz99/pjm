@@ -19,24 +19,41 @@
 				</h:form>
 			</div>
 
-			<br/>
-
 			<p:outputLabel value="Project plan" style="font-weight: bold; font-size: 24px;"/>
 
-			<h:form id="projectMetaForm">
+			<h:form id="projectData">
 
-				<p:panelGrid columns="2">
+				<h:panelGroup layout="block">
+					<p:panelGrid columns="2">
 
-					<p:outputLabel value="Project name: " class="boldtext"/>
-					<p:outputLabel value="#{uiPlanningBean.project.name}" />
+						<p:outputLabel value="Project name: " class="boldtext"/>
+						<p:outputLabel value="#{uiPlanningBean.project.name}" />
 
-					<p:outputLabel value="Project filepath: " class="boldtext"/>
-					<p:outputLabel value="#{uiPlanningBean.project.projectPath}" />
+						<p:outputLabel value="Project filepath: " class="boldtext"/>
+						<p:outputLabel value="#{uiPlanningBean.project.projectPath}" />
 
-					<p:outputLabel value="Project created: " class="boldtext"/>
-					<p:outputLabel value="#{uiPlanningBean.project.created}" />
+						<p:outputLabel value="Project created: " class="boldtext"/>
+						<p:outputLabel value="#{uiPlanningBean.project.created}" />
 
-				</p:panelGrid>
+						<p:outputLabel for="startedDate" value="Project start: " />
+						<p:datePicker id="startedDate" value="#{uiPlanningBean.startedDate}" >
+							<p:ajax event="dateSelect"	listener="#{uiPlanningBean.onStartedDateSelect}" update="projectData" />
+						</p:datePicker>
+
+						<p:outputLabel for="plannedEndDate" value="Planned end: " />
+						<p:datePicker id="plannedEndDate" value="#{uiPlanningBean.plannedEndDate}" >
+							<p:ajax event="dateSelect"	listener="#{uiPlanningBean.onPlannedEndDateSelect}" update="projectData" />
+						</p:datePicker>
+
+						<p:outputLabel for="expectedEndDate" value="Expected end: " />
+						<p:datePicker id="expectedEndDate" value="#{uiPlanningBean.expectedEndDate}" >
+							<p:ajax event="dateSelect"	listener="#{uiPlanningBean.onExpectedEndDateSelect}" update="projectData" />
+						</p:datePicker>
+
+					</p:panelGrid>
+				</h:panelGroup>
+
+
 			</h:form>
 
 			<h:link value="Requirements summary" outcome="/project/summary">
@@ -81,7 +98,6 @@
 							<button class="ql-header" value="1" />
 							<button class="ql-header" value="2" />
 							<button class="ql-blockquote" />
-							<button class="ql-code-block" />
 						</span>
 						<span class="ql-formats">
 							<button class="ql-list" value="ordered" />

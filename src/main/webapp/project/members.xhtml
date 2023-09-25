@@ -1,0 +1,62 @@
+<ui:composition template="/templates/pageTemplate.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pjm="http://pjm.io/facelets">
+
+	<div id="contentFrame">
+		<ui:define name="contentFrame">
+
+			<div class="card">
+				<h:form>
+					<p:breadCrumb>
+						<p:menuitem value="Home" url="/pjm"/>
+						<p:menuitem value="#{uiProjectBean.project.name}" url="/pjm/project/project.xhtml?projectId=#{uiProjectBean.project.id}"/>
+						<p:menuitem value="Members"/>
+					</p:breadCrumb>
+				</h:form>
+			</div>
+
+			<p:outputLabel value="Members on project" style="font-weight: bold; font-size: 24px;"/>
+
+			<h:form id="membersForm">
+				<p:dataTable value="#{uiProjectBean.project.members.list}" var="member"
+							 cellpadding="0" cellspacing="0">
+					<p:column headerText="Name">
+						<p:inplace editor="true">
+							<p:inputText value="#{member.name}" required="true" label="text"/>
+							<p:ajax event="save" listener="#{uiProjectBean.saveProjectModifications('Saved')}" update="growl membersForm" />
+						</p:inplace>
+					</p:column>
+					<p:column headerText="Role">
+						<p:selectOneMenu id="memberRoleSelect" value="#{member.role}"
+										 dynamic="true" onchange="submit()">
+							<f:selectItem itemLabel="Developer" itemValue="Developer"/>
+							<f:selectItem itemLabel="Verification" itemValue="Verification"/>
+							<f:selectItem itemLabel="Project manager" itemValue="Project manager"/>
+							<f:selectItem itemLabel="Product manager" itemValue="Product manager"/>
+							<f:selectItem itemLabel="Head" itemValue="Head"/>
+							<f:selectItem itemLabel="Outsourcing" itemValue="Outsourcing"/>
+							<p:ajax update="growl, membersForm"/>
+						</p:selectOneMenu>
+					</p:column>
+					<p:column headerText="Action">
+						<p:commandButton value="Delete"
+										 action="#{uiProjectBean.deleteMemberAction(member.id)}"
+										 update="growl membersForm"
+										 styleClass="ui-button-danger ui-button-flat" >
+							<p:confirm message="Are you sure you want to delete member?" icon="pi pi-info-circle"/>
+						</p:commandButton>
+					</p:column>
+				</p:dataTable>
+			</h:form>
+
+
+
+		</ui:define>
+	</div>
+
+</ui:composition>
+

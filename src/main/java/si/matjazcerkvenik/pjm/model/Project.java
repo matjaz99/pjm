@@ -20,11 +20,18 @@ public class Project implements Serializable {
     private String id;
     private String name;
     private XMLGregorianCalendar created;
+    private XMLGregorianCalendar projectStarted;
+    /** This is initially planned end date. It should not change. Delay on the project will be calculated from this. */
+    private XMLGregorianCalendar plannedEnd;
+    /** This is expected end date. It can be delayed according to progress on the project. */
+    private XMLGregorianCalendar expectedEnd;
+    private XMLGregorianCalendar predictedEnd; // TODO
     private String projectPath;
     private Requirements requirements = new Requirements();
     private Tags tagDefinitions = new Tags();
     private Links links = new Links();
     private String notes;
+    private Members members = new Members();
     private Map<String, Alarm> activeAlarms = new HashMap<>();
 
     public String getId() {
@@ -40,6 +47,11 @@ public class Project implements Serializable {
         return name;
     }
 
+    @XmlElement
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public XMLGregorianCalendar getCreated() {
         return created;
     }
@@ -49,9 +61,31 @@ public class Project implements Serializable {
         this.created = created;
     }
 
+    public XMLGregorianCalendar getProjectStarted() {
+        return projectStarted;
+    }
+
     @XmlElement
-    public void setName(String name) {
-        this.name = name;
+    public void setProjectStarted(XMLGregorianCalendar projectStarted) {
+        this.projectStarted = projectStarted;
+    }
+
+    public XMLGregorianCalendar getPlannedEnd() {
+        return plannedEnd;
+    }
+
+    @XmlElement
+    public void setPlannedEnd(XMLGregorianCalendar plannedEnd) {
+        this.plannedEnd = plannedEnd;
+    }
+
+    public XMLGregorianCalendar getExpectedEnd() {
+        return expectedEnd;
+    }
+
+    @XmlElement
+    public void setExpectedEnd(XMLGregorianCalendar expectedEnd) {
+        this.expectedEnd = expectedEnd;
     }
 
     public String getProjectPath() {
@@ -111,6 +145,19 @@ public class Project implements Serializable {
         this.notes = notes;
     }
 
+    public Members getMembers() {
+        return members;
+    }
+
+    @XmlElement(name = "members")
+    public void setMembers(Members members) {
+        this.members = members;
+    }
+
+    public void addNewMember(Member member) {
+        members.addNewMember(member);
+    }
+
     public Map<String, Alarm> getActiveAlarms() {
         return activeAlarms;
     }
@@ -147,6 +194,29 @@ public class Project implements Serializable {
             }
         }
         return list;
+    }
+
+    /**
+     * This method works slightly different that <code>Requirement.calculateProgressOnRequirement</code>
+     * because it takes into account also requirements without tasks. In this case it is assumed that
+     * requirement is not fulfilled and counts as 1 incomplete task.
+     * @return progress in percentage
+     */
+    public int calculateProgressOnProject() {
+        int all = 0;
+        int complete = 0;
+        if (requirements.getList().size() == 0) return 0;
+        for (Requirement r : requirements.getList()) {
+            if (r.getTasks().getList().size() == 0) {
+                all++;
+            } else {
+                all = all + r.getTasks().getList().size();
+                for (Task t : r.getTasks().getList()) {
+                    if (t.getStatus() != null && t.getStatus().equalsIgnoreCase(TaskStatus.COMPLETE.label)) complete++;
+                }
+            }
+        }
+        return (int) complete * 100 / all;
     }
 
 }

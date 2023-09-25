@@ -68,22 +68,9 @@ public class UiAppBean implements Serializable {
      * @return progress in percentage
      */
     public int calculateProgressOnProject(String projectId) {
-        int all = 0;
-        int complete = 0;
         for (Project p : projects) {
             if (p.getId().equals(projectId)) {
-                if (p.getRequirements().getList().size() == 0) return 0;
-                for (Requirement r : p.getRequirements().getList()) {
-                    if (r.getTasks().getList().size() == 0) {
-                        all++;
-                    } else {
-                        all = all + r.getTasks().getList().size();
-                        for (Task t : r.getTasks().getList()) {
-                            if (t.getStatus() != null && t.getStatus().equalsIgnoreCase(TaskStatus.COMPLETE.label)) complete++;
-                        }
-                    }
-                }
-                return (int) complete * 100 / all;
+                return p.calculateProgressOnProject();
             }
         }
         return 0;

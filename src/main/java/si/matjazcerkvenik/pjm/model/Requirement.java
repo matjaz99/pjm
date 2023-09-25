@@ -46,6 +46,13 @@ public class Requirement implements Serializable {
         this.description = description;
     }
 
+    public String getShortDescription() {
+        if (description != null && description.length() > 1000) {
+            return description.substring(0, 1000) + " ...";
+        }
+        return description;
+    }
+
     public XMLGregorianCalendar getCreated() {
         return created;
     }
