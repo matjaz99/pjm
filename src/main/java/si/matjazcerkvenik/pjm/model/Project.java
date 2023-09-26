@@ -171,15 +171,10 @@ public class Project implements Serializable {
         if (!activeAlarms.containsKey(a.getId())) activeAlarms.put(a.getId(), a);
     }
 
-    public List<Issue> getAllOpenIssues() {
+    public List<Issue> getOpenIssues() {
         List<Issue> list = new ArrayList<>();
         for (Requirement req : requirements.getList()) {
-            for (Issue issue : req.getIssues().getList()) {
-                if (!issue.isResolved()) {
-                    issue.setReqRefId(req.getId());
-                    list.add(issue);
-                }
-            }
+            list.addAll(req.getOpenIssues());
         }
         return list;
     }

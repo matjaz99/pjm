@@ -1,7 +1,72 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <project id="ghtrvvd3">
+    <expectedEnd>2023-12-29T00:00:00.000+01:00</expectedEnd>
     <links/>
+    <members>
+        <member id="770778db">
+            <lastName>Cerkvenik</lastName>
+            <name>Matjaž</name>
+            <role>Head</role>
+        </member>
+        <member id="81274812">
+            <lastName>Kranjski</lastName>
+            <name>Janez</name>
+            <role>Head</role>
+        </member>
+        <member id="b68dc6ad">
+            <lastName>Kovač</lastName>
+            <name>Jože</name>
+            <role>Project manager</role>
+        </member>
+        <member id="ad4008f3">
+            <lastName>Salama</lastName>
+            <name>Ana</name>
+            <role>Developer</role>
+        </member>
+        <member id="e9f9a1f8">
+            <lastName>Cviliha</lastName>
+            <name>Miha</name>
+            <role>Verification</role>
+        </member>
+        <member id="84269805">
+            <lastName>Srdita</lastName>
+            <name>Anita</name>
+            <role>Developer</role>
+        </member>
+        <member id="ef76eed5">
+            <lastName>Mit</lastName>
+            <name>Dina</name>
+            <role>Developer</role>
+        </member>
+        <member id="ef70b9cb">
+            <lastName>Žaba</lastName>
+            <name>Živa</name>
+            <role>Developer</role>
+        </member>
+        <member id="0cdb5a00">
+            <lastName>Zebra</lastName>
+            <name>Zelena</name>
+            <role>Outsourcing</role>
+        </member>
+        <member id="0502a1e0">
+            <lastName>Ura</lastName>
+            <name>Zlata</name>
+            <role>Project manager</role>
+        </member>
+        <member id="45d6197a">
+            <lastName></lastName>
+            <name>Goce</name>
+            <role>Product manager</role>
+        </member>
+        <member id="4e7c82c2">
+            <lastName></lastName>
+            <name>Goce</name>
+            <role>Head</role>
+        </member>
+    </members>
     <name>Test1</name>
+    <plannedEnd>2023-10-24T00:00:00.000+02:00</plannedEnd>
+    <projectStarted>2023-09-01T00:00:00.000+02:00</projectStarted>
     <requirements>
         <requirement created="2023-09-20T21:12:29.405+02:00" id="A5">
             <comments/>
@@ -14,23 +79,38 @@
             </issues>
             <tags/>
             <tasks>
-                <task id="774f9526">
+                <task created="2023-09-20T21:12:29.405+02:00" id="774f9526" lastModified="2023-09-20T21:12:29.405+02:00">
+                    <assignee/>
                     <status>In progress</status>
                     <title>Produce AAD</title>
+                </task>
+                <task created="2023-09-27T00:07:16.993+02:00" id="b558544a" lastModified="2023-09-27T00:11:04.097+02:00">
+                    <assignee/>
+                    <description>&lt;p&gt;ddddd as asdsdf a sfad&lt;/p&gt;</description>
+                    <status>Draft</status>
+                    <title>eeeee</title>
                 </task>
             </tasks>
             <title>AAD</title>
         </requirement>
         <requirement created="2023-09-20T21:12:29.405+02:00" id="A1">
             <comments/>
-            <issues/>
+            <issues>
+                <issue created="2023-09-26T22:10:51.264+02:00" id="787da7d8">
+                    <problem>ddd</problem>
+                    <resolved>true</resolved>
+                    <solution>fff</solution>
+                </issue>
+            </issues>
             <tags/>
             <tasks>
-                <task created="2023-09-20T23:12:49.931+02:00" id="1b1ceb9f">
+                <task created="2023-09-20T23:12:49.931+02:00" id="1b1ceb9f" lastModified="2023-09-20T23:12:49.931+02:00">
+                    <assignee/>
                     <status>Waiting</status>
                     <title>eeeee</title>
                 </task>
-                <task created="2023-09-20T23:12:54.394+02:00" id="a858e9c1">
+                <task created="2023-09-20T23:12:54.394+02:00" id="a858e9c1" lastModified="2023-09-20T23:12:54.394+02:00">
+                    <assignee/>
                     <status>Draft</status>
                     <title>rrrrr</title>
                 </task>
@@ -57,19 +137,29 @@
             <issues/>
             <tags/>
             <tasks>
-                <task id="5abdd6b7">
+                <task created="2023-09-20T21:12:29.405+02:00" id="5abdd6b7" lastModified="2023-09-20T21:12:29.405+02:00">
+                    <assignee/>
+                    <status>Draft</status>
                     <title>Izdelati ogrodje</title>
                 </task>
-                <task id="ecfa1e76">
+                <task created="2023-09-20T21:12:29.405+02:00" id="ecfa1e76" lastModified="2023-09-20T21:12:29.405+02:00">
+                    <assignee/>
+                    <status>Draft</status>
                     <title>Pritrditi amortizerje</title>
                 </task>
-                <task id="87ce45c4">
+                <task created="2023-09-20T21:12:29.405+02:00" id="87ce45c4" lastModified="2023-09-20T21:12:29.405+02:00">
+                    <assignee/>
+                    <status>Draft</status>
                     <title>Pritrditi kolesa</title>
                 </task>
-                <task id="fd6357f9">
+                <task created="2023-09-20T21:12:29.405+02:00" id="fd6357f9" lastModified="2023-09-20T21:12:29.405+02:00">
+                    <assignee/>
+                    <status>Draft</status>
                     <title>Naroči 4 pnevmatike</title>
                 </task>
-                <task id="df65bde3">
+                <task created="2023-09-20T21:12:29.405+02:00" id="df65bde3" lastModified="2023-09-20T21:12:29.405+02:00">
+                    <assignee/>
+                    <status>Draft</status>
                     <title>Napisati dokument</title>
                 </task>
             </tasks>

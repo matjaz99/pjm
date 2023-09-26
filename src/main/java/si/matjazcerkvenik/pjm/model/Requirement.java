@@ -5,6 +5,8 @@ import jakarta.xml.bind.annotation.XmlElement;
 
 import javax.xml.datatype.XMLGregorianCalendar;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Requirement implements Serializable {
 
@@ -108,6 +110,17 @@ public class Requirement implements Serializable {
 
     public void addNewIssue(Issue issue) {
         issues.addNewIssue(issue);
+    }
+
+    public List<Issue> getOpenIssues() {
+        List<Issue> list = new ArrayList<>();
+        for (Issue issue : issues.getList()) {
+            if (!issue.isResolved()) {
+                issue.setReqRefId(id);
+                list.add(issue);
+            }
+        }
+        return list;
     }
 
     public int calculateProgressOnRequirement() {

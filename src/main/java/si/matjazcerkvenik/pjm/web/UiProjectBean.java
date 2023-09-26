@@ -2,19 +2,18 @@ package si.matjazcerkvenik.pjm.web;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import si.matjazcerkvenik.pjm.model.Member;
-import si.matjazcerkvenik.pjm.model.Task;
-import si.matjazcerkvenik.pjm.model.TaskStatus;
+import si.matjazcerkvenik.pjm.model.*;
 import si.matjazcerkvenik.pjm.util.DAO;
-import si.matjazcerkvenik.pjm.model.Requirement;
 import si.matjazcerkvenik.pjm.util.Formatter;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
+import javax.faces.event.ValueChangeEvent;
 import java.io.Serializable;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 @ManagedBean
@@ -114,6 +113,8 @@ public class UiProjectBean extends UiBean implements Serializable {
 
     private String newMemberName;
 
+    private String newMemberLastName;
+
     public String getNewMemberName() {
         return newMemberName;
     }
@@ -122,29 +123,45 @@ public class UiProjectBean extends UiBean implements Serializable {
         this.newMemberName = newMemberName;
     }
 
+    public String getNewMemberLastName() {
+        return newMemberLastName;
+    }
+
+    public void setNewMemberLastName(String newMemberLastName) {
+        this.newMemberLastName = newMemberLastName;
+    }
+
     public void addNewMemberAction() {
         if (Formatter.isNullOrEmpty(newMemberName)) return;
-        Member r = new Member();
-        r.setId(Formatter.getMd5ChecksumShortSalted(newMemberName));
-        r.setRole(newReqTitle);
-        project.addNewMember(r);
-        logger.info("new member: " + r.getId() + ", name: " + newMemberName);
+        Member m = new Member();
+        m.setId(Formatter.getMd5ChecksumShortSalted(newMemberName));
+        m.setName(newMemberName);
+        m.setLastName(newMemberLastName);
+        m.setRole("");
+        project.addNewMember(m);
+        logger.info("new member: " + m.getId() + ", name: " + newMemberName);
         DAO.getInstance().saveProject(project);
         newMemberName = null;
+        newMemberLastName = null;
         growlInfoMessage("New member joined");
     }
 
-    public void deleteMemberAction(String id) {
-        for (Iterator<Requirement> it = project.getRequirements().getList().iterator(); it.hasNext();) {
-            Requirement r = it.next();
-            if (r.getId().equals(id)) {
+    public void deleteMemberAction(Member member) {
+        for (Iterator<Member> it = project.getMembers().getList().iterator(); it.hasNext();) {
+            Member m = it.next();
+            if (m.getId().equals(member.getId())) {
                 it.remove();
-                logger.info("deleteReqAction: req: " + id);
+                logger.info("member: " + member.getId());
                 break;
             }
         }
         DAO.getInstance().saveProject(project);
-        growlInfoMessage("Requirement deleted");
+        growlInfoMessage("Member fired");
+    }
+
+    public void selectedMemberRoleChangeEvent(Member member) {
+        DAO.getInstance().saveProject(project);
+        growlInfoMessage("Member promoted to " + member.getRole());
     }
 
 }

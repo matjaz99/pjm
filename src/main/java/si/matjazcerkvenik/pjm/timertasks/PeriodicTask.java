@@ -67,7 +67,7 @@ public class PeriodicTask extends TimerTask {
             }
 
             // check if there are any open issues
-            if (project.getAllOpenIssues().size() > 0) {
+            if (project.getOpenIssues().size() > 0) {
                 Alarm a = new Alarm();
                 a.setName("There are opened issues!");
                 a.setAddInfo("Resolve the issues");

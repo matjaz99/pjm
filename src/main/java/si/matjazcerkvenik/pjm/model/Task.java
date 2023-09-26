@@ -14,6 +14,7 @@ public class Task implements Serializable {
     private String title;
     private String description;
     private String status;
+    private Assignee assignee = new Assignee();
     private XMLGregorianCalendar created;
     private XMLGregorianCalendar lastModified;
 
@@ -51,6 +52,19 @@ public class Task implements Serializable {
     @XmlElement
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public Assignee getAssignee() {
+        return assignee;
+    }
+
+    @XmlElement
+    public void setAssignee(Assignee assignee) {
+        this.assignee = assignee;
+    }
+
+    public void assignTo(String memberName) {
+
     }
 
     public XMLGregorianCalendar getCreated() {

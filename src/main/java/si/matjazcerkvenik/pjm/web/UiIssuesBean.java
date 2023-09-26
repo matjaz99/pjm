@@ -38,7 +38,7 @@ public class UiIssuesBean extends UiBean implements Serializable {
 
 
     public List<Issue> getOpenIssuesList() {
-        return project.getAllOpenIssues();
+        return project.getOpenIssues();
     }
 
     public Requirement findRequirement(String reqId) {

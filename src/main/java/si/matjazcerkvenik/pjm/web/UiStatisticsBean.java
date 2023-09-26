@@ -58,18 +58,17 @@ public class UiStatisticsBean extends UiBean implements Serializable {
     }
 
     public int getRequirementsTotalCount() {
-        if (project.getRequirements().getList() == null) return 0;
         return project.getRequirements().getList().size();
     }
 
     public int getTasksTotalCount(String status) {
-        if (project.getRequirements().getList() == null) return 0;
         int count = 0;
         for (Requirement r : project.getRequirements().getList()) {
             if (r.getTasks() == null || r.getTasks().getList() == null) {
                 continue;
             } else {
                 if (status.equalsIgnoreCase("null")) {
+                    // null means all tasks regardless of status
                     count += r.getTasks().getList().size();
                     continue;
                 }

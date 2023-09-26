@@ -95,7 +95,9 @@
 					<div class="card">
 						<i class="pi pi-users" style="font-size: 4rem"></i>
 					</div>
-					<p:outputLabel value="Members" class="boldtext"/>
+					<p:link outcome="members" value="Members" class="boldtext">
+						<f:param name="projectId" value="#{uiProjectBean.project.id}"/>
+					</p:link>
 				</p:panel>
 				<p:panel>
 					<div class="card">
@@ -147,7 +149,7 @@
 					</p:column>
 					<p:column headerText="Tasks">
 						<p:outputLabel value="#{req.tasks.list.size()}"/>
-						<p:outputPanel rendered="#{req.issues.list.size() > 0 ? true : false}" >
+						<p:outputPanel rendered="#{req.getOpenIssues().size() > 0 ? true : false}" >
 							<span class="pi pi-exclamation-triangle" style="color: red; font-size: 1.5rem" ></span>
 						</p:outputPanel>
 					</p:column>

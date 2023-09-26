@@ -2,6 +2,8 @@ package si.matjazcerkvenik.pjm.web;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import si.matjazcerkvenik.pjm.model.Assignee;
+import si.matjazcerkvenik.pjm.model.Member;
 import si.matjazcerkvenik.pjm.model.Requirement;
 import si.matjazcerkvenik.pjm.model.Task;
 import si.matjazcerkvenik.pjm.util.DAO;
@@ -12,6 +14,8 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 @ManagedBean
@@ -77,6 +81,38 @@ public class UiTaskBean extends UiBean implements Serializable {
         task.setLastModified(Formatter.getXmlGregorianCalendarNow());
         DAO.getInstance().saveProject(project);
         growlInfoMessage("New status: " + selectedTaskStatus);
+    }
+
+
+    /* Assign to member */
+
+    private String selectedAssignee;
+
+    public String getSelectedAssignee() {
+        return selectedAssignee;
+    }
+
+    public void setSelectedAssignee(String selectedAssignee) {
+        this.selectedAssignee = selectedAssignee;
+        Member member = project.getMembers().findMember(selectedAssignee);
+        if (member == null) return;
+        Assignee assignee = null;
+        if (task.getAssignee().getMemberRefId() == null) { // FIXME tole neki ne dela
+            assignee = new Assignee();
+            assignee.setMemberRefId(member.getId());
+        } else {
+            task.getAssignee().setMemberRefId(member.getId());
+        }
+        DAO.getInstance().saveProject(project);
+        growlInfoMessage("Assigned to " + selectedAssignee);
+    }
+
+    public List<String> getMembersList() {
+        List<String> list = new ArrayList<>();
+        for (Member m : project.getMembers().getList()) {
+            list.add(m.getName() + " " + m.getLastName());
+        }
+        return list;
     }
 
     /*  Edit task  */

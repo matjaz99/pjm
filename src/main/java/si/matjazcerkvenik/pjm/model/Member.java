@@ -13,6 +13,7 @@ public class Member implements Serializable {
 
     private String id;
     private String name;
+    private String lastName;
     private String role;
 
     public String getId() {
@@ -31,6 +32,15 @@ public class Member implements Serializable {
     @XmlElement
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    @XmlElement
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getRole() {

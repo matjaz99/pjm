@@ -71,7 +71,7 @@
 			<br/>
 
 
-			<h:form id="configForm">
+			<h:form id="taskStatusForm">
 				<p:outputPanel>
 					<p:outputLabel value="Status: " class="boldtext"/>
 					<p:selectOneMenu id="selectedStatus" value="#{uiTaskBean.selectedTaskStatus}" dynamic="true" onchange="submit()">
@@ -80,6 +80,19 @@
 						<f:selectItem itemLabel="Clarify" itemValue="Clarify"/>
 						<f:selectItem itemLabel="Waiting" itemValue="Waiting"/>
 						<f:selectItem itemLabel="Complete" itemValue="Complete"/>
+					</p:selectOneMenu>
+				</p:outputPanel>
+			</h:form>
+
+			<h:form id="assignedToForm">
+				<p:outputPanel>
+					<p:outputLabel value="Assigned to: " class="boldtext"/>
+					<p:selectOneMenu id="assignedMember" value="#{uiTaskBean.selectedAssignee}"
+									 dynamic="true" onchange="submit()">
+						<f:selectItem itemLabel="Nobody" itemValue="" />
+						<f:selectItems value="#{uiTaskBean.project.members.list}"
+									   var="member" itemLabel="#{member.name} #{member.lastName}"
+									   itemValue="#{member.name} #{member.lastName}"/>
 					</p:selectOneMenu>
 				</p:outputPanel>
 			</h:form>

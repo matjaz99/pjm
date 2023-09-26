@@ -25,4 +25,18 @@ public class Members implements Serializable {
         if (list == null) list = new ArrayList<>();
         list.add(member);
     }
+
+    /**
+     * Find member by his name and lastName (separated by whitespace
+     * @param name
+     * @return member
+     */
+    public Member findMember(String name) {
+        for (Member m : list) {
+            if ((m.getName() + " " + m.getLastName()).equals(name)) {
+                return m;
+            }
+        }
+        return null;
+    }
 }
