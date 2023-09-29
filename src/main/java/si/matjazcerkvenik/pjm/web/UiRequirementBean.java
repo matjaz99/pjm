@@ -59,17 +59,10 @@ public class UiRequirementBean extends UiBean implements Serializable {
         this.editModeOn = editModeOn;
     }
 
+
+
     /*  Edit requirement  */
 
-
-//    public String getRequirementId() {
-//        return requirement.getId();
-//    }
-//
-//    public void setRequirementId(String id) {
-//        requirement.setId(id);
-//        DAO.getInstance().saveProject(project);
-//    }
 
     public String getRequirementTitle() {
         return requirement.getTitle();
@@ -127,6 +120,11 @@ public class UiRequirementBean extends UiBean implements Serializable {
         }
         DAO.getInstance().saveProject(project);
         growlInfoMessage("Task deleted");
+    }
+
+    public String getAssigneeAvatar(String memberId) {
+        Member member = findMember(memberId);
+        return member.getName() + " " + member.getLastName();
     }
 
 

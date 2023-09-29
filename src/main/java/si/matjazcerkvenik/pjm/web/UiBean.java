@@ -1,5 +1,6 @@
 package si.matjazcerkvenik.pjm.web;
 
+import si.matjazcerkvenik.pjm.model.Member;
 import si.matjazcerkvenik.pjm.model.Project;
 import si.matjazcerkvenik.pjm.model.Tag;
 import si.matjazcerkvenik.pjm.util.DAO;
@@ -71,6 +72,11 @@ public class UiBean {
             }
         }
         return null;
+    }
+
+    public Member findMember(String memberId) {
+        if (memberId == null) return null;
+        return project.getMembers().findMember(memberId);
     }
 
 }

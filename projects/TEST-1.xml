@@ -4,9 +4,9 @@
     <links/>
     <members>
         <member id="770778db">
-            <lastName>Cerkvenik</lastName>
+            <lastName>Cerkvenikk</lastName>
             <name>Matjaž</name>
-            <role>Head</role>
+            <role>Developer</role>
         </member>
         <member id="81274812">
             <lastName>Kranjski</lastName>
@@ -21,7 +21,7 @@
         <member id="ad4008f3">
             <lastName>Salama</lastName>
             <name>Ana</name>
-            <role>Developer</role>
+            <role>Verification</role>
         </member>
         <member id="e9f9a1f8">
             <lastName>Cviliha</lastName>
@@ -36,12 +36,12 @@
         <member id="ef76eed5">
             <lastName>Mit</lastName>
             <name>Dina</name>
-            <role>Developer</role>
+            <role>Product manager</role>
         </member>
         <member id="ef70b9cb">
             <lastName>Žaba</lastName>
             <name>Živa</name>
-            <role>Developer</role>
+            <role>Outsourcing</role>
         </member>
         <member id="0cdb5a00">
             <lastName>Zebra</lastName>
@@ -70,25 +70,34 @@
     <requirements>
         <requirement created="2023-09-20T21:12:29.405+02:00" id="A5">
             <comments/>
-            <description>&lt;p&gt;Do some AADs&lt;/p&gt;</description>
+            <description>&lt;p&gt;Do some AADs and BGGs&lt;/p&gt;</description>
             <issues>
                 <issue created="2023-09-20T22:12:48.398+02:00" id="d550a5ce">
                     <problem>asdf</problem>
+                    <resolved>false</resolved>
+                </issue>
+                <issue created="2023-09-28T23:54:23.562+02:00" id="5d69e6a6">
+                    <problem>nnj</problem>
                     <resolved>false</resolved>
                 </issue>
             </issues>
             <tags/>
             <tasks>
                 <task created="2023-09-20T21:12:29.405+02:00" id="774f9526" lastModified="2023-09-20T21:12:29.405+02:00">
-                    <assignee/>
+                    <assignee memberRefId="ad4008f3"/>
                     <status>In progress</status>
                     <title>Produce AAD</title>
                 </task>
-                <task created="2023-09-27T00:07:16.993+02:00" id="b558544a" lastModified="2023-09-27T00:11:04.097+02:00">
-                    <assignee/>
-                    <description>&lt;p&gt;ddddd as asdsdf a sfad&lt;/p&gt;</description>
+                <task created="2023-09-27T00:07:16.993+02:00" id="b558544a" lastModified="2023-09-28T23:56:52.989+02:00">
+                    <assignee memberRefId="770778db"/>
+                    <description>&lt;p&gt;ddddd as asdsdf a sfadgg&lt;/p&gt;</description>
                     <status>Draft</status>
                     <title>eeeee</title>
+                </task>
+                <task created="2023-09-29T00:36:59.235+02:00" id="f3720aa8" lastModified="2023-09-29T00:36:59.235+02:00">
+                    <assignee/>
+                    <status>Draft</status>
+                    <title>jhgk</title>
                 </task>
             </tasks>
             <title>AAD</title>

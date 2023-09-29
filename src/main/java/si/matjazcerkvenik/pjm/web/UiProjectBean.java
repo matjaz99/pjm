@@ -155,6 +155,17 @@ public class UiProjectBean extends UiBean implements Serializable {
                 break;
             }
         }
+
+        // also delete members (assignees) on tasks
+        for (Requirement r : project.getRequirements().getList()) {
+            for (Task t : r.getTasks().getList()) {
+                if (t.getAssignee().getMemberRefId() != null
+                        && t.getAssignee().getMemberRefId().equalsIgnoreCase(member.getId())) {
+                    t.getAssignee().setMemberRefId(null);
+                }
+            }
+        }
+
         DAO.getInstance().saveProject(project);
         growlInfoMessage("Member fired");
     }

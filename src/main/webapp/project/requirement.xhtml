@@ -19,20 +19,20 @@
 				</h:form>
 			</div>
 			<h:form>
-				<p:panelGrid columns="3" styleClass="ui-noborder">
+				<p:outputPanel>
 					<p:inplace editor="true" style="font-weight: bold; font-size: 24px;">
-						<p:inputText value="#{uiRequirementBean.requirementTitle}" required="true" label="text"/>
+						<p:inputText value="#{uiRequirementBean.requirementTitle}" required="true" label="text" size="60"/>
 					</p:inplace>
-				</p:panelGrid>
+				</p:outputPanel>
 			</h:form>
 
-			<p:panel id="tagsPanel">
+			<p:outputPanel id="tagsPanel">
 				<ui:repeat var="t" value="#{uiRequirementBean.requirement.tags.list}">
 					<pjm:tag value="#{uiRequirementBean.tag2TagDef(t)}" color="#{uiRequirementBean.tag2TagDef(t).color}">
 						<p:outputLabel value="#{uiRequirementBean.tag2TagDef(t).name}" />
 					</pjm:tag>
 				</ui:repeat>
-			</p:panel>
+			</p:outputPanel>
 
 
 <!--			<p:outputPanel id="reqDescPanel">-->
@@ -246,6 +246,10 @@
 
 				<p:dataTable value="#{uiRequirementBean.requirement.tasks.list}" var="tsk"
 							 cellpadding="0" cellspacing="0">
+					<p:column headerText="Assignee">
+						<p:avatar label="#{uiRequirementBean.getAssigneeAvatar(tsk.assignee.memberRefId)}" dynamicColor="true"
+								  styleClass="ml-2" size="large" rendered="#{tsk.assignee.memberRefId == null ? false : true}"/>
+					</p:column>
 					<p:column headerText="Title">
 						<h:link value="#{tsk.title}" outcome="/project/task">
 							<f:param name="projectId" value="#{uiRequirementBean.project.id}" />

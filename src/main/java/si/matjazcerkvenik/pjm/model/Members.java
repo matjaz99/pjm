@@ -28,12 +28,12 @@ public class Members implements Serializable {
 
     /**
      * Find member by his name and lastName (separated by whitespace
-     * @param name
+     * @param id
      * @return member
      */
-    public Member findMember(String name) {
+    public Member findMember(String id) {
         for (Member m : list) {
-            if ((m.getName() + " " + m.getLastName()).equals(name)) {
+            if (m.getId().equals(id)) {
                 return m;
             }
         }

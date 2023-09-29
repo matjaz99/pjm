@@ -18,8 +18,18 @@
 					</p:breadCrumb>
 				</h:form>
 			</div>
-			<p:outputLabel value="#{uiTaskBean.task.title}" class="boldtext"/>
+			<h:form>
+				<p:outputPanel>
+					<p:inplace editor="true" style="font-weight: bold; font-size: 24px;">
+						<p:inputText value="#{uiTaskBean.taskTitle}" required="true" label="text" size="60"/>
+					</p:inplace>
+				</p:outputPanel>
+			</h:form>
+
+			<p:avatar label="#{uiTaskBean.getAssigneeAvatar()}" dynamicColor="true"
+					  styleClass="ml-2" size="large" rendered="#{uiTaskBean.task.assignee.memberRefId == null ? false : true}"/>
 			<p:tag styleClass="mr-2" severity="#{uiTaskBean.convertStatusToSeverity(uiTaskBean.task.status)}" value="#{uiTaskBean.task.status}"></p:tag>
+
 
 			<h:form id="editorForm">
 
@@ -87,12 +97,12 @@
 			<h:form id="assignedToForm">
 				<p:outputPanel>
 					<p:outputLabel value="Assigned to: " class="boldtext"/>
-					<p:selectOneMenu id="assignedMember" value="#{uiTaskBean.selectedAssignee}"
+					<p:selectOneMenu id="assignedMember" value="#{uiTaskBean.selectedAssigneeId}"
 									 dynamic="true" onchange="submit()">
 						<f:selectItem itemLabel="Nobody" itemValue="" />
 						<f:selectItems value="#{uiTaskBean.project.members.list}"
 									   var="member" itemLabel="#{member.name} #{member.lastName}"
-									   itemValue="#{member.name} #{member.lastName}"/>
+									   itemValue="#{member.id}"/>
 					</p:selectOneMenu>
 				</p:outputPanel>
 			</h:form>

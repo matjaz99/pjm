@@ -71,6 +71,15 @@ public class UiTaskBean extends UiBean implements Serializable {
         this.task = task;
     }
 
+    public String getTaskTitle() {
+        return task.getTitle();
+    }
+
+    public void setTaskTitle(String title) {
+        task.setTitle(title);
+        saveProjectModifications("Saved");
+    }
+
     public String getSelectedTaskStatus() {
         return selectedTaskStatus;
     }
@@ -86,25 +95,21 @@ public class UiTaskBean extends UiBean implements Serializable {
 
     /* Assign to member */
 
-    private String selectedAssignee;
+    private String selectedAssigneeId;
 
-    public String getSelectedAssignee() {
-        return selectedAssignee;
+    public String getSelectedAssigneeId() {
+        if (task.getAssignee().getMemberRefId() == null) return selectedAssigneeId;
+        return task.getAssignee().getMemberRefId();
     }
 
-    public void setSelectedAssignee(String selectedAssignee) {
-        this.selectedAssignee = selectedAssignee;
-        Member member = project.getMembers().findMember(selectedAssignee);
+    public void setSelectedAssigneeId(String selectedAssigneeId) {
+        Member member = project.getMembers().findMember(selectedAssigneeId);
         if (member == null) return;
-        Assignee assignee = null;
-        if (task.getAssignee().getMemberRefId() == null) { // FIXME tole neki ne dela
-            assignee = new Assignee();
-            assignee.setMemberRefId(member.getId());
-        } else {
-            task.getAssignee().setMemberRefId(member.getId());
-        }
+        this.selectedAssigneeId = member.getId();
+        task.getAssignee().setMemberRefId(member.getId());
+        logger.info("task " + task.getId() + " assigned to name=" + member.getName());
         DAO.getInstance().saveProject(project);
-        growlInfoMessage("Assigned to " + selectedAssignee);
+        growlInfoMessage("Assigned to " + member.getName());
     }
 
     public List<String> getMembersList() {
@@ -113,6 +118,11 @@ public class UiTaskBean extends UiBean implements Serializable {
             list.add(m.getName() + " " + m.getLastName());
         }
         return list;
+    }
+
+    public String getAssigneeAvatar() {
+        Member member = findMember(task.getAssignee().getMemberRefId());
+        return member.getName() + " " + member.getLastName();
     }
 
     /*  Edit task  */
