@@ -32,6 +32,7 @@ public class UiRequirementBean extends UiBean implements Serializable {
         String projId = requestParameterMap.getOrDefault("projectId", null);
         String reqId = requestParameterMap.getOrDefault("reqId", null);
         project = uiAppBean.getProject(projId);
+        logger.info("loaded: " + project.getName());
 
         if (project.getRequirements() == null) return;
         for (Requirement r : project.getRequirements().getList()) {
@@ -40,6 +41,8 @@ public class UiRequirementBean extends UiBean implements Serializable {
                 break;
             }
         }
+
+        editModeOn = false;
 
     }
 
@@ -51,6 +54,11 @@ public class UiRequirementBean extends UiBean implements Serializable {
         this.requirement = requirement;
     }
 
+
+
+    /*  Edit requirement  */
+
+
     public boolean isEditModeOn() {
         return editModeOn;
     }
@@ -59,9 +67,9 @@ public class UiRequirementBean extends UiBean implements Serializable {
         this.editModeOn = editModeOn;
     }
 
-
-
-    /*  Edit requirement  */
+    public void toggleEditMode() {
+        editModeOn = !editModeOn;
+    }
 
 
     public String getRequirementTitle() {
@@ -73,6 +81,10 @@ public class UiRequirementBean extends UiBean implements Serializable {
         saveProjectModifications("Saved");
     }
 
+    public void saveRequirementChanges() {
+        editModeOn = !editModeOn;
+        saveProjectModifications("Saved");
+    }
 
 
     public String deleteRequirement() {

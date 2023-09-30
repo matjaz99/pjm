@@ -1,11 +1,41 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <project id="d2f2297d">
+    <expectedEnd>2023-12-29T00:00:00.000+01:00</expectedEnd>
     <links>
         <link id="62ffcf46">
             <description>sfdg</description>
         </link>
     </links>
+    <members>
+        <member id="edb1d233">
+            <lastName>Skače</lastName>
+            <name>Marko</name>
+            <role>Head</role>
+        </member>
+        <member id="03a1fdd1">
+            <lastName>Balonček</lastName>
+            <name>Tonček</name>
+            <role>Product manager</role>
+        </member>
+        <member id="6f5a68f1">
+            <lastName>Salama</lastName>
+            <name>Ana</name>
+            <role>Verification</role>
+        </member>
+        <member id="80669f04">
+            <lastName>Žaba</lastName>
+            <name>Živa</name>
+            <role>Project manager</role>
+        </member>
+        <member id="540e9ef5">
+            <lastName>Gapiha</lastName>
+            <name>Miha</name>
+            <role>Developer</role>
+        </member>
+    </members>
     <name>Projekt E</name>
+    <plannedEnd>2023-11-15T00:00:00.000+01:00</plannedEnd>
+    <projectStarted>2023-08-01T00:00:00.000+02:00</projectStarted>
     <requirements>
         <requirement created="2023-09-16T10:25:27.194+02:00" id="REQ-01">
             <comments>
@@ -16,7 +46,7 @@
                 <comment created="2023-09-11T21:03:21.908+02:00" id="0587c913" lastModified="2023-09-11T21:03:21.908+02:00">jiuhuyg</comment>
                 <comment created="2023-09-16T15:14:01.460+02:00" id="3c012f51" lastModified="2023-09-17T23:16:42.272+02:00">FFFF</comment>
             </comments>
-            <description>&lt;p&gt;Shranjevanje v xml file.&lt;/p&gt;</description>
+            <description>&lt;p&gt;Shranjevanje v &lt;span style="color:rgb( 255 , 153 , 0 )"&gt;xml&lt;/span&gt; file.&lt;/p&gt;&lt;p&gt;Vsaka &lt;span style="color:rgb( 0 , 138 , 0 );background-color:rgb( 255 , 255 , 0 )"&gt;sprememba&lt;/span&gt; se sproti shrani. Xml file se prepiše z novim.&lt;/p&gt;</description>
             <issues>
                 <issue created="2023-09-15T23:35:58.185+02:00" id="e8d128fd">
                     <problem>aaaaaaaa</problem>
@@ -29,28 +59,33 @@
                 </issue>
             </issues>
             <tags>
-                <tag id="507a9109" refId="4a6c3d9e"></tag>
-                <tag id="20ae84c7" refId="7dee1dd7"></tag>
+                <tag id="8c279290" refId="4a6c3d9e"></tag>
+                <tag id="ec231b04" refId="7dee1dd7"></tag>
             </tags>
             <tasks>
                 <task created="2023-09-16T10:25:27.194+02:00" id="110e9647" lastModified="2023-09-16T10:25:27.194+02:00">
+                    <assignee memberRefId="540e9ef5"/>
                     <description>&lt;p&gt;Todo&lt;/p&gt;</description>
                     <status>In progress</status>
                     <title>TODO 1</title>
                 </task>
                 <task created="2023-09-16T10:25:27.194+02:00" id="088dbf41" lastModified="2023-09-16T10:25:27.194+02:00">
+                    <assignee/>
                     <status>In progress</status>
                     <title>TODO 2</title>
                 </task>
                 <task created="2023-09-16T10:25:27.194+02:00" id="f450af9d" lastModified="2023-09-16T10:25:27.194+02:00">
+                    <assignee/>
                     <status>Waiting</status>
                     <title>TODO 3</title>
                 </task>
                 <task created="2023-09-16T10:25:27.194+02:00" id="db05a5e9" lastModified="2023-09-16T10:25:27.194+02:00">
+                    <assignee/>
                     <status>Complete</status>
                     <title>TODO 4</title>
                 </task>
                 <task created="2023-09-16T15:14:54.733+02:00" id="fc1a0494" lastModified="2023-09-16T15:14:54.733+02:00">
+                    <assignee/>
                     <description>&lt;p&gt;asdfsdfgertge werer wer wergwerqewrf rwrefwer&lt;/p&gt;</description>
                     <status>Waiting</status>
                     <title>ASW</title>
@@ -63,7 +98,7 @@
                 <comment created="2023-09-16T15:36:18.973+02:00" id="f895a376" lastModified="2023-09-16T15:36:18.974+02:00">kjooo</comment>
                 <comment created="2023-09-16T15:36:31.826+02:00" id="40d994d4" lastModified="2023-09-16T15:36:31.826+02:00">fds</comment>
             </comments>
-            <description>&lt;p&gt;Zahteva ima naslov, opis, tage, issue, komentarje, taske..&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;</description>
+            <description>&lt;p&gt;Zahteva ima naslov, opis, tage, issue, komentarje, taske..&lt;/p&gt;</description>
             <issues>
                 <issue created="2023-09-16T15:25:23.683+02:00" id="04706983">
                     <problem>rrreeeqq</problem>
@@ -81,27 +116,34 @@
                 <tag id="91f3bf7c" refId="cbd62164"></tag>
             </tags>
             <tasks>
-                <task created="2023-09-16T18:45:52.307+02:00" id="bd88d9e8" lastModified="2023-09-16T18:45:52.307+02:00">
+                <task created="2023-09-16T18:45:52.307+02:00" id="bd88d9e8" lastModified="2023-09-30T21:33:35.822+02:00">
+                    <assignee memberRefId="80669f04"/>
+                    <description>&lt;p&gt;Model zahtev&lt;/p&gt;</description>
                     <status>Complete</status>
                     <title>Model requirementsov</title>
                 </task>
                 <task created="2023-09-16T18:46:08.256+02:00" id="febe215b" lastModified="2023-09-16T18:46:08.256+02:00">
+                    <assignee memberRefId="540e9ef5"/>
                     <status>Complete</status>
                     <title>Pripenjanje tagov</title>
                 </task>
                 <task created="2023-09-16T18:46:21.250+02:00" id="3e9d1689" lastModified="2023-09-16T18:46:21.250+02:00">
+                    <assignee memberRefId="edb1d233"/>
                     <status>Complete</status>
                     <title>Pripenjanje issuev</title>
                 </task>
                 <task created="2023-09-16T18:46:29.259+02:00" id="dbe74d9e" lastModified="2023-09-16T18:46:29.259+02:00">
+                    <assignee memberRefId="540e9ef5"/>
                     <status>Complete</status>
                     <title>Dodajanje komentarjev</title>
                 </task>
                 <task created="2023-09-16T18:46:39.260+02:00" id="f257f63a" lastModified="2023-09-16T18:46:39.260+02:00">
+                    <assignee memberRefId="540e9ef5"/>
                     <status>Complete</status>
                     <title>Dodajanje taskov</title>
                 </task>
-                <task created="2023-09-18T00:17:44.496+02:00" id="dc7f088f" lastModified="2023-09-18T00:17:44.496+02:00">
+                <task created="2023-09-18T00:17:44.496+02:00" id="dc7f088f" lastModified="2023-09-30T21:25:22.364+02:00">
+                    <assignee memberRefId="03a1fdd1"/>
                     <description>&lt;p&gt;Toggle between edit mode and normal output.&lt;/p&gt;</description>
                     <status>In progress</status>
                     <title>Edit description</title>
@@ -118,10 +160,12 @@
             </tags>
             <tasks>
                 <task created="2023-09-16T18:33:22.271+02:00" id="fa5071e5" lastModified="2023-09-16T18:33:22.271+02:00">
+                    <assignee/>
                     <status>Draft</status>
                     <title>DAO write to file</title>
                 </task>
                 <task created="2023-09-16T18:33:37.129+02:00" id="33f65394" lastModified="2023-09-16T18:33:37.129+02:00">
+                    <assignee/>
                     <status>Draft</status>
                     <title>DAO read file</title>
                 </task>
@@ -137,10 +181,12 @@
             </tags>
             <tasks>
                 <task created="2023-09-16T10:25:27.195+02:00" id="89de3318" lastModified="2023-09-16T10:25:27.195+02:00">
+                    <assignee memberRefId="edb1d233"/>
                     <status>Complete</status>
                     <title>Dodaj komentarje na requirement</title>
                 </task>
                 <task created="2023-09-16T10:25:27.195+02:00" id="1d7f4e4c" lastModified="2023-09-16T10:25:27.195+02:00">
+                    <assignee/>
                     <status>Draft</status>
                     <title>Dodaj komentarje na task</title>
                 </task>
@@ -164,6 +210,7 @@
             </tags>
             <tasks>
                 <task created="2023-09-16T10:25:27.195+02:00" id="452676c1" lastModified="2023-09-16T10:25:27.195+02:00">
+                    <assignee/>
                     <status>Complete</status>
                     <title>Implement</title>
                 </task>
@@ -184,6 +231,7 @@
             </tags>
             <tasks>
                 <task created="2023-09-16T18:15:47.503+02:00" id="a2a6b0ef" lastModified="2023-09-16T18:15:47.503+02:00">
+                    <assignee/>
                     <status>Draft</status>
                     <title>Model releasov</title>
                 </task>
@@ -199,6 +247,7 @@
             </tags>
             <tasks>
                 <task created="2023-09-16T18:17:14.168+02:00" id="7fc013c0" lastModified="2023-09-16T18:17:14.168+02:00">
+                    <assignee/>
                     <status>Draft</status>
                     <title>Dodaj grupo na requirement</title>
                 </task>
@@ -212,14 +261,17 @@
             <tags/>
             <tasks>
                 <task created="2023-09-16T18:25:58.250+02:00" id="03e8700a" lastModified="2023-09-16T18:25:58.250+02:00">
+                    <assignee/>
                     <status>Draft</status>
                     <title>Analyze which PF component to use</title>
                 </task>
                 <task created="2023-09-16T18:26:11.961+02:00" id="6731dfab" lastModified="2023-09-16T18:26:11.961+02:00">
+                    <assignee/>
                     <status>Draft</status>
                     <title>Implement model</title>
                 </task>
                 <task created="2023-09-16T18:26:26.485+02:00" id="bd3a53b6" lastModified="2023-09-16T18:26:26.485+02:00">
+                    <assignee/>
                     <status>Draft</status>
                     <title>Page view</title>
                 </task>
@@ -235,26 +287,32 @@
             </tags>
             <tasks>
                 <task created="2023-09-16T18:29:15.722+02:00" id="c84c16a5" lastModified="2023-09-16T18:29:15.722+02:00">
+                    <assignee/>
                     <status>Draft</status>
                     <title>Model agende</title>
                 </task>
                 <task created="2023-09-16T18:29:23.722+02:00" id="588b8b5a" lastModified="2023-09-16T18:29:23.722+02:00">
+                    <assignee/>
                     <status>Draft</status>
                     <title>Checkboxi na agendi</title>
                 </task>
                 <task created="2023-09-16T18:30:04.763+02:00" id="a0e6e6ae" lastModified="2023-09-16T18:30:04.763+02:00">
+                    <assignee/>
                     <status>Draft</status>
                     <title>Periodika agend</title>
                 </task>
                 <task created="2023-09-16T18:30:45.259+02:00" id="829b05b0" lastModified="2023-09-16T18:30:45.259+02:00">
+                    <assignee/>
                     <status>Draft</status>
                     <title>Model sestankov</title>
                 </task>
                 <task created="2023-09-16T18:30:56.117+02:00" id="3ec270c7" lastModified="2023-09-16T18:30:56.117+02:00">
+                    <assignee/>
                     <status>Draft</status>
                     <title>Zapisnik sestanka</title>
                 </task>
                 <task created="2023-09-16T18:31:08.039+02:00" id="cb6e1840" lastModified="2023-09-16T18:31:08.039+02:00">
+                    <assignee/>
                     <status>Draft</status>
                     <title>Koledar</title>
                 </task>
@@ -270,6 +328,7 @@
             </tags>
             <tasks>
                 <task created="2023-09-16T18:13:29.493+02:00" id="e8d47751" lastModified="2023-09-16T18:13:29.493+02:00">
+                    <assignee/>
                     <status>Complete</status>
                     <title>Implementacija</title>
                 </task>
@@ -279,9 +338,12 @@
         <requirement created="2023-09-16T10:25:27.195+02:00" id="cea96daf">
             <comments/>
             <issues/>
-            <tags/>
+            <tags>
+                <tag id="a07cbc76" refId="5b632e8a"></tag>
+            </tags>
             <tasks>
                 <task created="2023-09-16T10:25:27.195+02:00" id="7c51a837" lastModified="2023-09-16T10:25:27.195+02:00">
+                    <assignee/>
                     <status>Complete</status>
                     <title>Dodaj growl</title>
                 </task>
@@ -297,22 +359,27 @@
             </tags>
             <tasks>
                 <task created="2023-09-16T10:25:27.195+02:00" id="01f2a8ac" lastModified="2023-09-16T10:25:27.195+02:00">
+                    <assignee/>
                     <status>Complete</status>
                     <title>Model tagov</title>
                 </task>
                 <task created="2023-09-16T10:25:27.195+02:00" id="fc711f80" lastModified="2023-09-16T10:25:27.195+02:00">
+                    <assignee/>
                     <status>Complete</status>
                     <title>Izbira barve</title>
                 </task>
                 <task created="2023-09-16T10:25:27.195+02:00" id="9e76ff6e" lastModified="2023-09-16T10:25:27.195+02:00">
+                    <assignee/>
                     <status>Complete</status>
                     <title>Spreminjanje barve</title>
                 </task>
                 <task created="2023-09-16T10:25:27.195+02:00" id="1a425d90" lastModified="2023-09-16T10:25:27.195+02:00">
+                    <assignee/>
                     <status>Complete</status>
                     <title>Dialog za kreiranje tagov</title>
                 </task>
                 <task created="2023-09-16T10:25:27.195+02:00" id="37214a4b" lastModified="2023-09-16T10:25:27.195+02:00">
+                    <assignee/>
                     <description>&lt;p&gt;Brisanje tag definitionov in iz requirementsov.&lt;/p&gt;</description>
                     <status>Complete</status>
                     <title>Brisanje tagov</title>
@@ -331,6 +398,7 @@
             </tags>
             <tasks>
                 <task created="2023-09-11T21:14:29.198+02:00" id="752323e5" lastModified="2023-09-11T21:14:29.198+02:00">
+                    <assignee/>
                     <status>Draft</status>
                     <title>kkkk</title>
                 </task>
@@ -343,15 +411,18 @@
             <issues/>
             <tags/>
             <tasks>
-                <task created="2023-09-16T18:27:27.787+02:00" id="16f5f277" lastModified="2023-09-16T18:27:27.787+02:00">
-                    <status>Draft</status>
+                <task created="2023-09-16T18:27:27.787+02:00" id="16f5f277" lastModified="2023-09-29T21:35:17.675+02:00">
+                    <assignee memberRefId="540e9ef5"/>
+                    <status>Complete</status>
                     <title>Add timestamps</title>
                 </task>
                 <task created="2023-09-16T18:27:44.761+02:00" id="5ce75b53" lastModified="2023-09-16T18:27:44.761+02:00">
+                    <assignee/>
                     <status>Draft</status>
                     <title>Milestones</title>
                 </task>
                 <task created="2023-09-16T18:28:06.031+02:00" id="1477f2b7" lastModified="2023-09-16T18:28:06.031+02:00">
+                    <assignee/>
                     <status>Draft</status>
                     <title>Checkboxes</title>
                 </task>
@@ -367,14 +438,17 @@
             </tags>
             <tasks>
                 <task created="2023-09-16T18:23:30.238+02:00" id="71b8f72c" lastModified="2023-09-16T18:23:30.238+02:00">
+                    <assignee/>
                     <status>Complete</status>
                     <title>Issues model</title>
                 </task>
                 <task created="2023-09-16T18:23:46.193+02:00" id="7d1a1987" lastModified="2023-09-16T18:23:46.193+02:00">
+                    <assignee/>
                     <status>Complete</status>
                     <title>Issues page</title>
                 </task>
                 <task created="2023-09-16T18:24:16.643+02:00" id="f9edca44" lastModified="2023-09-16T18:24:16.643+02:00">
+                    <assignee/>
                     <status>Complete</status>
                     <title>Issues modify and resolve</title>
                 </task>
@@ -390,10 +464,12 @@
             </tags>
             <tasks>
                 <task created="2023-09-17T22:51:08.488+02:00" id="bc014a93" lastModified="2023-09-17T22:51:08.488+02:00">
+                    <assignee/>
                     <status>Complete</status>
                     <title>Statistics page</title>
                 </task>
                 <task created="2023-09-17T22:51:26.079+02:00" id="0180fdc5" lastModified="2023-09-17T22:51:26.079+02:00">
+                    <assignee/>
                     <status>Complete</status>
                     <title>Barchart za statuse taskov</title>
                 </task>
@@ -407,6 +483,7 @@
             <tags/>
             <tasks>
                 <task created="2023-09-17T23:52:40.633+02:00" id="b47233a2" lastModified="2023-09-17T23:52:40.633+02:00">
+                    <assignee/>
                     <description>&lt;p&gt;Potrebno filtrirati issue glede na &lt;span class="ql-font-monospace"&gt;resolve&lt;/span&gt; status.&lt;/p&gt;</description>
                     <status>In progress</status>
                     <title>Na projektu se tudi za resolvane issue prikaže trikotnik</title>
@@ -423,6 +500,7 @@
             </tags>
             <tasks>
                 <task created="2023-09-17T23:56:33.832+02:00" id="9ed66b58" lastModified="2023-09-17T23:56:33.832+02:00">
+                    <assignee/>
                     <status>Draft</status>
                     <title>Model agend</title>
                 </task>
@@ -435,11 +513,13 @@
             <issues/>
             <tags/>
             <tasks>
-                <task created="2023-09-21T01:37:41.937+02:00" id="7d2f2de7">
+                <task created="2023-09-21T01:37:41.937+02:00" id="7d2f2de7" lastModified="2023-09-21T01:37:41.937+02:00">
+                    <assignee/>
                     <status>Draft</status>
                     <title>GUI - gumb</title>
                 </task>
-                <task created="2023-09-21T01:37:54.524+02:00" id="c0f7f5cf">
+                <task created="2023-09-21T01:37:54.524+02:00" id="c0f7f5cf" lastModified="2023-09-21T01:37:54.524+02:00">
+                    <assignee/>
                     <status>Draft</status>
                     <title>Backup logika</title>
                 </task>
@@ -452,6 +532,7 @@
             <tags/>
             <tasks>
                 <task created="2023-09-21T01:43:34.554+02:00" id="c35ff73a" lastModified="2023-09-21T01:43:39.588+02:00">
+                    <assignee/>
                     <status>Complete</status>
                     <title>Dodaj potrditev pred izbrisom</title>
                 </task>
@@ -472,5 +553,6 @@
         <tag color="#8799ff" id="876b6243">tasks</tag>
         <tag color="#d089e1" id="6d04fd44">releases</tag>
         <tag color="#fae488" id="f9d513c1">links</tag>
+        <tag color="#fea25b" id="5b632e8a">GUI</tag>
     </tagDefs>
 </project>

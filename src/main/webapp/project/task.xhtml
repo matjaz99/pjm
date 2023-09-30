@@ -33,47 +33,60 @@
 
 			<h:form id="editorForm">
 
-				<p:textEditor widgetVar="editor2"
-							  value="#{uiTaskBean.task.description}"
-							  height="300"
-							  placeholder="Enter your content"
-							  secure="true"
-							  required="true">
-					<f:facet name="toolbar">
-						<span class="ql-formats">
-							<select class="ql-font"></select>
-							<select class="ql-size"></select>
-						</span>
-						<span class="ql-formats">
-							<button class="ql-bold"></button>
-							<button class="ql-italic"></button>
-							<button class="ql-underline"></button>
-							<button class="ql-strike"></button>
-						</span>
-						<span class="ql-formats">
-							<select class="ql-color" />
-							<select class="ql-background" />
-						</span>
-						<span class="ql-formats">
-							<button class="ql-header" value="1" />
-							<button class="ql-header" value="2" />
-							<button class="ql-blockquote" />
-						</span>
-						<span class="ql-formats">
-							<button class="ql-list" value="ordered" />
-							<button class="ql-list" value="bullet" />
-							<button class="ql-indent" value="-1" />
-							<button class="ql-indent" value="+1" />
-						</span>
-						<span class="ql-formats">
-							<button class="ql-clean" />
-						</span>
-					</f:facet>
-				</p:textEditor>
-				<p:commandButton value="Save"
-								 action="#{uiTaskBean.saveDescription()}"
-								 update="@form growl" icon="pi pi-save"
-								 styleClass="ui-button-outlined"/>
+				<p:panel id="reqDescPanel" rendered="#{!uiTaskBean.editModeOn}">
+					<p:outputLabel value="#{uiTaskBean.task.description}" escape="false" />
+				</p:panel>
+
+				<p:panel id="tskDescPanelForm" rendered="#{uiTaskBean.editModeOn}">
+					<p:textEditor widgetVar="editor2"
+								  value="#{uiTaskBean.task.description}"
+								  height="300"
+								  placeholder="Enter your content"
+								  secure="true"
+								  required="true">
+						<f:facet name="toolbar">
+							<span class="ql-formats">
+								<select class="ql-font"></select>
+								<select class="ql-size"></select>
+							</span>
+							<span class="ql-formats">
+								<button class="ql-bold"></button>
+								<button class="ql-italic"></button>
+								<button class="ql-underline"></button>
+								<button class="ql-strike"></button>
+							</span>
+							<span class="ql-formats">
+								<select class="ql-color" />
+								<select class="ql-background" />
+							</span>
+							<span class="ql-formats">
+								<button class="ql-header" value="1" />
+								<button class="ql-header" value="2" />
+								<button class="ql-blockquote" />
+							</span>
+							<span class="ql-formats">
+								<button class="ql-list" value="ordered" />
+								<button class="ql-list" value="bullet" />
+								<button class="ql-indent" value="-1" />
+								<button class="ql-indent" value="+1" />
+							</span>
+							<span class="ql-formats">
+								<button class="ql-clean" />
+							</span>
+						</f:facet>
+					</p:textEditor>
+					<p:commandButton value="Save"
+									 action="#{uiTaskBean.saveTaskChanges()}"
+									 update="@form growl" icon="pi pi-save"
+									 styleClass="ui-button-outlined"
+									 rendered="#{uiTaskBean.editModeOn}"/>
+				</p:panel>
+
+				<p:commandButton value="Edit"
+								 action="#{uiTaskBean.toggleEditMode()}"
+								 update="growl editorForm" icon="pi pi-pencil"
+								 styleClass="ui-button-flat"
+								 rendered="#{!uiTaskBean.editModeOn}"/>
 
 			</h:form>
 

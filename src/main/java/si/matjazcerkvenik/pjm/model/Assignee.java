@@ -2,7 +2,11 @@ package si.matjazcerkvenik.pjm.model;
 
 import jakarta.xml.bind.annotation.XmlAttribute;
 
-public class Assignee {
+import java.io.Serializable;
+
+public class Assignee implements Serializable {
+
+    private static final long serialVersionUID = 34157915024L;
 
     private String memberRefId;
 

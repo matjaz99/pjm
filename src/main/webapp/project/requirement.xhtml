@@ -35,99 +35,101 @@
 			</p:outputPanel>
 
 
-<!--			<p:outputPanel id="reqDescPanel">-->
-<!--				<p:panel>-->
-<!--					<p:outputLabel value="#{uiRequirementBean.requirement.description}" escape="false" rendered="#{!uiRequirementBean.editModeOn}" />-->
-<!--				</p:panel>-->
-<!--				<p:commandButton value="Edit"-->
-<!--								 action="#{uiRequirementBean.setEditModeOn(true)}"-->
-<!--								 update="growl editorForm reqDescPanel" icon="pi pi-pencil"-->
-<!--								 styleClass="ui-button-flat"-->
-<!--								 rendered="#{!uiRequirementBean.editModeOn}"/>-->
-<!--			</p:outputPanel>-->
 
-			<h:form id="editorForm">
-
-				<p:textEditor widgetVar="editor2"
-							  value="#{uiRequirementBean.requirement.description}"
-							  height="300"
-							  placeholder="Your content"
-							  secure="true"
-							  required="true">
-					<f:facet name="toolbar">
-						<span class="ql-formats">
-							<select class="ql-font"></select>
-							<select class="ql-size"></select>
-						</span>
-						<span class="ql-formats">
-							<button class="ql-bold"></button>
-							<button class="ql-italic"></button>
-							<button class="ql-underline"></button>
-							<button class="ql-strike"></button>
-						</span>
-						<span class="ql-formats">
-							<select class="ql-color" />
-							<select class="ql-background" />
-						</span>
-						<span class="ql-formats">
-							<button class="ql-header" value="1" />
-							<button class="ql-header" value="2" />
-							<button class="ql-blockquote" />
-						</span>
-						<span class="ql-formats">
-							<button class="ql-list" value="ordered" />
-							<button class="ql-list" value="bullet" />
-							<button class="ql-indent" value="-1" />
-							<button class="ql-indent" value="+1" />
-						</span>
-						<span class="ql-formats">
-							<button class="ql-link" />
-						</span>
-						<span class="ql-formats">
-							<button class="ql-clean" />
-						</span>
-					</f:facet>
-				</p:textEditor>
+			<h:form id="buttonsForm">
+				<p:commandButton value="Edit"
+								 action="#{uiRequirementBean.toggleEditMode()}"
+								 update="growl buttonsForm reqDescPanelForm reqDescPanel" icon="pi pi-pencil"
+								 styleClass="ui-button-flat"
+								 rendered="#{!uiRequirementBean.editModeOn}"/>
 				<p:commandButton value="Save"
-								 action="#{uiRequirementBean.saveProjectModifications('Saved')}"
-								 update="growl @form" icon="pi pi-save"
-								 styleClass="ui-button-outlined"/>
+								 action="#{uiRequirementBean.saveRequirementChanges()}"
+								 update="growl buttonsForm reqDescPanelForm reqDescPanel" icon="pi pi-pencil"
+								 styleClass="ui-button-outlined"
+								 rendered="#{uiRequirementBean.editModeOn}"/>
+
+				<p:panel id="reqDescPanel" rendered="#{!uiRequirementBean.editModeOn}">
+					<p:outputLabel value="#{uiRequirementBean.requirement.description}" escape="false" />
+				</p:panel>
+
+				<p:panel id="reqDescPanelForm" rendered="#{uiRequirementBean.editModeOn}">
+					<p:textEditor widgetVar="editor2"
+								  value="#{uiRequirementBean.requirement.description}"
+								  height="300"
+								  placeholder="Your content"
+								  secure="true"
+								  required="true">
+						<f:facet name="toolbar">
+							<span class="ql-formats">
+								<select class="ql-font"></select>
+								<select class="ql-size"></select>
+							</span>
+							<span class="ql-formats">
+								<button class="ql-bold"></button>
+								<button class="ql-italic"></button>
+								<button class="ql-underline"></button>
+								<button class="ql-strike"></button>
+							</span>
+							<span class="ql-formats">
+								<select class="ql-color" />
+								<select class="ql-background" />
+							</span>
+							<span class="ql-formats">
+								<button class="ql-header" value="1" />
+								<button class="ql-header" value="2" />
+								<button class="ql-blockquote" />
+							</span>
+							<span class="ql-formats">
+								<button class="ql-list" value="ordered" />
+								<button class="ql-list" value="bullet" />
+								<button class="ql-indent" value="-1" />
+								<button class="ql-indent" value="+1" />
+							</span>
+							<span class="ql-formats">
+								<button class="ql-link" />
+							</span>
+							<span class="ql-formats">
+								<button class="ql-clean" />
+							</span>
+						</f:facet>
+					</p:textEditor>
+					<p:commandButton value="Save"
+									 action="#{uiRequirementBean.saveRequirementChanges()}"
+									 update="growl @form" icon="pi pi-save"
+									 styleClass="ui-button-outlined"/>
+				</p:panel>
+
+				<p:panel rendered="#{uiRequirementBean.editModeOn}">
+					<p:outputLabel value="Set tags: " style="font-weight: bold; font-size: 24px;"/>
+					<p:selectCheckboxMenu id="tagsCheckboxMenu"
+										  filter="true" filterMatchMode="startsWith" filterNormalize="true"
+										  label="Tags"
+										  multiple="true"
+										  scrollHeight="350"
+										  value="#{uiRequirementBean.selectedTagsList}"
+										  var="t"
+										  valueChangeListener="#{uiRequirementBean.selectedTagChangeEvent}"
+										  style="min-width: 15rem">
+						<p:ajax update="growl, tagsCheckboxMenu, tagsPanel"/>
+						<f:selectItems value="#{uiRequirementBean.project.getTagDefinitions().getList()}"/>
+						<p:column>
+							<f:facet name="header">
+								<h:outputText value="Tag"/>
+							</f:facet>
+							<pjm:tag value="#{t}" color="#{t.color}">
+								<p:outputLabel value="#{t.name}" />
+							</pjm:tag>
+						</p:column>
+						<f:facet name="footer">
+							<h:outputText value="#{uiRequirementBean.project.getTagDefinitions().getList().size()} tags"
+										  styleClass="py-1 block font-bold"/>
+						</f:facet>
+					</p:selectCheckboxMenu>
+				</p:panel>
 
 			</h:form>
 
 			<br/>
-
-			<p:outputLabel value="Set tags" style="font-weight: bold; font-size: 24px;"/>
-			<h:form>
-				<p:selectCheckboxMenu id="tagsCheckboxMenu"
-									  filter="true" filterMatchMode="startsWith" filterNormalize="true"
-									  label="Tags"
-									  multiple="true"
-									  scrollHeight="350"
-									  value="#{uiRequirementBean.selectedTagsList}"
-									  var="t"
-									  valueChangeListener="#{uiRequirementBean.selectedTagChangeEvent}"
-									  style="min-width: 15rem">
-					<p:ajax update="growl, tagsCheckboxMenu, tagsPanel"/>
-					<f:selectItems value="#{uiRequirementBean.project.getTagDefinitions().getList()}"/>
-
-					<p:column>
-						<f:facet name="header">
-							<h:outputText value="Tag"/>
-						</f:facet>
-						<pjm:tag value="#{t}" color="#{t.color}">
-							<p:outputLabel value="#{t.name}" />
-						</pjm:tag>
-					</p:column>
-
-					<f:facet name="footer">
-						<h:outputText value="#{uiRequirementBean.project.getTagDefinitions().getList().size()} tags"
-									  styleClass="py-1 block font-bold"/>
-					</f:facet>
-				</p:selectCheckboxMenu>
-			</h:form>
-
-
 			<br/>
 
 			<p:outputLabel value="Issues" style="font-weight: bold; font-size: 24px;"/>

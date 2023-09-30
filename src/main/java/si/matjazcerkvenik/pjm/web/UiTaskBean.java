@@ -29,7 +29,7 @@ public class UiTaskBean extends UiBean implements Serializable {
 
     private Requirement requirement;
     private Task task;
-
+    private boolean editModeOn = false;
     private String selectedTaskStatus = "Draft";
 
     @PostConstruct
@@ -52,6 +52,7 @@ public class UiTaskBean extends UiBean implements Serializable {
             }
         }
         if (task.getStatus() != null) selectedTaskStatus = task.getStatus();
+        editModeOn = false;
     }
 
 
@@ -71,12 +72,34 @@ public class UiTaskBean extends UiBean implements Serializable {
         this.task = task;
     }
 
+
+
+    /*  Edit task  */
+
     public String getTaskTitle() {
         return task.getTitle();
     }
 
     public void setTaskTitle(String title) {
         task.setTitle(title);
+        saveProjectModifications("Saved");
+    }
+
+    public boolean isEditModeOn() {
+        return editModeOn;
+    }
+
+    public void setEditModeOn(boolean editModeOn) {
+        this.editModeOn = editModeOn;
+    }
+
+    public void toggleEditMode() {
+        editModeOn = !editModeOn;
+    }
+
+    public void saveTaskChanges() {
+        task.setLastModified(Formatter.getXmlGregorianCalendarNow());
+        editModeOn = !editModeOn;
         saveProjectModifications("Saved");
     }
 
@@ -125,13 +148,13 @@ public class UiTaskBean extends UiBean implements Serializable {
         return member.getName() + " " + member.getLastName();
     }
 
-    /*  Edit task  */
 
-    public void saveDescription() {
-        task.setLastModified(Formatter.getXmlGregorianCalendarNow());
-        DAO.getInstance().saveProject(project);
-        growlInfoMessage("Saved");
-    }
+
+//    public void saveDescription() {
+//        task.setLastModified(Formatter.getXmlGregorianCalendarNow());
+//        DAO.getInstance().saveProject(project);
+//        growlInfoMessage("Saved");
+//    }
 
     public String getRequirementTitle() {
         return task.getTitle();
