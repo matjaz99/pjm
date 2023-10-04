@@ -6,6 +6,18 @@
             <description>sfdg</description>
         </link>
     </links>
+    <meetingHistory/>
+    <meetingTemplates>
+        <meeting>
+            <description>&lt;p&gt;kkk&lt;/p&gt;</description>
+            <id>68f9601d</id>
+            <title>Kick-off meeting</title>
+        </meeting>
+        <meeting>
+            <id>8196374e</id>
+            <title>B100 meeting</title>
+        </meeting>
+    </meetingTemplates>
     <members>
         <member id="edb1d233">
             <lastName>Skače</lastName>

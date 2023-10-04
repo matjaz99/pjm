@@ -56,9 +56,15 @@
 
 			</h:form>
 
-			<h:link value="Requirements summary" outcome="/project/summary">
+			<p:link value="Requirements summary" outcome="/project/summary">
 				<f:param name="projectId" value="#{uiPlanningBean.project.id}" />
-			</h:link>
+			</p:link>
+
+			<br/>
+
+			<p:link outcome="members" value="Members">
+				<f:param name="projectId" value="#{uiPlanningBean.project.id}"/>
+			</p:link>
 
 			<br/>
 

@@ -1,0 +1,86 @@
+<ui:composition template="/templates/pageTemplate.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pjm="http://pjm.io/facelets">
+
+	<div id="contentFrame">
+		<ui:define name="contentFrame">
+
+			<div class="card">
+				<h:form>
+					<p:breadCrumb>
+						<p:menuitem value="Home" url="/pjm"/>
+						<p:menuitem value="#{uiMeetingsBean.project.name}" url="/pjm/project/project.xhtml?projectId=#{uiMeetingsBean.project.id}"/>
+						<p:menuitem value="Meeting manager"/>
+					</p:breadCrumb>
+				</h:form>
+			</div>
+
+			<p:outputLabel value="Meeting templates" style="font-weight: bold; font-size: 24px;"/>
+
+			<h:form id="templatesForm">
+				<p:dataTable id="templatesTable"
+							 value="#{uiMeetingsBean.project.meetingTemplates.list}" var="meet"
+							 cellpadding="0" cellspacing="0">
+					<p:column headerText="Title">
+						<h:link id="content-#{uiMeetingsBean.project.id}" value="#{meet.title}" outcome="/project/meeting">
+							<f:param name="projectId" value="#{uiMeetingsBean.project.id}" />
+							<f:param name="meetingId" value="#{meet.id}" />
+						</h:link>
+					</p:column>
+					<p:column headerText="Planned date">
+					</p:column>
+					<p:column headerText="Predicted duration">
+					</p:column>
+					<p:column headerText="Action">
+						<p:commandButton value="Delete"
+										 action="#{uiMeetingsBean.deleteMeetingTemplateAction(meet.id)}"
+										 update="growl templatesForm"
+										 styleClass="ui-button-danger ui-button-flat mr-2" >
+							<p:confirm message="Are you sure you want to delete meeting template?" icon="pi pi-info-circle"/>
+						</p:commandButton>
+
+					</p:column>
+				</p:dataTable>
+			</h:form>
+
+			<br/>
+
+			<p:commandButton value="New meeting template" type="button" icon="pi pi-external-link"
+							 onclick="PF('newMeetingDialog').show()" styleClass="ui-button-outlined"/>
+			<p:dialog header="New meeting template" widgetVar="newMeetingDialog"
+					  showEffect="fade" hideEffect="explode" closable="false" closeOnEscape="true">
+				<h:form id="newMeetingForm">
+					<p:panelGrid columns="2" styleClass="ui-noborder">
+						<p:outputLabel value="Title: " class="boldtext"/>
+						<p:inputText value="#{uiMeetingsBean.newMeetingTitle}" size="40"
+									 required="true" requiredMessage="Missing title">
+						</p:inputText>
+					</p:panelGrid>
+					<br/>
+					<p:commandButton type="button"
+									 value="Cancel"
+									 onclick="PF('newMeetingDialog').hide();"
+									 style="width: 5rem"
+									 styleClass="ui-button-flat mr-2" />
+					<p:commandButton value="Add"
+									 action="#{uiMeetingsBean.addNewMeetingTemplateAction}"
+									 update="growl newMeetingForm templatesForm"
+									 oncomplete="PF('newMeetingDialog').hide();"
+									 styleClass="ui-button mr-2"
+									 style="width: 6rem"/>
+				</h:form>
+			</p:dialog>
+
+			<p:panel>
+				meeting history
+			</p:panel>
+
+		</ui:define>
+	</div>
+
+</ui:composition>
+

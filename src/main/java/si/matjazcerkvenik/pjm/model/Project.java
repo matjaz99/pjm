@@ -32,6 +32,8 @@ public class Project implements Serializable {
     private Links links = new Links();
     private String notes;
     private Members members = new Members();
+    private Meetings meetingTemplates = new Meetings();
+    private Meetings meetingHistory = new Meetings();
     private Map<String, Alarm> activeAlarms = new HashMap<>();
 
     public String getId() {
@@ -156,6 +158,28 @@ public class Project implements Serializable {
 
     public void addNewMember(Member member) {
         members.addNewMember(member);
+    }
+
+    public Meetings getMeetingTemplates() {
+        return meetingTemplates;
+    }
+
+    @XmlElement(name = "meetingTemplates")
+    public void setMeetingTemplates(Meetings meetingTemplates) {
+        this.meetingTemplates = meetingTemplates;
+    }
+
+    public void addNewMeetingTemplate(Meeting meeting) {
+        meetingTemplates.addNewMeeting(meeting);
+    }
+
+    public Meetings getMeetingHistory() {
+        return meetingHistory;
+    }
+
+    @XmlElement(name = "meetingHistory")
+    public void setMeetingHistory(Meetings meetingHistory) {
+        this.meetingHistory = meetingHistory;
     }
 
     public Map<String, Alarm> getActiveAlarms() {
