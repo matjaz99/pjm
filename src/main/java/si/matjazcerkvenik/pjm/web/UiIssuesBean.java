@@ -3,18 +3,13 @@ package si.matjazcerkvenik.pjm.web;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import si.matjazcerkvenik.pjm.model.Issue;
-import si.matjazcerkvenik.pjm.model.Link;
 import si.matjazcerkvenik.pjm.model.Requirement;
-import si.matjazcerkvenik.pjm.util.DAO;
-import si.matjazcerkvenik.pjm.util.Formatter;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 

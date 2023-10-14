@@ -4,7 +4,7 @@ import org.primefaces.event.SelectEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import si.matjazcerkvenik.pjm.util.DAO;
-import si.matjazcerkvenik.pjm.util.Formatter;
+import si.matjazcerkvenik.pjm.util.Utils;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
@@ -41,7 +41,7 @@ public class UiPlanningBean extends UiBean implements Serializable {
 
     public Date getStartedDate() {
         if (project.getProjectStarted() != null) {
-            startedDate = Formatter.gregorianCalendarToDate(project.getProjectStarted());
+            startedDate = Utils.gregorianCalendarToDate(project.getProjectStarted());
         }
         return startedDate;
     }
@@ -52,13 +52,13 @@ public class UiPlanningBean extends UiBean implements Serializable {
 
     public void onStartedDateSelect(SelectEvent<Date> event) {
         Date d = event.getObject();
-        project.setProjectStarted(Formatter.dateToGregorianCalendar(startedDate));
+        project.setProjectStarted(Utils.dateToGregorianCalendar(startedDate));
         saveProjectModifications("Saved");
     }
 
     public Date getPlannedEndDate() {
         if (project.getPlannedEnd() != null) {
-            plannedEndDate = Formatter.gregorianCalendarToDate(project.getPlannedEnd());
+            plannedEndDate = Utils.gregorianCalendarToDate(project.getPlannedEnd());
         }
         return plannedEndDate;
     }
@@ -69,13 +69,13 @@ public class UiPlanningBean extends UiBean implements Serializable {
 
     public void onPlannedEndDateSelect(SelectEvent<Date> event) {
         Date d = event.getObject();
-        project.setPlannedEnd(Formatter.dateToGregorianCalendar(plannedEndDate));
+        project.setPlannedEnd(Utils.dateToGregorianCalendar(plannedEndDate));
         saveProjectModifications("Saved");
     }
 
     public Date getExpectedEndDate() {
         if (project.getExpectedEnd() != null) {
-            expectedEndDate = Formatter.gregorianCalendarToDate(project.getExpectedEnd());
+            expectedEndDate = Utils.gregorianCalendarToDate(project.getExpectedEnd());
         }
         return expectedEndDate;
     }
@@ -86,7 +86,7 @@ public class UiPlanningBean extends UiBean implements Serializable {
 
     public void onExpectedEndDateSelect(SelectEvent<Date> event) {
         Date d = event.getObject();
-        project.setExpectedEnd(Formatter.dateToGregorianCalendar(expectedEndDate));
+        project.setExpectedEnd(Utils.dateToGregorianCalendar(expectedEndDate));
         saveProjectModifications("Saved");
     }
 }

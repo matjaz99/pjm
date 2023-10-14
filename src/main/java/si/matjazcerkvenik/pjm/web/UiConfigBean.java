@@ -16,7 +16,7 @@
 package si.matjazcerkvenik.pjm.web;
 
 import si.matjazcerkvenik.pjm.util.Props;
-import si.matjazcerkvenik.pjm.util.Formatter;
+import si.matjazcerkvenik.pjm.util.Utils;
 import si.matjazcerkvenik.pjm.util.PjmDateFormat;
 
 import javax.faces.bean.ManagedBean;
@@ -45,12 +45,12 @@ public class UiConfigBean implements Serializable {
     }
 
     public String getStartTime() {
-        return Formatter.getFormatedTimestamp(Props.START_UP_TIME, PjmDateFormat.DATE_TIME);
+        return Utils.getFormatedTimestamp(Props.START_UP_TIME, PjmDateFormat.DATE_TIME);
     }
 
     public String getUpTime() {
         int secUpTotal = (int) ((System.currentTimeMillis() - Props.START_UP_TIME) / 1000);
-        return Formatter.convertToDHMSFormat(secUpTotal);
+        return Utils.convertToDHMSFormat(secUpTotal);
     }
 
     public String getProjectsDirectoryPath() {

@@ -13,74 +13,94 @@
 				<h:form>
 					<p:breadCrumb>
 						<p:menuitem value="Home" url="/pjm"/>
-						<p:menuitem value="#{uiMeetingsBean.project.name}" url="/pjm/project/project.xhtml?projectId=#{uiMeetingsBean.project.id}"/>
-						<p:menuitem value="Meeting manager" url="/pjm/project/meetingManager.xhtml?projectId=#{uiMeetingsBean.project.id}"/>
+						<p:menuitem value="#{uiMeetingBean.project.name}" url="/pjm/project/project.xhtml?projectId=#{uiMeetingBean.project.id}"/>
+						<p:menuitem value="Meeting manager" url="/pjm/project/meetingManager.xhtml?projectId=#{uiMeetingBean.project.id}"/>
 						<p:menuitem value="Meeting"/>
 					</p:breadCrumb>
 				</h:form>
 			</div>
 
 			<h:form id="meetingDataForm">
-				<p:outputPanel>
+				<p:outputPanel rendered="#{uiMeetingBean.meeting.concluded}">
+					<p:outputLabel value="#{uiMeetingBean.meeting.title}" style="font-weight: bold; font-size: 24px;" />
+				</p:outputPanel>
+				<p:outputPanel rendered="#{!uiMeetingBean.meeting.concluded}">
 					<p:inplace editor="true" style="font-weight: bold; font-size: 24px;">
-						<p:inputText value="#{uiMeetingsBean.meetingTitle}" required="true" label="text" size="60"/>
+						<p:inputText value="#{uiMeetingBean.meetingTitle}" required="true" label="text" size="60"/>
 					</p:inplace>
 				</p:outputPanel>
 
-				<p:panelGrid columns="2">
+				<p:panel rendered="#{uiMeetingBean.meeting.concluded}">
+					<p:outputLabel for="plannedDate" value="Meeting date: #{uiMeetingBean.meeting.plannedDate}" />
+				</p:panel>
+				<p:panel rendered="#{!uiMeetingBean.meeting.concluded}">
 					<p:outputLabel for="plannedDate" value="Planned date: " />
-					<p:datePicker id="plannedDate" value="#{uiMeetingsBean.plannedMeetingDate}" >
-						<p:ajax event="dateSelect"	listener="#{uiMeetingsBean.onPlannedMeetingDateSelect}" update="meetingDataForm" />
+					<p:datePicker id="plannedDate" value="#{uiMeetingBean.plannedMeetingDate}" >
+						<p:ajax event="dateSelect"	listener="#{uiMeetingBean.onPlannedMeetingDateSelect}" update="meetingDataForm" />
 					</p:datePicker>
-				</p:panelGrid>
+				</p:panel>
+			</h:form>
 
-				<p:textEditor widgetVar="editor2"
-							  value="#{uiMeetingsBean.meeting.description}"
-							  height="300"
-							  placeholder="Your content"
-							  secure="true"
-							  required="true">
-					<f:facet name="toolbar">
+			<br/>
+
+			<h:form id="meetingForm">
+				<p:panel rendered="#{uiMeetingBean.meeting.concluded}">
+					<p:outputLabel value="#{uiMeetingBean.meeting.description}" escape="false" />
+				</p:panel>
+
+
+				<p:panel rendered="#{!uiMeetingBean.meeting.concluded}">
+					<p:textEditor widgetVar="editor2"
+								  value="#{uiMeetingBean.meeting.description}"
+								  height="300"
+								  placeholder="Your content"
+								  secure="true"
+								  required="true">
+						<f:facet name="toolbar">
 							<span class="ql-formats">
 								<select class="ql-font"></select>
 								<select class="ql-size"></select>
 							</span>
-						<span class="ql-formats">
+							<span class="ql-formats">
 								<button class="ql-bold"></button>
 								<button class="ql-italic"></button>
 								<button class="ql-underline"></button>
 								<button class="ql-strike"></button>
 							</span>
-						<span class="ql-formats">
+							<span class="ql-formats">
 								<select class="ql-color" />
 								<select class="ql-background" />
 							</span>
-						<span class="ql-formats">
+							<span class="ql-formats">
 								<button class="ql-header" value="1" />
 								<button class="ql-header" value="2" />
 								<button class="ql-blockquote" />
 							</span>
-						<span class="ql-formats">
+							<span class="ql-formats">
 								<button class="ql-list" value="ordered" />
 								<button class="ql-list" value="bullet" />
 								<button class="ql-indent" value="-1" />
 								<button class="ql-indent" value="+1" />
 							</span>
-						<span class="ql-formats">
+							<span class="ql-formats">
 								<button class="ql-link" />
 							</span>
-						<span class="ql-formats">
+							<span class="ql-formats">
 								<button class="ql-clean" />
 							</span>
-					</f:facet>
-				</p:textEditor>
-				<p:commandButton value="Save"
-								 action="#{uiMeetingsBean.saveProjectModifications('Saved')}"
-								 update="growl @form" icon="pi pi-save"
-								 styleClass="ui-button-outlined"/>
+						</f:facet>
+					</p:textEditor>
+					<p:commandButton value="Save"
+									 action="#{uiMeetingBean.saveProjectModifications('Saved')}"
+									 update="growl @form" icon="pi pi-save"
+									 styleClass="ui-button-outlined"/>
+				</p:panel>
+
+
 			</h:form>
 
-
+			<br/>
+			<br/>
 
 
 		</ui:define>

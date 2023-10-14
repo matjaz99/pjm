@@ -17,12 +17,9 @@ import si.matjazcerkvenik.pjm.model.Project;
 import si.matjazcerkvenik.pjm.model.Requirement;
 import si.matjazcerkvenik.pjm.model.Task;
 import si.matjazcerkvenik.pjm.model.TaskStatus;
-import si.matjazcerkvenik.pjm.util.DAO;
-import si.matjazcerkvenik.pjm.util.Utils;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import java.io.Serializable;
@@ -85,7 +82,7 @@ public class UiStatisticsBean extends UiBean implements Serializable {
     }
 
     public List<Requirement> getRequirementsWithoutTasks() {
-        return Utils.getRequirementsWithoutTasks(project);
+        return project.getRequirementsWithoutTasks();
     }
 
     public int getIssuesTotalCount() {

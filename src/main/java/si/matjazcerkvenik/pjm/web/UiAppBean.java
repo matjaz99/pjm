@@ -3,12 +3,9 @@ package si.matjazcerkvenik.pjm.web;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import si.matjazcerkvenik.pjm.model.Project;
-import si.matjazcerkvenik.pjm.model.Requirement;
-import si.matjazcerkvenik.pjm.model.Task;
-import si.matjazcerkvenik.pjm.model.TaskStatus;
 import si.matjazcerkvenik.pjm.timertasks.PeriodicTask;
 import si.matjazcerkvenik.pjm.util.DAO;
-import si.matjazcerkvenik.pjm.util.Formatter;
+import si.matjazcerkvenik.pjm.util.Utils;
 import si.matjazcerkvenik.pjm.util.Props;
 
 import javax.annotation.PostConstruct;
@@ -93,9 +90,9 @@ public class UiAppBean implements Serializable {
         }
         Project p = new Project();
         p.setName(newProjectName);
-        p.setId(Formatter.getMd5ChecksumShortSalted(newProjectName));
+        p.setId(Utils.getMd5ChecksumShortSalted(newProjectName));
         p.setProjectPath(Props.PJM_PROJECTS_DIRECTORY + "/" + newProjectName + ".xml");
-        p.setCreated(Formatter.getXmlGregorianCalendarNow());
+        p.setCreated(Utils.getXmlGregorianCalendarNow());
         projects.add(p);
         DAO.getInstance().saveProject(p);
         newProjectName = null;

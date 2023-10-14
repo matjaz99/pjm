@@ -1,7 +1,6 @@
 package si.matjazcerkvenik.pjm.timertasks;
 
 import si.matjazcerkvenik.pjm.model.*;
-import si.matjazcerkvenik.pjm.util.Formatter;
 import si.matjazcerkvenik.pjm.util.Utils;
 
 import java.util.List;
@@ -25,13 +24,13 @@ public class PeriodicTask extends TimerTask {
             project.getActiveAlarms().clear();
 
             // check if all requirements have tasks
-            List<Requirement> reqsNoTask = Utils.getRequirementsWithoutTasks(project);
+            List<Requirement> reqsNoTask = project.getRequirementsWithoutTasks();
             if (reqsNoTask.size() > 0) {
                 Alarm a = new Alarm();
                 a.setName("There are requirements without tasks");
                 a.setAddInfo("Make sure every requirement has at least one task.");
                 a.setSeverity("info");
-                a.setId(Formatter.getMd5ChecksumShort(a.getName()));
+                a.setId(Utils.getMd5ChecksumShort(a.getName()));
                 project.raiseAlarm(a);
             }
 
@@ -39,13 +38,13 @@ public class PeriodicTask extends TimerTask {
             for (Requirement r : project.getRequirements().getList()) {
                 for (Task t : r.getTasks().getList()) {
                     if (t.getStatus().equalsIgnoreCase(TaskStatus.WAITING.label)
-                            && Formatter.getAgeInDays(t.getLastModified()) > 7) {
+                            && Utils.getAgeInDays(t.getLastModified()) > 7) {
                         Alarm a = new Alarm();
-                        a.setName("Task is waiting for more than " + Formatter.getAgeInDays(t.getLastModified()) + " days");
+                        a.setName("Task is waiting for more than " + Utils.getAgeInDays(t.getLastModified()) + " days");
                         a.setAddInfo(t.getTitle() + " @ " + r.getTitle());
                         a.setSeverity("danger");
                         a.setHref("/project/task.xhtml?projectId=" + project.getId() + "&reqId=" + r.getId() + "&tskId=" + t.getId());
-                        a.setId(Formatter.getMd5ChecksumShort(a.getName() + r.getTitle()));
+                        a.setId(Utils.getMd5ChecksumShort(a.getName() + r.getTitle()));
                         project.raiseAlarm(a);
                     }
                 }
@@ -60,7 +59,7 @@ public class PeriodicTask extends TimerTask {
                         a.setAddInfo(t.getTitle() + " @ " + r.getTitle());
                         a.setSeverity("warning");
                         a.setHref("/project/task.xhtml?projectId=" + project.getId() + "&reqId=" + r.getId() + "&tskId=" + t.getId());
-                        a.setId(Formatter.getMd5ChecksumShort(a.getName() + r.getTitle()));
+                        a.setId(Utils.getMd5ChecksumShort(a.getName() + r.getTitle()));
                         project.raiseAlarm(a);
                     }
                 }
@@ -73,7 +72,7 @@ public class PeriodicTask extends TimerTask {
                 a.setAddInfo("Resolve the issues");
                 a.setSeverity("danger");
                 a.setHref("/project/issues.xhtml?projectId=" + project.getId());
-                a.setId(Formatter.getMd5ChecksumShort(a.getName()));
+                a.setId(Utils.getMd5ChecksumShort(a.getName()));
                 project.raiseAlarm(a);
             }
         }

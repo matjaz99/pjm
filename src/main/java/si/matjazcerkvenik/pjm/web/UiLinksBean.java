@@ -4,7 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import si.matjazcerkvenik.pjm.model.Link;
 import si.matjazcerkvenik.pjm.util.DAO;
-import si.matjazcerkvenik.pjm.util.Formatter;
+import si.matjazcerkvenik.pjm.util.Utils;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
@@ -54,10 +54,10 @@ public class UiLinksBean extends UiBean implements Serializable {
     }
 
     public void addNewLinkAction() {
-        if (Formatter.isNullOrEmpty(newLinkDesc)) return;
-        if (Formatter.isNullOrEmpty(newLinkHref)) return;
+        if (Utils.isNullOrEmpty(newLinkDesc)) return;
+        if (Utils.isNullOrEmpty(newLinkHref)) return;
         Link link = new Link();
-        link.setId(Formatter.getMd5ChecksumShortSalted(newLinkDesc));
+        link.setId(Utils.getMd5ChecksumShortSalted(newLinkDesc));
         link.setDescription(newLinkDesc);
         link.setHref(newLinkHref);
         project.addNewLink(link);

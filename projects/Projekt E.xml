@@ -6,16 +6,22 @@
             <description>sfdg</description>
         </link>
     </links>
-    <meetingHistory/>
+    <meetingHistory>
+        <meeting concluded="true" plannedDate="2023-10-15T00:00:00.000+02:00">
+            <description>&lt;p&gt;sdfgs sdsdfg &lt;/p&gt;</description>
+            <id>1667750e</id>
+            <title>B100 meeting</title>
+        </meeting>
+        <meeting concluded="true" plannedDate="2023-10-16T00:00:00.000+02:00">
+            <id>c6c09fa0</id>
+            <title>sdfgsfdhh</title>
+        </meeting>
+    </meetingHistory>
     <meetingTemplates>
-        <meeting>
+        <meeting concluded="false" plannedDate="2023-10-15T00:00:00.000+02:00">
             <description>&lt;p&gt;kkk&lt;/p&gt;</description>
             <id>68f9601d</id>
             <title>Kick-off meeting</title>
-        </meeting>
-        <meeting>
-            <id>8196374e</id>
-            <title>B100 meeting</title>
         </meeting>
     </meetingTemplates>
     <members>
@@ -58,7 +64,7 @@
                 <comment created="2023-09-11T21:03:21.908+02:00" id="0587c913" lastModified="2023-09-11T21:03:21.908+02:00">jiuhuyg</comment>
                 <comment created="2023-09-16T15:14:01.460+02:00" id="3c012f51" lastModified="2023-09-17T23:16:42.272+02:00">FFFF</comment>
             </comments>
-            <description>&lt;p&gt;Shranjevanje v &lt;span style="color:rgb( 255 , 153 , 0 )"&gt;xml&lt;/span&gt; file.&lt;/p&gt;&lt;p&gt;Vsaka &lt;span style="color:rgb( 0 , 138 , 0 );background-color:rgb( 255 , 255 , 0 )"&gt;sprememba&lt;/span&gt; se sproti shrani. Xml file se prepiše z novim.&lt;/p&gt;</description>
+            <description>&lt;p&gt;Shranjevanje v &lt;span style="color:rgb( 255 , 153 , 0 )"&gt;xml&lt;/span&gt; file.&lt;/p&gt;&lt;p&gt;Vsaka &lt;span style="background-color:rgb( 255 , 255 , 0 );color:rgb( 0 , 138 , 0 )"&gt;sprememba&lt;/span&gt; se sproti shrani. Xml file se prepiše z novim.&lt;/p&gt;</description>
             <issues>
                 <issue created="2023-09-15T23:35:58.185+02:00" id="e8d128fd">
                     <problem>aaaaaaaa</problem>
@@ -87,7 +93,7 @@
                     <title>TODO 2</title>
                 </task>
                 <task created="2023-09-16T10:25:27.194+02:00" id="f450af9d" lastModified="2023-09-16T10:25:27.194+02:00">
-                    <assignee/>
+                    <assignee memberRefId="6f5a68f1"/>
                     <status>Waiting</status>
                     <title>TODO 3</title>
                 </task>

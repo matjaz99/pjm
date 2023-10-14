@@ -68,7 +68,7 @@ public class DAO {
             for (Requirement req : project.getRequirements().getList()) {
 
                 // make sure every requirement has created timestamp
-                if (req.getCreated() == null) req.setCreated(Formatter.getXmlGregorianCalendarNow());
+                if (req.getCreated() == null) req.setCreated(Utils.getXmlGregorianCalendarNow());
 
 
                 for (Task task : req.getTasks().getList()) {

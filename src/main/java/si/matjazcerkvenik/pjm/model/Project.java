@@ -4,13 +4,12 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
 import jakarta.xml.bind.annotation.XmlTransient;
+import si.matjazcerkvenik.pjm.util.DAO;
 
 import javax.xml.datatype.XMLGregorianCalendar;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @XmlRootElement
 public class Project implements Serializable {
@@ -173,6 +172,38 @@ public class Project implements Serializable {
         meetingTemplates.addNewMeeting(meeting);
     }
 
+    /**
+     * Search for meeting in templates and in history.
+     * @param id
+     * @return meeting
+     */
+    public Meeting findMeeting(String id) {
+        Meeting meeting = null;
+        for (Meeting m : meetingTemplates.getList()) {
+            if (m.getId().equalsIgnoreCase(id)) return m;
+        }
+        for (Meeting m : meetingHistory.getList()) {
+            if (m.getId().equalsIgnoreCase(id)) return m;
+        }
+        return null;
+    }
+
+    /**
+     * Delete meeting template.
+     * @param id
+     * @return meeting that was deleted
+     */
+    public Meeting deleteMeetingTemplate(String id) {
+        for (Iterator<Meeting> it = meetingTemplates.getList().iterator(); it.hasNext();) {
+            Meeting m = it.next();
+            if (m.getId().equals(id)) {
+                it.remove();
+                return m;
+            }
+        }
+        return null;
+    }
+
     public Meetings getMeetingHistory() {
         return meetingHistory;
     }
@@ -181,6 +212,23 @@ public class Project implements Serializable {
     public void setMeetingHistory(Meetings meetingHistory) {
         this.meetingHistory = meetingHistory;
     }
+
+    public void addMeetingToHistory(Meeting meeting) {
+        meetingHistory.addNewMeeting(meeting);
+    }
+
+    public Meeting deleteMeetingFromHistory(String id) {
+        for (Iterator<Meeting> it = meetingHistory.getList().iterator(); it.hasNext();) {
+            Meeting m = it.next();
+            if (m.getId().equals(id)) {
+                it.remove();
+                return m;
+            }
+        }
+        return null;
+    }
+
+
 
     public Map<String, Alarm> getActiveAlarms() {
         return activeAlarms;
@@ -213,6 +261,13 @@ public class Project implements Serializable {
             }
         }
         return list;
+    }
+
+    public List<Requirement> getRequirementsWithoutTasks() {
+        List<Requirement> result = requirements.getList().stream()
+                .filter(req -> (req.getTasks().getList().size() == 0))
+                .collect(Collectors.toList());
+        return result;
     }
 
     /**

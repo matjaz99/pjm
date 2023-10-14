@@ -4,16 +4,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import si.matjazcerkvenik.pjm.model.*;
 import si.matjazcerkvenik.pjm.util.DAO;
-import si.matjazcerkvenik.pjm.util.Formatter;
+import si.matjazcerkvenik.pjm.util.Utils;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
-import javax.faces.event.ValueChangeEvent;
 import java.io.Serializable;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
 
 @ManagedBean
@@ -79,11 +77,11 @@ public class UiProjectBean extends UiBean implements Serializable {
     }
 
     public void addNewReqAction() {
-        if (Formatter.isNullOrEmpty(newReqTitle)) return;
+        if (Utils.isNullOrEmpty(newReqTitle)) return;
         Requirement r = new Requirement();
-        r.setId(Formatter.getMd5ChecksumShortSalted(newReqTitle));
+        r.setId(Utils.getMd5ChecksumShortSalted(newReqTitle));
         r.setTitle(newReqTitle);
-        r.setCreated(Formatter.getXmlGregorianCalendarNow());
+        r.setCreated(Utils.getXmlGregorianCalendarNow());
         project.addNewRequirement(r);
         logger.info("new req: " + r.getId() + ", title: " + newReqTitle);
         DAO.getInstance().saveProject(project);
@@ -132,9 +130,9 @@ public class UiProjectBean extends UiBean implements Serializable {
     }
 
     public void addNewMemberAction() {
-        if (Formatter.isNullOrEmpty(newMemberName)) return;
+        if (Utils.isNullOrEmpty(newMemberName)) return;
         Member m = new Member();
-        m.setId(Formatter.getMd5ChecksumShortSalted(newMemberName));
+        m.setId(Utils.getMd5ChecksumShortSalted(newMemberName));
         m.setName(newMemberName);
         m.setLastName(newMemberLastName);
         m.setRole("");

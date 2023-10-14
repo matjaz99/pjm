@@ -5,7 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import si.matjazcerkvenik.pjm.model.Meeting;
 import si.matjazcerkvenik.pjm.util.DAO;
-import si.matjazcerkvenik.pjm.util.Formatter;
+import si.matjazcerkvenik.pjm.util.Utils;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
@@ -18,11 +18,12 @@ import java.util.Map;
 
 @ManagedBean
 @ViewScoped
-public class UiMeetingsBean extends UiBean implements Serializable {
+@SuppressWarnings("unused")
+public class UiMeetingBean extends UiBean implements Serializable {
 
     private static final long serialVersionUID = 34151584621L;
 
-    private static final Logger logger = LoggerFactory.getLogger(UiMeetingsBean.class);
+    private static final Logger logger = LoggerFactory.getLogger(UiMeetingBean.class);
 
     private Meeting meeting;
 
@@ -34,13 +35,8 @@ public class UiMeetingsBean extends UiBean implements Serializable {
         String id = requestParameterMap.getOrDefault("projectId", null);
         String meetingId = requestParameterMap.getOrDefault("meetingId", null);
         project = uiAppBean.getProject(id);
+        meeting = project.findMeeting(meetingId);
         logger.info("loaded: " + project.getName());
-        for (Meeting m : project.getMeetingTemplates().getList()) {
-            if (m.getId().equalsIgnoreCase(meetingId)) {
-                meeting = m;
-                break;
-            }
-        }
     }
 
     public Meeting getMeeting() {
@@ -62,7 +58,7 @@ public class UiMeetingsBean extends UiBean implements Serializable {
 
     public Date getPlannedMeetingDate() {
         if (meeting.getPlannedDate() != null) {
-            plannedMeetingDate = Formatter.gregorianCalendarToDate(meeting.getPlannedDate());
+            plannedMeetingDate = Utils.gregorianCalendarToDate(meeting.getPlannedDate());
         }
         return plannedMeetingDate;
     }
@@ -73,8 +69,9 @@ public class UiMeetingsBean extends UiBean implements Serializable {
 
     public void onPlannedMeetingDateSelect(SelectEvent<Date> event) {
         Date d = event.getObject();
-        meeting.setPlannedDate(Formatter.dateToGregorianCalendar(plannedMeetingDate));
+        meeting.setPlannedDate(Utils.dateToGregorianCalendar(plannedMeetingDate));
         saveProjectModifications("Saved");
+        growlInfoMessage("Date modified");
     }
 
 
@@ -92,9 +89,9 @@ public class UiMeetingsBean extends UiBean implements Serializable {
     }
 
     public void addNewMeetingTemplateAction() {
-        if (Formatter.isNullOrEmpty(newMeetingTitle)) return;
+        if (Utils.isNullOrEmpty(newMeetingTitle)) return;
         Meeting meeting = new Meeting();
-        meeting.setId(Formatter.getMd5ChecksumShortSalted(newMeetingTitle));
+        meeting.setId(Utils.getMd5ChecksumShortSalted(newMeetingTitle));
         meeting.setTitle(newMeetingTitle);
         project.addNewMeetingTemplate(meeting);
         logger.info("new meeting template: " + newMeetingTitle);
@@ -104,16 +101,26 @@ public class UiMeetingsBean extends UiBean implements Serializable {
     }
 
     public void deleteMeetingTemplateAction(String id) {
-        for (Iterator<Meeting> it = project.getMeetingTemplates().getList().iterator(); it.hasNext();) {
-            Meeting m = it.next();
-            if (m.getId().equals(id)) {
-                it.remove();
-                logger.info("id: " + id);
-                break;
-            }
-        }
+        project.deleteMeetingTemplate(id);
+        logger.info("deleted meeting template: " + id);
         DAO.getInstance().saveProject(project);
         growlInfoMessage("Meeting template deleted");
+    }
+
+    public void archiveMeetingAction(String id) {
+        Meeting m = project.deleteMeetingTemplate(id);
+        m.setConcluded(true);
+        m.setId(Utils.getMd5ChecksumShortSalted(m.getDescription()));
+        project.addMeetingToHistory(m);
+        logger.info("meeting added to history: " + id);
+        DAO.getInstance().saveProject(project);
+        growlInfoMessage("Meeting concluded");
+    }
+
+    public void deleteHistoryMeetingAction(String id) {
+        project.deleteMeetingFromHistory(id);
+        DAO.getInstance().saveProject(project);
+        growlInfoMessage("Meeting deleted from history");
     }
 
 }

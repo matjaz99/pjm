@@ -5,6 +5,8 @@ import jakarta.xml.bind.annotation.XmlElement;
 
 import javax.xml.datatype.XMLGregorianCalendar;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Meeting implements Serializable {
 
@@ -13,9 +15,8 @@ public class Meeting implements Serializable {
     private String id;
     private String title;
     private String description;
-    private XMLGregorianCalendar created;
     private XMLGregorianCalendar plannedDate;
-    private XMLGregorianCalendar concludedDate;
+    private boolean concluded = false;
 
     public String getId() {
         return id;
@@ -44,15 +45,6 @@ public class Meeting implements Serializable {
         this.description = description;
     }
 
-    public XMLGregorianCalendar getCreated() {
-        return created;
-    }
-
-    @XmlAttribute
-    public void setCreated(XMLGregorianCalendar created) {
-        this.created = created;
-    }
-
     public XMLGregorianCalendar getPlannedDate() {
         return plannedDate;
     }
@@ -62,12 +54,12 @@ public class Meeting implements Serializable {
         this.plannedDate = plannedDate;
     }
 
-    public XMLGregorianCalendar getConcludedDate() {
-        return concludedDate;
+    public boolean isConcluded() {
+        return concluded;
     }
 
     @XmlAttribute
-    public void setConcludedDate(XMLGregorianCalendar concludedDate) {
-        this.concludedDate = concludedDate;
+    public void setConcluded(boolean concluded) {
+        this.concluded = concluded;
     }
 }

@@ -2,12 +2,11 @@ package si.matjazcerkvenik.pjm.web;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import si.matjazcerkvenik.pjm.model.Assignee;
 import si.matjazcerkvenik.pjm.model.Member;
 import si.matjazcerkvenik.pjm.model.Requirement;
 import si.matjazcerkvenik.pjm.model.Task;
 import si.matjazcerkvenik.pjm.util.DAO;
-import si.matjazcerkvenik.pjm.util.Formatter;
+import si.matjazcerkvenik.pjm.util.Utils;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
@@ -98,7 +97,7 @@ public class UiTaskBean extends UiBean implements Serializable {
     }
 
     public void saveTaskChanges() {
-        task.setLastModified(Formatter.getXmlGregorianCalendarNow());
+        task.setLastModified(Utils.getXmlGregorianCalendarNow());
         editModeOn = !editModeOn;
         saveProjectModifications("Saved");
     }
@@ -110,7 +109,7 @@ public class UiTaskBean extends UiBean implements Serializable {
     public void setSelectedTaskStatus(String selectedTaskStatus) {
         this.selectedTaskStatus = selectedTaskStatus;
         task.setStatus(selectedTaskStatus);
-        task.setLastModified(Formatter.getXmlGregorianCalendarNow());
+        task.setLastModified(Utils.getXmlGregorianCalendarNow());
         DAO.getInstance().saveProject(project);
         growlInfoMessage("New status: " + selectedTaskStatus);
     }

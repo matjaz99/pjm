@@ -4,7 +4,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import si.matjazcerkvenik.pjm.model.*;
 import si.matjazcerkvenik.pjm.util.DAO;
-import si.matjazcerkvenik.pjm.util.Formatter;
 import si.matjazcerkvenik.pjm.util.Utils;
 
 import javax.annotation.PostConstruct;
@@ -109,12 +108,12 @@ public class UiRequirementBean extends UiBean implements Serializable {
     }
 
     public void addNewTaskAction() {
-        if (Formatter.isNullOrEmpty(newTskTitle)) return;
+        if (Utils.isNullOrEmpty(newTskTitle)) return;
         Task t = new Task();
-        t.setId(Formatter.getMd5ChecksumShortSalted(newTskTitle));
+        t.setId(Utils.getMd5ChecksumShortSalted(newTskTitle));
         t.setTitle(newTskTitle);
         t.setStatus(TaskStatus.DRAFT.label);
-        t.setCreated(Formatter.getXmlGregorianCalendarNow());
+        t.setCreated(Utils.getXmlGregorianCalendarNow());
         requirement.addNewTask(t);
         logger.info("addNewTaskAction: id: " + t.getId() + ", title: " + newTskTitle);
         newTskTitle = null;
@@ -156,12 +155,12 @@ public class UiRequirementBean extends UiBean implements Serializable {
     }
 
     public void addNewCommentAction() {
-        if (Formatter.isNullOrEmpty(newCommentTitle)) return;
+        if (Utils.isNullOrEmpty(newCommentTitle)) return;
         Comment c = new Comment();
-        c.setId(Formatter.getMd5ChecksumShortSalted(newCommentTitle));
+        c.setId(Utils.getMd5ChecksumShortSalted(newCommentTitle));
         c.setDescription(newCommentTitle);
-        c.setCreated(Formatter.getXmlGregorianCalendarNow());
-        c.setLastModified(Formatter.getXmlGregorianCalendarNow());
+        c.setCreated(Utils.getXmlGregorianCalendarNow());
+        c.setLastModified(Utils.getXmlGregorianCalendarNow());
         requirement.addNewComment(c);
         logger.info("addNewCommentAction: id: " + c.getId() + ", title: " + newCommentTitle);
         DAO.getInstance().saveProject(project);
@@ -170,7 +169,7 @@ public class UiRequirementBean extends UiBean implements Serializable {
     }
 
     public void editCommentAction(Comment comment) {
-        comment.setLastModified(Formatter.getXmlGregorianCalendarNow());
+        comment.setLastModified(Utils.getXmlGregorianCalendarNow());
         saveProjectModifications("Comment updated");
     }
 
@@ -236,7 +235,7 @@ public class UiRequirementBean extends UiBean implements Serializable {
         }
         Tag tag = new Tag();
         tag.setRefId(tagDef.getId());
-        tag.setId(Formatter.getMd5ChecksumShortSalted(tagDef.getName() + tagDef.getColor()));
+        tag.setId(Utils.getMd5ChecksumShortSalted(tagDef.getName() + tagDef.getColor()));
         return tag;
     }
 
@@ -269,11 +268,11 @@ public class UiRequirementBean extends UiBean implements Serializable {
     }
 
     public void addNewIssueAction() {
-        if (Formatter.isNullOrEmpty(newIssueTitle)) return;
+        if (Utils.isNullOrEmpty(newIssueTitle)) return;
         Issue issue = new Issue();
-        issue.setId(Formatter.getMd5ChecksumShortSalted(newIssueTitle));
+        issue.setId(Utils.getMd5ChecksumShortSalted(newIssueTitle));
         issue.setProblem(newIssueTitle);
-        issue.setCreated(Formatter.getXmlGregorianCalendarNow());
+        issue.setCreated(Utils.getXmlGregorianCalendarNow());
         requirement.addNewIssue(issue);
         logger.info("addNewIssueAction: id=" + issue.getId());
         DAO.getInstance().saveProject(project);
