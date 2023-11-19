@@ -11,8 +11,11 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @ManagedBean
 @ViewScoped
@@ -172,5 +175,32 @@ public class UiProjectBean extends UiBean implements Serializable {
         DAO.getInstance().saveProject(project);
         growlInfoMessage("Member promoted to " + member.getRole());
     }
+
+
+
+
+
+
+    // SEARCH
+
+    private String searchText;
+
+    public String getSearchText() {
+        return searchText;
+    }
+
+    public void setSearchText(String searchText) {
+        System.out.println("set: " + searchText);
+        this.searchText = searchText;
+    }
+
+    public List<String> completeSearch() {
+        List<String> result = new ArrayList<>();
+        for (Requirement r : project.getRequirements().getList()) {
+            if (r.getTitle().contains(searchText)) result.add(r.getTitle());
+        }
+        return result;
+    }
+
 
 }

@@ -17,9 +17,10 @@ package si.matjazcerkvenik.pjm.util;
 
 public enum PjmDateFormat {
 
-    DATE_TIME,
-    DATE,
-    TIME,
-    ISO8601
+    DATE_TIME,  // yyyy/MM/dd H:mm:ss
+    DATE,       // yyyy/MM/dd
+    DATE_SI,    // dd.MM.yyyy
+    TIME,       // H:mm:ss
+    ISO8601     // TODO yyyy/MM/ddTH:mm:ss+01:00
 
 }

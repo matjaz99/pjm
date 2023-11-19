@@ -2,6 +2,8 @@ package si.matjazcerkvenik.pjm.model;
 
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlValue;
+import si.matjazcerkvenik.pjm.util.PjmDateFormat;
+import si.matjazcerkvenik.pjm.util.Utils;
 
 import javax.xml.datatype.XMLGregorianCalendar;
 import java.io.Serializable;
@@ -49,5 +51,13 @@ public class Comment implements Serializable {
     @XmlValue
     public void setDescription(String description) {
         this.description = description;
+    }
+
+
+
+    // other methods
+
+    public String getLastModifiedDateOnly() {
+        return Utils.getFormattedTimestamp(lastModified, PjmDateFormat.DATE_SI);
     }
 }

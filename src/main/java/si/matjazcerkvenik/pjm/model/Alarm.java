@@ -1,6 +1,10 @@
 package si.matjazcerkvenik.pjm.model;
 
-public class Alarm {
+import java.io.Serializable;
+
+public class Alarm implements Serializable {
+
+    private static final long serialVersionUID = 39421548483L;
 
     private String id;
     private String name;

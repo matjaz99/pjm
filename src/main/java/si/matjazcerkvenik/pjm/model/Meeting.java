@@ -2,6 +2,8 @@ package si.matjazcerkvenik.pjm.model;
 
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
+import si.matjazcerkvenik.pjm.util.PjmDateFormat;
+import si.matjazcerkvenik.pjm.util.Utils;
 
 import javax.xml.datatype.XMLGregorianCalendar;
 import java.io.Serializable;
@@ -61,5 +63,15 @@ public class Meeting implements Serializable {
     @XmlAttribute
     public void setConcluded(boolean concluded) {
         this.concluded = concluded;
+    }
+
+
+
+
+
+    // other methods
+
+    public String getPlannedDateAndOnlyTheDate() {
+        return Utils.getFormattedTimestamp(plannedDate, PjmDateFormat.DATE_SI);
     }
 }

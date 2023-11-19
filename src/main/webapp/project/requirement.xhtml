@@ -99,6 +99,8 @@
 									 styleClass="ui-button-outlined"/>
 				</p:panel>
 
+				<p:poll interval="60" listener="#{uiRequirementBean.saveRequirementChanges()}" update="growl"/>
+
 				<p:panel rendered="#{uiRequirementBean.editModeOn}">
 					<p:outputLabel value="Set tags: " style="font-weight: bold; font-size: 24px;"/>
 					<p:selectCheckboxMenu id="tagsCheckboxMenu"
@@ -166,14 +168,13 @@
 
 			<p:commandButton value="New issue" type="button" icon="pi pi-external-link"
 							 styleClass="ui-button-outlined" onclick="PF('newIssueDialog').show()"/>
-			<p:dialog header="What's the problem?" widgetVar="newIssueDialog" minHeight="40" showEffect="fade" closable="false" closeOnEscape="true">
+			<p:dialog header="What's the problem?" widgetVar="newIssueDialog" minHeight="40"
+					  showEffect="fade" closable="false" closeOnEscape="true">
 				<h:form id="newIssueForm">
-					<p:panelGrid columns="2" styleClass="ui-noborder">
-						<p:outputLabel value="Description: " class="boldtext"/>
-						<p:inputText value="#{uiRequirementBean.newIssueTitle}" size="60"
-									 required="true" requiredMessage="Missing title">
-						</p:inputText>
-					</p:panelGrid>
+					<p:inputText value="#{uiRequirementBean.newIssueTitle}" size="40"
+								 required="true" requiredMessage="Missing description" placeholder="Description">
+					</p:inputText>
+					<br/>
 					<br/>
 					<p:commandButton type="button"
 									 value="Cancel"
@@ -193,22 +194,22 @@
 			<br/>
 
 			<p:outputLabel value="Comments" style="font-weight: bold; font-size: 24px;"/>
-			<h:form id="commentsForm">
+			<h:form id="commentsTableForm">
 				<p:dataTable value="#{uiRequirementBean.requirement.comments.list}" var="cmt"
 							 cellpadding="0" cellspacing="0">
 					<p:column headerText="Time">
-						<p:outputLabel value=" [#{cmt.lastModified}]"/>
+						<p:outputLabel value=" #{cmt.lastModifiedDateOnly}"/>
 					</p:column>
 					<p:column headerText="Comment">
 						<p:inplace editor="true">
 							<p:inputText value="#{cmt.description}" required="true" label="text"/>
-							<p:ajax event="save" listener="#{uiRequirementBean.editCommentAction(cmt)}" update="growl commentsForm" />
+							<p:ajax event="save" listener="#{uiRequirementBean.editCommentAction(cmt)}" update="growl commentsTableForm" />
 						</p:inplace>
 					</p:column>
 					<p:column headerText="Actions">
 						<p:commandButton value="Delete"
 										 action="#{uiRequirementBean.deleteCommentAction(cmt.id)}"
-										 update="growl commentsForm"
+										 update="growl commentsTableForm"
 										 styleClass="ui-button-danger ui-button-flat" >
 							<p:confirm message="Are you sure you want to delete comment?" icon="pi pi-info-circle"/>
 						</p:commandButton>
@@ -220,12 +221,10 @@
 							 styleClass="ui-button-outlined" onclick="PF('newCommentDialog').show()"/>
 			<p:dialog header="Add comment" widgetVar="newCommentDialog" minHeight="40" showEffect="fade" closable="false" closeOnEscape="true">
 				<h:form id="newCommentForm">
-					<p:panelGrid columns="2" styleClass="ui-noborder">
-						<p:outputLabel value="Description: " class="boldtext"/>
-						<p:inputText value="#{uiRequirementBean.newCommentTitle}" size="60"
-									 required="true" requiredMessage="Missing title">
-						</p:inputText>
-					</p:panelGrid>
+					<p:inputText value="#{uiRequirementBean.newCommentTitle}" size="40"
+								 required="true" requiredMessage="Missing comment" placeholder="Comment">
+					</p:inputText>
+					<br/>
 					<br/>
 					<p:commandButton type="button"
 									 value="Cancel"
@@ -234,7 +233,7 @@
 									 styleClass="ui-button-flat mr-2" />
 					<p:commandButton value="Add"
 									 action="#{uiRequirementBean.addNewCommentAction}"
-									 update="growl newCommentForm commentsForm"
+									 update="growl newCommentForm commentsTableForm"
 									 oncomplete="PF('newCommentDialog').hide();"
 									 styleClass="ui-button mr-2"
 									 style="width: 6rem"/>
@@ -280,12 +279,10 @@
 							 styleClass="ui-button-outlined" onclick="PF('newTaskDialog').show()"/>
 			<p:dialog header="New task" widgetVar="newTaskDialog" minHeight="40" showEffect="fade" closable="false" closeOnEscape="true">
 				<h:form id="newTaskForm">
-					<p:panelGrid columns="2" styleClass="ui-noborder">
-						<p:outputLabel value="Title: " class="boldtext"/>
-						<p:inputText value="#{uiRequirementBean.newTskTitle}" size="60"
-									 required="true" requiredMessage="Missing title">
-						</p:inputText>
-					</p:panelGrid>
+					<p:inputText value="#{uiRequirementBean.newTskTitle}" size="60"
+								 required="true" requiredMessage="Missing title" placeholder="Title">
+					</p:inputText>
+					<br/>
 					<br/>
 					<p:commandButton type="button"
 									 value="Cancel"

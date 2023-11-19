@@ -41,7 +41,7 @@ public class Utils {
      * @param timestamp unix timestamp in millis
      * @return readable date
      */
-    public static String getFormatedTimestamp(long timestamp, PjmDateFormat format) {
+    public static String getFormattedTimestamp(long timestamp, PjmDateFormat format) {
         if (timestamp == 0) return "n/a";
         Calendar cal = Calendar.getInstance();
         cal.setTimeInMillis(timestamp);
@@ -49,6 +49,29 @@ public class Utils {
         switch (format){
             case DATE:
                 sdf = new SimpleDateFormat("yyyy/MM/dd");
+                break;
+            case TIME:
+                sdf = new SimpleDateFormat("H:mm:ss");
+                break;
+            case ISO8601:
+                // TODO
+                break;
+        }
+        return sdf.format(cal.getTime());
+    }
+
+    public static String getFormattedTimestamp(XMLGregorianCalendar calendar, PjmDateFormat format) {
+        if (calendar == null) return "n/a";
+        long millis = getMillis(calendar);
+        Calendar cal = Calendar.getInstance();
+        cal.setTimeInMillis(millis);
+        SimpleDateFormat sdf = new SimpleDateFormat(Props.DATE_FORMAT);
+        switch (format){
+            case DATE:
+                sdf = new SimpleDateFormat("yyyy/MM/dd");
+                break;
+            case DATE_SI:
+                sdf = new SimpleDateFormat("dd. MMM yyyy");
                 break;
             case TIME:
                 sdf = new SimpleDateFormat("H:mm:ss");

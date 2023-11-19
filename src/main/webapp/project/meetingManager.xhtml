@@ -32,7 +32,7 @@
 						</h:link>
 					</p:column>
 					<p:column headerText="Planned date">
-						<p:outputLabel value="#{meet.plannedDate}"/>
+						<p:outputLabel value="#{meet.plannedDateAndOnlyTheDate}"/>
 					</p:column>
 					<p:column headerText="Action">
 						<p:commandButton value="Archive"
@@ -57,12 +57,10 @@
 			<p:dialog header="New meeting template" widgetVar="newMeetingDialog"
 					  showEffect="fade" hideEffect="explode" closable="false" closeOnEscape="true">
 				<h:form id="newMeetingForm">
-					<p:panelGrid columns="2" styleClass="ui-noborder">
-						<p:outputLabel value="Title: " class="boldtext"/>
-						<p:inputText value="#{uiMeetingBean.newMeetingTitle}" size="40"
-									 required="true" requiredMessage="Missing title">
-						</p:inputText>
-					</p:panelGrid>
+					<p:inputText value="#{uiMeetingBean.newMeetingTitle}" size="40"
+								 required="true" requiredMessage="Missing title" placeholder="Title">
+					</p:inputText>
+					<br/>
 					<br/>
 					<p:commandButton type="button"
 									 value="Cancel"
@@ -91,7 +89,7 @@
 							</h:link>
 						</p:column>
 						<p:column headerText="Concluded date">
-							<p:outputLabel value="#{meet.plannedDate}"/>
+							<p:outputLabel value="#{meet.plannedDateAndOnlyTheDate}"/>
 						</p:column>
 						<p:column headerText="Action">
 							<p:commandButton value="Delete"

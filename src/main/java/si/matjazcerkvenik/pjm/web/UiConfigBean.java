@@ -45,7 +45,7 @@ public class UiConfigBean implements Serializable {
     }
 
     public String getStartTime() {
-        return Utils.getFormatedTimestamp(Props.START_UP_TIME, PjmDateFormat.DATE_TIME);
+        return Utils.getFormattedTimestamp(Props.START_UP_TIME, PjmDateFormat.DATE_TIME);
     }
 
     public String getUpTime() {

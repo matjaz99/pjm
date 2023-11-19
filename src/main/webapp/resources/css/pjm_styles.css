@@ -32,6 +32,15 @@ hr {
 }
 
 
+
+.ui-panel {
+    padding: 0px;
+    border: 0px solid #777;
+}
+
+
+
+
 /* footer */
 .ui-notificationbar {
 	position: fixed;

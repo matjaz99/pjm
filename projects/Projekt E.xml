@@ -16,10 +16,18 @@
             <id>c6c09fa0</id>
             <title>sdfgsfdhh</title>
         </meeting>
+        <meeting concluded="true">
+            <id>4daf64a0</id>
+            <title>bxfsdfs</title>
+        </meeting>
+        <meeting concluded="true" plannedDate="2023-11-22T00:00:00.000+01:00">
+            <id>ffc9d3c0</id>
+            <title>asdfd</title>
+        </meeting>
     </meetingHistory>
     <meetingTemplates>
         <meeting concluded="false" plannedDate="2023-10-15T00:00:00.000+02:00">
-            <description>&lt;p&gt;kkk&lt;/p&gt;</description>
+            <description>&lt;p&gt;kkk&lt;/p&gt;&lt;p&gt;klkmlkmlkml&lt;/p&gt;</description>
             <id>68f9601d</id>
             <title>Kick-off meeting</title>
         </meeting>
@@ -50,6 +58,11 @@
             <name>Miha</name>
             <role>Developer</role>
         </member>
+        <member id="6234a6a3">
+            <lastName>Smola</lastName>
+            <name>Srečko</name>
+            <role>Outsourcing</role>
+        </member>
     </members>
     <name>Projekt E</name>
     <plannedEnd>2023-11-15T00:00:00.000+01:00</plannedEnd>
@@ -64,7 +77,7 @@
                 <comment created="2023-09-11T21:03:21.908+02:00" id="0587c913" lastModified="2023-09-11T21:03:21.908+02:00">jiuhuyg</comment>
                 <comment created="2023-09-16T15:14:01.460+02:00" id="3c012f51" lastModified="2023-09-17T23:16:42.272+02:00">FFFF</comment>
             </comments>
-            <description>&lt;p&gt;Shranjevanje v &lt;span style="color:rgb( 255 , 153 , 0 )"&gt;xml&lt;/span&gt; file.&lt;/p&gt;&lt;p&gt;Vsaka &lt;span style="background-color:rgb( 255 , 255 , 0 );color:rgb( 0 , 138 , 0 )"&gt;sprememba&lt;/span&gt; se sproti shrani. Xml file se prepiše z novim.&lt;/p&gt;</description>
+            <description>&lt;p&gt;tttttt Shranjevanje v &lt;span style="color:rgb( 255 , 153 , 0 )"&gt;xml&lt;/span&gt; file. Vsi XML fajli so v direktoriju projects.&lt;/p&gt;&lt;p&gt;Vsaka &lt;span style="background-color:rgb( 255 , 255 , 0 );color:rgb( 0 , 138 , 0 )"&gt;sprememba&lt;/span&gt; se sproti shrani. Xml file se prepiše z novim.&lt;/p&gt;</description>
             <issues>
                 <issue created="2023-09-15T23:35:58.185+02:00" id="e8d128fd">
                     <problem>aaaaaaaa</problem>
@@ -77,8 +90,7 @@
                 </issue>
             </issues>
             <tags>
-                <tag id="8c279290" refId="4a6c3d9e"></tag>
-                <tag id="ec231b04" refId="7dee1dd7"></tag>
+                <tag id="c0dee3fb" refId="4a6c3d9e"></tag>
             </tags>
             <tasks>
                 <task created="2023-09-16T10:25:27.194+02:00" id="110e9647" lastModified="2023-09-16T10:25:27.194+02:00">
@@ -109,7 +121,7 @@
                     <title>ASW</title>
                 </task>
             </tasks>
-            <title>Zahteva 1.1</title>
+            <title>Persistence</title>
         </requirement>
         <requirement created="2023-09-16T10:25:27.194+02:00" id="REQ-02">
             <comments>
@@ -123,15 +135,9 @@
                     <resolved>true</resolved>
                     <solution>hjjjh</solution>
                 </issue>
-                <issue created="2023-09-16T15:34:07.208+02:00" id="a976a617">
-                    <problem>rrreeekkk</problem>
-                    <resolved>false</resolved>
-                    <solution>123</solution>
-                </issue>
             </issues>
             <tags>
-                <tag id="462d255b" refId="7dee1dd7"></tag>
-                <tag id="91f3bf7c" refId="cbd62164"></tag>
+                <tag id="0c0af38c" refId="cbd62164"></tag>
             </tags>
             <tasks>
                 <task created="2023-09-16T18:45:52.307+02:00" id="bd88d9e8" lastModified="2023-09-30T21:33:35.822+02:00">
@@ -160,19 +166,28 @@
                     <status>Complete</status>
                     <title>Dodajanje taskov</title>
                 </task>
-                <task created="2023-09-18T00:17:44.496+02:00" id="dc7f088f" lastModified="2023-09-30T21:25:22.364+02:00">
+                <task created="2023-09-18T00:17:44.496+02:00" id="dc7f088f" lastModified="2023-11-16T22:28:56.805+01:00">
                     <assignee memberRefId="03a1fdd1"/>
                     <description>&lt;p&gt;Toggle between edit mode and normal output.&lt;/p&gt;</description>
-                    <status>In progress</status>
+                    <status>Complete</status>
                     <title>Edit description</title>
                 </task>
             </tasks>
-            <title>Zahteve</title>
+            <title>Requirements</title>
         </requirement>
         <requirement created="2023-09-16T10:25:27.195+02:00" id="REQ-03">
             <comments/>
             <description>&lt;p&gt;Metrike se zapisujeo v file, ki ga je enostavno sparsati (npr csv). Metrike se prikazujejo na grafih.&lt;/p&gt;</description>
-            <issues/>
+            <issues>
+                <issue created="2023-11-16T21:18:21.655+01:00" id="6461f09e">
+                    <problem>jhkj</problem>
+                    <resolved>false</resolved>
+                </issue>
+                <issue created="2023-11-16T21:31:05.270+01:00" id="cd80736b">
+                    <problem>kmokmo</problem>
+                    <resolved>false</resolved>
+                </issue>
+            </issues>
             <tags>
                 <tag id="09e52c22" refId="b703ef27"></tag>
             </tags>
@@ -204,7 +219,7 @@
                     <title>Dodaj komentarje na requirement</title>
                 </task>
                 <task created="2023-09-16T10:25:27.195+02:00" id="1d7f4e4c" lastModified="2023-09-16T10:25:27.195+02:00">
-                    <assignee/>
+                    <assignee memberRefId="6f5a68f1"/>
                     <status>Draft</status>
                     <title>Dodaj komentarje na task</title>
                 </task>
@@ -241,7 +256,8 @@
             <issues>
                 <issue created="2023-09-16T18:15:19.956+02:00" id="40874aa9">
                     <problem>A je lahko release kot tag?</problem>
-                    <resolved>false</resolved>
+                    <resolved>true</resolved>
+                    <solution>Ne. Mora bit svoj objekt.</solution>
                 </issue>
             </issues>
             <tags>
@@ -249,7 +265,7 @@
             </tags>
             <tasks>
                 <task created="2023-09-16T18:15:47.503+02:00" id="a2a6b0ef" lastModified="2023-09-16T18:15:47.503+02:00">
-                    <assignee/>
+                    <assignee memberRefId="80669f04"/>
                     <status>Draft</status>
                     <title>Model releasov</title>
                 </task>
@@ -541,6 +557,11 @@
                     <status>Draft</status>
                     <title>Backup logika</title>
                 </task>
+                <task created="2023-11-16T23:49:30.608+01:00" id="0c71cf7a" lastModified="2023-11-16T23:49:30.608+01:00">
+                    <assignee/>
+                    <status>Draft</status>
+                    <title>Avtomatski periodični backup</title>
+                </task>
             </tasks>
             <title>Backup</title>
         </requirement>
@@ -554,8 +575,48 @@
                     <status>Complete</status>
                     <title>Dodaj potrditev pred izbrisom</title>
                 </task>
+                <task created="2023-11-16T23:45:15.048+01:00" id="30486b9e" lastModified="2023-11-16T23:45:34.726+01:00">
+                    <assignee memberRefId="03a1fdd1"/>
+                    <description>&lt;p&gt;Skoči na naslednjo / prejšnjo zahtevo.&lt;/p&gt;</description>
+                    <status>Draft</status>
+                    <title>Dodaj gumba Next in Previous</title>
+                </task>
             </tasks>
             <title>GUI</title>
+        </requirement>
+        <requirement created="2023-11-16T22:29:29.599+01:00" id="15527d38">
+            <comments/>
+            <description>&lt;p&gt;Na straneh, kjer je urejevalnik besedila, je potrebno avtomatično shranjevanje sprememb (brez pritiska na gumb Save).&lt;/p&gt;</description>
+            <issues/>
+            <tags/>
+            <tasks/>
+            <title>Auto save</title>
+        </requirement>
+        <requirement created="2023-11-16T22:37:23.773+01:00" id="b3a2a26d">
+            <comments/>
+            <description>&lt;p&gt;Zapisniki sestankov se morajo shranjevati v ločenem xml dokumentu, ker bo projektni xml postal prevelik in bo opazno počasno shranjevanje pri vsakem pritisku na gumb Save.&lt;/p&gt;</description>
+            <issues/>
+            <tags>
+                <tag id="4446d0f7" refId="4a6c3d9e"></tag>
+                <tag id="03195541" refId="7dee1dd7"></tag>
+                <tag id="1a84f056" refId="fe978bd6"></tag>
+            </tags>
+            <tasks>
+                <task created="2023-11-16T23:30:10.530+01:00" id="9b0bb1ed" lastModified="2023-11-16T23:30:10.530+01:00">
+                    <assignee memberRefId="6f5a68f1"/>
+                    <status>Draft</status>
+                    <title>Shranjevanje v xml</title>
+                </task>
+            </tasks>
+            <title>Shranjevanje sestankov v ločen xml</title>
+        </requirement>
+        <requirement created="2023-11-16T23:44:31.656+01:00" id="a966f549">
+            <comments/>
+            <description>&lt;p&gt;Zgodovina zadnjih sprememb.&lt;/p&gt;</description>
+            <issues/>
+            <tags/>
+            <tasks/>
+            <title>History items</title>
         </requirement>
     </requirements>
     <tagDefs>
@@ -572,5 +633,6 @@
         <tag color="#d089e1" id="6d04fd44">releases</tag>
         <tag color="#fae488" id="f9d513c1">links</tag>
         <tag color="#fea25b" id="5b632e8a">GUI</tag>
+        <tag color="#00c4fa" id="fe978bd6">meetings</tag>
     </tagDefs>
 </project>

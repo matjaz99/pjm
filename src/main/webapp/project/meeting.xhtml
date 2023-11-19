@@ -96,6 +96,7 @@
 									 styleClass="ui-button-outlined"/>
 				</p:panel>
 
+				<p:poll interval="60" listener="#{uiMeetingBean.saveProjectModifications('Automatically saved')}" update="growl"/>
 
 			</h:form>
 

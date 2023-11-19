@@ -53,7 +53,7 @@
 				</p:panel>
 				<p:panel>
 					<div class="card">
-						<i class="pi pi-shopping-bag" style="font-size: 4rem"></i>
+						<i class="pi pi-users" style="font-size: 4rem"></i>
 					</div>
 					<p:link outcome="meetingManager" value="Meetings" class="boldtext">
 						<f:param name="projectId" value="#{uiProjectBean.project.id}"/>
@@ -101,14 +101,6 @@
 				</p:panel>
 				<p:panel>
 					<div class="card">
-						<i class="pi pi-users" style="font-size: 4rem"></i>
-					</div>
-					<p:link outcome="members" value="Members" class="boldtext">
-						<f:param name="projectId" value="#{uiProjectBean.project.id}"/>
-					</p:link>
-				</p:panel>
-				<p:panel>
-					<div class="card">
 						<p:badge value="#{uiIssuesBean.getOpenIssuesList().size()}" severity="danger">
 							<i class="pi pi-eye" style="font-size: 4rem"></i>
 						</p:badge>
@@ -123,14 +115,31 @@
 					</div>
 					<p:outputLabel value="Unsorted" class="boldtext"/>
 				</p:panel>
+				<p:panel>
+					<div class="card">
+						<i class="pi pi-history" style="font-size: 4rem"></i>
+					</div>
+					<p:link outcome="members" value="History" class="boldtext">
+						<f:param name="projectId" value="#{uiProjectBean.project.id}"/>
+					</p:link>
+				</p:panel>
 			</p:panelGrid>
 
 
 			<br/>
 
 			<p:outputLabel value="Project requirements" style="font-weight: bold; font-size: 24px;"/>
-			<p:commandButton value="New requirement" type="button" icon="pi pi-external-link"
+			<p:panelGrid columns="2">
+				<p:commandButton value="New requirement" type="button" icon="pi pi-external-link"
 							 onclick="PF('newReqDialog').show()" styleClass="ui-button-outlined"/>
+				<p:panel>
+					<span class="ui-input-icon-left">
+						<i class="pi pi-search" />
+						<p:autoComplete placeholder="Search (in work)" size="40" minQueryLength="2"
+										value="#{uiProjectBean.searchText}" completeMethod="#{uiProjectBean.completeSearch}"/>
+					</span>
+				</p:panel>
+			</p:panelGrid>
 
 			<h:form id="requirementsForm">
 
@@ -184,12 +193,9 @@
 			<p:dialog header="New requirement" widgetVar="newReqDialog"
 					  showEffect="fade" hideEffect="explode" closable="false" closeOnEscape="true">
 				<h:form id="newRequirementForm">
-					<p:panelGrid columns="2" styleClass="ui-noborder">
-						<p:outputLabel value="Title: " class="boldtext"/>
-						<p:inputText value="#{uiProjectBean.newReqTitle}" size="60"
-									 required="true" requiredMessage="Missing title">
-						</p:inputText>
-					</p:panelGrid>
+					<p:inputText value="#{uiProjectBean.newReqTitle}" size="60"
+								 required="true" requiredMessage="Missing title" placeholder="Title"/>
+					<br/>
 					<br/>
 					<p:commandButton type="button"
 									 value="Cancel"

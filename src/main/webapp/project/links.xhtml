@@ -26,16 +26,15 @@
 			<p:dialog header="New link" widgetVar="newLinkDialog"
 					  showEffect="fade" hideEffect="explode" closable="false" closeOnEscape="true">
 				<h:form id="newLinkForm">
-					<p:panelGrid columns="2" styleClass="ui-noborder">
-						<p:outputLabel value="Description: " class="boldtext"/>
-						<p:inputText value="#{uiLinksBean.newLinkDesc}" size="60"
-									 required="true" requiredMessage="Missing description">
-						</p:inputText>
-						<p:outputLabel value="Link: " class="boldtext"/>
-						<p:inputText value="#{uiLinksBean.newLinkHref}" size="60"
-									 required="true" requiredMessage="Missing link">
-						</p:inputText>
-					</p:panelGrid>
+					<p:inputText value="#{uiLinksBean.newLinkDesc}" size="60"
+								 required="true" requiredMessage="Missing description" placeholder="Name">
+					</p:inputText>
+					<br/>
+					<br/>
+					<p:inputText value="#{uiLinksBean.newLinkHref}" size="60"
+								 required="true" requiredMessage="Missing link" placeholder="URL">
+					</p:inputText>
+					<br/>
 					<br/>
 					<p:commandButton type="button"
 									 value="Cancel"
