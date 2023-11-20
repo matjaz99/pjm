@@ -11,11 +11,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
+import java.util.*;
 
 @ManagedBean
 @ViewScoped
@@ -24,6 +20,8 @@ public class UiProjectBean extends UiBean implements Serializable {
     private static final long serialVersionUID = 22483045884L;
 
     private static final Logger logger = LoggerFactory.getLogger(UiProjectBean.class);
+
+    private String searchText;
 
     @PostConstruct
     public void init() {
@@ -45,6 +43,63 @@ public class UiProjectBean extends UiBean implements Serializable {
     public void setProjectName(String s) {
         project.setName(s);
         DAO.getInstance().saveProject(project);
+    }
+
+    public String getSearchText() {
+        return searchText;
+    }
+
+    public void setSearchText(String searchText) {
+        this.searchText = searchText;
+    }
+
+    /**
+     * Apply searchText and return requirements. If searchText is null, return all.
+     * @return list
+     */
+    public List<Requirement> getRequirements() {
+        if (searchText == null || searchText.trim().length() == 0) return project.getRequirements().getList();
+        // use map to avoid duplicates
+        Map<String, Requirement> map = new HashMap<>();
+        for (Requirement r : project.getRequirements().getList()) {
+
+            // TODO support operators AND and OR
+
+            if (searchText.startsWith("REQ:")) {
+
+                // TODO search by request title only
+
+            } else if (searchText.startsWith("TAG:")) {
+
+                // TODO
+
+            } else if (searchText.startsWith("ASSIGNEE:")) {
+
+                // TODO
+
+            } else {
+                // search all fields
+                if (r.getTitle().toLowerCase().contains(searchText.toLowerCase())) {
+                    if (!map.containsKey(r.getId())) map.put(r.getId(), r);
+                }
+                if (r.getDescription() != null && r.getDescription().toLowerCase().contains(searchText.toLowerCase())) {
+                    // TODO clean description of html code (from text formatting) or search will not work
+                    if (!map.containsKey(r.getId())) map.put(r.getId(), r);
+                }
+
+                // search tasks
+                for (Task t : r.getTasks().getList()) {
+                    if (t.getTitle().toLowerCase().contains(searchText.toLowerCase())) {
+                        if (!map.containsKey(r.getId())) map.put(r.getId(), r);
+                    }
+                    if (t.getDescription() != null && t.getDescription().toLowerCase().contains(searchText.toLowerCase())) {
+                        if (!map.containsKey(r.getId())) map.put(r.getId(), r);
+                    }
+                }
+            }
+
+        }
+        return new ArrayList<>(map.values());
     }
 
     public int calculateProgressOnRequirement(String reqId) {
@@ -179,27 +234,11 @@ public class UiProjectBean extends UiBean implements Serializable {
 
 
 
+    // HISTORY
 
 
-    // SEARCH
-
-    private String searchText;
-
-    public String getSearchText() {
-        return searchText;
-    }
-
-    public void setSearchText(String searchText) {
-        System.out.println("set: " + searchText);
-        this.searchText = searchText;
-    }
-
-    public List<String> completeSearch() {
-        List<String> result = new ArrayList<>();
-        for (Requirement r : project.getRequirements().getList()) {
-            if (r.getTitle().contains(searchText)) result.add(r.getTitle());
-        }
-        return result;
+    public List<Object> getHistoryItems() {
+        return null;
     }
 
 

@@ -17,6 +17,8 @@ import si.matjazcerkvenik.pjm.model.Project;
 import si.matjazcerkvenik.pjm.model.Requirement;
 import si.matjazcerkvenik.pjm.model.Task;
 import si.matjazcerkvenik.pjm.model.TaskStatus;
+import si.matjazcerkvenik.pjm.util.PjmDateFormat;
+import si.matjazcerkvenik.pjm.util.Utils;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
@@ -52,6 +54,18 @@ public class UiStatisticsBean extends UiBean implements Serializable {
 
     public void setProject(Project project) {
         this.project = project;
+    }
+
+    public String getProjectStarted() {
+        return Utils.getFormattedTimestamp(project.getProjectStarted(), PjmDateFormat.DATE_SI);
+    }
+
+    public String getPlannedEnd() {
+        return Utils.getFormattedTimestamp(project.getPlannedEnd(), PjmDateFormat.DATE_SI);
+    }
+
+    public String getExpectedEnd() {
+        return Utils.getFormattedTimestamp(project.getExpectedEnd(), PjmDateFormat.DATE_SI);
     }
 
     public int getRequirementsTotalCount() {

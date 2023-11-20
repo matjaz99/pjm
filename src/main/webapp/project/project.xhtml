@@ -119,7 +119,7 @@
 					<div class="card">
 						<i class="pi pi-history" style="font-size: 4rem"></i>
 					</div>
-					<p:link outcome="members" value="History" class="boldtext">
+					<p:link outcome="history" value="History" class="boldtext">
 						<f:param name="projectId" value="#{uiProjectBean.project.id}"/>
 					</p:link>
 				</p:panel>
@@ -128,6 +128,7 @@
 
 			<br/>
 
+			<h:form id="buttonsForm">
 			<p:outputLabel value="Project requirements" style="font-weight: bold; font-size: 24px;"/>
 			<p:panelGrid columns="2">
 				<p:commandButton value="New requirement" type="button" icon="pi pi-external-link"
@@ -135,16 +136,18 @@
 				<p:panel>
 					<span class="ui-input-icon-left">
 						<i class="pi pi-search" />
-						<p:autoComplete placeholder="Search (in work)" size="40" minQueryLength="2"
-										value="#{uiProjectBean.searchText}" completeMethod="#{uiProjectBean.completeSearch}"/>
+						<p:inputText value="#{uiProjectBean.searchText}" label="text" size="40" placeholder="Search">
+							<p:ajax event="keyup" update="requirementsForm" />
+						</p:inputText>
 					</span>
 				</p:panel>
 			</p:panelGrid>
+			</h:form>
 
 			<h:form id="requirementsForm">
 
 				<p:dataTable id="requirementsTable"
-							 value="#{uiProjectBean.project.requirements.list}" var="req"
+							 value="#{uiProjectBean.requirements}" var="req"
 							 cellpadding="0" cellspacing="0">
 					<p:column headerText="Title">
 						<h:link id="content-#{uiProjectBean.project.id}" value="#{req.title}" outcome="/project/requirement">
