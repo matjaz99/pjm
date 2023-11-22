@@ -4,6 +4,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import si.matjazcerkvenik.pjm.model.Issue;
 import si.matjazcerkvenik.pjm.model.Requirement;
+import si.matjazcerkvenik.pjm.util.DAO;
+import si.matjazcerkvenik.pjm.util.Utils;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
@@ -41,6 +43,13 @@ public class UiIssuesBean extends UiBean implements Serializable {
             if (r.getId().equals(reqId)) return r;
         }
         return null;
+    }
+
+    public void saveChanges(String message, String reqId) {
+        Requirement r = findRequirement(reqId);
+        r.setLastModified(Utils.getXmlGregorianCalendarNow());
+        DAO.getInstance().saveProject(project);
+        growlInfoMessage(message);
     }
 
 }

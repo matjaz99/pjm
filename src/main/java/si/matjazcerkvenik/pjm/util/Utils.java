@@ -123,7 +123,7 @@ public class Utils {
     }
 
     /**
-     * Get days since
+     * Return number of days since given calendar
      * @param xmlGregorianCalendar
      * @return days
      */

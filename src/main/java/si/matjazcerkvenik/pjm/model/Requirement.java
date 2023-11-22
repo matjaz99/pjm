@@ -2,6 +2,7 @@ package si.matjazcerkvenik.pjm.model;
 
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
+import si.matjazcerkvenik.pjm.util.Utils;
 
 import javax.xml.datatype.XMLGregorianCalendar;
 import java.io.Serializable;
@@ -16,6 +17,8 @@ public class Requirement implements Serializable {
     private String title;
     private String description;
     private XMLGregorianCalendar created;
+    /** Last modified date if description was modified, if comment or issue was opened, if task was created */
+    private XMLGregorianCalendar lastModified;
     private Tasks tasks = new Tasks();
     private Comments comments = new Comments();;
     private Tags tags = new Tags();
@@ -62,6 +65,15 @@ public class Requirement implements Serializable {
     @XmlAttribute(name = "created")
     public void setCreated(XMLGregorianCalendar created) {
         this.created = created;
+    }
+
+    public XMLGregorianCalendar getLastModified() {
+        return lastModified;
+    }
+
+    @XmlAttribute(name = "lastModified")
+    public void setLastModified(XMLGregorianCalendar lastModified) {
+        this.lastModified = lastModified;
     }
 
     public Tasks getTasks() {
@@ -123,6 +135,10 @@ public class Requirement implements Serializable {
         return list;
     }
 
+    /**
+     * Calculate percentage of completed tasks on requirement.
+     * @return progress in percentage
+     */
     public int calculateProgressOnRequirement() {
         if (tasks.getList().size() == 0) return 0;
         int all = tasks.getList().size();
@@ -131,5 +147,15 @@ public class Requirement implements Serializable {
             if (t.getStatus() != null && t.getStatus().equalsIgnoreCase(TaskStatus.COMPLETE.label)) complete++;
         }
         return (int) complete * 100 / all;
+    }
+
+    public String getFadeOutStarColor() {
+        if (lastModified == null) return "white";
+        int age = Utils.getAgeInDays(lastModified);
+        if (age < 2) return "blue";
+        if (age < 5) return "dodgerblue"; // lightskyblue
+        if (age < 9) return "lightsteelblue";
+        if (age < 15) return "whitesmoke";
+        return "white";
     }
 }

@@ -29,22 +29,18 @@
 							 styleClass="ui-button-outlined"/>
 			<p:dialog header="New tag" widgetVar="dlg3" showEffect="fade" hideEffect="puff"
 					  closable="false" closeOnEscape="true"
-					  minWidth="450" minHeight="250">
+					  minWidth="450" minHeight="450">
 				<h:form id="newTagForm">
-					<p:panelGrid columns="2" styleClass="ui-noborder">
-						<p:outputLabel value="Title: " class="boldtext"/>
-						<p:inputText value="#{uiTagsBean.newTagTitle}"
-									 required="true" requiredMessage="Missing title">
-						</p:inputText>
-						<p:outputLabel value="Color: " class="boldtext"/>
-						<p:colorPicker id="light" value="#{uiTagsBean.newTagColor}" theme="pill"
-									   themeMode="light" clearButton="true" closeButton="true"
-									   formatToggle="true" alpha="false"
-									   swatches="#067bc2, #84bcda, #80e377,  #ecc30b, #f37748, #d56062">
-
-						</p:colorPicker>
-					</p:panelGrid>
+					<p:inputText value="#{uiTagsBean.newTagTitle}"
+								 required="true" requiredMessage="Missing title" placeholder="Tag name"/>
 					<br/>
+					<br/>
+					<p:colorPicker id="light" value="#{uiTagsBean.newTagColor}" theme="pill"
+								   themeMode="light" clearButton="true" closeButton="true"
+								   formatToggle="true" alpha="false"
+								   swatches="#067bc2, #84bcda, #80e377,  #ecc30b, #f37748, #d56062">
+
+					</p:colorPicker>
 					<p:commandButton type="button"
 									 value="Cancel"
 									 onclick="PF('dlg3').hide();"

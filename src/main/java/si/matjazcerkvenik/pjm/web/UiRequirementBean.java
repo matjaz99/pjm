@@ -80,8 +80,12 @@ public class UiRequirementBean extends UiBean implements Serializable {
         saveProjectModifications("Saved");
     }
 
+    /**
+     * Called from requirement.xhtml when description is changed and Save button is pressed.
+     */
     public void saveRequirementChanges() {
         editModeOn = !editModeOn;
+        requirement.setLastModified(Utils.getXmlGregorianCalendarNow());
         saveProjectModifications("Saved");
     }
 
@@ -115,6 +119,7 @@ public class UiRequirementBean extends UiBean implements Serializable {
         t.setStatus(TaskStatus.DRAFT.label);
         t.setCreated(Utils.getXmlGregorianCalendarNow());
         requirement.addNewTask(t);
+        requirement.setLastModified(Utils.getXmlGregorianCalendarNow());
         logger.info("addNewTaskAction: id: " + t.getId() + ", title: " + newTskTitle);
         newTskTitle = null;
         saveProjectModifications("New task created");
@@ -162,6 +167,7 @@ public class UiRequirementBean extends UiBean implements Serializable {
         c.setCreated(Utils.getXmlGregorianCalendarNow());
         c.setLastModified(Utils.getXmlGregorianCalendarNow());
         requirement.addNewComment(c);
+        requirement.setLastModified(Utils.getXmlGregorianCalendarNow());
         logger.info("addNewCommentAction: id: " + c.getId() + ", title: " + newCommentTitle);
         DAO.getInstance().saveProject(project);
         newCommentTitle = null;
@@ -170,6 +176,7 @@ public class UiRequirementBean extends UiBean implements Serializable {
 
     public void editCommentAction(Comment comment) {
         comment.setLastModified(Utils.getXmlGregorianCalendarNow());
+        requirement.setLastModified(Utils.getXmlGregorianCalendarNow());
         saveProjectModifications("Comment updated");
     }
 
@@ -212,17 +219,6 @@ public class UiRequirementBean extends UiBean implements Serializable {
 
     public void setSelectedTagsList(List<String> selectedTagsList) {
         this.selectedTagsList = selectedTagsList;
-//        if (requirement.getTags() == null) {
-//            Tags tags = new Tags();
-//            tags.setList(new ArrayList<>());
-//            requirement.setTags(tags);
-//        }
-//        requirement.getTags().getList().clear();
-//        for (String tagDef : selectedTagsList) {
-//            Tag tag = tagDef2Tag(tagDef);
-//            requirement.getTags().getList().add(tag);
-//            System.out.println("setSelectedTagsList: " + tag.getRefId());
-//        }
     }
 
 
@@ -274,6 +270,7 @@ public class UiRequirementBean extends UiBean implements Serializable {
         issue.setProblem(newIssueTitle);
         issue.setCreated(Utils.getXmlGregorianCalendarNow());
         requirement.addNewIssue(issue);
+        requirement.setLastModified(Utils.getXmlGregorianCalendarNow());
         logger.info("addNewIssueAction: id=" + issue.getId());
         DAO.getInstance().saveProject(project);
         newIssueTitle = null;

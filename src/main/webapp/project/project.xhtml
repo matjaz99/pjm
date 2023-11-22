@@ -167,10 +167,13 @@
 							</pjm:tag>
 						</ui:repeat>
 					</p:column>
-					<p:column headerText="Tasks">
-						<p:outputLabel value="#{req.tasks.list.size()}"/>
+					<p:column headerText="Status">
+						<p:outputLabel value="Tasks: #{req.tasks.list.size()}"/>
 						<p:outputPanel rendered="#{req.getOpenIssues().size() > 0 ? true : false}" >
 							<span class="pi pi-exclamation-triangle" style="color: red; font-size: 1.5rem" ></span>
+						</p:outputPanel>
+						<p:outputPanel rendered="#{req.getFadeOutStarColor().equals('white') ? false : true}">
+							<span class="pi pi-star-fill" style="color: #{req.getFadeOutStarColor()}; font-size: 1rem" ></span>
 						</p:outputPanel>
 					</p:column>
 					<p:column headerText="Progress">

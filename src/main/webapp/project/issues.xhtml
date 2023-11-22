@@ -35,19 +35,19 @@
 					<p:column headerText="Problem">
 						<p:inplace editor="true">
 							<p:inputText value="#{issue.problem}" required="true" label="text"/>
-							<p:ajax event="save" listener="#{uiIssuesBean.saveProjectModifications('Saved')}" update="growl issuesForm" />
+							<p:ajax event="save" listener="#{uiIssuesBean.saveChanges('Saved', issue.reqRefId)}" update="growl issuesForm" />
 						</p:inplace>
 					</p:column>
 					<p:column headerText="Solution">
 						<p:inplace editor="true">
 							<p:inputText value="#{issue.solution}" required="true" label="text"/>
-							<p:ajax event="save" listener="#{uiIssuesBean.saveProjectModifications('Saved')}" update="growl issuesForm" />
+							<p:ajax event="save" listener="#{uiIssuesBean.saveChanges('Saved', issue.reqRefId)}" update="growl issuesForm" />
 						</p:inplace>
 					</p:column>
 					<p:column headerText="Resolved">
 						<p:column headerText="Is resolved?">
 							<p:selectBooleanCheckbox value="#{issue.resolved}" itemLabel="">
-								<p:ajax update="growl issuesForm" listener="#{uiIssuesBean.saveProjectModifications('Issue resolved')}"/>
+								<p:ajax listener="#{uiIssuesBean.saveChanges('Issue resolved', issue.reqRefId)}" update="growl issuesForm"/>
 							</p:selectBooleanCheckbox>
 						</p:column>
 					</p:column>
