@@ -101,7 +101,7 @@
 				</p:panel>
 				<p:panel>
 					<div class="card">
-						<p:badge value="#{uiIssuesBean.getOpenIssuesList().size()}" severity="danger">
+						<p:badge value="#{uiIssuesBean.getOpenIssuesList().size()}" severity="#{(uiIssuesBean.getOpenIssuesList().size() > 0 ? 'danger' : 'info')}">
 							<i class="pi pi-eye" style="font-size: 4rem"></i>
 						</p:badge>
 					</div>

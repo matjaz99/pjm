@@ -152,10 +152,10 @@ public class Requirement implements Serializable {
     public String getFadeOutStarColor() {
         if (lastModified == null) return "white";
         int age = Utils.getAgeInDays(lastModified);
-        if (age < 2) return "blue";
-        if (age < 5) return "dodgerblue"; // lightskyblue
-        if (age < 9) return "lightsteelblue";
-        if (age < 15) return "whitesmoke";
+        if (age < 1) return "blue";
+        if (age < 2) return "dodgerblue"; // lightskyblue
+        if (age < 3) return "lightsteelblue";
+        if (age < 4) return "whitesmoke";
         return "white";
     }
 }

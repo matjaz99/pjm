@@ -39,7 +39,7 @@
 			<h:form id="buttonsForm">
 				<p:commandButton value="Edit"
 								 action="#{uiRequirementBean.toggleEditMode()}"
-								 update="growl buttonsForm reqDescPanelForm reqDescPanel" icon="pi pi-pencil"
+								 update="growl buttonsForm reqDescPanelForm reqDescPanel tagsForm" icon="pi pi-pencil"
 								 styleClass="ui-button-flat"
 								 rendered="#{!uiRequirementBean.editModeOn}"/>
 				<p:commandButton value="Save"
@@ -95,11 +95,15 @@
 					</p:textEditor>
 					<p:commandButton value="Save"
 									 action="#{uiRequirementBean.saveRequirementChanges()}"
-									 update="growl @form" icon="pi pi-save"
+									 update="growl @form tagsForm" icon="pi pi-save"
 									 styleClass="ui-button-outlined"/>
 				</p:panel>
 
-				<p:poll interval="60" listener="#{uiRequirementBean.saveRequirementChanges()}" update="growl"/>
+				<p:poll interval="#{uiRequirementBean.editModeOn ? 60 : 999999}" listener="#{uiRequirementBean.saveRequirementChanges()}" update="growl"/>
+
+			</h:form>
+
+			<h:form id="tagsForm">
 
 				<p:panel rendered="#{uiRequirementBean.editModeOn}">
 					<p:outputLabel value="Set tags: " style="font-weight: bold; font-size: 24px;"/>

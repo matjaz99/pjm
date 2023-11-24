@@ -72,6 +72,22 @@ public class UiProjectBean extends UiBean implements Serializable {
             } else if (searchText.startsWith("TAG:")) {
 
                 // TODO
+                String[] searchTextArray = searchText.split(":");
+                if (searchTextArray.length < 2) return new ArrayList<>(map.values());
+                String searchTag = searchTextArray[1].trim();
+                // get tag id
+                String tagId = null;
+                for (Tag t : project.getTagDefinitions().getList()) {
+                    if (t.getName().toLowerCase().startsWith(searchTag.toLowerCase())) {
+                        tagId = t.getId();
+                    }
+                }
+                // search requirements for tag with refId
+                for (Tag t : r.getTags().getList()) {
+                    if (tagId.equals(t.getRefId())) {
+                        if (!map.containsKey(r.getId())) map.put(r.getId(), r);
+                    }
+                }
 
             } else if (searchText.startsWith("ASSIGNEE:")) {
 
