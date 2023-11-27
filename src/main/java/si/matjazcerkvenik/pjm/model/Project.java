@@ -5,6 +5,7 @@ import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
 import jakarta.xml.bind.annotation.XmlTransient;
 import si.matjazcerkvenik.pjm.util.DAO;
+import si.matjazcerkvenik.pjm.util.Props;
 
 import javax.xml.datatype.XMLGregorianCalendar;
 import java.io.Serializable;
@@ -34,6 +35,8 @@ public class Project implements Serializable {
     private Meetings meetingTemplates = new Meetings();
     private Meetings meetingHistory = new Meetings();
     private Map<String, Alarm> activeAlarms = new HashMap<>();
+
+    private LinkedList<HistoryItem> historyItems = new LinkedList<>();
 
     public String getId() {
         return id;
@@ -292,5 +295,27 @@ public class Project implements Serializable {
         }
         return (int) complete * 100 / all;
     }
+
+
+
+
+
+
+
+
+
+
+
+    // MANAGING HISTORY
+
+    public void addHistoryItem(HistoryItem historyItem) {
+        if (historyItems.size() >= Props.LAST_HISTORY_ITEMS_SIZE) historyItems.removeFirst();
+        historyItems.addLast(historyItem);
+    }
+
+    public List<HistoryItem> getHistoryItems() {
+        return historyItems;
+    }
+
 
 }

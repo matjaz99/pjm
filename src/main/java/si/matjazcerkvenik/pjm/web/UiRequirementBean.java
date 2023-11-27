@@ -77,6 +77,7 @@ public class UiRequirementBean extends UiBean implements Serializable {
 
     public void setRequirementTitle(String title) {
         requirement.setTitle(title);
+        project.addHistoryItem(new HistoryItem(requirement.getTitle(), "/pjm/project/requirement.xhtml?projectId=" + project.getId() + "&reqId=" + requirement.getId(), "REQ", "Requirement title changed"));
         saveProjectModifications("Saved");
     }
 
@@ -122,6 +123,7 @@ public class UiRequirementBean extends UiBean implements Serializable {
         requirement.setLastModified(Utils.getXmlGregorianCalendarNow());
         logger.info("addNewTaskAction: id: " + t.getId() + ", title: " + newTskTitle);
         newTskTitle = null;
+        project.addHistoryItem(new HistoryItem(t.getTitle(), "/pjm/project/requirement.xhtml?projectId=" + project.getId() + "&reqId=" + requirement.getId() + "&tskId=" + t.getId(), "TASK", "New task created"));
         saveProjectModifications("New task created");
     }
 
@@ -130,6 +132,7 @@ public class UiRequirementBean extends UiBean implements Serializable {
             Task t = it.next();
             if (t.getId().equals(id)) {
                 it.remove();
+                project.addHistoryItem(new HistoryItem(t.getTitle(), "/pjm/project/requirement.xhtml?projectId=" + project.getId() + "&reqId=" + requirement.getId(), "TASK", "Task deleted"));
                 logger.info("deleteTaskAction: tsk: " + id);
                 break;
             }
@@ -147,7 +150,7 @@ public class UiRequirementBean extends UiBean implements Serializable {
 
 
 
-    /*  Create new remark  */
+    /*  Create new comment  */
 
     private String newCommentTitle;
 
@@ -171,12 +174,14 @@ public class UiRequirementBean extends UiBean implements Serializable {
         logger.info("addNewCommentAction: id: " + c.getId() + ", title: " + newCommentTitle);
         DAO.getInstance().saveProject(project);
         newCommentTitle = null;
+        project.addHistoryItem(new HistoryItem("-", "/pjm/project/requirement.xhtml?projectId=" + project.getId() + "&reqId=" + requirement.getId(), "COMMENT", "Comment added"));
         growlInfoMessage("Comment added");
     }
 
     public void editCommentAction(Comment comment) {
         comment.setLastModified(Utils.getXmlGregorianCalendarNow());
         requirement.setLastModified(Utils.getXmlGregorianCalendarNow());
+        project.addHistoryItem(new HistoryItem("-", "/pjm/project/requirement.xhtml?projectId=" + project.getId() + "&reqId=" + requirement.getId(), "COMMENT", "Comment modified"));
         saveProjectModifications("Comment updated");
     }
 
@@ -185,6 +190,7 @@ public class UiRequirementBean extends UiBean implements Serializable {
             Comment c = it.next();
             if (c.getId().equals(id)) {
                 it.remove();
+                project.addHistoryItem(new HistoryItem("-", "/pjm/project/requirement.xhtml?projectId=" + project.getId() + "&reqId=" + requirement.getId(), "COMMENT", "Comment deleted"));
                 logger.info("deleteCommentAction: tsk: " + id);
                 break;
             }

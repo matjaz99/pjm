@@ -17,10 +17,12 @@ public class Requirement implements Serializable {
     private String title;
     private String description;
     private XMLGregorianCalendar created;
+    private String group = "undefined";
     /** Last modified date if description was modified, if comment or issue was opened, if task was created */
     private XMLGregorianCalendar lastModified;
     private Tasks tasks = new Tasks();
-    private Comments comments = new Comments();;
+    private Comments comments = new Comments();
+
     private Tags tags = new Tags();
     private Issues issues = new Issues();
 
@@ -74,6 +76,15 @@ public class Requirement implements Serializable {
     @XmlAttribute(name = "lastModified")
     public void setLastModified(XMLGregorianCalendar lastModified) {
         this.lastModified = lastModified;
+    }
+
+    public String getGroup() {
+        return group;
+    }
+
+    @XmlElement
+    public void setGroup(String group) {
+        this.group = group;
     }
 
     public Tasks getTasks() {
@@ -149,13 +160,18 @@ public class Requirement implements Serializable {
         return (int) complete * 100 / all;
     }
 
-    public String getFadeOutStarColor() {
+    /**
+     * Get the blue shades of Fade-out star for GUI
+     * @param factors
+     * @return color
+     */
+    public String getFadeOutStarColor(int[] factors) {
         if (lastModified == null) return "white";
         int age = Utils.getAgeInDays(lastModified);
-        if (age < 1) return "blue";
-        if (age < 2) return "dodgerblue"; // lightskyblue
-        if (age < 3) return "lightsteelblue";
-        if (age < 4) return "whitesmoke";
+        if (age < factors[0]) return "blue";
+        if (age < factors[1]) return "dodgerblue"; // lightskyblue
+        if (age < factors[2]) return "lightsteelblue";
+        if (age < factors[3]) return "#E6F0FF ";
         return "white";
     }
 }

@@ -71,7 +71,6 @@ public class UiProjectBean extends UiBean implements Serializable {
 
             } else if (searchText.startsWith("TAG:")) {
 
-                // TODO
                 String[] searchTextArray = searchText.split(":");
                 if (searchTextArray.length < 2) return new ArrayList<>(map.values());
                 String searchTag = searchTextArray[1].trim();
@@ -89,7 +88,7 @@ public class UiProjectBean extends UiBean implements Serializable {
                     }
                 }
 
-            } else if (searchText.startsWith("ASSIGNEE:")) {
+            } else if (searchText.startsWith("ASSIGNEE:") || searchText.startsWith("ASS:")) {
 
                 // TODO
 
@@ -156,10 +155,12 @@ public class UiProjectBean extends UiBean implements Serializable {
         r.setId(Utils.getMd5ChecksumShortSalted(newReqTitle));
         r.setTitle(newReqTitle);
         r.setCreated(Utils.getXmlGregorianCalendarNow());
+        r.setLastModified(Utils.getXmlGregorianCalendarNow());
         project.addNewRequirement(r);
         logger.info("new req: " + r.getId() + ", title: " + newReqTitle);
         DAO.getInstance().saveProject(project);
         newReqTitle = null;
+        project.addHistoryItem(new HistoryItem(r.getTitle(), "/pjm/project/requirement.xhtml?projectId=" + project.getId() + "&reqId=" + r.getId(), "REQ", "New request created"));
         growlInfoMessage("New requirement created");
     }
 
@@ -169,6 +170,7 @@ public class UiProjectBean extends UiBean implements Serializable {
             if (r.getId().equals(id)) {
                 it.remove();
                 logger.info("deleteReqAction: req: " + id);
+                project.addHistoryItem(new HistoryItem(r.getTitle(), "n/a", "REQ", "Request deleted"));
                 break;
             }
         }
@@ -215,6 +217,7 @@ public class UiProjectBean extends UiBean implements Serializable {
         DAO.getInstance().saveProject(project);
         newMemberName = null;
         newMemberLastName = null;
+        project.addHistoryItem(new HistoryItem(m.getName() + " " + m.getLastName(), "/pjm/project/members.xhtml?projectId=" + project.getId(), "MEMBER", "New member created"));
         growlInfoMessage("New member joined");
     }
 
@@ -224,6 +227,7 @@ public class UiProjectBean extends UiBean implements Serializable {
             if (m.getId().equals(member.getId())) {
                 it.remove();
                 logger.info("member: " + member.getId());
+                project.addHistoryItem(new HistoryItem(m.getName() + " " + m.getLastName(), "/pjm/project/members.xhtml?projectId=" + project.getId(), "MEMBER", "Member deleted"));
                 break;
             }
         }
@@ -253,8 +257,8 @@ public class UiProjectBean extends UiBean implements Serializable {
     // HISTORY
 
 
-    public List<Object> getHistoryItems() {
-        return null;
+    public List<HistoryItem> getHistoryItems() {
+        return project.getHistoryItems();
     }
 
 

@@ -15,6 +15,7 @@
  */
 package si.matjazcerkvenik.pjm.web;
 
+import org.primefaces.event.SlideEndEvent;
 import si.matjazcerkvenik.pjm.util.Props;
 import si.matjazcerkvenik.pjm.util.Utils;
 import si.matjazcerkvenik.pjm.util.PjmDateFormat;
@@ -29,6 +30,8 @@ import java.io.Serializable;
 public class UiConfigBean implements Serializable {
 
     private static final long serialVersionUID = 32054771235L;
+
+    private int fadeOutFactor = 1;
 
     public String getVersion() {
         return Props.VERSION;
@@ -57,4 +60,37 @@ public class UiConfigBean implements Serializable {
         return Props.PJM_PROJECTS_DIRECTORY;
     }
 
+    public int getFadeOutFactor() {
+        return fadeOutFactor;
+    }
+
+    public void setFadeOutFactor(int fadeOutFactor) {
+        this.fadeOutFactor = fadeOutFactor;
+    }
+
+    public void onSlideEnd(SlideEndEvent event) {
+        fadeOutFactor = (int) event.getValue();
+    }
+
+    public int[] getFadeOutConfig() {
+        switch (fadeOutFactor) {
+            case 1:
+                int[] array1 = {1, 2, 3, 4};
+                return array1;
+            case 2:
+                int[] array2 = {1, 4, 6, 8};
+                return array2;
+            case 3:
+                int[] array3 = {2, 5, 9, 13};
+                return array3;
+            case 4:
+                int[] array4 = {3, 6, 12, 21};
+                return array4;
+            case 5:
+                int[] array5 = {4, 8, 15, 29};
+                return array5;
+        }
+        int[] array0 = {1, 2, 3, 4};
+        return array0;
+    }
 }

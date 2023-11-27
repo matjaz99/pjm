@@ -14,6 +14,9 @@ public class UiBean {
     @ManagedProperty(value="#{uiAppBean}")
     protected UiAppBean uiAppBean;
 
+    @ManagedProperty(value="#{uiConfigBean}")
+    protected UiConfigBean uiConfigBean;
+
     protected Project project;
 
     public UiAppBean getUiAppBean() {
@@ -22,6 +25,14 @@ public class UiBean {
 
     public void setUiAppBean(UiAppBean uiAppBean) {
         this.uiAppBean = uiAppBean;
+    }
+
+    public UiConfigBean getUiConfigBean() {
+        return uiConfigBean;
+    }
+
+    public void setUiConfigBean(UiConfigBean uiConfigBean) {
+        this.uiConfigBean = uiConfigBean;
     }
 
     public Project getProject() {

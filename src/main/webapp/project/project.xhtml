@@ -131,8 +131,10 @@
 			<h:form id="buttonsForm">
 			<p:outputLabel value="Project requirements" style="font-weight: bold; font-size: 24px;"/>
 			<p:panelGrid columns="2">
+				<p:panel>
 				<p:commandButton value="New requirement" type="button" icon="pi pi-external-link"
 							 onclick="PF('newReqDialog').show()" styleClass="ui-button-outlined"/>
+				</p:panel>
 				<p:panel>
 					<span class="ui-input-icon-left">
 						<i class="pi pi-search" />
@@ -172,8 +174,8 @@
 						<p:outputPanel rendered="#{req.getOpenIssues().size() > 0 ? true : false}" >
 							<span class="pi pi-exclamation-triangle" style="color: red; font-size: 1.5rem" ></span>
 						</p:outputPanel>
-						<p:outputPanel rendered="#{req.getFadeOutStarColor().equals('white') ? false : true}">
-							<span class="pi pi-star-fill" style="color: #{req.getFadeOutStarColor()}; font-size: 1rem" ></span>
+						<p:outputPanel rendered="#{req.getFadeOutStarColor(uiConfigBean.getFadeOutConfig()).equals('white') ? false : true}">
+							<span class="pi pi-star-fill" style="color: #{req.getFadeOutStarColor(uiConfigBean.getFadeOutConfig())}; font-size: 1rem" ></span>
 						</p:outputPanel>
 					</p:column>
 					<p:column headerText="Progress">

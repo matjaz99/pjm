@@ -32,6 +32,7 @@ public class Link implements Serializable {
     }
 
     public String getHref() {
+        if (href == null || href.length() == 0) href = "-";
         return href;
     }
 

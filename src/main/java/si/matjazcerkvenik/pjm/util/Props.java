@@ -13,6 +13,8 @@ public class Props {
     public static String PJM_PROJECTS_DIRECTORY;
     public static String DATE_FORMAT = "yyyy/MM/dd H:mm:ss";
 
+    public static int LAST_HISTORY_ITEMS_SIZE = 100;
+
     /**
      * Read configuration from environment variables
      */

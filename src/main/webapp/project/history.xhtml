@@ -19,28 +19,15 @@
 				</h:form>
 			</div>
 
-			<p:outputLabel value="Last 50 modified items" style="font-weight: bold; font-size: 24px;"/>
+			<p:outputLabel value="Last 100 modified items" style="font-weight: bold; font-size: 24px;"/>
 
-			<h:form id="historyTableForm">
-				<p:dataTable value="#{uiProjectBean.project.members.list}" var="member"
-							 cellpadding="0" cellspacing="0">
-					<p:column headerText="Avatar">
-						<p:avatar label="#{member.name} #{member.lastName}" dynamicColor="true" styleClass="ml-2" size="large"/>
-					</p:column>
-					<p:column headerText="First name">
-						<p:inplace editor="true">
-							<p:inputText value="#{member.name}" required="true" label="text"/>
-							<p:ajax event="save" listener="#{uiProjectBean.saveProjectModifications('Saved')}" update="growl" />
-						</p:inplace>
-					</p:column>
-					<p:column headerText="Last name">
-						<p:inplace editor="true">
-							<p:inputText value="#{member.lastName}" label="text"/>
-							<p:ajax event="save" listener="#{uiProjectBean.saveProjectModifications('Saved')}" update="growl" />
-						</p:inplace>
-					</p:column>
-				</p:dataTable>
-			</h:form>
+			<ui:repeat var="item" value="#{uiProjectBean.project.getHistoryItems()}">
+				<p:panel>
+					<p:outputLabel value="#{item.getFormattedDate()}: #{item.message}: #{item.title}" />
+					<br/>
+					<p:link href="#{item.href}" value="#{item.href}"/>
+				</p:panel>
+			</ui:repeat>
 
 
 		</ui:define>

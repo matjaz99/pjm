@@ -4,6 +4,7 @@
     <links>
         <link id="62ffcf46">
             <description>sfdg</description>
+            <href>-</href>
         </link>
     </links>
     <meetingHistory>
@@ -87,10 +88,6 @@
                     <problem>aaaaaaaa</problem>
                     <resolved>true</resolved>
                     <solution>bbbbb</solution>
-                </issue>
-                <issue created="2023-09-15T23:36:14.017+02:00" id="7a5bd450">
-                    <problem>gffgf</problem>
-                    <resolved>true</resolved>
                 </issue>
             </issues>
             <tags>
@@ -180,7 +177,7 @@
                     <status>Complete</status>
                     <title>Edit description</title>
                 </task>
-                <task created="2023-11-24T01:12:25.174+01:00" id="c4e8763b">
+                <task created="2023-11-24T01:12:25.174+01:00" id="c4e8763b" lastModified="2023-11-24T01:12:25.174+01:00">
                     <assignee memberRefId="6234a6a3"/>
                     <status>Draft</status>
                     <title>Dodaj approved (stestirano)</title>
@@ -214,10 +211,15 @@
             </tasks>
             <title>Metrike</title>
         </requirement>
-        <requirement created="2023-09-16T10:25:27.195+02:00" id="dff1b0b3">
+        <requirement created="2023-09-16T10:25:27.195+02:00" id="dff1b0b3" lastModified="2023-11-25T01:32:55.559+01:00">
             <comments/>
             <description>&lt;p&gt;Na REQ ali na TASK je potrebno dodati možnost dodajanja komentarjev. Komentarje je možno spremeniti. Zabeleži se zadnji čas spremembe komentarja.&lt;/p&gt;</description>
-            <issues/>
+            <issues>
+                <issue created="2023-11-25T01:32:55.558+01:00" id="e2f010fa">
+                    <problem>aaaaaa</problem>
+                    <resolved>false</resolved>
+                </issue>
+            </issues>
             <tags>
                 <tag id="b0ec0d21" refId="9efc4469"></tag>
             </tags>
@@ -289,7 +291,7 @@
             </tasks>
             <title>Releases</title>
         </requirement>
-        <requirement created="2023-09-16T10:25:27.195+02:00" id="5c104635">
+        <requirement created="2023-09-16T10:25:27.195+02:00" id="5c104635" lastModified="2023-11-25T01:31:30.667+01:00">
             <comments/>
             <description>&lt;p&gt;Zahteve je možno grupirati v &lt;span style="color:rgb( 230 , 0 , 0 )"&gt;funkcionalne grupe&lt;/span&gt;. Npr. omrežja, vmesniki, aplikacija, logi...&lt;/p&gt;</description>
             <issues/>
@@ -401,7 +403,7 @@
             </tasks>
             <title>Dodaj growl sporočila</title>
         </requirement>
-        <requirement created="2023-09-16T10:25:27.195+02:00" id="bd3f7410">
+        <requirement created="2023-09-16T10:25:27.195+02:00" id="bd3f7410" lastModified="2023-11-25T01:32:26.799+01:00">
             <comments/>
             <description>&lt;p&gt;Možnost definiranja poljubnih tagov. Tagi morajo imeti možnost izbire barve. Tag se lahko doda na REQ&lt;/p&gt;</description>
             <issues/>
@@ -560,12 +562,13 @@
             </tasks>
             <title>Problem resolving</title>
         </requirement>
-        <requirement created="2023-09-17T23:54:19.266+02:00" id="65fb467e">
+        <requirement created="2023-09-17T23:54:19.266+02:00" id="65fb467e" lastModified="2023-11-24T22:23:38.437+01:00">
             <comments/>
             <description>&lt;p&gt;Agende kot priprava na sestanek. Vsebuje topice s točkami za diskusijo na sestanku. Ima opis problema, sklep in status rešeno/ni rešeno. Če ni rešeno, se ponovno pojavi na agendi za naslednji sestanek.&lt;/p&gt;</description>
             <issues/>
             <tags>
-                <tag id="3db2cbf1" refId="90cca284"></tag>
+                <tag id="1e8d9f6c" refId="90cca284"></tag>
+                <tag id="ab7766c2" refId="a93b8eb8"></tag>
             </tags>
             <tasks>
                 <task created="2023-09-17T23:56:33.832+02:00" id="9ed66b58" lastModified="2023-09-17T23:56:33.832+02:00">
@@ -660,6 +663,17 @@
             <tags/>
             <tasks/>
             <title>History items</title>
+        </requirement>
+        <requirement created="2023-11-24T23:13:09.023+01:00" id="c50c34e8" lastModified="2023-11-24T23:16:09.574+01:00">
+            <comments/>
+            <description>&lt;p&gt;Fade-out star changes color from strong blue to very light blue depending on how long ago the last (significant) change occurred.&lt;/p&gt;</description>
+            <issues/>
+            <tags>
+                <tag id="03bf5ec2" refId="cbd62164"></tag>
+                <tag id="2be54f97" refId="5b632e8a"></tag>
+            </tags>
+            <tasks/>
+            <title>Fade-out star</title>
         </requirement>
     </requirements>
     <tagDefs>

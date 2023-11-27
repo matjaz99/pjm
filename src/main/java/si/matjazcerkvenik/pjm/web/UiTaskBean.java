@@ -2,6 +2,7 @@ package si.matjazcerkvenik.pjm.web;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import si.matjazcerkvenik.pjm.model.HistoryItem;
 import si.matjazcerkvenik.pjm.model.Member;
 import si.matjazcerkvenik.pjm.model.Requirement;
 import si.matjazcerkvenik.pjm.model.Task;
@@ -81,6 +82,7 @@ public class UiTaskBean extends UiBean implements Serializable {
 
     public void setTaskTitle(String title) {
         task.setTitle(title);
+        project.addHistoryItem(new HistoryItem(task.getTitle(), "/pjm/project/requirement.xhtml?projectId=" + project.getId() + "&reqId=" + requirement.getId() + "&tskId=" + task.getId(), "TASK", "Task title changed"));
         saveProjectModifications("Saved");
     }
 
@@ -99,6 +101,7 @@ public class UiTaskBean extends UiBean implements Serializable {
     public void saveTaskChanges() {
         task.setLastModified(Utils.getXmlGregorianCalendarNow());
         editModeOn = !editModeOn;
+        project.addHistoryItem(new HistoryItem(task.getTitle(), "/pjm/project/requirement.xhtml?projectId=" + project.getId() + "&reqId=" + requirement.getId() + "&tskId=" + task.getId(), "TASK", "Task modified"));
         saveProjectModifications("Saved");
     }
 
@@ -111,6 +114,7 @@ public class UiTaskBean extends UiBean implements Serializable {
         task.setStatus(selectedTaskStatus);
         task.setLastModified(Utils.getXmlGregorianCalendarNow());
         DAO.getInstance().saveProject(project);
+        project.addHistoryItem(new HistoryItem(task.getStatus(), "/pjm/project/requirement.xhtml?projectId=" + project.getId() + "&reqId=" + requirement.getId() + "&tskId=" + task.getId(), "TASK", "Task status changed"));
         growlInfoMessage("New status: " + selectedTaskStatus);
     }
 
@@ -131,6 +135,7 @@ public class UiTaskBean extends UiBean implements Serializable {
         task.getAssignee().setMemberRefId(member.getId());
         logger.info("task " + task.getId() + " assigned to name=" + member.getName());
         DAO.getInstance().saveProject(project);
+        project.addHistoryItem(new HistoryItem(member.getName() + " " + member.getLastName(), "/pjm/project/requirement.xhtml?projectId=" + project.getId() + "&reqId=" + requirement.getId() + "&tskId=" + task.getId(), "TASK", "Task assigned"));
         growlInfoMessage("Assigned to " + member.getName());
     }
 
