@@ -13,10 +13,7 @@ import org.primefaces.model.charts.optionconfig.legend.LegendLabel;
 import org.primefaces.model.charts.optionconfig.title.Title;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import si.matjazcerkvenik.pjm.model.Project;
-import si.matjazcerkvenik.pjm.model.Requirement;
-import si.matjazcerkvenik.pjm.model.Task;
-import si.matjazcerkvenik.pjm.model.TaskStatus;
+import si.matjazcerkvenik.pjm.model.*;
 import si.matjazcerkvenik.pjm.util.PjmDateFormat;
 import si.matjazcerkvenik.pjm.util.Utils;
 
@@ -199,5 +196,17 @@ public class UiStatisticsBean extends UiBean implements Serializable {
 
         barModel.setOptions(options);
     }
+
+    public int getNumberOfTasksAssignedToMember(String refId) {
+        int i = 0;
+        for (Requirement r : project.getRequirements().getList()) {
+            for (Task t : r.getTasks().getList()) {
+                if (t.getAssignee().getMemberRefId() == null) continue;
+                if (t.getAssignee().getMemberRefId().equals(refId)) i++;
+            }
+        }
+        return i;
+    }
+
 
 }

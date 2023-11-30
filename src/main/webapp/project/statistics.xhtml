@@ -58,6 +58,17 @@
 				<p:barChart model="#{uiStatisticsBean.barModel}" style="width: 100%; height: 300px;"/>
 			</p:panel>
 
+			<p:panel header="Tasks by member" styleClass="bottom-margin">
+
+					<ui:repeat var="member" value="#{uiStatisticsBean.project.members.list}">
+						<p:panelGrid columns="2">
+						<p:outputLabel value="#{member.name} #{member.lastName}"/>
+						<p:outputLabel value="#{uiStatisticsBean.getNumberOfTasksAssignedToMember(member.id)}"/>
+						</p:panelGrid>
+					</ui:repeat>
+
+			</p:panel>
+
 			<p:panel header="Requirements that need clarification" styleClass="bottom-margin">
 				<p:outputLabel value="The following #{uiStatisticsBean.getRequirementsWithTaskStatus('clarify').size()} requirements need to be clarified."/>
 				<p:dataTable value="#{uiStatisticsBean.getRequirementsWithTaskStatus('clarify')}" var="req"

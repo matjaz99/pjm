@@ -280,6 +280,7 @@ public class UiRequirementBean extends UiBean implements Serializable {
         logger.info("addNewIssueAction: id=" + issue.getId());
         DAO.getInstance().saveProject(project);
         newIssueTitle = null;
+        project.addHistoryItem(new HistoryItem("-", "/pjm/project/requirement.xhtml?projectId=" + project.getId() + "&reqId=" + requirement.getId(), "ISSUE", "New issue created"));
         growlInfoMessage("Issue added");
     }
 
@@ -289,6 +290,7 @@ public class UiRequirementBean extends UiBean implements Serializable {
             if (issue.getId().equals(id)) {
                 it.remove();
                 logger.info("deleteIssueAction: id=" + id);
+                project.addHistoryItem(new HistoryItem("-", "/pjm/project/requirement.xhtml?projectId=" + project.getId() + "&reqId=" + requirement.getId(), "ISSUE", "Issue deleted"));
                 break;
             }
         }

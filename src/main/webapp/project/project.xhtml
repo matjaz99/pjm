@@ -26,104 +26,9 @@
 				</p:panelGrid>
 			</h:form>
 
-			<p:panelGrid columns="12">
-				<p:panel>
-					<div class="card">
-						<p:badge value="#{uiProjectBean.project.calculateProgressOnProject()}%" severity="info">
-							<i class="pi pi-globe" style="font-size: 4rem"></i>
-						</p:badge>
-					</div>
-					<p:link outcome="planning" value="Project" class="boldtext">
-						<f:param name="projectId" value="#{uiProjectBean.project.id}"/>
-					</p:link>
-				</p:panel>
-				<p:panel>
-					<div class="card">
-						<i class="pi pi-box" style="font-size: 4rem"></i>
-					</div>
-					<p:outputLabel value="Releases" class="boldtext"/>
-				</p:panel>
-				<p:panel>
-					<div class="card">
-						<p:badge value="2" severity="info">
-							<i class="pi pi-calendar" style="font-size: 4rem"></i>
-						</p:badge>
-					</div>
-					<p:outputLabel value="Calendar" class="boldtext"/>
-				</p:panel>
-				<p:panel>
-					<div class="card">
-						<i class="pi pi-users" style="font-size: 4rem"></i>
-					</div>
-					<p:link outcome="meetingManager" value="Meetings" class="boldtext">
-						<f:param name="projectId" value="#{uiProjectBean.project.id}"/>
-					</p:link>
-				</p:panel>
-				<p:panel>
-					<div class="card">
-						<i class="pi pi-chart-line" style="font-size: 4rem"></i>
-					</div>
-					<p:link outcome="statistics" value="Statistics" class="boldtext">
-						<f:param name="projectId" value="#{uiProjectBean.project.id}"/>
-					</p:link>
-				</p:panel>
-				<p:panel>
-					<div class="card">
-						<p:badge value="#{uiAlarmsBean.getBadgeAlarmsCount()}" severity="#{(uiAlarmsBean.getAlarmList().size() > 0 ? 'danger' : 'info')}">
-							<i class="pi pi-bell" style="font-size: 4rem"></i>
-						</p:badge>
-					</div>
-					<p:link outcome="alarms" value="Alarms" class="boldtext">
-						<f:param name="projectId" value="#{uiProjectBean.project.id}"/>
-					</p:link>
-				</p:panel>
-				<p:panel>
-					<div class="card">
-						<i class="pi pi-link" style="font-size: 4rem"></i>
-					</div>
-					<p:link outcome="links" value="Links" class="boldtext">
-						<f:param name="projectId" value="#{uiProjectBean.project.id}"/>
-					</p:link>
-				</p:panel>
-				<p:panel>
-					<div class="card">
-						<i class="pi pi-sitemap" style="font-size: 4rem"></i>
-					</div>
-					<p:outputLabel value="Testbed" class="boldtext"/>
-				</p:panel>
-				<p:panel>
-					<div class="card">
-						<i class="pi pi-tags" style="font-size: 4rem"></i>
-					</div>
-					<p:link outcome="tags" value="Tags" class="boldtext">
-						<f:param name="projectId" value="#{uiProjectBean.project.id}"/>
-					</p:link>
-				</p:panel>
-				<p:panel>
-					<div class="card">
-						<p:badge value="#{uiIssuesBean.getOpenIssuesList().size()}" severity="#{(uiIssuesBean.getOpenIssuesList().size() > 0 ? 'danger' : 'info')}">
-							<i class="pi pi-eye" style="font-size: 4rem"></i>
-						</p:badge>
-					</div>
-					<p:link outcome="issues" value="Issues" class="boldtext">
-						<f:param name="projectId" value="#{uiProjectBean.project.id}"/>
-					</p:link>
-				</p:panel>
-				<p:panel>
-					<div class="card">
-						<i class="pi pi-shopping-cart" style="font-size: 4rem"></i>
-					</div>
-					<p:outputLabel value="Unsorted" class="boldtext"/>
-				</p:panel>
-				<p:panel>
-					<div class="card">
-						<i class="pi pi-history" style="font-size: 4rem"></i>
-					</div>
-					<p:link outcome="history" value="History" class="boldtext">
-						<f:param name="projectId" value="#{uiProjectBean.project.id}"/>
-					</p:link>
-				</p:panel>
-			</p:panelGrid>
+			<ui:include src="/templates/project_icons_bar.xhtml" />
+
+
 
 
 			<br/>
@@ -170,7 +75,8 @@
 						</ui:repeat>
 					</p:column>
 					<p:column headerText="Status">
-						<p:outputLabel value="Tasks: #{req.tasks.list.size()}"/>
+						<p:outputLabel value="Tasks: #{req.tasks.list.size()} "/>
+						<p:outputLabel value="Group: #{req.group}"/>
 						<p:outputPanel rendered="#{req.getOpenIssues().size() > 0 ? true : false}" >
 							<span class="pi pi-exclamation-triangle" style="color: red; font-size: 1.5rem" ></span>
 						</p:outputPanel>

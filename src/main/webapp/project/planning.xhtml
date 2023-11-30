@@ -14,7 +14,7 @@
 					<p:breadCrumb>
 						<p:menuitem value="Home" url="/pjm"/>
 						<p:menuitem value="#{uiPlanningBean.project.name}" url="/pjm/project/project.xhtml?projectId=#{uiPlanningBean.project.id}"/>
-						<p:menuitem value="Planning"/>
+						<p:menuitem value="Project plan"/>
 					</p:breadCrumb>
 				</h:form>
 			</div>
@@ -60,9 +60,11 @@
 				<f:param name="projectId" value="#{uiPlanningBean.project.id}" />
 			</p:link>
 
-			<br/>
-
 			<p:link outcome="members" value="Members">
+				<f:param name="projectId" value="#{uiPlanningBean.project.id}"/>
+			</p:link>
+
+			<p:link outcome="tags" value="Tags">
 				<f:param name="projectId" value="#{uiPlanningBean.project.id}"/>
 			</p:link>
 
@@ -71,8 +73,6 @@
 			<p:outputLabel value="Notes" style="font-weight: bold; font-size: 24px;"/>
 
 			<h:form id="editorForm">
-
-
 
 				<p:commandButton value="Save"
 								 action="#{uiPlanningBean.saveNotes()}"

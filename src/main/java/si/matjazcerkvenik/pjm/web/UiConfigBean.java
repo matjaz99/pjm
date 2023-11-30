@@ -81,13 +81,13 @@ public class UiConfigBean implements Serializable {
                 int[] array2 = {1, 4, 6, 8};
                 return array2;
             case 3:
-                int[] array3 = {2, 5, 9, 13};
+                int[] array3 = {2, 6, 9, 13};
                 return array3;
             case 4:
-                int[] array4 = {3, 6, 12, 21};
+                int[] array4 = {3, 8, 13, 21};
                 return array4;
             case 5:
-                int[] array5 = {4, 8, 15, 29};
+                int[] array5 = {4, 10, 15, 29};
                 return array5;
         }
         int[] array0 = {1, 2, 3, 4};

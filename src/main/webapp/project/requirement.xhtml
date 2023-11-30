@@ -24,6 +24,7 @@
 						<p:inputText value="#{uiRequirementBean.requirementTitle}" required="true" label="text" size="60"/>
 					</p:inplace>
 				</p:outputPanel>
+				<p:outputLabel value="[#{uiRequirementBean.requirement.group}]"/>
 			</h:form>
 
 			<p:outputPanel id="tagsPanel">
@@ -39,12 +40,12 @@
 			<h:form id="buttonsForm">
 				<p:commandButton value="Edit"
 								 action="#{uiRequirementBean.toggleEditMode()}"
-								 update="growl buttonsForm reqDescPanelForm reqDescPanel tagsForm" icon="pi pi-pencil"
+								 update="growl buttonsForm reqDescPanelForm reqDescPanel tagsForm groupForm" icon="pi pi-pencil"
 								 styleClass="ui-button-flat"
 								 rendered="#{!uiRequirementBean.editModeOn}"/>
 				<p:commandButton value="Save"
 								 action="#{uiRequirementBean.saveRequirementChanges()}"
-								 update="growl buttonsForm reqDescPanelForm reqDescPanel" icon="pi pi-pencil"
+								 update="growl buttonsForm reqDescPanelForm reqDescPanel tagsForm groupForm" icon="pi pi-pencil"
 								 styleClass="ui-button-outlined"
 								 rendered="#{uiRequirementBean.editModeOn}"/>
 
@@ -95,7 +96,7 @@
 					</p:textEditor>
 					<p:commandButton value="Save"
 									 action="#{uiRequirementBean.saveRequirementChanges()}"
-									 update="growl @form tagsForm" icon="pi pi-save"
+									 update="growl @form tagsForm groupForm" icon="pi pi-save"
 									 styleClass="ui-button-outlined"/>
 				</p:panel>
 
@@ -135,8 +136,17 @@
 
 			</h:form>
 
-			<br/>
-			<br/>
+
+
+			<h:form id="groupForm">
+				<p:panel rendered="#{uiRequirementBean.editModeOn}">
+					<p:outputLabel value="Set group: " style="font-weight: bold; font-size: 24px;"/>
+					<p:inputText value="#{uiRequirementBean.requirement.group}" label="text"/>
+				</p:panel>
+			</h:form>
+
+
+
 
 			<p:outputLabel value="Issues" style="font-weight: bold; font-size: 24px;"/>
 			<h:form id="issuesForm">
