@@ -92,6 +92,15 @@ public class UiProjectBean extends UiBean implements Serializable {
 
                 // TODO
 
+            } else if (searchText.startsWith("GROUP:")) {
+
+                String[] searchTextArray = searchText.split(":");
+                if (searchTextArray.length < 2) return new ArrayList<>(map.values());
+                String searchGroup = searchTextArray[1].trim();
+                if (r.getGroup().toLowerCase().startsWith(searchGroup)) {
+                    if (!map.containsKey(r.getId())) map.put(r.getId(), r);
+                }
+
             } else {
                 // search all fields
                 if (r.getTitle().toLowerCase().contains(searchText.toLowerCase())) {

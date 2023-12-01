@@ -53,20 +53,16 @@
 
 			<h:form id="fadeOutConfigForm">
 
-				<p:panelGrid columns="3">
-
-				<p:panel>
-
-					<p:inputText id="fadeOutFactor" value="#{uiConfigBean.fadeOutFactor}"/>
-					<br/>
-					<br/>
-					<p:slider for="fadeOutFactor" step="1" minValue="1" maxValue="5">
-						<p:ajax event="slideEnd" listener="#{uiConfigBean.onSlideEnd}" update="fadeOutConfigForm"/>
-					</p:slider>
-					<p:outputLabel id="fadeOutConfig" value="#{uiConfigBean.getFadeOutConfig()[0]}d-#{uiConfigBean.getFadeOutConfig()[1]}d-#{uiConfigBean.getFadeOutConfig()[2]}d-#{uiConfigBean.getFadeOutConfig()[3]}d"/>
-
-				</p:panel>
-
+				<p:panelGrid columns="6">
+					<p:panel>
+						<p:inputText id="fadeOutFactor" value="#{uiConfigBean.fadeOutFactor}"/>
+						<br/>
+						<br/>
+						<p:slider for="fadeOutFactor" step="1" minValue="1" maxValue="5">
+							<p:ajax event="slideEnd" listener="#{uiConfigBean.onSlideEnd}" update="fadeOutConfigForm"/>
+						</p:slider>
+						<p:outputLabel id="fadeOutConfig" value="#{uiConfigBean.getFadeOutConfig()[0]}d-#{uiConfigBean.getFadeOutConfig()[1]}d-#{uiConfigBean.getFadeOutConfig()[2]}d-#{uiConfigBean.getFadeOutConfig()[3]}d"/>
+					</p:panel>
 				</p:panelGrid>
 
 			</h:form>

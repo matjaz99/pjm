@@ -60,12 +60,16 @@
 
 			<p:panel header="Tasks by member" styleClass="bottom-margin">
 
-					<ui:repeat var="member" value="#{uiStatisticsBean.project.members.list}">
-						<p:panelGrid columns="2">
+				<ui:repeat var="member" value="#{uiStatisticsBean.project.members.list}">
+					<p:panelGrid columns="2">
 						<p:outputLabel value="#{member.name} #{member.lastName}"/>
 						<p:outputLabel value="#{uiStatisticsBean.getNumberOfTasksAssignedToMember(member.id)}"/>
-						</p:panelGrid>
-					</ui:repeat>
+					</p:panelGrid>
+				</ui:repeat>
+				<p:panelGrid columns="2">
+					<p:outputLabel value="Unassigned"/>
+					<p:outputLabel value="#{uiStatisticsBean.getNumberOfTasksAssignedToMember('unassigned')}"/>
+				</p:panelGrid>
 
 			</p:panel>
 

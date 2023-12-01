@@ -201,6 +201,7 @@ public class UiStatisticsBean extends UiBean implements Serializable {
         int i = 0;
         for (Requirement r : project.getRequirements().getList()) {
             for (Task t : r.getTasks().getList()) {
+                if (t.getAssignee().getMemberRefId() == null && refId.equals("unassigned")) i++;
                 if (t.getAssignee().getMemberRefId() == null) continue;
                 if (t.getAssignee().getMemberRefId().equals(refId)) i++;
             }

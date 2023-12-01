@@ -66,6 +66,8 @@
 										dynamic="true">
 							<p:outputLabel value="#{req.shortDescription}" escape="false"/>
 						</p:overlayPanel>
+						<br/>
+						<p:outputLabel value="[#{req.group}]" style="font-weight: bold; font-size: 0.7em;" />
 					</p:column>
 					<p:column headerText="Tags">
 						<ui:repeat var="tag" value="#{req.tags.list}">
@@ -76,7 +78,6 @@
 					</p:column>
 					<p:column headerText="Status">
 						<p:outputLabel value="Tasks: #{req.tasks.list.size()} "/>
-						<p:outputLabel value="Group: #{req.group}"/>
 						<p:outputPanel rendered="#{req.getOpenIssues().size() > 0 ? true : false}" >
 							<span class="pi pi-exclamation-triangle" style="color: red; font-size: 1.5rem" ></span>
 						</p:outputPanel>

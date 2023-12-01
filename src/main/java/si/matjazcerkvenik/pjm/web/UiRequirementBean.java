@@ -123,7 +123,7 @@ public class UiRequirementBean extends UiBean implements Serializable {
         requirement.setLastModified(Utils.getXmlGregorianCalendarNow());
         logger.info("addNewTaskAction: id: " + t.getId() + ", title: " + newTskTitle);
         newTskTitle = null;
-        project.addHistoryItem(new HistoryItem(t.getTitle(), "/pjm/project/requirement.xhtml?projectId=" + project.getId() + "&reqId=" + requirement.getId() + "&tskId=" + t.getId(), "TASK", "New task created"));
+        project.addHistoryItem(new HistoryItem(t.getTitle(), "/pjm/project/task.xhtml?projectId=" + project.getId() + "&reqId=" + requirement.getId() + "&tskId=" + t.getId(), "TASK", "New task created"));
         saveProjectModifications("New task created");
     }
 

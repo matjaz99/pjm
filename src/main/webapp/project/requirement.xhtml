@@ -94,10 +94,6 @@
 							</span>
 						</f:facet>
 					</p:textEditor>
-					<p:commandButton value="Save"
-									 action="#{uiRequirementBean.saveRequirementChanges()}"
-									 update="growl @form tagsForm groupForm" icon="pi pi-save"
-									 styleClass="ui-button-outlined"/>
 				</p:panel>
 
 				<p:poll interval="#{uiRequirementBean.editModeOn ? 60 : 999999}" listener="#{uiRequirementBean.saveRequirementChanges()}" update="growl"/>
@@ -107,7 +103,7 @@
 			<h:form id="tagsForm">
 
 				<p:panel rendered="#{uiRequirementBean.editModeOn}">
-					<p:outputLabel value="Set tags: " style="font-weight: bold; font-size: 24px;"/>
+					<p:outputLabel value="Set tags: "/>
 					<p:selectCheckboxMenu id="tagsCheckboxMenu"
 										  filter="true" filterMatchMode="startsWith" filterNormalize="true"
 										  label="Tags"
@@ -140,8 +136,12 @@
 
 			<h:form id="groupForm">
 				<p:panel rendered="#{uiRequirementBean.editModeOn}">
-					<p:outputLabel value="Set group: " style="font-weight: bold; font-size: 24px;"/>
-					<p:inputText value="#{uiRequirementBean.requirement.group}" label="text"/>
+					<p:outputLabel value="Edit group: ">
+					<p:inplace editor="true">
+						<p:inputText value="#{uiRequirementBean.requirement.group}" required="true" label="text"/>
+						<p:ajax event="save" listener="#{uiRequirementBean.saveProjectModifications('Group updated')}" update="growl groupForm" />
+					</p:inplace>
+					</p:outputLabel>
 				</p:panel>
 			</h:form>
 

@@ -24,7 +24,7 @@
 			<p:outputLabel value="Project requirements summary" style="font-weight: bold; font-size: 24px;"/>
 
 			<ui:repeat var="req" value="#{uiProjectBean.project.requirements.list}">
-				<p:panel header="#{req.title}" styleClass="bottom-margin">
+				<p:panel header="#{req.title} [#{req.group}]" styleClass="bottom-margin">
 					<p:outputLabel value="#{req.description}" escape="false"/>
 					<h:link value="Open" outcome="/project/requirement">
 						<f:param name="projectId" value="#{uiProjectBean.project.id}" />
