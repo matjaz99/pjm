@@ -256,8 +256,10 @@
 
 			<br/>
 
-			<p:outputLabel value="Tasks (#{uiRequirementBean.requirement.tasks.list.size()})" style="font-weight: bold; font-size: 24px;"/>
+
 			<h:form id="tasksForm">
+
+				<p:outputLabel value="Tasks (#{uiRequirementBean.requirement.tasks.list.size()})" style="font-weight: bold; font-size: 24px;"/>
 
 				<p:dataTable value="#{uiRequirementBean.requirement.tasks.list}" var="tsk"
 							 cellpadding="0" cellspacing="0">
@@ -289,8 +291,25 @@
 
 			<br/>
 
-			<p:commandButton value="New task" type="button" icon="pi pi-external-link"
-							 styleClass="ui-button-outlined" onclick="PF('newTaskDialog').show()"/>
+			<p:panelGrid columns="6">
+				<p:commandButton value="New task" type="button" icon="pi pi-external-link"
+							 	styleClass="ui-button-outlined" onclick="PF('newTaskDialog').show()"/>
+				<p:commandButton value="Analyze"
+								 action="#{uiRequirementBean.addNewCustomTaskAction('Analyze task')}"
+								 update="growl newTaskForm tasksForm"
+								 styleClass="ui-button-outlined"
+								 icon="pi pi-search"/>
+				<p:commandButton value="Implement"
+								 action="#{uiRequirementBean.addNewCustomTaskAction('Implement task')}"
+								 update="growl newTaskForm tasksForm"
+								 styleClass="ui-button-outlined"
+								 icon="pi pi-wrench"/>
+				<p:commandButton value="Document"
+								 action="#{uiRequirementBean.addNewCustomTaskAction('Document task')}"
+								 update="growl newTaskForm tasksForm"
+								 styleClass="ui-button-outlined"
+								 icon="pi pi-file"/>
+			</p:panelGrid>
 			<p:dialog header="New task" widgetVar="newTaskDialog" minHeight="40" showEffect="fade" closable="false" closeOnEscape="true">
 				<h:form id="newTaskForm">
 					<p:inputText value="#{uiRequirementBean.newTskTitle}" size="60"

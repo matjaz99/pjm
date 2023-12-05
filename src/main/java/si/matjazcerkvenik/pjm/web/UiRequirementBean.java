@@ -146,6 +146,23 @@ public class UiRequirementBean extends UiBean implements Serializable {
         return member.getName() + " " + member.getLastName();
     }
 
+    public void addNewCustomTaskAction(String title) {
+        if (Utils.isNullOrEmpty(title)) return;
+        Task t = new Task();
+        t.setId(Utils.getMd5ChecksumShortSalted(title));
+        t.setTitle(title);
+        t.setStatus(TaskStatus.DRAFT.label);
+        t.setCreated(Utils.getXmlGregorianCalendarNow());
+        requirement.addNewTask(t);
+        requirement.setLastModified(Utils.getXmlGregorianCalendarNow());
+        logger.info("addNewCustomTaskAction: id: " + t.getId() + ", title: " + title);
+        project.addHistoryItem(new HistoryItem(t.getTitle(), "/pjm/project/task.xhtml?projectId=" + project.getId() + "&reqId=" + requirement.getId() + "&tskId=" + t.getId(), "TASK", "New task created"));
+        saveProjectModifications("New task created");
+    }
+
+
+
+
 
 
 

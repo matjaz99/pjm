@@ -77,8 +77,6 @@
         <requirement created="2023-09-16T10:25:27.194+02:00" id="REQ-01" lastModified="2023-11-24T00:06:11.345+01:00">
             <comments>
                 <comment id="42bd5e4c" lastModified="2023-08-30T00:25:33.792+02:00">fghfghfgf</comment>
-                <comment created="2023-09-11T21:03:21.908+02:00" id="0587c913" lastModified="2023-09-11T21:03:21.908+02:00">jiuhuyg</comment>
-                <comment created="2023-09-16T15:14:01.460+02:00" id="3c012f51" lastModified="2023-09-17T23:16:42.272+02:00">FFFF</comment>
             </comments>
             <description>&lt;p&gt;Shranjevanje v &lt;span style="color:rgb( 255 , 153 , 0 )"&gt;xml&lt;/span&gt; file. Vsi XML fajli so v direktoriju projects.&lt;/p&gt;&lt;p&gt;Vsaka &lt;span style="background-color:rgb( 255 , 255 , 0 );color:rgb( 0 , 138 , 0 )"&gt;sprememba&lt;/span&gt; se sproti shrani. Xml file se prepiše z novim.&lt;/p&gt;</description>
             <group>undefined</group>
@@ -210,14 +208,14 @@
             <group>undefined</group>
             <issues/>
             <tags>
-                <tag id="e0420fa9" refId="90cca284"/>
+                <tag id="e0420fa9" refId="90cca284"></tag>
             </tags>
             <tasks/>
             <title>Opomniki</title>
         </requirement>
-        <requirement created="2023-09-16T10:25:27.195+02:00" id="eed13c84" lastModified="2023-12-01T00:37:14.793+01:00">
+        <requirement created="2023-09-16T10:25:27.195+02:00" id="eed13c84" lastModified="2023-12-04T21:51:36.050+01:00">
             <comments/>
-            <description>&lt;p&gt;Možni statusi taskov:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Draft&lt;/li&gt;&lt;li&gt;In progress&lt;/li&gt;&lt;li&gt;Clarify&lt;/li&gt;&lt;li&gt;Waiting&lt;/li&gt;&lt;li&gt;Complete&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;</description>
+            <description>&lt;p&gt;Možni statusi taskov:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Draft&lt;/li&gt;&lt;li&gt;In progress&lt;/li&gt;&lt;li&gt;Clarify&lt;/li&gt;&lt;li&gt;Waiting&lt;/li&gt;&lt;li&gt;Complete&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;Dodaj še status Rejected (Won&amp;#39;t do)&lt;/p&gt;</description>
             <group>undefined</group>
             <issues/>
             <tags>
@@ -238,6 +236,11 @@
                     <assignee memberRefId="03a1fdd1"/>
                     <status>Complete</status>
                     <title>Dodeljevanje taskov članom teama</title>
+                </task>
+                <task created="2023-12-04T21:48:52.291+01:00" id="9660f152" lastModified="2023-12-04T21:49:00.041+01:00">
+                    <assignee memberRefId="edb1d233"/>
+                    <status>Complete</status>
+                    <title>Gumb za avtomatično kreiranje taskov (analiza, implementacija, dokumentacija)</title>
                 </task>
             </tasks>
             <title>Tasks</title>
@@ -426,7 +429,9 @@
             <description>&lt;p&gt;Start date, end date&lt;/p&gt;&lt;p&gt;Checklists&lt;/p&gt;</description>
             <group>undefined</group>
             <issues/>
-            <tags/>
+            <tags>
+                <tag id="d5f277c6" refId="5b632e8a"/>
+            </tags>
             <tasks>
                 <task created="2023-09-16T18:27:27.787+02:00" id="16f5f277" lastModified="2023-09-29T21:35:17.675+02:00">
                     <assignee memberRefId="540e9ef5"/>
@@ -495,13 +500,22 @@
             </tasks>
             <title>Statistika</title>
         </requirement>
-        <requirement created="2023-09-17T23:51:24.071+02:00" id="1344e666" lastModified="2023-11-22T02:03:35.337+01:00">
+        <requirement created="2023-09-17T23:51:24.071+02:00" id="1344e666" lastModified="2023-12-04T22:03:41.037+01:00">
             <comments>
                 <comment created="2023-11-22T02:02:58.491+01:00" id="1a71e44d" lastModified="2023-11-22T02:02:58.491+01:00">Smiselno bi bilo narediti ločen page za prijave bugov</comment>
             </comments>
             <description>&lt;p&gt;Problem fixing&lt;/p&gt;</description>
             <group>undefined</group>
-            <issues/>
+            <issues>
+                <issue created="2023-12-04T22:03:08.548+01:00" id="3d29a935">
+                    <problem>A je bug lahko kot task na zahtevi?</problem>
+                    <resolved>false</resolved>
+                </issue>
+                <issue created="2023-12-04T22:03:41.037+01:00" id="a5eccfc6">
+                    <problem>A so bugi ločeni od taskov, čeprav so prav tako taski?</problem>
+                    <resolved>false</resolved>
+                </issue>
+            </issues>
             <tags/>
             <tasks>
                 <task created="2023-09-17T23:52:40.633+02:00" id="b47233a2" lastModified="2023-11-20T22:20:21.345+01:00">

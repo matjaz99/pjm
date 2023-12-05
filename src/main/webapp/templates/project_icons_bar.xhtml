@@ -32,7 +32,9 @@
 		</p:panel>
 		<p:panel>
 			<div class="card">
-				<i class="pi pi-users" style="font-size: 4rem"></i>
+				<p:badge value="#{uiProjectBean.project.meetingTemplates.list.size()}" severity="info">
+					<i class="pi pi-users" style="font-size: 4rem"></i>
+				</p:badge>
 			</div>
 			<p:link outcome="meetingManager" value="Meetings" class="boldtext">
 				<f:param name="projectId" value="#{uiProjectBean.project.id}"/>
