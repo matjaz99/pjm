@@ -38,16 +38,22 @@
 
 
 			<h:form id="buttonsForm">
-				<p:commandButton value="Edit"
-								 action="#{uiRequirementBean.toggleEditMode()}"
-								 update="growl buttonsForm reqDescPanelForm reqDescPanel tagsForm groupForm" icon="pi pi-pencil"
-								 styleClass="ui-button-flat"
-								 rendered="#{!uiRequirementBean.editModeOn}"/>
-				<p:commandButton value="Save"
-								 action="#{uiRequirementBean.saveRequirementChanges()}"
-								 update="growl buttonsForm reqDescPanelForm reqDescPanel tagsForm groupForm" icon="pi pi-pencil"
-								 styleClass="ui-button-outlined"
-								 rendered="#{uiRequirementBean.editModeOn}"/>
+				<p:panelGrid columns="6">
+					<p:commandButton value="Edit"
+									 action="#{uiRequirementBean.toggleEditMode()}"
+									 update="growl buttonsForm reqDescPanelForm reqDescPanel tagsForm groupForm itcmLinkForm rrcLinkForm" icon="pi pi-pencil"
+									 styleClass="ui-button-flat"
+									 rendered="#{!uiRequirementBean.editModeOn}"/>
+					<p:commandButton value="Save"
+									 action="#{uiRequirementBean.saveRequirementChanges()}"
+									 update="growl buttonsForm reqDescPanelForm reqDescPanel tagsForm groupForm itcmLinkForm rrcLinkForm" icon="pi pi-pencil"
+									 styleClass="ui-button-outlined"
+									 rendered="#{uiRequirementBean.editModeOn}"/>
+					<p:link href="#{uiRequirementBean.requirement.itcmLink.href}"
+							value="#{uiRequirementBean.requirement.itcmLink.description}"/>
+					<p:link href="#{uiRequirementBean.requirement.rrcLink.href}"
+							value="#{uiRequirementBean.requirement.rrcLink.description}"/>
+				</p:panelGrid>
 
 				<p:panel id="reqDescPanel" rendered="#{!uiRequirementBean.editModeOn}">
 					<p:outputLabel value="#{uiRequirementBean.requirement.description}" escape="false" />
@@ -100,6 +106,7 @@
 
 			</h:form>
 
+
 			<h:form id="tagsForm">
 
 				<p:panel rendered="#{uiRequirementBean.editModeOn}">
@@ -133,7 +140,6 @@
 			</h:form>
 
 
-
 			<h:form id="groupForm">
 				<p:panel rendered="#{uiRequirementBean.editModeOn}">
 					<p:outputLabel value="Edit group: ">
@@ -144,6 +150,28 @@
 					</p:outputLabel>
 				</p:panel>
 			</h:form>
+
+			<h:form id="itcmLinkForm">
+				<p:panel rendered="#{uiRequirementBean.editModeOn}">
+					<p:outputLabel value="REQ: ">
+						<p:inplace editor="true">
+							<p:inputText value="#{uiRequirementBean.itcmReqLink}" required="true" label="text"/>
+						</p:inplace>
+					</p:outputLabel>
+				</p:panel>
+			</h:form>
+
+			<h:form id="rrcLinkForm">
+				<p:panel rendered="#{uiRequirementBean.editModeOn}">
+					<p:outputLabel value="RRC link: ">
+						<p:inplace editor="true">
+							<p:inputText value="#{uiRequirementBean.rrcLink}" required="true" label="text"/>
+						</p:inplace>
+					</p:outputLabel>
+				</p:panel>
+			</h:form>
+
+
 
 
 

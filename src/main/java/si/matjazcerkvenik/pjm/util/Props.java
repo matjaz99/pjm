@@ -15,6 +15,8 @@ public class Props {
 
     public static int LAST_HISTORY_ITEMS_SIZE = 100;
 
+    public static String ITCM_REQ_URL = "http://vmpowerbi1/ReportServer/Pages/ReportViewer.aspx?/CM/REPORT_Request_Description&rs:Command=Render&rs:ClearSession=True&rc:Parameters=False&Request_ID=";
+
     /**
      * Read configuration from environment variables
      */

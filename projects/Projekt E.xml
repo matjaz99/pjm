@@ -87,6 +87,14 @@
                     <solution>bbbbb</solution>
                 </issue>
             </issues>
+            <itcmLink id="fae008ca">
+                <description>R-132</description>
+                <href>http://vmpowerbi1/ReportServer/Pages/ReportViewer.aspx?/CM/REPORT_Request_Description&amp;rs:Command=Render&amp;rs:ClearSession=True&amp;rc:Parameters=False&amp;Request_ID=R-132</href>
+            </itcmLink>
+            <rrcLink id="0aabe0f7">
+                <description>RRC</description>
+                <href>http://</href>
+            </rrcLink>
             <tags>
                 <tag id="3d21859c" refId="4a6c3d9e"></tag>
             </tags>
@@ -100,7 +108,7 @@
             </tasks>
             <title>Persistence</title>
         </requirement>
-        <requirement created="2023-09-16T10:25:27.194+02:00" id="REQ-02" lastModified="2023-12-01T00:42:06.662+01:00">
+        <requirement created="2023-09-16T10:25:27.194+02:00" id="REQ-02" lastModified="2023-12-28T00:00:47.142+01:00">
             <comments>
                 <comment created="2023-09-16T15:36:18.973+02:00" id="f895a376" lastModified="2023-09-16T15:36:18.974+02:00">kjooo</comment>
                 <comment created="2023-09-16T15:36:31.826+02:00" id="40d994d4" lastModified="2023-09-16T15:36:31.826+02:00">fds</comment>
@@ -108,6 +116,12 @@
             <description>&lt;p&gt;Zahteva ima naslov, opis, tage, issue, komentarje, taske..&lt;/p&gt;</description>
             <group>undefined</group>
             <issues/>
+            <itcmLink>
+                <href>-</href>
+            </itcmLink>
+            <rrcLink>
+                <href>-</href>
+            </rrcLink>
             <tags>
                 <tag id="0c0af38c" refId="cbd62164"></tag>
             </tags>
@@ -155,6 +169,16 @@
                     <status>Complete</status>
                     <title>Dodaj grupo na requirement</title>
                 </task>
+                <task created="2023-12-28T00:00:30.935+01:00" id="4e7a085a" lastModified="2023-12-28T00:00:55.480+01:00">
+                    <assignee/>
+                    <status>In progress</status>
+                    <title>Dodaj ITCM link na zahtevo</title>
+                </task>
+                <task created="2023-12-28T00:00:47.141+01:00" id="7960ce2c" lastModified="2023-12-28T00:01:01.048+01:00">
+                    <assignee/>
+                    <status>In progress</status>
+                    <title>Dodaj RRC link na zahtevo</title>
+                </task>
             </tasks>
             <title>Requirements</title>
         </requirement>
@@ -163,6 +187,12 @@
             <description>&lt;p&gt;Metrike se zapisujeo v file, ki ga je enostavno sparsati (npr csv). Metrike se prikazujejo na grafih.&lt;/p&gt;</description>
             <group>undefined</group>
             <issues/>
+            <itcmLink>
+                <href>-</href>
+            </itcmLink>
+            <rrcLink>
+                <href>-</href>
+            </rrcLink>
             <tags>
                 <tag id="09e52c22" refId="b703ef27"></tag>
             </tags>
@@ -185,6 +215,12 @@
             <description>&lt;p&gt;Na REQ ali na TASK je potrebno dodati možnost dodajanja komentarjev. Komentarje je možno spremeniti. Zabeleži se zadnji čas spremembe komentarja.&lt;/p&gt;</description>
             <group>undefined</group>
             <issues/>
+            <itcmLink>
+                <href>-</href>
+            </itcmLink>
+            <rrcLink>
+                <href>-</href>
+            </rrcLink>
             <tags>
                 <tag id="b0ec0d21" refId="9efc4469"></tag>
             </tags>
@@ -194,7 +230,7 @@
                     <status>Complete</status>
                     <title>Dodaj komentarje na requirement</title>
                 </task>
-                <task created="2023-09-16T10:25:27.195+02:00" id="1d7f4e4c" lastModified="2023-12-01T01:03:59.478+01:00">
+                <task created="2023-09-16T10:25:27.195+02:00" id="1d7f4e4c" lastModified="2023-12-28T00:02:54.271+01:00">
                     <assignee memberRefId="6f5a68f1"/>
                     <status>Waiting</status>
                     <title>Dodaj komentarje na task</title>
@@ -207,6 +243,12 @@
             <description>&lt;p&gt;Produkt mora podpirati dodajanje opomnikov. Na opomniku mora biti nastavljiv čas, kdaj uporabnika opozori.&lt;/p&gt;&lt;p&gt;Lahko pa se nastavi opomnik ko se spremeni status zahteve ali taska.&lt;/p&gt;</description>
             <group>undefined</group>
             <issues/>
+            <itcmLink>
+                <href>-</href>
+            </itcmLink>
+            <rrcLink>
+                <href>-</href>
+            </rrcLink>
             <tags>
                 <tag id="e0420fa9" refId="90cca284"></tag>
             </tags>
@@ -218,6 +260,12 @@
             <description>&lt;p&gt;Možni statusi taskov:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Draft&lt;/li&gt;&lt;li&gt;In progress&lt;/li&gt;&lt;li&gt;Clarify&lt;/li&gt;&lt;li&gt;Waiting&lt;/li&gt;&lt;li&gt;Complete&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;Dodaj še status Rejected (Won&amp;#39;t do)&lt;/p&gt;</description>
             <group>undefined</group>
             <issues/>
+            <itcmLink>
+                <href>-</href>
+            </itcmLink>
+            <rrcLink>
+                <href>-</href>
+            </rrcLink>
             <tags>
                 <tag id="653e31b1" refId="876b6243"></tag>
             </tags>
@@ -260,6 +308,12 @@
                     <resolved>false</resolved>
                 </issue>
             </issues>
+            <itcmLink>
+                <href>-</href>
+            </itcmLink>
+            <rrcLink>
+                <href>-</href>
+            </rrcLink>
             <tags>
                 <tag id="546a93e9" refId="6d04fd44"></tag>
             </tags>
@@ -277,6 +331,12 @@
             <description>&lt;p&gt;Popis omrežja, IP naslovov, strežniki, produkti, linki, uporabniška imena, gesla&lt;/p&gt;</description>
             <group>undefined</group>
             <issues/>
+            <itcmLink>
+                <href>-</href>
+            </itcmLink>
+            <rrcLink>
+                <href>-</href>
+            </rrcLink>
             <tags/>
             <tasks>
                 <task created="2023-09-16T18:25:58.250+02:00" id="03e8700a" lastModified="2023-09-16T18:25:58.250+02:00">
@@ -302,6 +362,12 @@
             <description>&lt;p&gt;Splaniraj agendo za vnaprej. Daj v koledar kot sestanek. Opomnik pred sestankom. Zapisnik. Relacije na zahteve.&lt;/p&gt;</description>
             <group>undefined</group>
             <issues/>
+            <itcmLink>
+                <href>-</href>
+            </itcmLink>
+            <rrcLink>
+                <href>-</href>
+            </rrcLink>
             <tags>
                 <tag id="35e2a261" refId="fe978bd6"></tag>
             </tags>
@@ -329,6 +395,12 @@
             <description>&lt;p&gt;Http link&lt;/p&gt;</description>
             <group>undefined</group>
             <issues/>
+            <itcmLink>
+                <href>-</href>
+            </itcmLink>
+            <rrcLink>
+                <href>-</href>
+            </rrcLink>
             <tags>
                 <tag id="4819046e" refId="f9d513c1"></tag>
             </tags>
@@ -345,6 +417,12 @@
             <comments/>
             <group>undefined</group>
             <issues/>
+            <itcmLink>
+                <href>-</href>
+            </itcmLink>
+            <rrcLink>
+                <href>-</href>
+            </rrcLink>
             <tags>
                 <tag id="a07cbc76" refId="5b632e8a"></tag>
             </tags>
@@ -362,6 +440,12 @@
             <description>&lt;p&gt;Možnost definiranja poljubnih tagov. Tagi morajo imeti možnost izbire barve. Tag se lahko doda na REQ&lt;/p&gt;</description>
             <group>undefined</group>
             <issues/>
+            <itcmLink>
+                <href>-</href>
+            </itcmLink>
+            <rrcLink>
+                <href>-</href>
+            </rrcLink>
             <tags>
                 <tag id="0ac2e150" refId="b7625ae9"></tag>
             </tags>
@@ -412,6 +496,12 @@
                     <resolved>false</resolved>
                 </issue>
             </issues>
+            <itcmLink>
+                <href>-</href>
+            </itcmLink>
+            <rrcLink>
+                <href>-</href>
+            </rrcLink>
             <tags>
                 <tag id="e6353822" refId="4a6c3d9e"></tag>
             </tags>
@@ -429,8 +519,14 @@
             <description>&lt;p&gt;Start date, end date&lt;/p&gt;&lt;p&gt;Checklists&lt;/p&gt;</description>
             <group>undefined</group>
             <issues/>
+            <itcmLink>
+                <href>-</href>
+            </itcmLink>
+            <rrcLink>
+                <href>-</href>
+            </rrcLink>
             <tags>
-                <tag id="d5f277c6" refId="5b632e8a"/>
+                <tag id="d5f277c6" refId="5b632e8a"></tag>
             </tags>
             <tasks>
                 <task created="2023-09-16T18:27:27.787+02:00" id="16f5f277" lastModified="2023-09-29T21:35:17.675+02:00">
@@ -456,6 +552,12 @@
             <description>&lt;p&gt;Issues on request. From project page an overview of opened issues and link to them.&lt;/p&gt;</description>
             <group>undefined</group>
             <issues/>
+            <itcmLink>
+                <href>-</href>
+            </itcmLink>
+            <rrcLink>
+                <href>-</href>
+            </rrcLink>
             <tags>
                 <tag id="12a48de7" refId="d78b032e"></tag>
             </tags>
@@ -483,6 +585,12 @@
             <description>&lt;p&gt;Statistika projekta, koliko je odprtih taskov, zaprtih...&lt;/p&gt;</description>
             <group>undefined</group>
             <issues/>
+            <itcmLink>
+                <href>-</href>
+            </itcmLink>
+            <rrcLink>
+                <href>-</href>
+            </rrcLink>
             <tags>
                 <tag id="55f82e7c" refId="0fabda59"></tag>
             </tags>
@@ -516,6 +624,12 @@
                     <resolved>false</resolved>
                 </issue>
             </issues>
+            <itcmLink>
+                <href>-</href>
+            </itcmLink>
+            <rrcLink>
+                <href>-</href>
+            </rrcLink>
             <tags/>
             <tasks>
                 <task created="2023-09-17T23:52:40.633+02:00" id="b47233a2" lastModified="2023-11-20T22:20:21.345+01:00">
@@ -538,6 +652,12 @@
             <description>&lt;p&gt;Gumb, ki naredi backup kopijo v xml. XML mora imeti timestamp v imenu in se ne sme končati z .xml (lahko npr. .xml.backup - sicer ga bo aplikacija spet naložila kot projekt)&lt;/p&gt;</description>
             <group>undefined</group>
             <issues/>
+            <itcmLink>
+                <href>-</href>
+            </itcmLink>
+            <rrcLink>
+                <href>-</href>
+            </rrcLink>
             <tags>
                 <tag id="365fb2e7" refId="4a6c3d9e"></tag>
                 <tag id="25618328" refId="7dee1dd7"></tag>
@@ -565,6 +685,12 @@
             <comments/>
             <group>undefined</group>
             <issues/>
+            <itcmLink>
+                <href>-</href>
+            </itcmLink>
+            <rrcLink>
+                <href>-</href>
+            </rrcLink>
             <tags/>
             <tasks>
                 <task created="2023-09-21T01:43:34.554+02:00" id="c35ff73a" lastModified="2023-09-21T01:43:39.588+02:00">
@@ -586,6 +712,12 @@
             <description>&lt;p&gt;Na straneh, kjer je urejevalnik besedila, je potrebno avtomatično shranjevanje sprememb (brez pritiska na gumb Save).&lt;/p&gt;</description>
             <group>undefined</group>
             <issues/>
+            <itcmLink>
+                <href>-</href>
+            </itcmLink>
+            <rrcLink>
+                <href>-</href>
+            </rrcLink>
             <tags>
                 <tag id="56ddf07a" refId="7dee1dd7"></tag>
             </tags>
@@ -603,6 +735,12 @@
             <description>&lt;p&gt;Zapisniki sestankov se morajo shranjevati v ločenem xml dokumentu, ker bo projektni xml postal prevelik in bo opazno počasno shranjevanje pri vsakem pritisku na gumb Save.&lt;/p&gt;</description>
             <group>undefined</group>
             <issues/>
+            <itcmLink>
+                <href>-</href>
+            </itcmLink>
+            <rrcLink>
+                <href>-</href>
+            </rrcLink>
             <tags>
                 <tag id="4446d0f7" refId="4a6c3d9e"></tag>
                 <tag id="03195541" refId="7dee1dd7"></tag>
@@ -622,6 +760,12 @@
             <description>&lt;p&gt;Zgodovina zadnjih sprememb.&lt;/p&gt;</description>
             <group>undefined</group>
             <issues/>
+            <itcmLink>
+                <href>-</href>
+            </itcmLink>
+            <rrcLink>
+                <href>-</href>
+            </rrcLink>
             <tags/>
             <tasks>
                 <task created="2023-12-01T00:49:06.753+01:00" id="3f8629f8" lastModified="2023-12-01T00:49:10.293+01:00">
@@ -637,6 +781,12 @@
             <description>&lt;p&gt;Fade-out star changes color from strong blue to very light blue depending on how long ago the last (significant) change occurred.&lt;/p&gt;</description>
             <group>undefined</group>
             <issues/>
+            <itcmLink>
+                <href>-</href>
+            </itcmLink>
+            <rrcLink>
+                <href>-</href>
+            </rrcLink>
             <tags>
                 <tag id="03bf5ec2" refId="cbd62164"></tag>
                 <tag id="2be54f97" refId="5b632e8a"></tag>

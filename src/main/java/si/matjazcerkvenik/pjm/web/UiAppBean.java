@@ -3,7 +3,7 @@ package si.matjazcerkvenik.pjm.web;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import si.matjazcerkvenik.pjm.model.Project;
-import si.matjazcerkvenik.pjm.timertasks.PeriodicTask;
+import si.matjazcerkvenik.pjm.timertasks.AlarmsTask;
 import si.matjazcerkvenik.pjm.util.DAO;
 import si.matjazcerkvenik.pjm.util.Utils;
 import si.matjazcerkvenik.pjm.util.Props;
@@ -27,7 +27,7 @@ public class UiAppBean implements Serializable {
 
     protected Timer periodicTimer;
 
-    public PeriodicTask periodicTask;
+    public AlarmsTask alarmsTask;
 
     @PostConstruct
     public void init() {
@@ -37,8 +37,8 @@ public class UiAppBean implements Serializable {
         }
 
         periodicTimer = new Timer("PeriodicTimer");
-        periodicTask = new PeriodicTask(projects);
-        periodicTimer.schedule(periodicTask, 30 * 1000, 5 * 60 * 1000);
+        alarmsTask = new AlarmsTask(projects);
+        periodicTimer.schedule(alarmsTask, 30 * 1000, 5 * 60 * 1000);
         logger.info("periodic timer started");
     }
 

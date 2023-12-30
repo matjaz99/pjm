@@ -6,11 +6,11 @@ import si.matjazcerkvenik.pjm.util.Utils;
 import java.util.List;
 import java.util.TimerTask;
 
-public class PeriodicTask extends TimerTask {
+public class AlarmsTask extends TimerTask {
 
     private List<Project> projects;
 
-    public PeriodicTask(List<Project> projects) {
+    public AlarmsTask(List<Project> projects) {
         this.projects = projects;
     }
 

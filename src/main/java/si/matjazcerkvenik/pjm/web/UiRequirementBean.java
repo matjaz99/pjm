@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import si.matjazcerkvenik.pjm.model.*;
 import si.matjazcerkvenik.pjm.util.DAO;
+import si.matjazcerkvenik.pjm.util.Props;
 import si.matjazcerkvenik.pjm.util.Utils;
 
 import javax.annotation.PostConstruct;
@@ -96,6 +97,48 @@ public class UiRequirementBean extends UiBean implements Serializable {
         System.out.println("DELETE " + requirement.getTitle());
         return "project.xhtml?projectId=" + project.getId();
     }
+
+
+
+
+
+    /* ITCM REQ and RRC links */
+
+    private String itcmReqLink; // not link really; expected value: REQ00000000
+    private String rrcLink;
+
+    public String getItcmReqLink() {
+        return itcmReqLink;
+    }
+
+    public void setItcmReqLink(String itcmReqLink) {
+        this.itcmReqLink = itcmReqLink;
+        Link link = new Link();
+        link.setDescription(itcmReqLink);
+        link.setHref(Props.ITCM_REQ_URL + itcmReqLink);
+        link.setId(Utils.getMd5ChecksumShortSalted(itcmReqLink));
+        requirement.setItcmLink(link);
+        saveProjectModifications("ITCM link updated");
+    }
+
+    public String getRrcLink() {
+        return rrcLink;
+    }
+
+    public void setRrcLink(String rrcLink) {
+        this.rrcLink = rrcLink;
+        Link link = new Link();
+        link.setDescription("RRC");
+        link.setHref(rrcLink);
+        link.setId(Utils.getMd5ChecksumShortSalted(rrcLink));
+        requirement.setRrcLink(link);
+        saveProjectModifications("RRC link updated");
+    }
+
+
+
+
+
 
 
 
