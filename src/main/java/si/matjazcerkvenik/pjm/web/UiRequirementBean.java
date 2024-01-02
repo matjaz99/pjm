@@ -108,6 +108,7 @@ public class UiRequirementBean extends UiBean implements Serializable {
     private String rrcLink;
 
     public String getItcmReqLink() {
+        itcmReqLink = requirement.getItcmLink().getDescription();
         return itcmReqLink;
     }
 
@@ -122,6 +123,7 @@ public class UiRequirementBean extends UiBean implements Serializable {
     }
 
     public String getRrcLink() {
+        rrcLink = requirement.getRrcLink().getHref();
         return rrcLink;
     }
 
