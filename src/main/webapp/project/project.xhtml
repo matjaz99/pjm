@@ -89,13 +89,16 @@
 						<p:progressBar value="#{uiProjectBean.calculateProgressOnRequirement(req.id)}" labelTemplate="{value}%" displayOnly="true"/>
 					</p:column>
 					<p:column headerText="Action">
+						<p:link href="#{req.itcmLink.href}"
+								value="#{req.itcmLink.description}" style="margin-right: 10px;"/>
+						<p:link href="#{req.rrcLink.href}"
+								value="#{req.rrcLink.description}"/>
 						<p:commandButton value="Delete"
 										 action="#{uiProjectBean.deleteReqAction(req.id)}"
 										 update="growl requirementsForm"
 										 styleClass="ui-button-danger ui-button-flat mr-2" >
 							<p:confirm message="Are you sure you want to delete requirement?" icon="pi pi-info-circle"/>
 						</p:commandButton>
-
 					</p:column>
 				</p:dataTable>
 
