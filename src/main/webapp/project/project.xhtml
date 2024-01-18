@@ -90,9 +90,9 @@
 					</p:column>
 					<p:column headerText="Action">
 						<p:link href="#{req.itcmLink.href}"
-								value="#{req.itcmLink.description}" style="margin-right: 10px;"/>
+								value="#{req.itcmLink.description}" style="margin-right: 10px;" target="_blank"/>
 						<p:link href="#{req.rrcLink.href}"
-								value="#{req.rrcLink.description}"/>
+								value="#{req.rrcLink.description}" target="_blank"/>
 						<p:commandButton value="Delete"
 										 action="#{uiProjectBean.deleteReqAction(req.id)}"
 										 update="growl requirementsForm"

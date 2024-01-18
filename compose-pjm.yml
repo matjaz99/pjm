@@ -16,7 +16,7 @@ services:
       - PJM_PROJECTS_DIRECTORY=/opt/pjm/projects
     volumes:
       - /var/log:/opt/pjm/log
-      - /opt/pjm/projects:/opt/pjm/projects
+      - ./projects:/opt/pjm/projects
     deploy:
       mode: replicated
       replicas: 1

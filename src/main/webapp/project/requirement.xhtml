@@ -50,9 +50,9 @@
 									 styleClass="ui-button-outlined"
 									 rendered="#{uiRequirementBean.editModeOn}"/>
 					<p:link href="#{uiRequirementBean.requirement.itcmLink.href}"
-							value="#{uiRequirementBean.requirement.itcmLink.description}"/>
+							value="#{uiRequirementBean.requirement.itcmLink.description}" target="_blank"/>
 					<p:link href="#{uiRequirementBean.requirement.rrcLink.href}"
-							value="#{uiRequirementBean.requirement.rrcLink.description}"/>
+							value="#{uiRequirementBean.requirement.rrcLink.description}" target="_blank"/>
 				</p:panelGrid>
 
 				<p:panel id="reqDescPanel" rendered="#{!uiRequirementBean.editModeOn}">
