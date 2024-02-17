@@ -3,6 +3,7 @@ package si.matjazcerkvenik.pjm.web;
 import org.primefaces.event.SelectEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import si.matjazcerkvenik.pjm.model.Member;
 import si.matjazcerkvenik.pjm.util.DAO;
 import si.matjazcerkvenik.pjm.util.Utils;
 
@@ -88,5 +89,11 @@ public class UiPlanningBean extends UiBean implements Serializable {
         Date d = event.getObject();
         project.setExpectedEnd(Utils.dateToGregorianCalendar(expectedEndDate));
         saveProjectModifications("Saved");
+    }
+
+    public void projectStateChangeEvent() {
+        //project.setState();
+        DAO.getInstance().saveProject(project);
+        growlInfoMessage("Project promoted to " + project.getState());
     }
 }

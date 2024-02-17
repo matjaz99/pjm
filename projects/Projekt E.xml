@@ -169,14 +169,14 @@
                     <status>Complete</status>
                     <title>Dodaj grupo na requirement</title>
                 </task>
-                <task created="2023-12-28T00:00:30.935+01:00" id="4e7a085a" lastModified="2023-12-28T00:00:55.480+01:00">
-                    <assignee/>
-                    <status>In progress</status>
+                <task created="2023-12-28T00:00:30.935+01:00" id="4e7a085a" lastModified="2024-02-17T01:26:58.481+01:00">
+                    <assignee memberRefId="edb1d233"/>
+                    <status>Complete</status>
                     <title>Dodaj ITCM link na zahtevo</title>
                 </task>
-                <task created="2023-12-28T00:00:47.141+01:00" id="7960ce2c" lastModified="2023-12-28T00:01:01.048+01:00">
-                    <assignee/>
-                    <status>In progress</status>
+                <task created="2023-12-28T00:00:47.141+01:00" id="7960ce2c" lastModified="2024-02-17T01:27:09.301+01:00">
+                    <assignee memberRefId="6234a6a3"/>
+                    <status>Complete</status>
                     <title>Dodaj RRC link na zahtevo</title>
                 </task>
             </tasks>
@@ -229,11 +229,6 @@
                     <assignee memberRefId="edb1d233"/>
                     <status>Complete</status>
                     <title>Dodaj komentarje na requirement</title>
-                </task>
-                <task created="2023-09-16T10:25:27.195+02:00" id="1d7f4e4c" lastModified="2023-12-28T00:02:54.271+01:00">
-                    <assignee memberRefId="6f5a68f1"/>
-                    <status>Waiting</status>
-                    <title>Dodaj komentarje na task</title>
                 </task>
             </tasks>
             <title>Komentarji</title>
@@ -305,7 +300,8 @@
                 </issue>
                 <issue created="2023-12-01T01:03:37.689+01:00" id="ed5bee97">
                     <problem>Nov release je lahko tudi nov projekt. A je sploh smiselno podpirati release? </problem>
-                    <resolved>false</resolved>
+                    <resolved>true</resolved>
+                    <solution>Ne.</solution>
                 </issue>
             </issues>
             <itcmLink>
@@ -337,7 +333,9 @@
             <rrcLink>
                 <href>-</href>
             </rrcLink>
-            <tags/>
+            <tags>
+                <tag id="a0afe0a3" refId="5b632e8a"/>
+            </tags>
             <tasks>
                 <task created="2023-09-16T18:25:58.250+02:00" id="03e8700a" lastModified="2023-09-16T18:25:58.250+02:00">
                     <assignee/>
@@ -766,7 +764,9 @@
             <rrcLink>
                 <href>-</href>
             </rrcLink>
-            <tags/>
+            <tags>
+                <tag id="acc293bb" refId="5b632e8a"/>
+            </tags>
             <tasks>
                 <task created="2023-12-01T00:49:06.753+01:00" id="3f8629f8" lastModified="2023-12-01T00:49:10.293+01:00">
                     <assignee memberRefId="6234a6a3"/>
@@ -799,6 +799,57 @@
                 </task>
             </tasks>
             <title>Fade-out star</title>
+        </requirement>
+        <requirement created="2024-02-17T01:23:10.675+01:00" id="3e66d1a6" lastModified="2024-02-17T01:26:28.703+01:00">
+            <comments/>
+            <description>&lt;p&gt;Project view shows all projects and their progress bar.&lt;/p&gt;&lt;p&gt;Sorting by: All, Planned, Active and Completed.&lt;/p&gt;</description>
+            <group>undefined</group>
+            <issues/>
+            <itcmLink>
+                <href>-</href>
+            </itcmLink>
+            <rrcLink>
+                <href>-</href>
+            </rrcLink>
+            <tags>
+                <tag id="1a9a3d1b" refId="5b632e8a"/>
+            </tags>
+            <tasks>
+                <task created="2024-02-17T01:24:32.320+01:00" id="b987b2f9" lastModified="2024-02-17T01:24:55.549+01:00">
+                    <assignee memberRefId="03a1fdd1"/>
+                    <status>Complete</status>
+                    <title>Projects view implementation</title>
+                </task>
+                <task created="2024-02-17T01:24:50.573+01:00" id="d4fb8b03" lastModified="2024-02-17T01:25:02.983+01:00">
+                    <assignee memberRefId="80669f04"/>
+                    <status>Complete</status>
+                    <title>Add progress bar</title>
+                </task>
+                <task created="2024-02-17T01:26:28.703+01:00" id="2708f731" lastModified="2024-02-17T01:26:31.840+01:00">
+                    <assignee memberRefId="6f5a68f1"/>
+                    <status>In progress</status>
+                    <title>Implement sorting (radio buttons)</title>
+                </task>
+            </tasks>
+            <title>Project view</title>
+        </requirement>
+        <requirement created="2024-02-17T01:28:23.721+01:00" id="c14ce812" lastModified="2024-02-17T01:29:34.051+01:00">
+            <comments/>
+            <description>&lt;p&gt;Taski se dodajajo v tedenski koledar (pon-pet) in se ne brišejo, dokler niso narejeni.&lt;/p&gt;</description>
+            <group>undefined</group>
+            <issues/>
+            <itcmLink>
+                <href>-</href>
+            </itcmLink>
+            <rrcLink>
+                <href>-</href>
+            </rrcLink>
+            <tags>
+                <tag id="acfbe8c5" refId="90cca284"/>
+                <tag id="07999f9c" refId="5b632e8a"/>
+            </tags>
+            <tasks/>
+            <title>Endless week</title>
         </requirement>
     </requirements>
     <tagDefs>

@@ -65,11 +65,14 @@ public class DAO {
             logger.info(file.getAbsolutePath());
 
 
+            // fix the project to avoid null pointer exceptions due to changes in the model
+            // changes will be included with the next save
+            if (project.getState() == null) project.setState(Project.PROJECT_STATE_ACTIVE);
+
             for (Requirement req : project.getRequirements().getList()) {
 
                 // make sure every requirement has created timestamp
                 if (req.getCreated() == null) req.setCreated(Utils.getXmlGregorianCalendarNow());
-
 
                 for (Task task : req.getTasks().getList()) {
 

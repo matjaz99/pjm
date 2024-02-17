@@ -16,6 +16,11 @@ import java.util.stream.Collectors;
 public class Project implements Serializable {
 
     private static final long serialVersionUID = 17224348208L;
+    public static final String PROJECT_STATE_PLANNING = "Planning";
+    public static final String PROJECT_STATE_ONHOLD = "On-hold";
+    public static final String PROJECT_STATE_ACTIVE = "Active";
+    public static final String PROJECT_STATE_COMPLETED = "Completed";
+    public static final String PROJECT_STATE_HIDDEN = "Hidden";
 
     private String id;
     private String name;
@@ -27,6 +32,7 @@ public class Project implements Serializable {
     private XMLGregorianCalendar expectedEnd;
     private XMLGregorianCalendar predictedEnd; // TODO
     private String projectPath;
+    private String state;
     private Requirements requirements = new Requirements();
     private Tags tagDefinitions = new Tags();
     private Links links = new Links();
@@ -99,6 +105,15 @@ public class Project implements Serializable {
     @XmlTransient
     public void setProjectPath(String projectPath) {
         this.projectPath = projectPath;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    @XmlElement
+    public void setState(String state) {
+        this.state = state;
     }
 
     public Requirements getRequirements() {

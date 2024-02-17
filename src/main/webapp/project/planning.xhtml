@@ -50,6 +50,17 @@
 							<p:ajax event="dateSelect"	listener="#{uiPlanningBean.onExpectedEndDateSelect}" update="projectData" />
 						</p:datePicker>
 
+						<p:outputLabel value="State: " class="boldtext"/>
+						<p:selectOneMenu id="projectStateMenu" value="#{uiPlanningBean.project.state}"
+										 dynamic="true">
+							<f:selectItem itemLabel="Planning" itemValue="Planning"/>
+							<f:selectItem itemLabel="On-hold" itemValue="On-hold"/>
+							<f:selectItem itemLabel="Active" itemValue="Active"/>
+							<f:selectItem itemLabel="Completed" itemValue="Completed"/>
+							<f:selectItem itemLabel="Hidden" itemValue="Hidden"/>
+							<p:ajax event="valueChange" listener="#{uiPlanningBean.projectStateChangeEvent()}" update="growl, projectStateMenu"/>
+						</p:selectOneMenu>
+
 					</p:panelGrid>
 				</h:panelGroup>
 

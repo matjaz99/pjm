@@ -11,9 +11,11 @@ import si.matjazcerkvenik.pjm.util.Props;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
+import javax.faces.event.ValueChangeEvent;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Timer;
+import java.util.stream.Collectors;
 
 @ManagedBean(eager=true)
 @ApplicationScoped
@@ -43,8 +45,33 @@ public class UiAppBean implements Serializable {
     }
 
     public List<Project> getProjects() {
-        return projects;
+        return projects.stream()
+                .filter(project -> checkProject(project))
+                .collect(Collectors.toList());
     }
+
+    private boolean checkProject(Project project) {
+        if (radioButtonSelectedProjects.equals(Project.PROJECT_STATE_HIDDEN)) {
+            // show only if hidden is selected
+            if (project.getState().equals(Project.PROJECT_STATE_HIDDEN)) return true;
+        } else {
+            if (project.getState().equals(Project.PROJECT_STATE_HIDDEN)) return false;
+        }
+
+        if (radioButtonSelectedProjects.equals("All")) {
+            return true;
+        } else if (radioButtonSelectedProjects.equals(Project.PROJECT_STATE_PLANNING)) {
+            if (project.getState().equals(Project.PROJECT_STATE_PLANNING)) return true;
+        } else if (radioButtonSelectedProjects.equals(Project.PROJECT_STATE_ONHOLD)) {
+            if (project.getState().equals(Project.PROJECT_STATE_ONHOLD)) return true;
+        } else if (radioButtonSelectedProjects.equals(Project.PROJECT_STATE_ACTIVE)) {
+            if (project.getState().equals(Project.PROJECT_STATE_ACTIVE)) return true;
+        } else if (radioButtonSelectedProjects.equals(Project.PROJECT_STATE_COMPLETED)) {
+            if (project.getState().equals(Project.PROJECT_STATE_COMPLETED)) return true;
+        }
+        return false;
+    }
+
 
     public void setProjects(List<Project> projects) {
         this.projects = projects;
@@ -65,10 +92,9 @@ public class UiAppBean implements Serializable {
      * @return progress in percentage
      */
     public int calculateProgressOnProject(String projectId) {
-        for (Project p : projects) {
-            if (p.getId().equals(projectId)) {
-                return p.calculateProgressOnProject();
-            }
+        Project p = getProject(projectId);
+        if (p != null && p.getId().equals(projectId)) {
+            return p.calculateProgressOnProject();
         }
         return 0;
     }
@@ -90,6 +116,7 @@ public class UiAppBean implements Serializable {
         }
         Project p = new Project();
         p.setName(newProjectName);
+        p.setState(Project.PROJECT_STATE_PLANNING);
         p.setId(Utils.getMd5ChecksumShortSalted(newProjectName));
         p.setProjectPath(Props.PJM_PROJECTS_DIRECTORY + "/" + newProjectName + ".xml");
         p.setCreated(Utils.getXmlGregorianCalendarNow());
@@ -102,5 +129,21 @@ public class UiAppBean implements Serializable {
         projects.remove(p);
         DAO.getInstance().deleteProject(p);
     }
+
+
+
+
+    /* RADIO SELECTOR for projects */
+
+    private String radioButtonSelectedProjects = "All";
+
+    public String getRadioButtonSelectedProjects() {
+        return radioButtonSelectedProjects;
+    }
+
+    public void setRadioButtonSelectedProjects(String radioButtonSelectedProjects) {
+        this.radioButtonSelectedProjects = radioButtonSelectedProjects;
+    }
+
 
 }

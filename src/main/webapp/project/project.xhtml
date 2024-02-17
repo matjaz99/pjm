@@ -29,6 +29,7 @@
 			<ui:include src="/templates/project_icons_bar.xhtml" />
 
 
+			<p:outputLabel value="State: #{uiProjectBean.project.state}"/>
 
 
 			<br/>
@@ -77,16 +78,22 @@
 						</ui:repeat>
 					</p:column>
 					<p:column headerText="Status">
-						<p:outputLabel value="Tasks: #{req.tasks.list.size()} "/>
-						<p:outputPanel rendered="#{req.getOpenIssues().size() > 0 ? true : false}" >
-							<span class="pi pi-exclamation-triangle" style="color: red; font-size: 1.5rem" ></span>
-						</p:outputPanel>
-						<p:outputPanel rendered="#{req.getFadeOutStarColor(uiConfigBean.getFadeOutConfig()).equals('white') ? false : true}">
-							<span class="pi pi-star-fill" style="color: #{req.getFadeOutStarColor(uiConfigBean.getFadeOutConfig())}; font-size: 1rem" ></span>
-						</p:outputPanel>
+						<p>
+							<span class="pi pi-globe" style="color: violet; font-size: 1.1rem" ></span>
+							<span class="pi pi-globe" style="color: violet; font-size: 1.1rem" ></span>
+							<span class="pi pi-globe" style="color: violet; font-size: 1.1rem" ></span>
+							<p:outputPanel rendered="#{req.getOpenIssues().size() > 0 ? true : false}" >
+								<span class="pi pi-exclamation-triangle" style="color: red; font-size: 1.5rem" ></span>
+							</p:outputPanel>
+							<p:outputPanel rendered="#{req.getFadeOutStarColor(uiConfigBean.getFadeOutConfig()).equals('white') ? false : true}">
+								<span class="pi pi-star-fill" style="color: #{req.getFadeOutStarColor(uiConfigBean.getFadeOutConfig())}; font-size: 1.3rem" ></span>
+							</p:outputPanel>
+						</p>
+
 					</p:column>
 					<p:column headerText="Progress">
 						<p:progressBar value="#{uiProjectBean.calculateProgressOnRequirement(req.id)}" labelTemplate="{value}%" displayOnly="true"/>
+						<p:outputLabel value="Tasks: #{req.tasks.list.size()} "/>
 					</p:column>
 					<p:column headerText="Action">
 						<p:link href="#{req.itcmLink.href}"

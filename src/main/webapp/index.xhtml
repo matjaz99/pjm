@@ -13,19 +13,33 @@
 	<p:growl id="growl" life="2000"/>
 
 	<h:form>
-		<p:breadCrumb>
-			<p:menuitem value="Home" url="/pjm"/>
-		</p:breadCrumb>
+		<p:panel>
+			<p:outputLabel value="Project Manager"/>
+		</p:panel>
 	</h:form>
 
 	<br/>
 
 
 	<h:form id="projectsForm">
+		<p:panel>
+			<p:selectOneRadio id="radioButtons" value="#{uiAppBean.radioButtonSelectedProjects}"
+							  layout="lineDirection">
+				<f:selectItem itemLabel="All" itemValue="All"/>
+				<f:selectItem itemLabel="Planning" itemValue="Planning"/>
+				<f:selectItem itemLabel="On-hold" itemValue="On-hold"/>
+				<f:selectItem itemLabel="Active" itemValue="Active"/>
+				<f:selectItem itemLabel="Completed" itemValue="Completed"/>
+				<f:selectItem itemLabel="Hidden" itemValue="Hidden"/>
+				<p:ajax update="growl, projectsTable"/>
+			</p:selectOneRadio>
+		</p:panel>
+		<br/>
 		<p:dataTable id="projectsTable" value="#{uiAppBean.projects}" var="project"
 					 cellpadding="0" cellspacing="0">
 			<p:column headerText="Name">
-				<h:link value="#{project.name}" outcome="/project/project">
+				<p:avatar label="#{project.name}" dynamicColor="true" lightness="50" styleClass="ml-2"/>
+				<h:link value="#{project.name}" outcome="/project/project" style="margin-left: 15px;">
 					<f:param name="projectId" value="#{project.id}" />
 				</h:link>
 			</p:column>
@@ -33,7 +47,8 @@
 				<p:outputLabel value="#{project.requirements.list.size()}"/>
 			</p:column>
 			<p:column headerText="Progress">
-				<p:progressBar value="#{uiAppBean.calculateProgressOnProject(project.id)}" labelTemplate="{value}%" displayOnly="true"/>
+				<p:outputLabel value="#{project.state}" style="font-size: 0.7em;"/>
+				<p:progressBar value="#{project.calculateProgressOnProject()}" labelTemplate="{value}%" displayOnly="true"/>
 			</p:column>
 			<p:column headerText="Action">
 				<p:commandButton value="Delete"
