@@ -2,6 +2,7 @@ package si.matjazcerkvenik.pjm.web;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import si.matjazcerkvenik.pjm.model.ChecklistItem;
 import si.matjazcerkvenik.pjm.model.Project;
 import si.matjazcerkvenik.pjm.timertasks.AlarmsTask;
 import si.matjazcerkvenik.pjm.util.DAO;

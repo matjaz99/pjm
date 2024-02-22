@@ -72,6 +72,14 @@
     </members>
     <name>Projekt E</name>
     <plannedEnd>2023-11-15T00:00:00.000+01:00</plannedEnd>
+    <planningChecklist>
+        <item checked="false" name="NPI opened"/>
+        <item checked="false" name="R&amp;D project opened"/>
+        <item checked="false" name="Requirements defined"/>
+        <item checked="false" name="RRC collection ready"/>
+        <item checked="false" name="Effort estimated"/>
+        <item checked="false" name="B100"/>
+    </planningChecklist>
     <projectStarted>2023-08-01T00:00:00.000+02:00</projectStarted>
     <requirements>
         <requirement created="2023-09-16T10:25:27.194+02:00" id="REQ-01" lastModified="2023-11-24T00:06:11.345+01:00">
@@ -334,7 +342,7 @@
                 <href>-</href>
             </rrcLink>
             <tags>
-                <tag id="a0afe0a3" refId="5b632e8a"/>
+                <tag id="a0afe0a3" refId="5b632e8a"></tag>
             </tags>
             <tasks>
                 <task created="2023-09-16T18:25:58.250+02:00" id="03e8700a" lastModified="2023-09-16T18:25:58.250+02:00">
@@ -765,7 +773,7 @@
                 <href>-</href>
             </rrcLink>
             <tags>
-                <tag id="acc293bb" refId="5b632e8a"/>
+                <tag id="acc293bb" refId="5b632e8a"></tag>
             </tags>
             <tasks>
                 <task created="2023-12-01T00:49:06.753+01:00" id="3f8629f8" lastModified="2023-12-01T00:49:10.293+01:00">
@@ -812,7 +820,7 @@
                 <href>-</href>
             </rrcLink>
             <tags>
-                <tag id="1a9a3d1b" refId="5b632e8a"/>
+                <tag id="1a9a3d1b" refId="5b632e8a"></tag>
             </tags>
             <tasks>
                 <task created="2024-02-17T01:24:32.320+01:00" id="b987b2f9" lastModified="2024-02-17T01:24:55.549+01:00">
@@ -845,13 +853,94 @@
                 <href>-</href>
             </rrcLink>
             <tags>
-                <tag id="acfbe8c5" refId="90cca284"/>
-                <tag id="07999f9c" refId="5b632e8a"/>
+                <tag id="acfbe8c5" refId="90cca284"></tag>
+                <tag id="07999f9c" refId="5b632e8a"></tag>
             </tags>
             <tasks/>
             <title>Endless week</title>
         </requirement>
+        <requirement created="2024-02-20T00:28:38.645+01:00" id="6534f0dc" lastModified="2024-02-20T00:29:26.724+01:00">
+            <comments/>
+            <description>&lt;p&gt;Dodaj linke na izbrane projekte na vrhu okna.&lt;/p&gt;</description>
+            <group>undefined</group>
+            <issues/>
+            <itcmLink>
+                <href>-</href>
+            </itcmLink>
+            <rrcLink>
+                <href>-</href>
+            </rrcLink>
+            <tags/>
+            <tasks/>
+            <title>Favorite project linki</title>
+        </requirement>
+        <requirement created="2024-02-20T00:30:07.982+01:00" id="8c6e839f" lastModified="2024-02-22T01:05:47.749+01:00">
+            <comments/>
+            <description>&lt;p&gt;Checklist&lt;/p&gt;</description>
+            <group>undefined</group>
+            <issues/>
+            <itcmLink>
+                <href>-</href>
+            </itcmLink>
+            <rrcLink>
+                <href>-</href>
+            </rrcLink>
+            <tags/>
+            <tasks>
+                <task created="2024-02-22T01:05:47.749+01:00" id="ea48b081" lastModified="2024-02-22T01:05:51.422+01:00">
+                    <assignee memberRefId="edb1d233"/>
+                    <status>Complete</status>
+                    <title>Implement task</title>
+                </task>
+            </tasks>
+            <title>Project plan checklist</title>
+        </requirement>
+        <requirement created="2024-02-20T00:39:28.606+01:00" id="6dd7dff7" lastModified="2024-02-20T00:40:16.740+01:00">
+            <comments/>
+            <description>&lt;p&gt;Skupen ocenjen effort in ocenjen na zahtevah.&lt;/p&gt;</description>
+            <group>undefined</group>
+            <issues/>
+            <itcmLink>
+                <href>-</href>
+            </itcmLink>
+            <rrcLink>
+                <href>-</href>
+            </rrcLink>
+            <tags/>
+            <tasks/>
+            <title>Effort</title>
+        </requirement>
+        <requirement created="2024-02-20T00:41:52.662+01:00" id="b8067511" lastModified="2024-02-20T00:43:22.253+01:00">
+            <comments/>
+            <description>&lt;p&gt;Projekte sortiraj po: Planning, Active, On-hold, Completed, Hidden. (Radiobuttons)&lt;/p&gt;</description>
+            <group>undefined</group>
+            <issues/>
+            <itcmLink>
+                <href>-</href>
+            </itcmLink>
+            <rrcLink>
+                <href>-</href>
+            </rrcLink>
+            <tags/>
+            <tasks/>
+            <title>Filter za projekte</title>
+        </requirement>
+        <requirement created="2024-02-20T01:15:10.112+01:00" id="0f4708c6" lastModified="2024-02-20T01:15:10.112+01:00">
+            <comments/>
+            <group>undefined</group>
+            <issues/>
+            <itcmLink>
+                <href>-</href>
+            </itcmLink>
+            <rrcLink>
+                <href>-</href>
+            </rrcLink>
+            <tags/>
+            <tasks/>
+            <title>Premikanje zahtev med projekti</title>
+        </requirement>
     </requirements>
+    <state>Active</state>
     <tagDefs>
         <tag color="#f672c3" id="b703ef27">metrics</tag>
         <tag color="#71f571" id="4a6c3d9e">storage</tag>

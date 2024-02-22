@@ -2,6 +2,8 @@
 <project id="ghtrvvd3">
     <expectedEnd>2023-12-29T00:00:00.000+01:00</expectedEnd>
     <links/>
+    <meetingHistory/>
+    <meetingTemplates/>
     <members>
         <member id="770778db">
             <lastName>Cerkvenikk</lastName>
@@ -66,11 +68,13 @@
     </members>
     <name>Test1</name>
     <plannedEnd>2023-10-24T00:00:00.000+02:00</plannedEnd>
+    <planningChecklist/>
     <projectStarted>2023-09-01T00:00:00.000+02:00</projectStarted>
     <requirements>
         <requirement created="2023-09-20T21:12:29.405+02:00" id="A5">
             <comments/>
             <description>&lt;p&gt;Do some AADs and BGGs&lt;/p&gt;</description>
+            <group>undefined</group>
             <issues>
                 <issue created="2023-09-20T22:12:48.398+02:00" id="d550a5ce">
                     <problem>asdf</problem>
@@ -81,6 +85,12 @@
                     <resolved>false</resolved>
                 </issue>
             </issues>
+            <itcmLink>
+                <href>-</href>
+            </itcmLink>
+            <rrcLink>
+                <href>-</href>
+            </rrcLink>
             <tags/>
             <tasks>
                 <task created="2023-09-20T21:12:29.405+02:00" id="774f9526" lastModified="2023-09-20T21:12:29.405+02:00">
@@ -104,6 +114,7 @@
         </requirement>
         <requirement created="2023-09-20T21:12:29.405+02:00" id="A1">
             <comments/>
+            <group>undefined</group>
             <issues>
                 <issue created="2023-09-26T22:10:51.264+02:00" id="787da7d8">
                     <problem>ddd</problem>
@@ -111,6 +122,12 @@
                     <solution>fff</solution>
                 </issue>
             </issues>
+            <itcmLink>
+                <href>-</href>
+            </itcmLink>
+            <rrcLink>
+                <href>-</href>
+            </rrcLink>
             <tags/>
             <tasks>
                 <task created="2023-09-20T23:12:49.931+02:00" id="1b1ceb9f" lastModified="2023-09-20T23:12:49.931+02:00">
@@ -128,14 +145,28 @@
         </requirement>
         <requirement created="2023-09-20T21:12:29.405+02:00" id="A2">
             <comments/>
+            <group>undefined</group>
             <issues/>
+            <itcmLink>
+                <href>-</href>
+            </itcmLink>
+            <rrcLink>
+                <href>-</href>
+            </rrcLink>
             <tags/>
             <tasks/>
             <title>AAB</title>
         </requirement>
         <requirement created="2023-09-20T21:12:29.405+02:00" id="343d904">
             <comments/>
+            <group>undefined</group>
             <issues/>
+            <itcmLink>
+                <href>-</href>
+            </itcmLink>
+            <rrcLink>
+                <href>-</href>
+            </rrcLink>
             <tags/>
             <tasks/>
             <title>fff</title>
@@ -143,7 +174,14 @@
         <requirement created="2023-09-20T21:12:29.405+02:00" id="A3">
             <comments/>
             <description>&lt;p&gt;Potrebno izdelati podvozje, kamor se namestijo amortizerji in kolesa.&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;Avto mora imeti &lt;strong&gt;4&lt;/strong&gt; kolesa.&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;</description>
+            <group>undefined</group>
             <issues/>
+            <itcmLink>
+                <href>-</href>
+            </itcmLink>
+            <rrcLink>
+                <href>-</href>
+            </rrcLink>
             <tags/>
             <tasks>
                 <task created="2023-09-20T21:12:29.405+02:00" id="5abdd6b7" lastModified="2023-09-20T21:12:29.405+02:00">
@@ -175,5 +213,6 @@
             <title>AAC</title>
         </requirement>
     </requirements>
+    <state>Hidden</state>
     <tagDefs/>
 </project>

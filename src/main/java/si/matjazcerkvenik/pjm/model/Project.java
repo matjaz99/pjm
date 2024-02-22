@@ -38,6 +38,7 @@ public class Project implements Serializable {
     private Links links = new Links();
     private String notes;
     private Members members = new Members();
+    private Checklist planningChecklist = new Checklist();
     private Meetings meetingTemplates = new Meetings();
     private Meetings meetingHistory = new Meetings();
     private Map<String, Alarm> activeAlarms = new HashMap<>();
@@ -175,6 +176,15 @@ public class Project implements Serializable {
 
     public void addNewMember(Member member) {
         members.addNewMember(member);
+    }
+
+    public Checklist getPlanningChecklist() {
+        return planningChecklist;
+    }
+
+    @XmlElement(name = "planningChecklist")
+    public void setPlanningChecklist(Checklist planningChecklist) {
+        this.planningChecklist = planningChecklist;
     }
 
     public Meetings getMeetingTemplates() {
