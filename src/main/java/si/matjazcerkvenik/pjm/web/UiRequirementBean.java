@@ -12,8 +12,11 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ValueChangeEvent;
+import javax.faces.model.SelectItem;
+import javax.faces.model.SelectItemGroup;
 import java.io.Serializable;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @ManagedBean
 @ViewScoped
@@ -43,6 +46,33 @@ public class UiRequirementBean extends UiBean implements Serializable {
         }
 
         editModeOn = false;
+
+
+        projectGroup = project.getName();
+        projectsGroup = new ArrayList<>();
+
+        SelectItemGroup planningProjects = new SelectItemGroup(Project.PROJECT_STATE_PLANNING);
+        List<Project> list1 = uiAppBean.getProjects().stream()
+                .filter(project -> project.getState().equals(Project.PROJECT_STATE_PLANNING))
+                .collect(Collectors.toList());
+        SelectItem[] s1 = new SelectItem[list1.size()];
+        for (int i = 0; i < list1.size(); i++) {
+            s1[i] = new SelectItem(list1.get(i).getName(), list1.get(i).getName());
+        }
+        planningProjects.setSelectItems(s1);
+
+        SelectItemGroup activeProjects = new SelectItemGroup(Project.PROJECT_STATE_ACTIVE);
+        List<Project> list2 = uiAppBean.getProjects().stream()
+                .filter(project -> project.getState().equals(Project.PROJECT_STATE_ACTIVE))
+                .collect(Collectors.toList());
+        SelectItem[] s2 = new SelectItem[list2.size()];
+        for (int i = 0; i < list2.size(); i++) {
+            s2[i] = new SelectItem(list2.get(i).getName(), list2.get(i).getName());
+        }
+        activeProjects.setSelectItems(s2);
+
+        projectsGroup.add(planningProjects);
+        projectsGroup.add(activeProjects);
 
     }
 
@@ -80,6 +110,10 @@ public class UiRequirementBean extends UiBean implements Serializable {
         requirement.setTitle(title);
         project.addHistoryItem(new HistoryItem(requirement.getTitle(), "/pjm/project/requirement.xhtml?projectId=" + project.getId() + "&reqId=" + requirement.getId(), "REQ", "Requirement title changed"));
         saveProjectModifications("Saved");
+    }
+
+    public void changePriority() {
+        System.out.println("changePriority");
     }
 
     /**
@@ -358,6 +392,36 @@ public class UiRequirementBean extends UiBean implements Serializable {
         }
         DAO.getInstance().saveProject(project);
         growlInfoMessage("Issue deleted");
+    }
+
+
+
+    /* MENU move to project */
+
+    private String projectGroup;
+    private List<SelectItem> projectsGroup;
+
+    public String getProjectGroup() {
+        return projectGroup;
+    }
+
+    public void setProjectGroup(String projectGroup) {
+        System.out.println("setProjectGroup: " + projectGroup);
+        this.projectGroup = projectGroup;
+    }
+
+    public List<SelectItem> getProjectsGroup() {
+
+
+        return projectsGroup;
+    }
+
+    public void setProjectsGroup(List<SelectItem> projectsGroup) {
+        this.projectsGroup = projectsGroup;
+    }
+
+    public void moveRequirementToProjectChangeEvent() {
+        System.out.println("moveRequirementToProjectChangeEvent: " + projectGroup);
     }
 
 

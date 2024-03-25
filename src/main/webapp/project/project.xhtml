@@ -33,10 +33,15 @@
 
 			<h:form id="buttonsForm">
 			<p:outputLabel value="Project requirements" style="font-weight: bold; font-size: 24px;"/>
-			<p:panelGrid columns="2">
+			<p:panelGrid columns="3">
 				<p:panel>
 				<p:commandButton value="New requirement" type="button" icon="pi pi-external-link"
 							 onclick="PF('newReqDialog').show()" styleClass="ui-button-outlined"/>
+				</p:panel>
+				<p:panel>
+					<i class="pi pi-file" />
+					<i class="pi pi-file" />
+					<i class="pi pi-file" />
 				</p:panel>
 				<p:panel>
 					<span class="ui-input-icon-left">
@@ -87,7 +92,7 @@
 					</p:column>
 					<p:column headerText="Progress">
 						<p:progressBar value="#{uiProjectBean.calculateProgressOnRequirement(req.id)}" labelTemplate="{value}%" displayOnly="true"/>
-						<p:outputLabel value="Tasks: #{req.tasks.list.size()} "/>
+						<p:outputLabel value="Tasks: #{req.tasks.list.size()}, Prio: #{req.priority}"/>
 					</p:column>
 					<p:column headerText="Action">
 						<p:link href="#{req.itcmLink.href}"

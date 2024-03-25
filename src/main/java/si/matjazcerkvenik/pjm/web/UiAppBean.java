@@ -13,7 +13,10 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.event.ValueChangeEvent;
+import javax.faces.model.SelectItem;
+import javax.faces.model.SelectItemGroup;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
 import java.util.stream.Collectors;
@@ -145,6 +148,7 @@ public class UiAppBean implements Serializable {
     public void setRadioButtonSelectedProjects(String radioButtonSelectedProjects) {
         this.radioButtonSelectedProjects = radioButtonSelectedProjects;
     }
+
 
 
 }

@@ -18,8 +18,12 @@
 					</p:breadCrumb>
 				</h:form>
 			</div>
-			<h:form>
-				<p:outputPanel>
+
+			<h:form id="titleForm">
+				<p:outputPanel id="titlePanel">
+					<p:avatar label="#{uiRequirementBean.requirement.priority}" dynamicColor="true"
+							  styleClass="ml-2">
+					</p:avatar>
 					<p:inplace editor="true" style="font-weight: bold; font-size: 24px;">
 						<p:inputText value="#{uiRequirementBean.requirementTitle}" required="true" label="text" size="60"/>
 					</p:inplace>
@@ -41,12 +45,12 @@
 				<p:panelGrid columns="6">
 					<p:commandButton value="Edit"
 									 action="#{uiRequirementBean.toggleEditMode()}"
-									 update="growl buttonsForm reqDescPanelForm reqDescPanel tagsForm groupForm itcmLinkForm rrcLinkForm" icon="pi pi-pencil"
+									 update="growl buttonsForm reqDescPanelForm reqDescPanel tagsForm groupForm itcmLinkForm rrcLinkForm changeProjectForm" icon="pi pi-pencil"
 									 styleClass="ui-button-flat"
 									 rendered="#{!uiRequirementBean.editModeOn}"/>
 					<p:commandButton value="Save"
 									 action="#{uiRequirementBean.saveRequirementChanges()}"
-									 update="growl buttonsForm reqDescPanelForm reqDescPanel tagsForm groupForm itcmLinkForm rrcLinkForm" icon="pi pi-pencil"
+									 update="growl buttonsForm reqDescPanelForm reqDescPanel tagsForm groupForm itcmLinkForm rrcLinkForm changeProjectForm" icon="pi pi-pencil"
 									 styleClass="ui-button-outlined"
 									 rendered="#{uiRequirementBean.editModeOn}"/>
 					<p:link href="#{uiRequirementBean.requirement.itcmLink.href}"
@@ -108,47 +112,58 @@
 
 
 			<h:form id="tagsForm">
-
-				<p:panel rendered="#{uiRequirementBean.editModeOn}">
-					<p:outputLabel value="Set tags: "/>
-					<p:selectCheckboxMenu id="tagsCheckboxMenu"
-										  filter="true" filterMatchMode="startsWith" filterNormalize="true"
-										  label="Tags"
-										  multiple="true"
-										  scrollHeight="350"
-										  value="#{uiRequirementBean.selectedTagsList}"
-										  var="t"
-										  valueChangeListener="#{uiRequirementBean.selectedTagChangeEvent}"
-										  style="min-width: 15rem">
-						<p:ajax update="growl, tagsCheckboxMenu, tagsPanel"/>
-						<f:selectItems value="#{uiRequirementBean.project.getTagDefinitions().getList()}"/>
-						<p:column>
-							<f:facet name="header">
-								<h:outputText value="Tag"/>
+				<p:panelGrid columns="2" rendered="#{uiRequirementBean.editModeOn}">
+					<p:panel>
+						<p:outputLabel value="Set tags: "/>
+						<p:selectCheckboxMenu id="tagsCheckboxMenu"
+											  filter="true" filterMatchMode="startsWith" filterNormalize="true"
+											  label="Tags"
+											  multiple="true"
+											  scrollHeight="350"
+											  value="#{uiRequirementBean.selectedTagsList}"
+											  var="t"
+											  valueChangeListener="#{uiRequirementBean.selectedTagChangeEvent}"
+											  style="min-width: 15rem">
+							<p:ajax update="growl, tagsCheckboxMenu, tagsPanel"/>
+							<f:selectItems value="#{uiRequirementBean.project.getTagDefinitions().getList()}"/>
+							<p:column>
+								<f:facet name="header">
+									<h:outputText value="Tag"/>
+								</f:facet>
+								<pjm:tag value="#{t}" color="#{t.color}">
+									<p:outputLabel value="#{t.name}" />
+								</pjm:tag>
+							</p:column>
+							<f:facet name="footer">
+								<h:outputText value="#{uiRequirementBean.project.getTagDefinitions().getList().size()} tags"
+											  styleClass="py-1 block font-bold"/>
 							</f:facet>
-							<pjm:tag value="#{t}" color="#{t.color}">
-								<p:outputLabel value="#{t.name}" />
-							</pjm:tag>
-						</p:column>
-						<f:facet name="footer">
-							<h:outputText value="#{uiRequirementBean.project.getTagDefinitions().getList().size()} tags"
-										  styleClass="py-1 block font-bold"/>
-						</f:facet>
-					</p:selectCheckboxMenu>
-				</p:panel>
-
+						</p:selectCheckboxMenu>
+					</p:panel>
+					<p:panel>
+					</p:panel>
+				</p:panelGrid>
 			</h:form>
 
 
 			<h:form id="groupForm">
-				<p:panel rendered="#{uiRequirementBean.editModeOn}">
-					<p:outputLabel value="Edit group: ">
-					<p:inplace editor="true">
-						<p:inputText value="#{uiRequirementBean.requirement.group}" required="true" label="text"/>
-						<p:ajax event="save" listener="#{uiRequirementBean.saveProjectModifications('Group updated')}" update="growl groupForm" />
-					</p:inplace>
-					</p:outputLabel>
-				</p:panel>
+				<p:panelGrid columns="2" rendered="#{uiRequirementBean.editModeOn}">
+					<p:panel>
+						<p:outputLabel value="Edit group: ">
+						<p:inplace editor="true">
+							<p:inputText value="#{uiRequirementBean.requirement.group}" required="true" label="text"/>
+							<p:ajax event="save" listener="#{uiRequirementBean.saveProjectModifications('Group updated')}" update="growl groupForm" />
+						</p:inplace>
+						</p:outputLabel>
+					</p:panel>
+					<p:panel>
+						<p:outputLabel value="Set priority: "/>
+						<p:inplace editor="true">
+							<p:inputText value="#{uiRequirementBean.requirement.priority}" required="true" label="text"/>
+							<p:ajax event="save" listener="#{uiRequirementBean.saveProjectModifications('Priority updated')}" update="growl groupForm titleForm" />
+						</p:inplace>
+					</p:panel>
+				</p:panelGrid>
 			</h:form>
 
 			<h:form id="itcmLinkForm">
@@ -171,6 +186,18 @@
 				</p:panel>
 			</h:form>
 
+
+			<h:form id="changeProjectForm">
+				<p:panel rendered="#{uiRequirementBean.editModeOn}">
+					<p:outputLabel value="Move requirement to project: ">
+						<p:selectOneMenu id="projectsMenu" value="#{uiRequirementBean.projectGroup}"
+										 dynamic="true">
+							<f:selectItems value="#{uiRequirementBean.projectsGroup}"/>
+							<p:ajax event="valueChange" listener="#{uiRequirementBean.moveRequirementToProjectChangeEvent()}" update="growl"/>
+						</p:selectOneMenu>
+					</p:outputLabel>
+				</p:panel>
+			</h:form>
 
 
 

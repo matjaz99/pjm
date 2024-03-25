@@ -18,8 +18,7 @@ public class Checklist implements Serializable {
     public static final String ITEM_RISKS_DEFINED = "Risks defined";
     public static final String ITEM_B100_REACHED = "B100";
     public static final String ITEM_B600_REPORT = "B600 report";
-//        p.getPlanningChecklist().addNewChecklistItem(new ChecklistItem("B100 milestone defined"));
-//        p.getPlanningChecklist().addNewChecklistItem(new ChecklistItem("B600 milestone defined"));
+//        p.getPlanningChecklist().addNewChecklistItem(new ChecklistItem("Milestones defined"));
 //        p.getPlanningChecklist().addNewChecklistItem(new ChecklistItem("Team members defined"));
 //        p.getPlanningChecklist().addNewChecklistItem(new ChecklistItem("ITCM project opened"));
 //        p.getPlanningChecklist().addNewChecklistItem(new ChecklistItem("Group reservations ready"));

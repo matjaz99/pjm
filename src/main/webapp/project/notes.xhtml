@@ -1,0 +1,67 @@
+<ui:composition template="/templates/pageTemplate.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pjm="http://pjm.io/facelets">
+
+	<div id="contentFrame">
+		<ui:define name="contentFrame">
+
+			<div class="card">
+				<h:form>
+					<p:breadCrumb>
+						<p:menuitem value="Home" url="/pjm"/>
+						<p:menuitem value="#{uiNotesBean.project.name}" url="/pjm/project/project.xhtml?projectId=#{uiNotesBean.project.id}"/>
+						<p:menuitem value="Notes"/>
+					</p:breadCrumb>
+				</h:form>
+			</div>
+
+			<p:outputLabel value="Notes" class="boldtext"/>
+
+			<p:commandButton value="New note" type="button" icon="pi pi-external-link"
+							 onclick="PF('newLinkDialog').show()" styleClass="ui-button-outlined"/>
+			<p:dialog header="New link" widgetVar="newLinkDialog"
+					  showEffect="fade" hideEffect="explode" closable="false" closeOnEscape="true">
+				<h:form id="newLinkForm">
+					<p:inputText value="#{uiLinksBean.newLinkDesc}" size="60"
+								 required="true" requiredMessage="Missing description" placeholder="Name">
+					</p:inputText>
+					<br/>
+					<br/>
+					<p:inputText value="#{uiLinksBean.newLinkHref}" size="60"
+								 required="true" requiredMessage="Missing link" placeholder="URL">
+					</p:inputText>
+					<br/>
+					<br/>
+					<p:commandButton type="button"
+									 value="Cancel"
+									 onclick="PF('newLinkDialog').hide();"
+									 style="width: 5rem"
+									 styleClass="ui-button-flat mr-2" />
+					<p:commandButton value="Add"
+									 action="#{uiLinksBean.addNewLinkAction}"
+									 update="growl newLinkForm linksForm"
+									 oncomplete="PF('newLinkDialog').hide();"
+									 styleClass="ui-button mr-2"
+									 style="width: 6rem"/>
+				</h:form>
+			</p:dialog>
+
+
+			<h:form id="linksForm">
+				<ui:repeat var="link" value="#{uiLinksBean.project.links.list}">
+					<p:panel id="handlepnl" header="Handle">
+						<h:outputText value="Can only be dragged with my header."/>
+					</p:panel>
+					<p:draggable for="handlepnl" handle=".ui-panel-titlebar"/>
+				</ui:repeat>
+			</h:form>
+
+		</ui:define>
+	</div>
+
+</ui:composition>
+

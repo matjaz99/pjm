@@ -18,13 +18,13 @@ public class Requirement implements Serializable {
     private String description;
     private XMLGregorianCalendar created;
     private String group = "undefined";
+    private String priority = "P3";
     private Link itcmLink = new Link();
     private Link rrcLink = new Link();
     /** Last modified date if description was modified, if comment or issue was opened, if task was created */
     private XMLGregorianCalendar lastModified;
     private Tasks tasks = new Tasks();
     private Comments comments = new Comments();
-
     private Tags tags = new Tags();
     private Issues issues = new Issues();
 
@@ -87,6 +87,15 @@ public class Requirement implements Serializable {
     @XmlElement
     public void setGroup(String group) {
         this.group = group;
+    }
+
+    public String getPriority() {
+        return priority;
+    }
+
+    @XmlElement
+    public void setPriority(String priority) {
+        this.priority = priority;
     }
 
     public Link getItcmLink() {
