@@ -69,6 +69,11 @@ public class UiStatisticsBean extends UiBean implements Serializable {
         return project.getRequirements().getList().size();
     }
 
+    /**
+     * Get number of tasks with the selected status.
+     * @param status
+     * @return
+     */
     public int getTasksTotalCount(String status) {
         int count = 0;
         for (Requirement r : project.getRequirements().getList()) {
@@ -94,6 +99,10 @@ public class UiStatisticsBean extends UiBean implements Serializable {
 
     public List<Requirement> getRequirementsWithoutTasks() {
         return project.getRequirementsWithoutTasks();
+    }
+
+    public List<Requirement> getObsoleteRequirements() {
+        return project.getObsoleteRequirements();
     }
 
     public int getIssuesTotalCount() {

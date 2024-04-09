@@ -37,6 +37,8 @@
 				<p:panelGrid columns="2">
 					<p:outputLabel value="Total requirements:" class="boldtext"/>
 					<p:outputLabel value="#{uiStatisticsBean.requirementsTotalCount}"/>
+					<p:outputLabel value="Obsolete requirements:" class="boldtext"/>
+					<p:outputLabel value="#{uiStatisticsBean.getObsoleteRequirements().size()}"/>
 					<p:outputLabel value="Total tasks:" class="boldtext"/>
 					<p:outputLabel value="#{uiStatisticsBean.getTasksTotalCount('null')}"/>
 					<p:outputLabel value=" - Drafts:"/>

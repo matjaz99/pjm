@@ -64,5 +64,7 @@ body .ui-panelgrid .ui-panelgrid-cell {
 
 
 
-
-
+/* icons */
+.icon-bullet-red {
+    background-image: url('resources/images/bullet_red.png') !important;
+}

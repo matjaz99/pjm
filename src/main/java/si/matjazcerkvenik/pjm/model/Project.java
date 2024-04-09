@@ -6,6 +6,7 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 import jakarta.xml.bind.annotation.XmlTransient;
 import si.matjazcerkvenik.pjm.util.DAO;
 import si.matjazcerkvenik.pjm.util.Props;
+import si.matjazcerkvenik.pjm.util.Utils;
 
 import javax.xml.datatype.XMLGregorianCalendar;
 import java.io.Serializable;
@@ -36,7 +37,9 @@ public class Project implements Serializable {
     private Requirements requirements = new Requirements();
     private Tags tagDefinitions = new Tags();
     private Links links = new Links();
+    /** These notes are shown in planning view */
     private String notes;
+    private Notes projectNotes = new Notes();
     private Members members = new Members();
     private Checklist planningChecklist = new Checklist();
     private Meetings meetingTemplates = new Meetings();
@@ -165,6 +168,15 @@ public class Project implements Serializable {
         this.notes = notes;
     }
 
+    public Notes getProjectNotes() {
+        return projectNotes;
+    }
+
+    @XmlElement(name = "projectNotes")
+    public void setProjectNotes(Notes projectNotes) {
+        this.projectNotes = projectNotes;
+    }
+
     public Members getMembers() {
         return members;
     }
@@ -282,7 +294,7 @@ public class Project implements Serializable {
     public List<Requirement> getRequirementsByTaskStatus(String status) {
         List<Requirement> list = new ArrayList<>();
         for (Requirement r : requirements.getList()) {
-            if (r.getTasks() != null && r.getTasks().getList() != null) {
+            if (r.getTasks().getList() != null) {
                 for (Task t : r.getTasks().getList()) {
                     if (t.getStatus() != null && t.getStatus().equalsIgnoreCase(status)) list.add(r);
                 }
@@ -298,10 +310,17 @@ public class Project implements Serializable {
         return result;
     }
 
+    public List<Requirement> getObsoleteRequirements() {
+        List<Requirement> result = requirements.getList().stream()
+                .filter(req -> (req.isObsolete()))
+                .collect(Collectors.toList());
+        return result;
+    }
+
     /**
-     * This method works slightly different that <code>Requirement.calculateProgressOnRequirement</code>
-     * because it takes into account also requirements without tasks. In this case it is assumed that
-     * requirement is not fulfilled and counts as 1 incomplete task.
+     * This method takes into account also requirements without tasks. In such case it is assumed that
+     * requirement is not fulfilled and counts as 1 incomplete task. Obsolete requests are ignored in the
+     * calculation.
      * @return progress in percentage
      */
     public int calculateProgressOnProject() {
@@ -309,12 +328,15 @@ public class Project implements Serializable {
         int complete = 0;
         if (requirements.getList().size() == 0) return 0;
         for (Requirement r : requirements.getList()) {
-            if (r.getTasks().getList().size() == 0) {
-                all++;
-            } else {
-                all = all + r.getTasks().getList().size();
-                for (Task t : r.getTasks().getList()) {
-                    if (t.getStatus() != null && t.getStatus().equalsIgnoreCase(TaskStatus.COMPLETE.label)) complete++;
+            if (!r.isObsolete()) {
+                if (r.getTasks().getList().size() == 0) {
+                    all++;
+                } else {
+                    all = all + r.getTasks().getList().size();
+                    for (Task t : r.getTasks().getList()) {
+                        if (!Utils.isNullOrEmpty(t.getStatus())
+                                && t.getStatus().equalsIgnoreCase(TaskStatus.COMPLETE.label)) complete++;
+                    }
                 }
             }
         }

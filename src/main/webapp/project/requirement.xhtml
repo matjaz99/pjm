@@ -141,6 +141,17 @@
 						</p:selectCheckboxMenu>
 					</p:panel>
 					<p:panel>
+						<h:outputText value="Obsolete: "/>
+						<p:selectBooleanButton onLabel="Yes" offLabel="No"
+											   value="#{uiRequirementBean.requirement.obsolete}"
+											   onIcon="pi pi-check" offIcon="pi pi-times"
+											   style="width:6rem" >
+							<p:ajax event="valueChange" listener="#{uiRequirementBean.saveProjectModifications('Obsolete updated')}" update="growl" />
+						</p:selectBooleanButton>
+						<p:inplace editor="true">
+							<p:inputText value="#{uiRequirementBean.requirement.obsoleteReason}" label="text"/>
+							<p:ajax event="save" listener="#{uiRequirementBean.saveProjectModifications('Priority updated')}" update="growl tagsForm" />
+						</p:inplace>
 					</p:panel>
 				</p:panelGrid>
 			</h:form>

@@ -60,10 +60,13 @@
 							 value="#{uiProjectBean.requirements}" var="req"
 							 cellpadding="0" cellspacing="0">
 					<p:column headerText="Title">
-						<h:link id="content-#{uiProjectBean.project.id}" value="#{req.title}" outcome="/project/requirement">
+						<p:link id="content-#{uiProjectBean.project.id}"
+								value="#{req.title}"
+								outcome="/project/requirement"
+								style="#{req.obsolete == true ? 'text-decoration: line-through;' : ''}">
 							<f:param name="projectId" value="#{uiProjectBean.project.id}" />
 							<f:param name="reqId" value="#{req.id}" />
-						</h:link>
+						</p:link>
 						<p:overlayPanel for="content-#{uiProjectBean.project.id}" style="width:550px"
 										showEvent="mouseover" hideEvent="mouseout" autoHide="false"
 										dynamic="true">
@@ -81,12 +84,15 @@
 					</p:column>
 					<p:column headerText="Status">
 						<p>
-							<p:outputPanel rendered="#{req.getOpenIssues().size() > 0 ? true : false}" >
+							<p:outputLabel rendered="#{req.getOpenIssues().size() > 0 ? true : false}" >
 								<span class="pi pi-exclamation-triangle" style="color: red; font-size: 1.5rem" ></span>
-							</p:outputPanel>
-							<p:outputPanel rendered="#{req.getFadeOutStarColor(uiConfigBean.getFadeOutConfig()).equals('white') ? false : true}">
+							</p:outputLabel>
+							<p:outputLabel rendered="#{req.getFadeOutStarColor(uiConfigBean.getFadeOutConfig()).equals('white') ? false : true}">
 								<span class="pi pi-star-fill" style="color: #{req.getFadeOutStarColor(uiConfigBean.getFadeOutConfig())}; font-size: 1.3rem" ></span>
-							</p:outputPanel>
+							</p:outputLabel>
+							<p:outputLabel value="" style="margin-right: 0.5em;" rendered="#{req.obsolete}">
+								<i class="pi pi-times-circle" style="color: violet; font-size: 1.5rem" />
+							</p:outputLabel>
 						</p>
 
 					</p:column>

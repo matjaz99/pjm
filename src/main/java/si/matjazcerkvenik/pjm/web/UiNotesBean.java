@@ -3,6 +3,7 @@ package si.matjazcerkvenik.pjm.web;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import si.matjazcerkvenik.pjm.model.Link;
+import si.matjazcerkvenik.pjm.model.Note;
 import si.matjazcerkvenik.pjm.util.DAO;
 import si.matjazcerkvenik.pjm.util.Utils;
 
@@ -18,7 +19,7 @@ import java.util.Map;
 @ViewScoped
 public class UiNotesBean extends UiBean implements Serializable {
 
-    private static final long serialVersionUID = 28824868216L;
+    private static final long serialVersionUID = 28824868716L;
 
     private static final Logger logger = LoggerFactory.getLogger(UiNotesBean.class);
 
@@ -34,51 +35,51 @@ public class UiNotesBean extends UiBean implements Serializable {
 
 
 
-    private String newLinkDesc;
-    private String newLinkHref;
+    private String newNoteDesc;
+    private String newNoteTitle;
 
-    public String getNewLinkDesc() {
-        return newLinkDesc;
+    public String getNewNoteDesc() {
+        return newNoteDesc;
     }
 
-    public void setNewLinkDesc(String newLinkDesc) {
-        this.newLinkDesc = newLinkDesc;
+    public void setNewNoteDesc(String newNoteDesc) {
+        this.newNoteDesc = newNoteDesc;
     }
 
-    public String getNewLinkHref() {
-        return newLinkHref;
+    public String getNewNoteTitle() {
+        return newNoteTitle;
     }
 
-    public void setNewLinkHref(String newLinkHref) {
-        this.newLinkHref = newLinkHref;
+    public void setNewNoteTitle(String newNoteTitle) {
+        this.newNoteTitle = newNoteTitle;
     }
 
-    public void addNewLinkAction() {
-        if (Utils.isNullOrEmpty(newLinkDesc)) return;
-        if (Utils.isNullOrEmpty(newLinkHref)) return;
-        Link link = new Link();
-        link.setId(Utils.getMd5ChecksumShortSalted(newLinkDesc));
-        link.setDescription(newLinkDesc);
-        link.setHref(newLinkHref);
-        project.addNewLink(link);
-        logger.info("new link: " + newLinkHref);
+    public void addNewNoteAction() {
+        if (Utils.isNullOrEmpty(newNoteDesc)) return;
+        if (Utils.isNullOrEmpty(newNoteTitle)) return;
+        Note note = new Note();
+        note.setId(Utils.getMd5ChecksumShortSalted(newNoteDesc));
+        note.setDescription(newNoteDesc);
+        note.setTitle(newNoteTitle);
+        project.getProjectNotes().addNewNote(note);
+        logger.info("new note: " + newNoteTitle);
         DAO.getInstance().saveProject(project);
-        newLinkDesc = null;
-        newLinkHref = null;
-        growlInfoMessage("New link created");
+        newNoteDesc = null;
+        newNoteTitle = null;
+        growlInfoMessage("New note created");
     }
 
-    public void deleteLinkAction(String id) {
-        for (Iterator<Link> it = project.getLinks().getList().iterator(); it.hasNext();) {
-            Link l = it.next();
+    public void deleteNoteAction(String id) {
+        for (Iterator<Note> it = project.getProjectNotes().getList().iterator(); it.hasNext();) {
+            Note l = it.next();
             if (l.getId().equals(id)) {
                 it.remove();
-                logger.info("deleteLinkAction: id: " + id);
+                logger.info("deleteNoteAction: id: " + id);
                 break;
             }
         }
         DAO.getInstance().saveProject(project);
-        growlInfoMessage("Link deleted");
+        growlInfoMessage("Note deleted");
     }
 
 }

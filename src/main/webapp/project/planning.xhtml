@@ -24,31 +24,43 @@
 			<h:form id="projectData">
 
 				<h:panelGroup layout="block">
-					<p:panelGrid columns="2">
+					<p:panelGrid columns="3">
 
 						<p:outputLabel value="Project name: " class="boldtext"/>
 						<p:outputLabel value="#{uiPlanningBean.project.name}" />
+						<p:link value="Requirements summary" outcome="/project/summary">
+							<f:param name="projectId" value="#{uiPlanningBean.project.id}" />
+						</p:link>
 
 						<p:outputLabel value="Project filepath: " class="boldtext"/>
 						<p:outputLabel value="#{uiPlanningBean.project.projectPath}" />
+						<p:link outcome="members" value="Project team">
+							<f:param name="projectId" value="#{uiPlanningBean.project.id}"/>
+						</p:link>
 
 						<p:outputLabel value="Project created: " class="boldtext"/>
 						<p:outputLabel value="#{uiPlanningBean.project.created}" />
+						<p:link outcome="tags" value="Tags">
+							<f:param name="projectId" value="#{uiPlanningBean.project.id}"/>
+						</p:link>
 
 						<p:outputLabel for="startedDate" value="Project start: " />
 						<p:datePicker id="startedDate" value="#{uiPlanningBean.startedDate}" >
 							<p:ajax event="dateSelect"	listener="#{uiPlanningBean.onStartedDateSelect}" update="projectData" />
 						</p:datePicker>
+						<p:outputLabel value="" />
 
 						<p:outputLabel for="plannedEndDate" value="Planned end: " />
 						<p:datePicker id="plannedEndDate" value="#{uiPlanningBean.plannedEndDate}" >
 							<p:ajax event="dateSelect"	listener="#{uiPlanningBean.onPlannedEndDateSelect}" update="projectData" />
 						</p:datePicker>
+						<p:outputLabel value="" />
 
 						<p:outputLabel for="expectedEndDate" value="Expected end: " />
 						<p:datePicker id="expectedEndDate" value="#{uiPlanningBean.expectedEndDate}" >
 							<p:ajax event="dateSelect"	listener="#{uiPlanningBean.onExpectedEndDateSelect}" update="projectData" />
 						</p:datePicker>
+						<p:outputLabel value="" />
 
 						<p:outputLabel value="State: " class="boldtext"/>
 						<p:selectOneMenu id="projectStateMenu" value="#{uiPlanningBean.project.state}"
@@ -60,6 +72,7 @@
 							<f:selectItem itemLabel="Hidden" itemValue="Hidden"/>
 							<p:ajax event="valueChange" listener="#{uiPlanningBean.projectStateChangeEvent()}" update="growl, projectStateMenu"/>
 						</p:selectOneMenu>
+						<p:outputLabel value="" />
 
 					</p:panelGrid>
 				</h:panelGroup>
@@ -71,17 +84,7 @@
 
 			</h:form>
 
-			<p:link value="Requirements summary" outcome="/project/summary">
-				<f:param name="projectId" value="#{uiPlanningBean.project.id}" />
-			</p:link>
 
-			<p:link outcome="members" value="Project team">
-				<f:param name="projectId" value="#{uiPlanningBean.project.id}"/>
-			</p:link>
-
-			<p:link outcome="tags" value="Tags">
-				<f:param name="projectId" value="#{uiPlanningBean.project.id}"/>
-			</p:link>
 
 			<br/>
 

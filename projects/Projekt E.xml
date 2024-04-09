@@ -73,13 +73,14 @@
     <name>Projekt E</name>
     <plannedEnd>2023-11-15T00:00:00.000+01:00</plannedEnd>
     <planningChecklist>
-        <item checked="false" name="NPI opened"></item>
+        <item checked="false" checkedDate="2024-04-09T23:16:08.630+02:00" name="NPI opened"></item>
         <item checked="false" name="R&amp;D project opened"></item>
         <item checked="false" name="Requirements defined"></item>
         <item checked="false" name="RRC collection ready"></item>
         <item checked="false" name="Effort estimated"></item>
         <item checked="false" name="B100"></item>
     </planningChecklist>
+    <projectNotes/>
     <projectStarted>2023-08-01T00:00:00.000+02:00</projectStarted>
     <requirements>
         <requirement created="2023-09-16T10:25:27.194+02:00" id="REQ-01" lastModified="2024-03-25T00:57:22.025+01:00">
@@ -99,6 +100,7 @@
                 <description>R-132</description>
                 <href>http://vmpowerbi1/ReportServer/Pages/ReportViewer.aspx?/CM/REPORT_Request_Description&amp;rs:Command=Render&amp;rs:ClearSession=True&amp;rc:Parameters=False&amp;Request_ID=R-132</href>
             </itcmLink>
+            <obsolete>false</obsolete>
             <priority>P3</priority>
             <rrcLink id="0aabe0f7">
                 <description>RRC</description>
@@ -128,6 +130,7 @@
             <itcmLink>
                 <href>-</href>
             </itcmLink>
+            <obsolete>false</obsolete>
             <priority>P3</priority>
             <rrcLink>
                 <href>-</href>
@@ -200,6 +203,7 @@
             <itcmLink>
                 <href>-</href>
             </itcmLink>
+            <obsolete>false</obsolete>
             <priority>P3</priority>
             <rrcLink>
                 <href>-</href>
@@ -229,12 +233,13 @@
             <itcmLink>
                 <href>-</href>
             </itcmLink>
+            <obsolete>false</obsolete>
             <priority>P3</priority>
             <rrcLink>
                 <href>-</href>
             </rrcLink>
             <tags>
-                <tag id="b0ec0d21" refId="9efc4469"></tag>
+                <tag id="03fea4b7" refId="cbd62164"></tag>
             </tags>
             <tasks>
                 <task created="2023-09-16T10:25:27.195+02:00" id="89de3318" lastModified="2023-09-16T10:25:27.195+02:00">
@@ -253,6 +258,7 @@
             <itcmLink>
                 <href>-</href>
             </itcmLink>
+            <obsolete>false</obsolete>
             <priority>P3</priority>
             <rrcLink>
                 <href>-</href>
@@ -271,12 +277,13 @@
             <itcmLink>
                 <href>-</href>
             </itcmLink>
+            <obsolete>false</obsolete>
             <priority>P3</priority>
             <rrcLink>
                 <href>-</href>
             </rrcLink>
             <tags>
-                <tag id="653e31b1" refId="876b6243"></tag>
+                <tag id="c3318a95" refId="cbd62164"></tag>
             </tags>
             <tasks>
                 <task created="2023-09-16T10:25:27.195+02:00" id="452676c1" lastModified="2023-09-16T10:25:27.195+02:00">
@@ -321,6 +328,7 @@
             <itcmLink>
                 <href>-</href>
             </itcmLink>
+            <obsolete>false</obsolete>
             <priority>P3</priority>
             <rrcLink>
                 <href>-</href>
@@ -345,6 +353,7 @@
             <itcmLink>
                 <href>-</href>
             </itcmLink>
+            <obsolete>false</obsolete>
             <priority>P3</priority>
             <rrcLink>
                 <href>-</href>
@@ -379,6 +388,7 @@
             <itcmLink>
                 <href>-</href>
             </itcmLink>
+            <obsolete>false</obsolete>
             <priority>P3</priority>
             <rrcLink>
                 <href>-</href>
@@ -413,6 +423,7 @@
             <itcmLink>
                 <href>-</href>
             </itcmLink>
+            <obsolete>false</obsolete>
             <priority>P3</priority>
             <rrcLink>
                 <href>-</href>
@@ -436,6 +447,7 @@
             <itcmLink>
                 <href>-</href>
             </itcmLink>
+            <obsolete>false</obsolete>
             <priority>P3</priority>
             <rrcLink>
                 <href>-</href>
@@ -460,6 +472,7 @@
             <itcmLink>
                 <href>-</href>
             </itcmLink>
+            <obsolete>false</obsolete>
             <priority>P3</priority>
             <rrcLink>
                 <href>-</href>
@@ -517,6 +530,7 @@
             <itcmLink>
                 <href>-</href>
             </itcmLink>
+            <obsolete>false</obsolete>
             <priority>P3</priority>
             <rrcLink>
                 <href>-</href>
@@ -541,6 +555,7 @@
             <itcmLink>
                 <href>-</href>
             </itcmLink>
+            <obsolete>false</obsolete>
             <priority>P3</priority>
             <rrcLink>
                 <href>-</href>
@@ -575,6 +590,7 @@
             <itcmLink>
                 <href>-</href>
             </itcmLink>
+            <obsolete>false</obsolete>
             <priority>P3</priority>
             <rrcLink>
                 <href>-</href>
@@ -609,6 +625,7 @@
             <itcmLink>
                 <href>-</href>
             </itcmLink>
+            <obsolete>false</obsolete>
             <priority>P3</priority>
             <rrcLink>
                 <href>-</href>
@@ -649,6 +666,7 @@
             <itcmLink>
                 <href>-</href>
             </itcmLink>
+            <obsolete>false</obsolete>
             <priority>P3</priority>
             <rrcLink>
                 <href>-</href>
@@ -678,6 +696,7 @@
             <itcmLink>
                 <href>-</href>
             </itcmLink>
+            <obsolete>false</obsolete>
             <priority>P3</priority>
             <rrcLink>
                 <href>-</href>
@@ -712,6 +731,7 @@
             <itcmLink>
                 <href>-</href>
             </itcmLink>
+            <obsolete>false</obsolete>
             <priority>P3</priority>
             <rrcLink>
                 <href>-</href>
@@ -740,6 +760,7 @@
             <itcmLink>
                 <href>-</href>
             </itcmLink>
+            <obsolete>false</obsolete>
             <priority>P3</priority>
             <rrcLink>
                 <href>-</href>
@@ -764,6 +785,7 @@
             <itcmLink>
                 <href>-</href>
             </itcmLink>
+            <obsolete>false</obsolete>
             <priority>P3</priority>
             <rrcLink>
                 <href>-</href>
@@ -790,6 +812,7 @@
             <itcmLink>
                 <href>-</href>
             </itcmLink>
+            <obsolete>false</obsolete>
             <priority>P3</priority>
             <rrcLink>
                 <href>-</href>
@@ -814,6 +837,7 @@
             <itcmLink>
                 <href>-</href>
             </itcmLink>
+            <obsolete>false</obsolete>
             <priority>P3</priority>
             <rrcLink>
                 <href>-</href>
@@ -839,6 +863,7 @@
             <itcmLink>
                 <href>-</href>
             </itcmLink>
+            <obsolete>false</obsolete>
             <priority>P3</priority>
             <rrcLink>
                 <href>-</href>
@@ -857,9 +882,9 @@
                     <status>Complete</status>
                     <title>Add progress bar</title>
                 </task>
-                <task created="2024-02-17T01:26:28.703+01:00" id="2708f731" lastModified="2024-02-17T01:26:31.840+01:00">
+                <task created="2024-02-17T01:26:28.703+01:00" id="2708f731" lastModified="2024-03-26T23:32:58.669+01:00">
                     <assignee memberRefId="6f5a68f1"/>
-                    <status>In progress</status>
+                    <status>Complete</status>
                     <title>Implement sorting (radio buttons)</title>
                 </task>
             </tasks>
@@ -873,6 +898,7 @@
             <itcmLink>
                 <href>-</href>
             </itcmLink>
+            <obsolete>false</obsolete>
             <priority>P3</priority>
             <rrcLink>
                 <href>-</href>
@@ -892,6 +918,7 @@
             <itcmLink>
                 <href>-</href>
             </itcmLink>
+            <obsolete>false</obsolete>
             <priority>P3</priority>
             <rrcLink>
                 <href>-</href>
@@ -908,6 +935,7 @@
             <itcmLink>
                 <href>-</href>
             </itcmLink>
+            <obsolete>false</obsolete>
             <priority>P3</priority>
             <rrcLink>
                 <href>-</href>
@@ -932,6 +960,7 @@
             <itcmLink>
                 <href>-</href>
             </itcmLink>
+            <obsolete>false</obsolete>
             <priority>P3</priority>
             <rrcLink>
                 <href>-</href>
@@ -948,6 +977,7 @@
             <itcmLink>
                 <href>-</href>
             </itcmLink>
+            <obsolete>false</obsolete>
             <priority>P3</priority>
             <rrcLink>
                 <href>-</href>
@@ -969,6 +999,7 @@
             <itcmLink>
                 <href>-</href>
             </itcmLink>
+            <obsolete>false</obsolete>
             <priority>P3</priority>
             <rrcLink>
                 <href>-</href>
@@ -985,6 +1016,7 @@
             <itcmLink>
                 <href>-</href>
             </itcmLink>
+            <obsolete>false</obsolete>
             <priority>P3</priority>
             <rrcLink>
                 <href>-</href>
@@ -1009,7 +1041,8 @@
             <itcmLink>
                 <href>-</href>
             </itcmLink>
-            <priority>P3</priority>
+            <obsolete>false</obsolete>
+            <priority>1</priority>
             <rrcLink>
                 <href>-</href>
             </rrcLink>
@@ -1025,6 +1058,67 @@
             </tasks>
             <title>Prioritete</title>
         </requirement>
+        <requirement created="2024-04-06T00:48:25.752+02:00" id="6721e8d8" lastModified="2024-04-09T23:12:23.152+02:00">
+            <comments/>
+            <description>&lt;p&gt;To je test&lt;/p&gt;</description>
+            <group>undefined</group>
+            <issues/>
+            <itcmLink>
+                <href>-</href>
+            </itcmLink>
+            <obsolete>true</obsolete>
+            <obsoleteReason>asdf</obsoleteReason>
+            <priority>P3</priority>
+            <rrcLink>
+                <href>-</href>
+            </rrcLink>
+            <tags>
+                <tag id="68a8419b" refId="cbd62164"></tag>
+            </tags>
+            <tasks>
+                <task created="2024-04-09T23:12:21.185+02:00" id="9e6c3b45">
+                    <assignee/>
+                    <status>Draft</status>
+                    <title>Analyze task</title>
+                </task>
+                <task created="2024-04-09T23:12:22.184+02:00" id="195664dd">
+                    <assignee/>
+                    <status>Draft</status>
+                    <title>Implement task</title>
+                </task>
+                <task created="2024-04-09T23:12:23.152+02:00" id="a70274e1">
+                    <assignee/>
+                    <status>Draft</status>
+                    <title>Document task</title>
+                </task>
+            </tasks>
+            <title>Test obsolete</title>
+        </requirement>
+        <requirement created="2024-04-10T00:06:45.121+02:00" id="e5c04ec8" lastModified="2024-04-10T00:09:56.923+02:00">
+            <comments/>
+            <description>&lt;p&gt;Mark requirements with high importance flag to indicate that special attention is needed.&lt;/p&gt;</description>
+            <group>undefined</group>
+            <issues/>
+            <itcmLink>
+                <href>-</href>
+            </itcmLink>
+            <obsolete>false</obsolete>
+            <priority>P3</priority>
+            <rrcLink>
+                <href>-</href>
+            </rrcLink>
+            <tags>
+                <tag id="e36cb56a" refId="cbd62164"/>
+            </tags>
+            <tasks>
+                <task created="2024-04-10T00:09:56.923+02:00" id="e13f1ad3" lastModified="2024-04-10T00:10:01.095+02:00">
+                    <assignee memberRefId="03a1fdd1"/>
+                    <status>In progress</status>
+                    <title>Implement task</title>
+                </task>
+            </tasks>
+            <title>Important requirements icon</title>
+        </requirement>
     </requirements>
     <state>Active</state>
     <tagDefs>
@@ -1035,9 +1129,7 @@
         <tag color="#f7cc68" id="90cca284">calendar</tag>
         <tag color="#55ffc3" id="d78b032e">issues</tag>
         <tag color="#c180ff" id="cbd62164">requirements</tag>
-        <tag color="#7ba5ff" id="9efc4469">comments</tag>
         <tag color="#dbf662" id="0fabda59">statistics</tag>
-        <tag color="#8799ff" id="876b6243">tasks</tag>
         <tag color="#d089e1" id="6d04fd44">releases</tag>
         <tag color="#fae488" id="f9d513c1">links</tag>
         <tag color="#fea25b" id="5b632e8a">GUI</tag>

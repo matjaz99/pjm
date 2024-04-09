@@ -6,7 +6,7 @@
     <meetingTemplates/>
     <members>
         <member id="770778db">
-            <lastName>Cerkvenikk</lastName>
+            <lastName>Cerkvenik</lastName>
             <name>Matjaž</name>
             <role>Developer</role>
         </member>
@@ -68,7 +68,24 @@
     </members>
     <name>Test1</name>
     <plannedEnd>2023-10-24T00:00:00.000+02:00</plannedEnd>
-    <planningChecklist/>
+    <planningChecklist>
+        <item checked="false" name="NPI opened"></item>
+        <item checked="false" name="R&amp;D project opened"></item>
+        <item checked="false" name="Requirements defined"></item>
+        <item checked="false" name="RRC collection ready"></item>
+        <item checked="false" name="Effort estimated"></item>
+        <item checked="false" name="B100"></item>
+    </planningChecklist>
+    <projectNotes>
+        <note id="3042a4df">
+            <description>asdf</description>
+            <title>asdf</title>
+        </note>
+        <note id="0f1bbb97">
+            <description>dfvsdfvsdf</description>
+            <title>asdvfdsf</title>
+        </note>
+    </projectNotes>
     <projectStarted>2023-09-01T00:00:00.000+02:00</projectStarted>
     <requirements>
         <requirement created="2023-09-20T21:12:29.405+02:00" id="A5">
@@ -88,20 +105,24 @@
             <itcmLink>
                 <href>-</href>
             </itcmLink>
+            <obsolete>false</obsolete>
+            <priority>1</priority>
             <rrcLink>
                 <href>-</href>
             </rrcLink>
-            <tags/>
+            <tags>
+                <tag id="5f205a42" refId="26a38a72"></tag>
+            </tags>
             <tasks>
                 <task created="2023-09-20T21:12:29.405+02:00" id="774f9526" lastModified="2023-09-20T21:12:29.405+02:00">
                     <assignee memberRefId="ad4008f3"/>
                     <status>In progress</status>
                     <title>Produce AAD</title>
                 </task>
-                <task created="2023-09-27T00:07:16.993+02:00" id="b558544a" lastModified="2023-09-28T23:56:52.989+02:00">
+                <task created="2023-09-27T00:07:16.993+02:00" id="b558544a" lastModified="2024-04-09T23:26:56.283+02:00">
                     <assignee memberRefId="770778db"/>
                     <description>&lt;p&gt;ddddd as asdsdf a sfadgg&lt;/p&gt;</description>
-                    <status>Draft</status>
+                    <status>Complete</status>
                     <title>eeeee</title>
                 </task>
                 <task created="2023-09-29T00:36:59.235+02:00" id="f3720aa8" lastModified="2023-09-29T00:36:59.235+02:00">
@@ -112,9 +133,10 @@
             </tasks>
             <title>AAD</title>
         </requirement>
-        <requirement created="2023-09-20T21:12:29.405+02:00" id="A1">
+        <requirement created="2023-09-20T21:12:29.405+02:00" id="A1" lastModified="2024-03-27T00:23:02.968+01:00">
             <comments/>
-            <group>undefined</group>
+            <description>&lt;p&gt;aaa&lt;/p&gt;</description>
+            <group>network</group>
             <issues>
                 <issue created="2023-09-26T22:10:51.264+02:00" id="787da7d8">
                     <problem>ddd</problem>
@@ -125,51 +147,78 @@
             <itcmLink>
                 <href>-</href>
             </itcmLink>
+            <obsolete>false</obsolete>
+            <priority>2</priority>
             <rrcLink>
                 <href>-</href>
             </rrcLink>
-            <tags/>
+            <tags>
+                <tag id="ca40c458" refId="f95c7b04"></tag>
+                <tag id="61a12e2c" refId="1a8f0d82"></tag>
+            </tags>
             <tasks>
                 <task created="2023-09-20T23:12:49.931+02:00" id="1b1ceb9f" lastModified="2023-09-20T23:12:49.931+02:00">
                     <assignee/>
                     <status>Waiting</status>
                     <title>eeeee</title>
                 </task>
-                <task created="2023-09-20T23:12:54.394+02:00" id="a858e9c1" lastModified="2023-09-20T23:12:54.394+02:00">
-                    <assignee/>
-                    <status>Draft</status>
+                <task created="2023-09-20T23:12:54.394+02:00" id="a858e9c1" lastModified="2024-03-27T00:23:18.179+01:00">
+                    <assignee memberRefId="81274812"/>
+                    <status>Complete</status>
                     <title>rrrrr</title>
                 </task>
             </tasks>
             <title>AAA</title>
         </requirement>
-        <requirement created="2023-09-20T21:12:29.405+02:00" id="A2">
+        <requirement created="2023-09-20T21:12:29.405+02:00" id="A2" lastModified="2024-04-10T00:38:27.540+02:00">
             <comments/>
             <group>undefined</group>
             <issues/>
             <itcmLink>
                 <href>-</href>
             </itcmLink>
+            <obsolete>false</obsolete>
+            <priority>3</priority>
             <rrcLink>
                 <href>-</href>
             </rrcLink>
-            <tags/>
-            <tasks/>
+            <tags>
+                <tag id="1ae65cbb" refId="1a8f0d82"/>
+            </tags>
+            <tasks>
+                <task created="2024-04-10T00:38:25.789+02:00" id="2706f4c8">
+                    <assignee/>
+                    <status>Draft</status>
+                    <title>Analyze task</title>
+                </task>
+                <task created="2024-04-10T00:38:26.522+02:00" id="8cdd720a">
+                    <assignee/>
+                    <status>Draft</status>
+                    <title>Implement task</title>
+                </task>
+                <task created="2024-04-10T00:38:27.540+02:00" id="56bb5c9b">
+                    <assignee/>
+                    <status>Draft</status>
+                    <title>Document task</title>
+                </task>
+            </tasks>
             <title>AAB</title>
         </requirement>
         <requirement created="2023-09-20T21:12:29.405+02:00" id="343d904">
             <comments/>
-            <group>undefined</group>
+            <group>network</group>
             <issues/>
             <itcmLink>
                 <href>-</href>
             </itcmLink>
+            <obsolete>true</obsolete>
+            <priority>3</priority>
             <rrcLink>
                 <href>-</href>
             </rrcLink>
             <tags/>
             <tasks/>
-            <title>fff</title>
+            <title>FFF</title>
         </requirement>
         <requirement created="2023-09-20T21:12:29.405+02:00" id="A3">
             <comments/>
@@ -179,6 +228,8 @@
             <itcmLink>
                 <href>-</href>
             </itcmLink>
+            <obsolete>true</obsolete>
+            <priority>P3</priority>
             <rrcLink>
                 <href>-</href>
             </rrcLink>
@@ -214,5 +265,10 @@
         </requirement>
     </requirements>
     <state>Hidden</state>
-    <tagDefs/>
+    <tagDefs>
+        <tag color="#faf200" id="f95c7b04">AAA</tag>
+        <tag color="#d900fa" id="82a8a2ee">BBB</tag>
+        <tag color="#08fa00" id="26a38a72">CCC</tag>
+        <tag color="#00d0fa" id="1a8f0d82">DDD</tag>
+    </tagDefs>
 </project>

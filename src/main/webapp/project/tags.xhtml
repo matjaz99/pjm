@@ -76,11 +76,13 @@
 							<p:inputText value="#{tag.name}" required="true" label="text" />
 						</p:inplace>
 					</p:column>
-					<p:column headerText="Tasks">
+					<p:column headerText="Action">
 						<p:commandButton value="Delete"
 										 action="#{uiTagsBean.deleteTagAction(tag.id)}"
 										 update="growl tagsForm"
-										 styleClass="ui-button-danger ui-button-flat" />
+										 styleClass="ui-button-danger ui-button-flat" >
+							<p:confirm message="Are you sure you want to delete tag?" icon="pi pi-info-circle"/>
+						</p:commandButton>
 					</p:column>
 				</p:dataTable>
 

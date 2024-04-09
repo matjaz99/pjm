@@ -27,6 +27,8 @@ public class Requirement implements Serializable {
     private Comments comments = new Comments();
     private Tags tags = new Tags();
     private Issues issues = new Issues();
+    private boolean obsolete = false;
+    private String obsoleteReason;
 
     public String getId() {
         return id;
@@ -173,6 +175,24 @@ public class Requirement implements Serializable {
             }
         }
         return list;
+    }
+
+    public boolean isObsolete() {
+        return obsolete;
+    }
+
+    @XmlElement
+    public void setObsolete(boolean obsolete) {
+        this.obsolete = obsolete;
+    }
+
+    public String getObsoleteReason() {
+        return obsoleteReason;
+    }
+
+    @XmlElement
+    public void setObsoleteReason(String obsoleteReason) {
+        this.obsoleteReason = obsoleteReason;
     }
 
     /**
