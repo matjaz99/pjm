@@ -88,10 +88,13 @@
 								<span class="pi pi-exclamation-triangle" style="color: red; font-size: 1.7rem" ></span>
 							</p:outputLabel>
 							<p:outputLabel rendered="#{req.getFadeOutStarColor(uiConfigBean.getFadeOutConfig()).equals('white') ? false : true}">
-								<span class="pi pi-star-fill" style="color: #{req.getFadeOutStarColor(uiConfigBean.getFadeOutConfig())}; font-size: 1.5rem" ></span>
+								<span class="pi pi-star-fill" style="color: #{req.getFadeOutStarColor(uiConfigBean.getFadeOutConfig())}; font-size: 1.7rem" ></span>
 							</p:outputLabel>
 							<p:outputLabel value="" style="margin-right: 0.5em;" rendered="#{req.obsolete}">
 								<i class="pi pi-times-circle" style="color: violet; font-size: 1.7rem" />
+							</p:outputLabel>
+							<p:outputLabel value="" style="margin-right: 0.5em;" rendered="#{req.verified}">
+								<i class="pi pi-verified" style="color: green; font-size: 1.7rem" />
 							</p:outputLabel>
 						</p>
 

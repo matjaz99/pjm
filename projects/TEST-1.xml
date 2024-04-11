@@ -132,8 +132,9 @@
                 </task>
             </tasks>
             <title>AAD</title>
+            <verified>false</verified>
         </requirement>
-        <requirement created="2023-09-20T21:12:29.405+02:00" id="A1" lastModified="2024-03-27T00:23:02.968+01:00">
+        <requirement created="2023-09-20T21:12:29.405+02:00" id="A1" lastModified="2024-04-11T23:44:45.695+02:00">
             <comments/>
             <description>&lt;p&gt;aaa&lt;/p&gt;</description>
             <group>network</group>
@@ -169,6 +170,7 @@
                 </task>
             </tasks>
             <title>AAA</title>
+            <verified>true</verified>
         </requirement>
         <requirement created="2023-09-20T21:12:29.405+02:00" id="A2" lastModified="2024-04-10T00:38:27.540+02:00">
             <comments/>
@@ -178,7 +180,7 @@
                 <href>-</href>
             </itcmLink>
             <obsolete>true</obsolete>
-            <obsoleteReason>jjj</obsoleteReason>
+            <obsoleteReason>hhh</obsoleteReason>
             <priority>3</priority>
             <rrcLink>
                 <href>-</href>
@@ -204,6 +206,7 @@
                 </task>
             </tasks>
             <title>AAB</title>
+            <verified>false</verified>
         </requirement>
         <requirement created="2023-09-20T21:12:29.405+02:00" id="343d904">
             <comments/>
@@ -220,6 +223,7 @@
             <tags/>
             <tasks/>
             <title>FFF</title>
+            <verified>false</verified>
         </requirement>
         <requirement created="2023-09-20T21:12:29.405+02:00" id="A3">
             <comments/>
@@ -263,6 +267,7 @@
                 </task>
             </tasks>
             <title>AAC</title>
+            <verified>false</verified>
         </requirement>
     </requirements>
     <state>Hidden</state>

@@ -29,6 +29,7 @@ public class Requirement implements Serializable {
     private Issues issues = new Issues();
     private boolean obsolete = false;
     private String obsoleteReason;
+    private boolean verified = false;
 
     public String getId() {
         return id;
@@ -193,6 +194,15 @@ public class Requirement implements Serializable {
     @XmlElement
     public void setObsoleteReason(String obsoleteReason) {
         this.obsoleteReason = obsoleteReason;
+    }
+
+    public boolean isVerified() {
+        return verified;
+    }
+
+    @XmlElement
+    public void setVerified(boolean verified) {
+        this.verified = verified;
     }
 
     /**

@@ -83,11 +83,11 @@
     <projectNotes/>
     <projectStarted>2023-08-01T00:00:00.000+02:00</projectStarted>
     <requirements>
-        <requirement created="2023-09-16T10:25:27.194+02:00" id="REQ-01" lastModified="2024-03-25T00:57:22.025+01:00">
+        <requirement created="2023-09-16T10:25:27.194+02:00" id="REQ-01" lastModified="2024-04-12T00:12:13.722+02:00">
             <comments>
                 <comment id="42bd5e4c" lastModified="2023-08-30T00:25:33.792+02:00">fghfghfgf</comment>
             </comments>
-            <description>&lt;p&gt;Shranjevanje v &lt;span style="color:rgb( 255 , 153 , 0 )"&gt;xml&lt;/span&gt; file. Vsi XML fajli so v direktoriju projects.&lt;/p&gt;&lt;p&gt;Vsaka &lt;span style="background-color:rgb( 255 , 255 , 0 );color:rgb( 0 , 138 , 0 )"&gt;sprememba&lt;/span&gt; se sproti shrani. Xml file se prepiše z novim.&lt;/p&gt;</description>
+            <description>&lt;p&gt;Shranjevanje v &lt;span style="color:rgb( 255 , 153 , 0 )"&gt;xml&lt;/span&gt; file. Vsi XML fajli so v direktoriju projects.&lt;/p&gt;&lt;p&gt;Vsaka &lt;span style="color:rgb( 0 , 138 , 0 );background-color:rgb( 255 , 255 , 0 )"&gt;sprememba&lt;/span&gt; se sproti shrani. Xml file se prepiše z novim.&lt;/p&gt;</description>
             <group>undefined</group>
             <issues>
                 <issue created="2023-09-15T23:35:58.185+02:00" id="e8d128fd">
@@ -118,6 +118,7 @@
                 </task>
             </tasks>
             <title>Persistence</title>
+            <verified>false</verified>
         </requirement>
         <requirement created="2023-09-16T10:25:27.194+02:00" id="REQ-02" lastModified="2023-12-28T00:00:47.142+01:00">
             <comments>
@@ -171,9 +172,10 @@
                     <status>Complete</status>
                     <title>Edit description</title>
                 </task>
-                <task created="2023-11-24T01:12:25.174+01:00" id="c4e8763b" lastModified="2023-11-24T01:12:25.174+01:00">
+                <task created="2023-11-24T01:12:25.174+01:00" id="c4e8763b" lastModified="2024-04-12T00:04:13.825+02:00">
                     <assignee memberRefId="6234a6a3"/>
-                    <status>Draft</status>
+                    <description>&lt;p&gt;Glej &amp;#39;Verified&amp;#39; zahtevo&lt;/p&gt;</description>
+                    <status>Complete</status>
                     <title>Dodaj approved (stestirano)</title>
                 </task>
                 <task created="2023-12-01T00:42:06.662+01:00" id="2280da1a" lastModified="2023-12-01T00:42:54.477+01:00">
@@ -194,6 +196,7 @@
                 </task>
             </tasks>
             <title>Requirements</title>
+            <verified>false</verified>
         </requirement>
         <requirement created="2023-09-16T10:25:27.195+02:00" id="dfa1a0b4" lastModified="2023-11-22T00:25:08.493+01:00">
             <comments/>
@@ -224,6 +227,7 @@
                 </task>
             </tasks>
             <title>Metrike</title>
+            <verified>false</verified>
         </requirement>
         <requirement created="2023-09-16T10:25:27.195+02:00" id="dff1b0b3" lastModified="2023-11-25T01:32:55.559+01:00">
             <comments/>
@@ -249,6 +253,7 @@
                 </task>
             </tasks>
             <title>Komentarji</title>
+            <verified>false</verified>
         </requirement>
         <requirement created="2023-09-16T10:25:27.195+02:00" id="fff87e50">
             <comments/>
@@ -268,6 +273,7 @@
             </tags>
             <tasks/>
             <title>Opomniki</title>
+            <verified>false</verified>
         </requirement>
         <requirement created="2023-09-16T10:25:27.195+02:00" id="eed13c84" lastModified="2023-12-04T21:51:36.050+01:00">
             <comments/>
@@ -308,6 +314,7 @@
                 </task>
             </tasks>
             <title>Tasks</title>
+            <verified>false</verified>
         </requirement>
         <requirement created="2023-09-16T10:25:27.195+02:00" id="d50ae403" lastModified="2023-12-01T01:03:37.690+01:00">
             <comments/>
@@ -344,6 +351,7 @@
                 </task>
             </tasks>
             <title>Releases</title>
+            <verified>false</verified>
         </requirement>
         <requirement created="2023-09-16T10:25:27.195+02:00" id="8501b953">
             <comments/>
@@ -379,6 +387,7 @@
                 </task>
             </tasks>
             <title>Testno okolje</title>
+            <verified>false</verified>
         </requirement>
         <requirement created="2023-09-16T10:25:27.195+02:00" id="ac733b04" lastModified="2023-12-01T00:51:06.220+01:00">
             <comments/>
@@ -414,6 +423,7 @@
                 </task>
             </tasks>
             <title>Sestanki, zapisniki</title>
+            <verified>false</verified>
         </requirement>
         <requirement created="2023-09-16T10:25:27.195+02:00" id="d28f9a84">
             <comments/>
@@ -439,6 +449,7 @@
                 </task>
             </tasks>
             <title>Linki</title>
+            <verified>false</verified>
         </requirement>
         <requirement created="2023-09-16T10:25:27.195+02:00" id="cea96daf">
             <comments/>
@@ -463,6 +474,7 @@
                 </task>
             </tasks>
             <title>Dodaj growl sporočila</title>
+            <verified>false</verified>
         </requirement>
         <requirement created="2023-09-16T10:25:27.195+02:00" id="bd3f7410" lastModified="2023-11-25T01:32:26.799+01:00">
             <comments/>
@@ -509,12 +521,13 @@
                 </task>
             </tasks>
             <title>Tags (labels)</title>
+            <verified>false</verified>
         </requirement>
-        <requirement created="2023-09-11T21:14:06.486+02:00" id="65e76145" lastModified="2024-03-24T22:55:42.174+01:00">
+        <requirement created="2023-09-11T21:14:06.486+02:00" id="65e76145" lastModified="2024-04-12T00:15:59.738+02:00">
             <comments>
                 <comment created="2023-09-11T21:14:23.360+02:00" id="691d29aa" lastModified="2023-09-11T21:14:23.360+02:00">kk</comment>
             </comments>
-            <description>&lt;p&gt;Filtriranje zahtev po:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;grupi&lt;/li&gt;&lt;li&gt;tagu (kombinacije AND, OR)&lt;/li&gt;&lt;li&gt;text (name, content, comment, issue, task name, task content)&lt;/li&gt;&lt;/ul&gt;</description>
+            <description>&lt;p&gt;Iskanje zahtev po:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;imenu&lt;/li&gt;&lt;li&gt;vsebini&lt;/li&gt;&lt;li&gt;grupi&lt;/li&gt;&lt;li&gt;tagu (kombinacije AND, OR)&lt;/li&gt;&lt;li&gt;text (name, content, comment, issue, task name, task content)&lt;/li&gt;&lt;/ul&gt;</description>
             <group>undefined</group>
             <issues>
                 <issue created="2023-11-20T22:21:27.513+01:00" id="2ef93a73">
@@ -545,7 +558,8 @@
                     <title>Implement</title>
                 </task>
             </tasks>
-            <title>Filtriranje</title>
+            <title>Search</title>
+            <verified>false</verified>
         </requirement>
         <requirement created="2023-09-16T18:21:57.172+02:00" id="ab1a5bbc">
             <comments/>
@@ -581,6 +595,7 @@
                 </task>
             </tasks>
             <title>Project plan</title>
+            <verified>false</verified>
         </requirement>
         <requirement created="2023-09-16T18:22:04.110+02:00" id="31f38aec">
             <comments/>
@@ -616,6 +631,7 @@
                 </task>
             </tasks>
             <title>Issues</title>
+            <verified>false</verified>
         </requirement>
         <requirement created="2023-09-17T22:49:08.415+02:00" id="318bf758">
             <comments/>
@@ -646,6 +662,7 @@
                 </task>
             </tasks>
             <title>Statistika</title>
+            <verified>false</verified>
         </requirement>
         <requirement created="2023-09-17T23:51:24.071+02:00" id="1344e666" lastModified="2023-12-04T22:03:41.037+01:00">
             <comments>
@@ -687,6 +704,7 @@
                 </task>
             </tasks>
             <title>Problem resolving</title>
+            <verified>false</verified>
         </requirement>
         <requirement created="2023-09-21T01:35:36.060+02:00" id="8b8877c7" lastModified="2023-12-01T00:52:57.897+01:00">
             <comments/>
@@ -723,6 +741,7 @@
                 </task>
             </tasks>
             <title>Backup</title>
+            <verified>false</verified>
         </requirement>
         <requirement created="2023-09-21T01:43:14.099+02:00" id="e61f9f2f">
             <comments/>
@@ -753,6 +772,7 @@
                 </task>
             </tasks>
             <title>GUI</title>
+            <verified>false</verified>
         </requirement>
         <requirement created="2023-11-16T22:29:29.599+01:00" id="15527d38" lastModified="2023-12-01T00:52:26.961+01:00">
             <comments/>
@@ -778,6 +798,7 @@
                 </task>
             </tasks>
             <title>Auto save</title>
+            <verified>false</verified>
         </requirement>
         <requirement created="2023-11-16T22:37:23.773+01:00" id="b3a2a26d">
             <comments/>
@@ -805,6 +826,7 @@
                 </task>
             </tasks>
             <title>Shranjevanje sestankov v ločen xml</title>
+            <verified>false</verified>
         </requirement>
         <requirement created="2023-11-16T23:44:31.656+01:00" id="a966f549" lastModified="2023-12-01T00:49:06.753+01:00">
             <comments/>
@@ -830,6 +852,7 @@
                 </task>
             </tasks>
             <title>History items</title>
+            <verified>false</verified>
         </requirement>
         <requirement created="2023-11-24T23:13:09.023+01:00" id="c50c34e8" lastModified="2023-12-01T00:48:38.620+01:00">
             <comments/>
@@ -856,6 +879,7 @@
                 </task>
             </tasks>
             <title>Fade-out star</title>
+            <verified>false</verified>
         </requirement>
         <requirement created="2024-02-17T01:23:10.675+01:00" id="3e66d1a6" lastModified="2024-02-17T01:26:28.703+01:00">
             <comments/>
@@ -891,6 +915,7 @@
                 </task>
             </tasks>
             <title>Project view</title>
+            <verified>false</verified>
         </requirement>
         <requirement created="2024-02-17T01:28:23.721+01:00" id="c14ce812" lastModified="2024-02-17T01:29:34.051+01:00">
             <comments/>
@@ -911,6 +936,7 @@
             </tags>
             <tasks/>
             <title>Endless week</title>
+            <verified>false</verified>
         </requirement>
         <requirement created="2024-02-20T00:28:38.645+01:00" id="6534f0dc" lastModified="2024-02-20T00:29:26.724+01:00">
             <comments/>
@@ -928,6 +954,7 @@
             <tags/>
             <tasks/>
             <title>Favorite project linki</title>
+            <verified>false</verified>
         </requirement>
         <requirement created="2024-02-20T00:30:07.982+01:00" id="8c6e839f" lastModified="2024-02-22T01:05:47.749+01:00">
             <comments/>
@@ -953,6 +980,7 @@
                 </task>
             </tasks>
             <title>Project plan checklist</title>
+            <verified>false</verified>
         </requirement>
         <requirement created="2024-02-20T00:39:28.606+01:00" id="6dd7dff7" lastModified="2024-02-20T00:40:16.740+01:00">
             <comments/>
@@ -970,6 +998,7 @@
             <tags/>
             <tasks/>
             <title>Effort</title>
+            <verified>false</verified>
         </requirement>
         <requirement created="2024-02-20T00:41:52.662+01:00" id="b8067511" lastModified="2024-02-22T01:08:52.550+01:00">
             <comments/>
@@ -995,6 +1024,7 @@
                 </task>
             </tasks>
             <title>Filter za projekte</title>
+            <verified>false</verified>
         </requirement>
         <requirement created="2024-02-20T01:15:10.112+01:00" id="0f4708c6" lastModified="2024-02-20T01:15:10.112+01:00">
             <comments/>
@@ -1011,6 +1041,7 @@
             <tags/>
             <tasks/>
             <title>Premikanje zahtev med projekti</title>
+            <verified>false</verified>
         </requirement>
         <requirement created="2024-02-22T01:19:42.745+01:00" id="cffccbf4" lastModified="2024-03-24T22:01:13.765+01:00">
             <comments/>
@@ -1036,6 +1067,7 @@
                 </task>
             </tasks>
             <title>Obsolete zahteve</title>
+            <verified>false</verified>
         </requirement>
         <requirement created="2024-03-24T21:43:01.169+01:00" id="299537a4" lastModified="2024-03-26T00:25:39.050+01:00">
             <comments/>
@@ -1061,17 +1093,13 @@
                 </task>
             </tasks>
             <title>Prioritete</title>
+            <verified>false</verified>
         </requirement>
         <requirement created="2024-04-06T00:48:25.752+02:00" id="6721e8d8" lastModified="2024-04-10T00:59:59.729+02:00">
             <comments/>
             <description>&lt;p&gt;To je test&lt;/p&gt;</description>
             <group>undefined</group>
-            <issues>
-                <issue created="2024-04-10T00:59:59.728+02:00" id="42206e17">
-                    <problem>dddd</problem>
-                    <resolved>false</resolved>
-                </issue>
-            </issues>
+            <issues/>
             <itcmLink>
                 <href>-</href>
             </itcmLink>
@@ -1102,10 +1130,11 @@
                 </task>
             </tasks>
             <title>Test obsolete</title>
+            <verified>true</verified>
         </requirement>
-        <requirement created="2024-04-10T00:06:45.121+02:00" id="e5c04ec8" lastModified="2024-04-10T00:09:56.923+02:00">
+        <requirement created="2024-04-11T23:56:22.008+02:00" id="67521f6f" lastModified="2024-04-12T00:14:19.045+02:00">
             <comments/>
-            <description>&lt;p&gt;Mark requirements with high importance flag to indicate that special attention is needed.&lt;/p&gt;</description>
+            <description>&lt;p&gt;Flags visually indicate the status of requirement:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Issues exist&lt;/li&gt;&lt;li&gt;Fade-out star&lt;/li&gt;&lt;li&gt;Obsolete&lt;/li&gt;&lt;li&gt;Verified&lt;/li&gt;&lt;li&gt;Important&lt;/li&gt;&lt;li&gt;Waiting tasks&lt;/li&gt;&lt;li&gt;Clarify tasks&lt;/li&gt;&lt;/ul&gt;</description>
             <group>undefined</group>
             <issues/>
             <itcmLink>
@@ -1117,16 +1146,11 @@
                 <href>-</href>
             </rrcLink>
             <tags>
-                <tag id="e36cb56a" refId="cbd62164"></tag>
+                <tag id="dbfa4b09" refId="cbd62164"/>
             </tags>
-            <tasks>
-                <task created="2024-04-10T00:09:56.923+02:00" id="e13f1ad3" lastModified="2024-04-10T00:10:01.095+02:00">
-                    <assignee memberRefId="03a1fdd1"/>
-                    <status>In progress</status>
-                    <title>Implement task</title>
-                </task>
-            </tasks>
-            <title>Important requirements icon</title>
+            <tasks/>
+            <title>Flags (icons)</title>
+            <verified>false</verified>
         </requirement>
     </requirements>
     <state>Active</state>
