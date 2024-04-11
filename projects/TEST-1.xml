@@ -177,26 +177,27 @@
             <itcmLink>
                 <href>-</href>
             </itcmLink>
-            <obsolete>false</obsolete>
+            <obsolete>true</obsolete>
+            <obsoleteReason>jjj</obsoleteReason>
             <priority>3</priority>
             <rrcLink>
                 <href>-</href>
             </rrcLink>
             <tags>
-                <tag id="1ae65cbb" refId="1a8f0d82"/>
+                <tag id="1ae65cbb" refId="1a8f0d82"></tag>
             </tags>
             <tasks>
-                <task created="2024-04-10T00:38:25.789+02:00" id="2706f4c8">
+                <task created="2024-04-10T00:38:25.789+02:00" id="2706f4c8" lastModified="2024-04-10T00:38:25.789+02:00">
                     <assignee/>
                     <status>Draft</status>
                     <title>Analyze task</title>
                 </task>
-                <task created="2024-04-10T00:38:26.522+02:00" id="8cdd720a">
+                <task created="2024-04-10T00:38:26.522+02:00" id="8cdd720a" lastModified="2024-04-10T00:38:26.522+02:00">
                     <assignee/>
                     <status>Draft</status>
                     <title>Implement task</title>
                 </task>
-                <task created="2024-04-10T00:38:27.540+02:00" id="56bb5c9b">
+                <task created="2024-04-10T00:38:27.540+02:00" id="56bb5c9b" lastModified="2024-04-10T00:38:27.540+02:00">
                     <assignee/>
                     <status>Draft</status>
                     <title>Document task</title>

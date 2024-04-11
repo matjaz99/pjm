@@ -736,7 +736,9 @@
             <rrcLink>
                 <href>-</href>
             </rrcLink>
-            <tags/>
+            <tags>
+                <tag id="544c39c3" refId="5b632e8a"></tag>
+            </tags>
             <tasks>
                 <task created="2023-09-21T01:43:34.554+02:00" id="c35ff73a" lastModified="2023-09-21T01:43:39.588+02:00">
                     <assignee/>
@@ -982,7 +984,9 @@
             <rrcLink>
                 <href>-</href>
             </rrcLink>
-            <tags/>
+            <tags>
+                <tag id="6db75b95" refId="5b632e8a"></tag>
+            </tags>
             <tasks>
                 <task created="2024-02-22T01:08:52.550+01:00" id="4ba7874e" lastModified="2024-02-22T01:08:55.772+01:00">
                     <assignee memberRefId="6f5a68f1"/>
@@ -1058,16 +1062,21 @@
             </tasks>
             <title>Prioritete</title>
         </requirement>
-        <requirement created="2024-04-06T00:48:25.752+02:00" id="6721e8d8" lastModified="2024-04-09T23:12:23.152+02:00">
+        <requirement created="2024-04-06T00:48:25.752+02:00" id="6721e8d8" lastModified="2024-04-10T00:59:59.729+02:00">
             <comments/>
             <description>&lt;p&gt;To je test&lt;/p&gt;</description>
             <group>undefined</group>
-            <issues/>
+            <issues>
+                <issue created="2024-04-10T00:59:59.728+02:00" id="42206e17">
+                    <problem>dddd</problem>
+                    <resolved>false</resolved>
+                </issue>
+            </issues>
             <itcmLink>
                 <href>-</href>
             </itcmLink>
             <obsolete>true</obsolete>
-            <obsoleteReason>asdf</obsoleteReason>
+            <obsoleteReason>hhhh</obsoleteReason>
             <priority>P3</priority>
             <rrcLink>
                 <href>-</href>
@@ -1076,17 +1085,17 @@
                 <tag id="68a8419b" refId="cbd62164"></tag>
             </tags>
             <tasks>
-                <task created="2024-04-09T23:12:21.185+02:00" id="9e6c3b45">
+                <task created="2024-04-09T23:12:21.185+02:00" id="9e6c3b45" lastModified="2024-04-09T23:12:21.185+02:00">
                     <assignee/>
                     <status>Draft</status>
                     <title>Analyze task</title>
                 </task>
-                <task created="2024-04-09T23:12:22.184+02:00" id="195664dd">
+                <task created="2024-04-09T23:12:22.184+02:00" id="195664dd" lastModified="2024-04-09T23:12:22.184+02:00">
                     <assignee/>
                     <status>Draft</status>
                     <title>Implement task</title>
                 </task>
-                <task created="2024-04-09T23:12:23.152+02:00" id="a70274e1">
+                <task created="2024-04-09T23:12:23.152+02:00" id="a70274e1" lastModified="2024-04-09T23:12:23.152+02:00">
                     <assignee/>
                     <status>Draft</status>
                     <title>Document task</title>
@@ -1108,7 +1117,7 @@
                 <href>-</href>
             </rrcLink>
             <tags>
-                <tag id="e36cb56a" refId="cbd62164"/>
+                <tag id="e36cb56a" refId="cbd62164"></tag>
             </tags>
             <tasks>
                 <task created="2024-04-10T00:09:56.923+02:00" id="e13f1ad3" lastModified="2024-04-10T00:10:01.095+02:00">
