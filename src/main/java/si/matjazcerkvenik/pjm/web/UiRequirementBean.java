@@ -406,7 +406,6 @@ public class UiRequirementBean extends UiBean implements Serializable {
     }
 
     public void setProjectGroup(String projectGroup) {
-        System.out.println("setProjectGroup: " + projectGroup);
         this.projectGroup = projectGroup;
     }
 

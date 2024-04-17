@@ -4,7 +4,6 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
 import jakarta.xml.bind.annotation.XmlTransient;
-import si.matjazcerkvenik.pjm.util.DAO;
 import si.matjazcerkvenik.pjm.util.Props;
 import si.matjazcerkvenik.pjm.util.Utils;
 
@@ -304,17 +303,15 @@ public class Project implements Serializable {
     }
 
     public List<Requirement> getRequirementsWithoutTasks() {
-        List<Requirement> result = requirements.getList().stream()
+        return requirements.getList().stream()
                 .filter(req -> (req.getTasks().getList().size() == 0))
                 .collect(Collectors.toList());
-        return result;
     }
 
     public List<Requirement> getObsoleteRequirements() {
-        List<Requirement> result = requirements.getList().stream()
+        return requirements.getList().stream()
                 .filter(req -> (req.isObsolete()))
                 .collect(Collectors.toList());
-        return result;
     }
 
     /**

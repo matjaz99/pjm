@@ -77,17 +77,11 @@ public class UiStatisticsBean extends UiBean implements Serializable {
     public int getTasksTotalCount(String status) {
         int count = 0;
         for (Requirement r : project.getRequirements().getList()) {
-            if (r.getTasks() == null || r.getTasks().getList() == null) {
-                continue;
+            if (status.equalsIgnoreCase("all")) {
+                // all tasks regardless of status
+                count += r.getTasks().getList().size();
             } else {
-                if (status.equalsIgnoreCase("null")) {
-                    // null means all tasks regardless of status
-                    count += r.getTasks().getList().size();
-                    continue;
-                }
-                for (Task t : r.getTasks().getList()) {
-                    if (t.getStatus() != null && t.getStatus().equalsIgnoreCase(status)) count += 1;
-                }
+                count += r.getTasksByStatus(status).size();
             }
         }
         return count;
@@ -108,10 +102,18 @@ public class UiStatisticsBean extends UiBean implements Serializable {
     public int getIssuesTotalCount() {
         int count = 0;
         for (Requirement r : project.getRequirements().getList()) {
-            if (r.getIssues().getList().size() > 0) count = count + r.getIssues().getList().size();
+            count = count + r.getIssues().getList().size();
         }
         return count;
     }
+
+
+
+
+
+
+
+
 
     private BarChartModel barModel;
 

@@ -8,6 +8,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Requirement implements Serializable {
 
@@ -130,6 +131,17 @@ public class Requirement implements Serializable {
 
     public void addNewTask(Task taks) {
         tasks.addNewTask(taks);
+    }
+
+    /**
+     * Return list of tasks by selected status
+     * @param status
+     * @return list
+     */
+    public List<Task> getTasksByStatus(String status) {
+        return tasks.getList().stream()
+                .filter(task -> (!Utils.isNullOrEmpty(task.getStatus()) && status.equalsIgnoreCase(task.getStatus())))
+                .collect(Collectors.toList());
     }
 
     public Comments getComments() {

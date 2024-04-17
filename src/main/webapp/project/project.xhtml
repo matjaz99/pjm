@@ -83,20 +83,21 @@
 						</ui:repeat>
 					</p:column>
 					<p:column headerText="Status">
-						<p>
-							<p:outputLabel rendered="#{req.getOpenIssues().size() > 0 ? true : false}" >
-								<span class="pi pi-exclamation-triangle" style="color: red; font-size: 1.7rem" ></span>
-							</p:outputLabel>
-							<p:outputLabel rendered="#{req.getFadeOutStarColor(uiConfigBean.getFadeOutConfig()).equals('white') ? false : true}">
-								<span class="pi pi-star-fill" style="color: #{req.getFadeOutStarColor(uiConfigBean.getFadeOutConfig())}; font-size: 1.7rem" ></span>
-							</p:outputLabel>
-							<p:outputLabel value="" style="margin-right: 0.5em;" rendered="#{req.obsolete}">
-								<i class="pi pi-times-circle" style="color: violet; font-size: 1.7rem" />
-							</p:outputLabel>
-							<p:outputLabel value="" style="margin-right: 0.5em;" rendered="#{req.verified}">
-								<i class="pi pi-verified" style="color: green; font-size: 1.7rem" />
-							</p:outputLabel>
-						</p>
+						<p:outputLabel rendered="#{req.getFadeOutStarColor(uiConfigBean.getFadeOutConfig()).equals('white') ? false : true}">
+							<span class="pi pi-star-fill" style="color: #{req.getFadeOutStarColor(uiConfigBean.getFadeOutConfig())}; font-size: 1.7rem" />
+						</p:outputLabel>
+						<p:outputLabel rendered="#{req.getOpenIssues().size() > 0 ? true : false}" >
+							<span class="pi pi-exclamation-triangle" style="color: red; font-size: 1.7rem" />
+						</p:outputLabel>
+						<p:outputLabel value="" style="color: orange; margin-right: 0.5em;" rendered="#{req.getTasksByStatus('waiting').size() > 0}">
+							<span class="pi pi-stopwatch" style="font-size: 1.7rem" />
+						</p:outputLabel>
+						<p:outputLabel id="obsolete-flag-#{req.id}" value="" style="margin-right: 0.5em;" rendered="#{req.obsolete}">
+							<span class="pi pi-times-circle" style="font-size: 1.7rem" />
+						</p:outputLabel>
+						<p:outputLabel value="" style="margin-right: 0.5em;" rendered="#{req.verified}">
+							<span class="pi pi-verified" style="color: green; font-size: 1.7rem" />
+						</p:outputLabel>
 
 					</p:column>
 					<p:column headerText="Progress">

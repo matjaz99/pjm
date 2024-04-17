@@ -1132,7 +1132,7 @@
             <title>Test obsolete</title>
             <verified>true</verified>
         </requirement>
-        <requirement created="2024-04-11T23:56:22.008+02:00" id="67521f6f" lastModified="2024-04-12T00:14:19.045+02:00">
+        <requirement created="2024-04-11T23:56:22.008+02:00" id="67521f6f" lastModified="2024-04-14T21:08:19.098+02:00">
             <comments/>
             <description>&lt;p&gt;Flags visually indicate the status of requirement:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Issues exist&lt;/li&gt;&lt;li&gt;Fade-out star&lt;/li&gt;&lt;li&gt;Obsolete&lt;/li&gt;&lt;li&gt;Verified&lt;/li&gt;&lt;li&gt;Important&lt;/li&gt;&lt;li&gt;Waiting tasks&lt;/li&gt;&lt;li&gt;Clarify tasks&lt;/li&gt;&lt;/ul&gt;</description>
             <group>undefined</group>
@@ -1146,10 +1146,69 @@
                 <href>-</href>
             </rrcLink>
             <tags>
-                <tag id="dbfa4b09" refId="cbd62164"/>
+                <tag id="dbfa4b09" refId="cbd62164"></tag>
             </tags>
-            <tasks/>
+            <tasks>
+                <task created="2024-04-14T21:07:29.855+02:00" id="419f7fc6" lastModified="2024-04-14T21:08:23.285+02:00">
+                    <assignee memberRefId="6f5a68f1"/>
+                    <status>Complete</status>
+                    <title>Issues icon</title>
+                </task>
+                <task created="2024-04-14T21:07:37.704+02:00" id="ea807356" lastModified="2024-04-14T21:08:32.087+02:00">
+                    <assignee memberRefId="edb1d233"/>
+                    <status>Complete</status>
+                    <title>Fade-out star</title>
+                </task>
+                <task created="2024-04-14T21:07:46.222+02:00" id="ebf5f539" lastModified="2024-04-14T21:08:45.340+02:00">
+                    <assignee memberRefId="80669f04"/>
+                    <status>Complete</status>
+                    <title>Obsolete icon</title>
+                </task>
+                <task created="2024-04-14T21:07:54.375+02:00" id="17affb2f" lastModified="2024-04-14T21:08:57.538+02:00">
+                    <assignee memberRefId="6234a6a3"/>
+                    <status>Complete</status>
+                    <title>Verified icon</title>
+                </task>
+                <task created="2024-04-14T21:08:01.843+02:00" id="def8b359">
+                    <assignee/>
+                    <status>Draft</status>
+                    <title>Important icon</title>
+                </task>
+                <task created="2024-04-14T21:08:10.813+02:00" id="a5610e5b">
+                    <assignee/>
+                    <status>Draft</status>
+                    <title>Waiting tasks icon</title>
+                </task>
+                <task created="2024-04-14T21:08:19.098+02:00" id="b7b5c542">
+                    <assignee/>
+                    <status>Draft</status>
+                    <title>Clarify tasks icon</title>
+                </task>
+            </tasks>
             <title>Flags (icons)</title>
+            <verified>false</verified>
+        </requirement>
+        <requirement created="2024-04-14T20:38:32.784+02:00" id="0271dbd3" lastModified="2024-04-14T20:41:00.155+02:00">
+            <comments/>
+            <description>&lt;p&gt;S konceptom sprint planninga dobim časovno komponento kdaj je planiran nek task.&lt;/p&gt;&lt;p&gt;Alternativa sprintom je časovne značke na taskih (začetek, predviden konec..)&lt;/p&gt;</description>
+            <group>undefined</group>
+            <issues>
+                <issue created="2024-04-14T20:41:00.155+02:00" id="aaee2a2a">
+                    <problem>Odločitev glede koncepta (sprinti ali samo timestampi)</problem>
+                    <resolved>false</resolved>
+                </issue>
+            </issues>
+            <itcmLink>
+                <href>-</href>
+            </itcmLink>
+            <obsolete>false</obsolete>
+            <priority>P3</priority>
+            <rrcLink>
+                <href>-</href>
+            </rrcLink>
+            <tags/>
+            <tasks/>
+            <title>Sprint planning</title>
             <verified>false</verified>
         </requirement>
     </requirements>
