@@ -9,16 +9,12 @@
 	<div id="contentFrame">
 		<ui:define name="contentFrame">
 
-			<div class="card">
-				<h:form>
-					<p:breadCrumb>
-						<p:menuitem value="Home" url="/pjm"/>
-						<p:menuitem value="#{uiMeetingBean.project.name}" url="/pjm/project/project.xhtml?projectId=#{uiMeetingBean.project.id}"/>
-						<p:menuitem value="Meeting manager" url="/pjm/project/meetingManager.xhtml?projectId=#{uiMeetingBean.project.id}"/>
-						<p:menuitem value="Meeting"/>
-					</p:breadCrumb>
-				</h:form>
-			</div>
+			<p:breadCrumb>
+				<p:menuitem value="Home" url="/pjm"/>
+				<p:menuitem value="#{uiMeetingBean.project.name}" url="/pjm/project/project.xhtml?projectId=#{uiMeetingBean.project.id}"/>
+				<p:menuitem value="Meeting manager" url="/pjm/project/meetingManager.xhtml?projectId=#{uiMeetingBean.project.id}"/>
+				<p:menuitem value="Meeting"/>
+			</p:breadCrumb>
 
 			<h:form id="meetingDataForm">
 				<p:outputPanel rendered="#{uiMeetingBean.meeting.concluded}">

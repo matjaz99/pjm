@@ -9,15 +9,11 @@
 	<div id="contentFrame">
 		<ui:define name="contentFrame">
 
-			<div class="card">
-				<h:form>
-					<p:breadCrumb>
-						<p:menuitem value="Home" url="/pjm"/>
-						<p:menuitem value="#{uiTagsBean.project.name}" url="/pjm/project/project.xhtml?projectId=#{uiTagsBean.project.id}"/>
-						<p:menuitem value="Tags"/>
-					</p:breadCrumb>
-				</h:form>
-			</div>
+			<p:breadCrumb>
+				<p:menuitem value="Home" url="/pjm"/>
+				<p:menuitem value="#{uiTagsBean.project.name}" url="/pjm/project/project.xhtml?projectId=#{uiTagsBean.project.id}"/>
+				<p:menuitem value="Tags"/>
+			</p:breadCrumb>
 
 			<p:commandButton value="New tag" type="button" icon="pi pi-external-link"
 							 onclick="PF('dlg3').show()" styleClass="ui-button-outlined"/>

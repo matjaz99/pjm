@@ -9,15 +9,11 @@
 	<div id="contentFrame">
 		<ui:define name="contentFrame">
 
-			<div class="card">
-				<h:form>
-					<p:breadCrumb>
-						<p:menuitem value="Home" url="/pjm"/>
-						<p:menuitem value="#{uiIssuesBean.project.name}" url="/pjm/project/project.xhtml?projectId=#{uiIssuesBean.project.id}"/>
-						<p:menuitem value="Open issues"/>
-					</p:breadCrumb>
-				</h:form>
-			</div>
+			<p:breadCrumb>
+				<p:menuitem value="Home" url="/pjm"/>
+				<p:menuitem value="#{uiIssuesBean.project.name}" url="/pjm/project/project.xhtml?projectId=#{uiIssuesBean.project.id}"/>
+				<p:menuitem value="Open issues"/>
+			</p:breadCrumb>
 
 			<br/>
 

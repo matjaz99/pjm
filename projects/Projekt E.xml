@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <project id="d2f2297d">
     <expectedEnd>2023-12-29T00:00:00.000+01:00</expectedEnd>
-    <links>
-        <link id="62ffcf46">
-            <description>sfdg</description>
-            <href>-</href>
-        </link>
-    </links>
+    <links/>
     <meetingHistory>
         <meeting concluded="true" plannedDate="2023-10-15T00:00:00.000+02:00">
             <description>&lt;p&gt;sdfgs sdsdfg &lt;/p&gt;</description>
@@ -71,6 +66,7 @@
         </member>
     </members>
     <name>Projekt E</name>
+    <notes>&lt;p&gt;To je ta projekt.&lt;/p&gt;</notes>
     <plannedEnd>2023-11-15T00:00:00.000+01:00</plannedEnd>
     <planningChecklist>
         <item checked="false" checkedDate="2024-04-09T23:16:08.630+02:00" name="NPI opened"></item>
@@ -117,7 +113,7 @@
                     <title>Implement jaxb model</title>
                 </task>
             </tasks>
-            <title>Persistence</title>
+            <title>Persistenca</title>
             <verified>false</verified>
         </requirement>
         <requirement created="2023-09-16T10:25:27.194+02:00" id="REQ-02" lastModified="2023-12-28T00:00:47.142+01:00">
@@ -931,14 +927,15 @@
                 <href>-</href>
             </rrcLink>
             <tags>
-                <tag id="acfbe8c5" refId="90cca284"></tag>
-                <tag id="07999f9c" refId="5b632e8a"></tag>
+                <tag id="a7760419" refId="90cca284"/>
+                <tag id="d293c47e" refId="5b632e8a"/>
+                <tag id="e39e2e13" refId="afcc6d06"/>
             </tags>
             <tasks/>
             <title>Endless week</title>
             <verified>false</verified>
         </requirement>
-        <requirement created="2024-02-20T00:28:38.645+01:00" id="6534f0dc" lastModified="2024-02-20T00:29:26.724+01:00">
+        <requirement created="2024-02-20T00:28:38.645+01:00" id="6534f0dc" lastModified="2024-04-18T22:29:43.948+02:00">
             <comments/>
             <description>&lt;p&gt;Dodaj linke na izbrane projekte na vrhu okna.&lt;/p&gt;</description>
             <group>undefined</group>
@@ -952,7 +949,18 @@
                 <href>-</href>
             </rrcLink>
             <tags/>
-            <tasks/>
+            <tasks>
+                <task created="2024-04-18T22:29:03.137+02:00" id="b77eec57" lastModified="2024-04-18T22:29:27.113+02:00">
+                    <assignee/>
+                    <status>In progress</status>
+                    <title>Označi projekt kot Favorite (značka)</title>
+                </task>
+                <task created="2024-04-18T22:29:43.948+02:00" id="6f839e1d" lastModified="2024-04-18T22:29:48.335+02:00">
+                    <assignee/>
+                    <status>In progress</status>
+                    <title>Dodaj linke na vrhu okna</title>
+                </task>
+            </tasks>
             <title>Favorite project linki</title>
             <verified>false</verified>
         </requirement>
@@ -1043,9 +1051,9 @@
             <title>Premikanje zahtev med projekti</title>
             <verified>false</verified>
         </requirement>
-        <requirement created="2024-02-22T01:19:42.745+01:00" id="cffccbf4" lastModified="2024-03-24T22:01:13.765+01:00">
+        <requirement created="2024-02-22T01:19:42.745+01:00" id="cffccbf4" lastModified="2024-04-18T22:22:18.603+02:00">
             <comments/>
-            <description>&lt;p&gt;Zahteve, ki niso več relevantne. Zato naj se tudi ne upoštevajo v statistiki (progress bar).&lt;/p&gt;</description>
+            <description>&lt;p&gt;Zahteve, ki niso relevantne označi z obsolete značko.&lt;/p&gt;&lt;p&gt;Skriij obsolete zahteve (namesto da jih izbrišeš).&lt;/p&gt;&lt;p&gt;Obsolete zahteve naj se ne upoštevajo v statistiki (progress bar).&lt;/p&gt;</description>
             <group>undefined</group>
             <issues/>
             <itcmLink>
@@ -1060,10 +1068,20 @@
                 <tag id="522eb4b7" refId="cbd62164"></tag>
             </tags>
             <tasks>
-                <task created="2024-03-24T22:01:13.765+01:00" id="9e290e29" lastModified="2024-03-24T22:01:18.455+01:00">
+                <task created="2024-03-24T22:01:13.765+01:00" id="9e290e29" lastModified="2024-04-18T22:43:12.348+02:00">
                     <assignee memberRefId="03a1fdd1"/>
-                    <status>In progress</status>
-                    <title>Implement task</title>
+                    <status>Complete</status>
+                    <title>Checkbox na zahtevi</title>
+                </task>
+                <task created="2024-04-18T22:21:55.747+02:00" id="a0d1924b">
+                    <assignee/>
+                    <status>Draft</status>
+                    <title>Skrij obsolete zahteve - gumb on/off</title>
+                </task>
+                <task created="2024-04-18T22:22:18.603+02:00" id="95624087">
+                    <assignee/>
+                    <status>Draft</status>
+                    <title>Obsolete zahtev ne upoštevaj v statistiki</title>
                 </task>
             </tasks>
             <title>Obsolete zahteve</title>
@@ -1095,11 +1113,16 @@
             <title>Prioritete</title>
             <verified>false</verified>
         </requirement>
-        <requirement created="2024-04-06T00:48:25.752+02:00" id="6721e8d8" lastModified="2024-04-10T00:59:59.729+02:00">
+        <requirement created="2024-04-06T00:48:25.752+02:00" id="6721e8d8" lastModified="2024-04-18T22:24:37.206+02:00">
             <comments/>
             <description>&lt;p&gt;To je test&lt;/p&gt;</description>
             <group>undefined</group>
-            <issues/>
+            <issues>
+                <issue created="2024-04-18T22:24:37.206+02:00" id="c295804b">
+                    <problem>aaa</problem>
+                    <resolved>false</resolved>
+                </issue>
+            </issues>
             <itcmLink>
                 <href>-</href>
             </itcmLink>
@@ -1132,7 +1155,7 @@
             <title>Test obsolete</title>
             <verified>true</verified>
         </requirement>
-        <requirement created="2024-04-11T23:56:22.008+02:00" id="67521f6f" lastModified="2024-04-14T21:08:19.098+02:00">
+        <requirement created="2024-04-11T23:56:22.008+02:00" id="67521f6f" lastModified="2024-04-18T22:39:06.978+02:00">
             <comments/>
             <description>&lt;p&gt;Flags visually indicate the status of requirement:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Issues exist&lt;/li&gt;&lt;li&gt;Fade-out star&lt;/li&gt;&lt;li&gt;Obsolete&lt;/li&gt;&lt;li&gt;Verified&lt;/li&gt;&lt;li&gt;Important&lt;/li&gt;&lt;li&gt;Waiting tasks&lt;/li&gt;&lt;li&gt;Clarify tasks&lt;/li&gt;&lt;/ul&gt;</description>
             <group>undefined</group>
@@ -1169,28 +1192,33 @@
                     <status>Complete</status>
                     <title>Verified icon</title>
                 </task>
-                <task created="2024-04-14T21:08:01.843+02:00" id="def8b359">
+                <task created="2024-04-14T21:08:01.843+02:00" id="def8b359" lastModified="2024-04-14T21:08:01.843+02:00">
                     <assignee/>
                     <status>Draft</status>
                     <title>Important icon</title>
                 </task>
-                <task created="2024-04-14T21:08:10.813+02:00" id="a5610e5b">
-                    <assignee/>
-                    <status>Draft</status>
+                <task created="2024-04-14T21:08:10.813+02:00" id="a5610e5b" lastModified="2024-04-18T22:38:37.075+02:00">
+                    <assignee memberRefId="80669f04"/>
+                    <status>Complete</status>
                     <title>Waiting tasks icon</title>
                 </task>
-                <task created="2024-04-14T21:08:19.098+02:00" id="b7b5c542">
-                    <assignee/>
+                <task created="2024-04-14T21:08:19.098+02:00" id="b7b5c542" lastModified="2024-04-14T21:08:19.098+02:00">
+                    <assignee memberRefId="6f5a68f1"/>
                     <status>Draft</status>
                     <title>Clarify tasks icon</title>
+                </task>
+                <task created="2024-04-18T22:39:06.978+02:00" id="8509e86f" lastModified="2024-04-18T22:39:12.535+02:00">
+                    <assignee memberRefId="540e9ef5"/>
+                    <status>In progress</status>
+                    <title>Verified icon se resetira, če narediš nov task</title>
                 </task>
             </tasks>
             <title>Flags (icons)</title>
             <verified>false</verified>
         </requirement>
-        <requirement created="2024-04-14T20:38:32.784+02:00" id="0271dbd3" lastModified="2024-04-14T20:41:00.155+02:00">
+        <requirement created="2024-04-14T20:38:32.784+02:00" id="0271dbd3" lastModified="2024-04-18T22:36:32.656+02:00">
             <comments/>
-            <description>&lt;p&gt;S konceptom sprint planninga dobim časovno komponento kdaj je planiran nek task.&lt;/p&gt;&lt;p&gt;Alternativa sprintom je časovne značke na taskih (začetek, predviden konec..)&lt;/p&gt;</description>
+            <description>&lt;p&gt;S konceptom sprint planninga dobim časovno komponento kdaj je planiran nek task.&lt;/p&gt;&lt;p&gt;Alternativa sprintom je časovne značke na taskih (začetek, predviden konec..)&lt;/p&gt;&lt;p&gt;Mogoče grafični prikaz kot npr: timeline ali gantt-chart&lt;/p&gt;</description>
             <group>undefined</group>
             <issues>
                 <issue created="2024-04-14T20:41:00.155+02:00" id="aaee2a2a">
@@ -1206,9 +1234,31 @@
             <rrcLink>
                 <href>-</href>
             </rrcLink>
-            <tags/>
+            <tags>
+                <tag id="8043c89b" refId="afcc6d06"/>
+            </tags>
             <tasks/>
             <title>Sprint planning</title>
+            <verified>false</verified>
+        </requirement>
+        <requirement created="2024-04-18T22:31:06.120+02:00" id="6ae70dc6" lastModified="2024-04-18T22:33:35.375+02:00">
+            <comments/>
+            <description>&lt;p&gt;Recimo, da se začne sestanek na katerem teče debata o zahtevah. Posnemi vse akcije (dodajanje taskov, komentarje, spremembe..), ker tako lahko vidiš za nazaj o čem smo se pogovarjali. In nato naredi še summary (rekonstrukcijo) akcij.&lt;/p&gt;</description>
+            <group>undefined</group>
+            <issues/>
+            <itcmLink>
+                <href>-</href>
+            </itcmLink>
+            <obsolete>false</obsolete>
+            <priority>P3</priority>
+            <rrcLink>
+                <href>-</href>
+            </rrcLink>
+            <tags>
+                <tag id="d59cf1b1" refId="afcc6d06"/>
+            </tags>
+            <tasks/>
+            <title>Snemanje akcij</title>
             <verified>false</verified>
         </requirement>
     </requirements>
@@ -1228,5 +1278,6 @@
         <tag color="#00c4fa" id="fe978bd6">meetings</tag>
         <tag color="#84bcda" id="5388365a">asdf</tag>
         <tag color="#fa0000" id="a93b8eb8">rejected</tag>
+        <tag color="#56ce6e" id="afcc6d06">idea</tag>
     </tagDefs>
 </project>

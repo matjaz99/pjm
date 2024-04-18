@@ -9,15 +9,11 @@
 	<div id="contentFrame">
 		<ui:define name="contentFrame">
 
-			<div class="card">
-				<h:form>
-					<p:breadCrumb>
-						<p:menuitem value="Home" url="/pjm"/>
-						<p:menuitem value="#{uiRequirementBean.project.name}" url="/pjm/project/project.xhtml?projectId=#{uiRequirementBean.project.id}"/>
-						<p:menuitem value="#{uiRequirementBean.requirement.title}" url="/pjm/project/requirement.xhtml?projectId=#{uiRequirementBean.project.id}&amp;reqId=#{uiRequirementBean.requirement.id}"/>
-					</p:breadCrumb>
-				</h:form>
-			</div>
+			<p:breadCrumb>
+				<p:menuitem value="Home" url="/pjm"/>
+				<p:menuitem value="#{uiRequirementBean.project.name}" url="/pjm/project/project.xhtml?projectId=#{uiRequirementBean.project.id}"/>
+				<p:menuitem value="#{uiRequirementBean.requirement.title}" url="/pjm/project/requirement.xhtml?projectId=#{uiRequirementBean.project.id}&amp;reqId=#{uiRequirementBean.requirement.id}"/>
+			</p:breadCrumb>
 
 			<h:form id="titleForm">
 				<p:outputPanel id="titlePanel">
@@ -154,6 +150,13 @@
 						</p:inplace>
 					</p:panel>
 					<p:panel>
+						<p:outputLabel value="Set priority: "/>
+						<p:inplace editor="true">
+							<p:inputText value="#{uiRequirementBean.requirement.priority}" required="true" label="text"/>
+							<p:ajax event="save" listener="#{uiRequirementBean.saveProjectModifications('Priority updated')}" update="growl groupForm titleForm" />
+						</p:inplace>
+					</p:panel>
+					<p:panel>
 						<h:outputText value="Verified: "/>
 						<p:selectBooleanButton onLabel="Yes" offLabel="No"
 											   value="#{uiRequirementBean.requirement.verified}"
@@ -161,8 +164,6 @@
 											   style="width:6rem" >
 							<p:ajax event="valueChange" listener="#{uiRequirementBean.saveProjectModifications('Request positively verified')}" update="growl" />
 						</p:selectBooleanButton>
-					</p:panel>
-					<p:panel>
 					</p:panel>
 				</p:panelGrid>
 			</h:form>
@@ -179,11 +180,7 @@
 						</p:outputLabel>
 					</p:panel>
 					<p:panel>
-						<p:outputLabel value="Set priority: "/>
-						<p:inplace editor="true">
-							<p:inputText value="#{uiRequirementBean.requirement.priority}" required="true" label="text"/>
-							<p:ajax event="save" listener="#{uiRequirementBean.saveProjectModifications('Priority updated')}" update="growl groupForm titleForm" />
-						</p:inplace>
+
 					</p:panel>
 				</p:panelGrid>
 			</h:form>

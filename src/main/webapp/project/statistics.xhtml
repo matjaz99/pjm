@@ -8,15 +8,11 @@
 	<div id="contentFrame">
 		<ui:define name="contentFrame">
 
-			<div class="card">
-				<h:form>
-					<p:breadCrumb>
-						<p:menuitem value="Home" url="/pjm"/>
-						<p:menuitem value="#{uiStatisticsBean.project.name}" url="/pjm/project/project.xhtml?projectId=#{uiStatisticsBean.project.id}"/>
-						<p:menuitem value="Statistics"/>
-					</p:breadCrumb>
-				</h:form>
-			</div>
+			<p:breadCrumb>
+				<p:menuitem value="Home" url="/pjm"/>
+				<p:menuitem value="#{uiStatisticsBean.project.name}" url="/pjm/project/project.xhtml?projectId=#{uiStatisticsBean.project.id}"/>
+				<p:menuitem value="Statistics"/>
+			</p:breadCrumb>
 
 
 			<p:panel header="Project plan" styleClass="bottom-margin">
@@ -29,9 +25,6 @@
 					<p:outputLabel value="#{uiStatisticsBean.expectedEnd}"/>
 				</p:panelGrid>
 			</p:panel>
-
-
-			<br/>
 
 			<p:panel header="Realization" styleClass="bottom-margin">
 				<p:panelGrid columns="2">
@@ -91,6 +84,19 @@
 			<p:panel header="Requirements that are blocked (contains waiting tasks)" styleClass="bottom-margin">
 				<p:outputLabel value="The following #{uiStatisticsBean.getRequirementsWithTaskStatus('waiting').size()} requirements have tasks in status waiting. This might be blocking the process."/>
 				<p:dataTable value="#{uiStatisticsBean.getRequirementsWithTaskStatus('waiting')}" var="req"
+							 cellpadding="0" cellspacing="0">
+					<p:column headerText="Title">
+						<h:link value="#{req.title}" outcome="/project/requirement">
+							<f:param name="projectId" value="#{uiStatisticsBean.project.id}" />
+							<f:param name="reqId" value="#{req.id}" />
+						</h:link>
+					</p:column>
+				</p:dataTable>
+			</p:panel>
+
+			<p:panel header="Obsolete requirements" styleClass="bottom-margin">
+				<p:outputLabel value="Obsolete requirements are not relevant and will not be solved. Obsolete requirements are hidden by default, instead deleting them. Obsolete requirements also are excluded from statistics."/>
+				<p:dataTable value="#{uiStatisticsBean.getObsoleteRequirements()}" var="req"
 							 cellpadding="0" cellspacing="0">
 					<p:column headerText="Title">
 						<h:link value="#{req.title}" outcome="/project/requirement">

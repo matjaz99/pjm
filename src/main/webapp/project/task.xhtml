@@ -8,16 +8,13 @@
 	<div id="contentFrame">
 		<ui:define name="contentFrame">
 
-			<div class="card">
-				<h:form>
-					<p:breadCrumb>
-						<p:menuitem value="Home" url="/pjm"/>
-						<p:menuitem value="#{uiTaskBean.project.name}" url="/pjm/project/project.xhtml?projectId=#{uiTaskBean.project.id}"/>
-						<p:menuitem value="#{uiTaskBean.requirement.title}" url="/pjm/project/requirement.xhtml?projectId=#{uiTaskBean.project.id}&amp;reqId=#{uiTaskBean.requirement.id}"/>
-						<p:menuitem value="#{uiTaskBean.task.title}" url="/pjm/project/task.xhtml?projectId=#{uiTaskBean.project.id}&amp;reqId=#{uiTaskBean.requirement.id}&amp;tskId=#{uiTaskBean.task.id}"/>
-					</p:breadCrumb>
-				</h:form>
-			</div>
+			<p:breadCrumb>
+				<p:menuitem value="Home" url="/pjm"/>
+				<p:menuitem value="#{uiTaskBean.project.name}" url="/pjm/project/project.xhtml?projectId=#{uiTaskBean.project.id}"/>
+				<p:menuitem value="#{uiTaskBean.requirement.title}" url="/pjm/project/requirement.xhtml?projectId=#{uiTaskBean.project.id}&amp;reqId=#{uiTaskBean.requirement.id}"/>
+				<p:menuitem value="#{uiTaskBean.task.title}" url="/pjm/project/task.xhtml?projectId=#{uiTaskBean.project.id}&amp;reqId=#{uiTaskBean.requirement.id}&amp;tskId=#{uiTaskBean.task.id}"/>
+			</p:breadCrumb>
+
 			<h:form>
 				<p:outputPanel>
 					<p:inplace editor="true" style="font-weight: bold; font-size: 24px;">

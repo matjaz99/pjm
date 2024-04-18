@@ -8,15 +8,11 @@
 	<div id="contentFrame">
 		<ui:define name="contentFrame">
 
-			<div class="card">
-				<h:form>
-					<p:breadCrumb>
-						<p:menuitem value="Home" url="/pjm"/>
-						<p:menuitem value="#{uiAlarmsBean.project.name}" url="/pjm/project/project.xhtml?projectId=#{uiAlarmsBean.project.id}"/>
-						<p:menuitem value="Alarms"/>
-					</p:breadCrumb>
-				</h:form>
-			</div>
+			<p:breadCrumb>
+				<p:menuitem value="Home" url="/pjm"/>
+				<p:menuitem value="#{uiAlarmsBean.project.name}" url="/pjm/project/project.xhtml?projectId=#{uiAlarmsBean.project.id}"/>
+				<p:menuitem value="Alarms"/>
+			</p:breadCrumb>
 
 			<p:outputLabel value="Active alarms" class="boldtext"/>
 
