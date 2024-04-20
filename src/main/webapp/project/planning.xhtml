@@ -70,6 +70,11 @@
 						</p:selectOneMenu>
 						<p:outputLabel value="" />
 
+						<p:outputLabel value="Favorite project: " class="boldtext"/>
+						<p:selectBooleanCheckbox value="#{uiPlanningBean.project.favorite}" itemLabel="Is favorite">
+							<p:ajax update="growl" listener="#{uiPlanningBean.favoriteChangeEvent()}"/>
+						</p:selectBooleanCheckbox>
+
 					</p:panelGrid>
 				</h:panelGroup>
 

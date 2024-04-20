@@ -151,4 +151,12 @@ public class UiAppBean implements Serializable {
 
 
 
+
+
+
+    /* Quick links in header */
+
+    public List<Project> getFavoriteProjects() {
+        return projects.stream().filter(project -> project.isFavorite()).collect(Collectors.toList());
+    }
 }

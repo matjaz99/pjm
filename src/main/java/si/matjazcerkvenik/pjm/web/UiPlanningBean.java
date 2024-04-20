@@ -19,6 +19,7 @@ import java.util.Map;
 
 @ManagedBean
 @ViewScoped
+@SuppressWarnings("unused")
 public class UiPlanningBean extends UiBean implements Serializable {
 
     private static final long serialVersionUID = 3112455688L;
@@ -98,6 +99,15 @@ public class UiPlanningBean extends UiBean implements Serializable {
         DAO.getInstance().saveProject(project);
         growlInfoMessage("Project promoted to " + project.getState());
     }
+
+    public void favoriteChangeEvent() {
+        DAO.getInstance().saveProject(project);
+        growlInfoMessage("Project marked as favorite: " + project.isFavorite());
+    }
+
+
+
+
 
 
 

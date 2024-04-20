@@ -33,6 +33,7 @@ public class Project implements Serializable {
     private XMLGregorianCalendar predictedEnd; // TODO
     private String projectPath;
     private String state;
+    private boolean favorite = false;
     private Requirements requirements = new Requirements();
     private Tags tagDefinitions = new Tags();
     private Links links = new Links();
@@ -44,7 +45,6 @@ public class Project implements Serializable {
     private Meetings meetingTemplates = new Meetings();
     private Meetings meetingHistory = new Meetings();
     private Map<String, Alarm> activeAlarms = new HashMap<>();
-
     private LinkedList<HistoryItem> historyItems = new LinkedList<>();
 
     public String getId() {
@@ -117,6 +117,15 @@ public class Project implements Serializable {
     @XmlElement
     public void setState(String state) {
         this.state = state;
+    }
+
+    public boolean isFavorite() {
+        return favorite;
+    }
+
+    @XmlElement
+    public void setFavorite(boolean favorite) {
+        this.favorite = favorite;
     }
 
     public Requirements getRequirements() {
