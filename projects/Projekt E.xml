@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <project id="d2f2297d">
     <expectedEnd>2023-12-29T00:00:00.000+01:00</expectedEnd>
+    <favorite>true</favorite>
     <links/>
     <meetingHistory>
         <meeting concluded="true" plannedDate="2023-10-15T00:00:00.000+02:00">
@@ -116,7 +117,7 @@
             <title>Persistenca</title>
             <verified>false</verified>
         </requirement>
-        <requirement created="2023-09-16T10:25:27.194+02:00" id="REQ-02" lastModified="2023-12-28T00:00:47.142+01:00">
+        <requirement created="2023-09-16T10:25:27.194+02:00" id="REQ-02" lastModified="2024-04-28T11:26:17.874+02:00">
             <comments>
                 <comment created="2023-09-16T15:36:18.973+02:00" id="f895a376" lastModified="2023-09-16T15:36:18.974+02:00">kjooo</comment>
                 <comment created="2023-09-16T15:36:31.826+02:00" id="40d994d4" lastModified="2023-09-16T15:36:31.826+02:00">fds</comment>
@@ -189,6 +190,11 @@
                     <assignee memberRefId="6234a6a3"/>
                     <status>Complete</status>
                     <title>Dodaj RRC link na zahtevo</title>
+                </task>
+                <task created="2024-04-28T11:26:17.874+02:00" id="6fd964e7">
+                    <assignee/>
+                    <status>Draft</status>
+                    <title>Hide complete</title>
                 </task>
             </tasks>
             <title>Requirements</title>
@@ -927,9 +933,9 @@
                 <href>-</href>
             </rrcLink>
             <tags>
-                <tag id="a7760419" refId="90cca284"/>
-                <tag id="d293c47e" refId="5b632e8a"/>
-                <tag id="e39e2e13" refId="afcc6d06"/>
+                <tag id="a7760419" refId="90cca284"></tag>
+                <tag id="d293c47e" refId="5b632e8a"></tag>
+                <tag id="e39e2e13" refId="afcc6d06"></tag>
             </tags>
             <tasks/>
             <title>Endless week</title>
@@ -948,21 +954,23 @@
             <rrcLink>
                 <href>-</href>
             </rrcLink>
-            <tags/>
+            <tags>
+                <tag id="ca69a360" refId="5b632e8a"></tag>
+            </tags>
             <tasks>
-                <task created="2024-04-18T22:29:03.137+02:00" id="b77eec57" lastModified="2024-04-18T22:29:27.113+02:00">
-                    <assignee/>
-                    <status>In progress</status>
+                <task created="2024-04-18T22:29:03.137+02:00" id="b77eec57" lastModified="2024-04-21T00:32:30.552+02:00">
+                    <assignee memberRefId="6234a6a3"/>
+                    <status>Complete</status>
                     <title>Označi projekt kot Favorite (značka)</title>
                 </task>
-                <task created="2024-04-18T22:29:43.948+02:00" id="6f839e1d" lastModified="2024-04-18T22:29:48.335+02:00">
-                    <assignee/>
-                    <status>In progress</status>
+                <task created="2024-04-18T22:29:43.948+02:00" id="6f839e1d" lastModified="2024-04-21T00:32:39.269+02:00">
+                    <assignee memberRefId="540e9ef5"/>
+                    <status>Complete</status>
                     <title>Dodaj linke na vrhu okna</title>
                 </task>
             </tasks>
             <title>Favorite project linki</title>
-            <verified>false</verified>
+            <verified>true</verified>
         </requirement>
         <requirement created="2024-02-20T00:30:07.982+01:00" id="8c6e839f" lastModified="2024-02-22T01:05:47.749+01:00">
             <comments/>
@@ -1073,14 +1081,14 @@
                     <status>Complete</status>
                     <title>Checkbox na zahtevi</title>
                 </task>
-                <task created="2024-04-18T22:21:55.747+02:00" id="a0d1924b">
+                <task created="2024-04-18T22:21:55.747+02:00" id="a0d1924b" lastModified="2024-04-18T22:21:55.747+02:00">
                     <assignee/>
                     <status>Draft</status>
                     <title>Skrij obsolete zahteve - gumb on/off</title>
                 </task>
-                <task created="2024-04-18T22:22:18.603+02:00" id="95624087">
+                <task created="2024-04-18T22:22:18.603+02:00" id="95624087" lastModified="2024-04-28T11:24:05.708+02:00">
                     <assignee/>
-                    <status>Draft</status>
+                    <status>In progress</status>
                     <title>Obsolete zahtev ne upoštevaj v statistiki</title>
                 </task>
             </tasks>
@@ -1235,7 +1243,7 @@
                 <href>-</href>
             </rrcLink>
             <tags>
-                <tag id="8043c89b" refId="afcc6d06"/>
+                <tag id="8043c89b" refId="afcc6d06"></tag>
             </tags>
             <tasks/>
             <title>Sprint planning</title>
@@ -1255,7 +1263,7 @@
                 <href>-</href>
             </rrcLink>
             <tags>
-                <tag id="d59cf1b1" refId="afcc6d06"/>
+                <tag id="d59cf1b1" refId="afcc6d06"></tag>
             </tags>
             <tasks/>
             <title>Snemanje akcij</title>
