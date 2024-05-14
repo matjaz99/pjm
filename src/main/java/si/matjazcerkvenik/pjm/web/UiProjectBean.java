@@ -58,18 +58,14 @@ public class UiProjectBean extends UiBean implements Serializable {
      * @return list
      */
     public List<Requirement> getRequirements() {
-        if (searchText == null || searchText.trim().length() == 0) return project.getRequirements().getList();
+        if (Utils.isNullOrEmpty(searchText)) return project.getRequirements().getList();
         // use map to avoid duplicates
         Map<String, Requirement> map = new HashMap<>();
         for (Requirement r : project.getRequirements().getList()) {
 
             // TODO support operators AND and OR
 
-            if (searchText.startsWith("REQ:")) {
-
-                // TODO search by request title only
-
-            } else if (searchText.startsWith("TAG:")) {
+            if (searchText.startsWith("TAG:")) {
 
                 String[] searchTextArray = searchText.split(":");
                 if (searchTextArray.length < 2) return new ArrayList<>(map.values());
@@ -90,7 +86,20 @@ public class UiProjectBean extends UiBean implements Serializable {
 
             } else if (searchText.startsWith("ASSIGNEE:") || searchText.startsWith("ASS:")) {
 
-                // TODO
+                String[] searchTextArray = searchText.split(":");
+                if (searchTextArray.length < 2) return new ArrayList<>(map.values());
+                String searchAssignee = searchTextArray[1].trim();
+                for (Member m : project.getMembers().getList()) {
+                    // first search members to get member ID
+                    if (m.getName().startsWith(searchAssignee) || m.getLastName().startsWith(searchAssignee)) {
+                        for (Task t : r.getTasks().getList()) {
+                            if (t.getAssignee() != null && t.getAssignee().getMemberRefId() != null && t.getAssignee().getMemberRefId().equalsIgnoreCase(m.getId())) {
+                                if (!map.containsKey(r.getId())) map.put(r.getId(), r);
+                            }
+                        }
+                    }
+                }
+
 
             } else if (searchText.startsWith("GROUP:")) {
 
@@ -117,6 +126,23 @@ public class UiProjectBean extends UiBean implements Serializable {
                         if (!map.containsKey(r.getId())) map.put(r.getId(), r);
                     }
                     if (t.getDescription() != null && t.getDescription().toLowerCase().contains(searchText.toLowerCase())) {
+                        if (!map.containsKey(r.getId())) map.put(r.getId(), r);
+                    }
+                }
+
+                // search issues
+                for (Issue i : r.getIssues().getList()) {
+                    if (!Utils.isNullOrEmpty(i.getProblem()) && i.getProblem().toLowerCase().contains(searchText.toLowerCase())) {
+                        if (!map.containsKey(r.getId())) map.put(r.getId(), r);
+                    }
+                    if (!Utils.isNullOrEmpty(i.getSolution()) && i.getSolution().toLowerCase().contains(searchText.toLowerCase())) {
+                        if (!map.containsKey(r.getId())) map.put(r.getId(), r);
+                    }
+                }
+
+                // search comments
+                for (Comment c : r.getComments().getList()) {
+                    if (!Utils.isNullOrEmpty(c.getDescription()) && c.getDescription().toLowerCase().contains(searchText.toLowerCase())) {
                         if (!map.containsKey(r.getId())) map.put(r.getId(), r);
                     }
                 }

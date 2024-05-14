@@ -17,6 +17,17 @@ hr {
     /*font-size: 10px;*/
 }
 
+
+
+.pjm-breadcrumb {
+    # TODO tole ne dela!!
+    font-size: 2rem;
+    color: #FF0000;
+    background-color: #20f020;
+}
+
+/* Custom tags */
+
 .tagBorder {
 	border: 1px solid #777;
 	border-radius: 5px 5px;

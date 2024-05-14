@@ -7,6 +7,7 @@
         <welcome-file>index.xhtml</welcome-file>
         <welcome-file>project.xhtml</welcome-file>
         <welcome-file>config.xhtml</welcome-file>
+        <welcome-file>help.xhtml</welcome-file>
     </welcome-file-list>
 
     <!-- Define the JSF servlet (manages the request processing life cycle for JavaServer Faces) -->

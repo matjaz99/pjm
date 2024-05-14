@@ -1,5 +1,8 @@
 package si.matjazcerkvenik.pjm.web;
 
+import org.commonmark.node.Node;
+import org.commonmark.parser.Parser;
+import org.commonmark.renderer.html.HtmlRenderer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import si.matjazcerkvenik.pjm.model.ChecklistItem;
@@ -15,7 +18,8 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.event.ValueChangeEvent;
 import javax.faces.model.SelectItem;
 import javax.faces.model.SelectItemGroup;
-import java.io.Serializable;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
@@ -158,5 +162,24 @@ public class UiAppBean implements Serializable {
 
     public List<Project> getFavoriteProjects() {
         return projects.stream().filter(project -> project.isFavorite()).collect(Collectors.toList());
+    }
+
+
+
+    public String getHelp() {
+
+        String filePath = "HELP.md";
+
+        try {
+            InputStream input = Thread.currentThread().getContextClassLoader().getResourceAsStream(filePath);
+            Parser parser = Parser.builder().build();
+            // Node document = parser.parseReader(new InputStreamReader(new FileInputStream(filePath), StandardCharsets.UTF_8));
+            Node document = parser.parseReader(new InputStreamReader(input));
+            HtmlRenderer renderer = HtmlRenderer.builder().build();
+            return renderer.render(document);
+        } catch (IOException e) {
+            logger.error("IOException: ", e);
+        }
+        return null;
     }
 }

@@ -9,7 +9,7 @@
 	<div id="contentFrame">
 		<ui:define name="contentFrame">
 
-			<p:breadCrumb>
+			<p:breadCrumb styleClass="pjm-breadcrumb">
 				<p:menuitem value="Home" url="/pjm"/>
 				<p:menuitem value="#{uiProjectBean.project.name}" url="/pjm/project/project.xhtml?projectId=#{uiProjectBean.project.id}"/>
 			</p:breadCrumb>
@@ -35,9 +35,13 @@
 							 onclick="PF('newReqDialog').show()" styleClass="ui-button-outlined"/>
 				</p:panel>
 				<p:panel>
-					<i class="pi pi-file" />
-					<i class="pi pi-file" />
-					<i class="pi pi-file" />
+					<i class="pi pi-file-edit" style="font-size: 2rem" />
+					<a href="/pjm/project/tags.xhtml?projectId=#{uiProjectBean.project.id}">
+						<i class="pi pi-tags" style="font-size: 2rem" />
+					</a>
+					<a href="/pjm/help/help.xhtml">
+						<i class="pi pi-question-circle" style="font-size: 2rem" />
+					</a>
 				</p:panel>
 				<p:panel>
 					<span class="ui-input-icon-left">
@@ -91,7 +95,7 @@
 							<span class="pi pi-stopwatch" style="font-size: 1.7rem" />
 						</p:outputLabel>
 						<p:outputLabel id="obsolete-flag-#{req.id}" value="" style="margin-right: 0.5em;" rendered="#{req.obsolete}">
-							<span class="pi pi-times-circle" style="font-size: 1.7rem" />
+							<span class="pi pi-times" style="font-size: 1.7rem" />
 						</p:outputLabel>
 						<p:outputLabel value="" style="margin-right: 0.5em;" rendered="#{req.verified}">
 							<span class="pi pi-verified" style="color: green; font-size: 1.7rem" />
