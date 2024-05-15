@@ -28,7 +28,7 @@
 			<br/>
 
 			<h:form id="buttonsForm">
-			<p:outputLabel value="Project requirements" style="font-weight: bold; font-size: 24px;"/>
+			<p:outputLabel id="reqHeader" value="Project requirements (#{uiProjectBean.requirements.size()})" style="font-weight: bold; font-size: 24px;"/>
 			<p:panelGrid columns="3">
 				<p:panel>
 				<p:commandButton value="New requirement" type="button" icon="pi pi-external-link"
@@ -47,7 +47,7 @@
 					<span class="ui-input-icon-left">
 						<i class="pi pi-search" />
 						<p:inputText value="#{uiProjectBean.searchText}" label="text" size="40" placeholder="Search">
-							<p:ajax event="keyup" update="requirementsForm" />
+							<p:ajax event="keyup" update="requirementsForm reqHeader" />
 						</p:inputText>
 					</span>
 				</p:panel>

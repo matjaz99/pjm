@@ -36,9 +36,7 @@
 
 						<p:outputLabel value="Project created: " class="boldtext"/>
 						<p:outputLabel value="#{uiPlanningBean.project.created}" />
-						<p:link outcome="tags" value="Tags">
-							<f:param name="projectId" value="#{uiPlanningBean.project.id}"/>
-						</p:link>
+						<p:outputLabel value="" />
 
 						<p:outputLabel for="startedDate" value="Project start: " />
 						<p:datePicker id="startedDate" value="#{uiPlanningBean.startedDate}" >
