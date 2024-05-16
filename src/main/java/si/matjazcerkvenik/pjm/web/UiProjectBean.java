@@ -79,7 +79,7 @@ public class UiProjectBean extends UiBean implements Serializable {
                 }
                 // search requirements for tag with refId
                 for (Tag t : r.getTags().getList()) {
-                    if (tagId.equals(t.getRefId())) {
+                    if (tagId != null && tagId.equals(t.getRefId())) {
                         if (!map.containsKey(r.getId())) map.put(r.getId(), r);
                     }
                 }

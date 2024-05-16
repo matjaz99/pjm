@@ -191,7 +191,7 @@
                     <status>Complete</status>
                     <title>Dodaj RRC link na zahtevo</title>
                 </task>
-                <task created="2024-04-28T11:26:17.874+02:00" id="6fd964e7">
+                <task created="2024-04-28T11:26:17.874+02:00" id="6fd964e7" lastModified="2024-04-28T11:26:17.874+02:00">
                     <assignee/>
                     <status>Draft</status>
                     <title>Hide complete</title>
@@ -1267,6 +1267,24 @@
             </tags>
             <tasks/>
             <title>Snemanje akcij</title>
+            <verified>false</verified>
+        </requirement>
+        <requirement created="2024-05-16T20:34:54.600+02:00" id="ac3cc4d0" lastModified="2024-05-16T20:37:04.677+02:00">
+            <comments/>
+            <description>&lt;p&gt;Currently (quick) search returns only a list of requirements.&lt;/p&gt;&lt;p&gt;Advanced search returns an abstract list of items, which could be of type: requirement, task, comment, issue, meeting...&lt;/p&gt;</description>
+            <group>undefined</group>
+            <issues/>
+            <itcmLink>
+                <href>-</href>
+            </itcmLink>
+            <obsolete>false</obsolete>
+            <priority>P3</priority>
+            <rrcLink>
+                <href>-</href>
+            </rrcLink>
+            <tags/>
+            <tasks/>
+            <title>Advanced search</title>
             <verified>false</verified>
         </requirement>
     </requirements>
