@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <project id="d2f2297d">
-    <expectedEnd>2023-12-29T00:00:00.000+01:00</expectedEnd>
+    <expectedEnd>2025-08-21T00:00:00.000+02:00</expectedEnd>
     <favorite>true</favorite>
     <links/>
     <meetingHistory>
@@ -478,7 +478,7 @@
             <title>Dodaj growl sporočila</title>
             <verified>false</verified>
         </requirement>
-        <requirement created="2023-09-16T10:25:27.195+02:00" id="bd3f7410" lastModified="2023-11-25T01:32:26.799+01:00">
+        <requirement created="2023-09-16T10:25:27.195+02:00" id="bd3f7410" lastModified="2024-05-27T20:06:25.581+02:00">
             <comments/>
             <description>&lt;p&gt;Možnost definiranja poljubnih tagov. Tagi morajo imeti možnost izbire barve. Tag se lahko doda na REQ&lt;/p&gt;</description>
             <group>undefined</group>
@@ -521,11 +521,16 @@
                     <status>Complete</status>
                     <title>Brisanje tagov</title>
                 </task>
+                <task created="2024-05-27T20:06:25.581+02:00" id="d8eff7a3" lastModified="2024-05-27T20:06:25.581+02:00">
+                    <assignee/>
+                    <status>Draft</status>
+                    <title>Zmanjšaj tage, ker so preveliki</title>
+                </task>
             </tasks>
             <title>Tags (labels)</title>
             <verified>false</verified>
         </requirement>
-        <requirement created="2023-09-11T21:14:06.486+02:00" id="65e76145" lastModified="2024-04-12T00:15:59.738+02:00">
+        <requirement created="2023-09-11T21:14:06.486+02:00" id="65e76145" lastModified="2024-05-27T20:07:22.310+02:00">
             <comments>
                 <comment created="2023-09-11T21:14:23.360+02:00" id="691d29aa" lastModified="2023-09-11T21:14:23.360+02:00">kk</comment>
             </comments>
@@ -558,6 +563,11 @@
                     <assignee memberRefId="80669f04"/>
                     <status>Complete</status>
                     <title>Implement</title>
+                </task>
+                <task created="2024-05-27T20:07:22.310+02:00" id="5717d208" lastModified="2024-05-27T20:07:22.310+02:00">
+                    <assignee/>
+                    <status>Draft</status>
+                    <title>Iskanje po več tagih (AND in OR)</title>
                 </task>
             </tasks>
             <title>Search</title>
@@ -635,7 +645,7 @@
             <title>Issues</title>
             <verified>false</verified>
         </requirement>
-        <requirement created="2023-09-17T22:49:08.415+02:00" id="318bf758">
+        <requirement created="2023-09-17T22:49:08.415+02:00" id="318bf758" lastModified="2024-05-27T23:11:38.695+02:00">
             <comments/>
             <description>&lt;p&gt;Statistika projekta, koliko je odprtih taskov, zaprtih...&lt;/p&gt;</description>
             <group>undefined</group>
@@ -661,6 +671,22 @@
                     <assignee/>
                     <status>Complete</status>
                     <title>Barchart za statuse taskov</title>
+                </task>
+                <task created="2024-05-27T20:13:27.806+02:00" id="a020769f" lastModified="2024-05-27T20:13:27.806+02:00">
+                    <assignee/>
+                    <status>Draft</status>
+                    <title>Sortiraj zahteve po tagih</title>
+                </task>
+                <task created="2024-05-27T21:49:07.749+02:00" id="775ce3a1" lastModified="2024-05-27T21:49:07.749+02:00">
+                    <assignee/>
+                    <status>Draft</status>
+                    <title>Procent verified</title>
+                </task>
+                <task created="2024-05-27T23:11:38.695+02:00" id="620d9bd9" lastModified="2024-05-27T23:12:28.025+02:00">
+                    <assignee/>
+                    <description>&lt;p&gt;Tabela s kolonami: total, verified, percentage done&lt;/p&gt;</description>
+                    <status>Draft</status>
+                    <title>Statistika by group</title>
                 </task>
             </tasks>
             <title>Statistika</title>
@@ -1269,7 +1295,7 @@
             <title>Snemanje akcij</title>
             <verified>false</verified>
         </requirement>
-        <requirement created="2024-05-16T20:34:54.600+02:00" id="ac3cc4d0" lastModified="2024-05-16T20:37:04.677+02:00">
+        <requirement created="2024-05-16T20:34:54.600+02:00" id="ac3cc4d0" lastModified="2024-05-27T20:14:14.782+02:00">
             <comments/>
             <description>&lt;p&gt;Currently (quick) search returns only a list of requirements.&lt;/p&gt;&lt;p&gt;Advanced search returns an abstract list of items, which could be of type: requirement, task, comment, issue, meeting...&lt;/p&gt;</description>
             <group>undefined</group>
@@ -1283,8 +1309,42 @@
                 <href>-</href>
             </rrcLink>
             <tags/>
-            <tasks/>
+            <tasks>
+                <task created="2024-05-27T20:13:51.444+02:00" id="dba64662" lastModified="2024-05-27T20:13:51.444+02:00">
+                    <assignee/>
+                    <status>Draft</status>
+                    <title>Search meetings</title>
+                </task>
+                <task created="2024-05-27T20:14:06.746+02:00" id="18bcf76c" lastModified="2024-05-27T20:14:06.746+02:00">
+                    <assignee/>
+                    <status>Draft</status>
+                    <title>Search requirements</title>
+                </task>
+                <task created="2024-05-27T20:14:14.781+02:00" id="0f978776" lastModified="2024-05-27T20:14:14.781+02:00">
+                    <assignee/>
+                    <status>Draft</status>
+                    <title>Search tasks</title>
+                </task>
+            </tasks>
             <title>Advanced search</title>
+            <verified>false</verified>
+        </requirement>
+        <requirement created="2024-05-27T20:22:01.811+02:00" id="e49afbd7" lastModified="2024-05-27T20:23:12.150+02:00">
+            <comments/>
+            <description>&lt;p&gt;Zbirka znanja: navodila, komande, hinti.&lt;/p&gt;&lt;p&gt;Zbirka znanja se mora prikazati na vseh projektih.&lt;/p&gt;</description>
+            <group>undefined</group>
+            <issues/>
+            <itcmLink>
+                <href>-</href>
+            </itcmLink>
+            <obsolete>false</obsolete>
+            <priority>P3</priority>
+            <rrcLink>
+                <href>-</href>
+            </rrcLink>
+            <tags/>
+            <tasks/>
+            <title>Knowledge base</title>
             <verified>false</verified>
         </requirement>
     </requirements>

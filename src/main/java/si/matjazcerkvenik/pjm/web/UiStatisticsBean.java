@@ -25,6 +25,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @ManagedBean
 @ViewScoped
@@ -99,12 +100,32 @@ public class UiStatisticsBean extends UiBean implements Serializable {
         return project.getObsoleteRequirements();
     }
 
+    public List<Requirement> getVerifiedRequirements() {
+        return project.getRequirements().getList().stream()
+                .filter(requirement -> requirement.isVerified())
+                .collect(Collectors.toList());
+    }
+
+    public int getVerifiedRequirementsPercentage() {
+        return (int) (getVerifiedRequirements().size() * 100 / project.getRequirements().getList().size());
+    }
+
     public int getIssuesTotalCount() {
         int count = 0;
         for (Requirement r : project.getRequirements().getList()) {
             count = count + r.getIssues().getList().size();
         }
         return count;
+    }
+
+    public int getOpenIssuesPercentage() {
+        int count = 0;
+        int open = 0;
+        for (Requirement r : project.getRequirements().getList()) {
+            count = count + r.getIssues().getList().size();
+            open = open + r.getOpenIssues().size();
+        }
+        return open * 100 / count;
     }
 
 
