@@ -107,13 +107,24 @@ public class UiStatisticsBean extends UiBean implements Serializable {
     }
 
     public int getVerifiedRequirementsPercentage() {
-        return (int) (getVerifiedRequirements().size() * 100 / project.getRequirements().getList().size());
+        int verif = getVerifiedRequirements().size();
+        int all = project.getRequirements().getList().size();
+        if (verif == 0 || all == 0) return 0;
+        return verif * 100 / all;
     }
 
     public int getIssuesTotalCount() {
         int count = 0;
         for (Requirement r : project.getRequirements().getList()) {
             count = count + r.getIssues().getList().size();
+        }
+        return count;
+    }
+
+    public int getOpenIssuesTotalCount() {
+        int count = 0;
+        for (Requirement r : project.getRequirements().getList()) {
+            count = count + r.getOpenIssues().size();
         }
         return count;
     }
@@ -125,6 +136,7 @@ public class UiStatisticsBean extends UiBean implements Serializable {
             count = count + r.getIssues().getList().size();
             open = open + r.getOpenIssues().size();
         }
+        if (open == 0 || count == 0) return 0;
         return open * 100 / count;
     }
 

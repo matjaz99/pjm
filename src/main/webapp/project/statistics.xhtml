@@ -34,7 +34,7 @@
 					<p:outputLabel value="#{uiStatisticsBean.getVerifiedRequirements().size()} (#{uiStatisticsBean.getVerifiedRequirementsPercentage()}%)"/>
 					<p:outputLabel value="Obsolete requirements:"/>
 					<p:outputLabel value="#{uiStatisticsBean.getObsoleteRequirements().size()}"/>
-					<p:outputLabel value="Progress:"/>
+					<p:outputLabel value="Overall progress:"/>
 					<p:outputLabel value="#{uiStatisticsBean.project.calculateProgressOnProject()}%"/>
 					<p:outputLabel value="Total tasks:" class="boldtext"/>
 					<p:outputLabel value="#{uiStatisticsBean.getTasksTotalCount('all')}"/>
@@ -51,7 +51,7 @@
 					<p:outputLabel value="Total issues:" class="boldtext"/>
 					<p:outputLabel value="#{uiStatisticsBean.getIssuesTotalCount()}"/>
 					<p:outputLabel value="Open issues:"/>
-					<p:outputLabel value="#{uiStatisticsBean.getOpenIssuesPercentage()}%"/>
+					<p:outputLabel value="#{uiStatisticsBean.getOpenIssuesTotalCount()} (#{uiStatisticsBean.getOpenIssuesPercentage()}%)"/>
 				</p:panelGrid>
 			</p:panel>
 
