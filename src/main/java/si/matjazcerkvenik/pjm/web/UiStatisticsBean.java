@@ -62,8 +62,18 @@ public class UiStatisticsBean extends UiBean implements Serializable {
         return Utils.getFormattedTimestamp(project.getPlannedEnd(), PjmDateFormat.DATE_SI);
     }
 
+    public int getPlannedEndDelayDays() {
+        if (project.getPlannedEnd() == null) return 0;
+        return Utils.getAgeInDays(project.getPlannedEnd()) * (-1);
+    }
+
     public String getExpectedEnd() {
         return Utils.getFormattedTimestamp(project.getExpectedEnd(), PjmDateFormat.DATE_SI);
+    }
+
+    public int getExpectedEndDelayDays() {
+        if (project.getExpectedEnd() == null) return 0;
+        return Utils.getAgeInDays(project.getExpectedEnd()) * (-1);
     }
 
     public int getRequirementsTotalCount() {

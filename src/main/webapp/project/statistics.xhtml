@@ -16,42 +16,57 @@
 
 
 			<p:panel header="Project plan" styleClass="bottom-margin">
-				<p:panelGrid columns="2">
+				<p:panelGrid columns="3">
 					<p:outputLabel value="Project started:" class="boldtext"/>
 					<p:outputLabel value="#{uiStatisticsBean.projectStarted}"/>
+					<p:outputLabel value=""/>
 					<p:outputLabel value="Planned end:" class="boldtext"/>
 					<p:outputLabel value="#{uiStatisticsBean.plannedEnd}"/>
+					<p:outputLabel value="#{uiStatisticsBean.plannedEndDelayDays} days" style="#{(uiStatisticsBean.getPlannedEndDelayDays() >= 0 ? 'color: green;' : 'color: red;')}"/>
 					<p:outputLabel value="Expected  end:" class="boldtext"/>
 					<p:outputLabel value="#{uiStatisticsBean.expectedEnd}"/>
+					<p:outputLabel value="#{uiStatisticsBean.expectedEndDelayDays} days" style="#{(uiStatisticsBean.getExpectedEndDelayDays() >= 0 ? 'color: green;' : 'color: red;')}"/>
 				</p:panelGrid>
 			</p:panel>
 
 			<p:panel header="Realization" styleClass="bottom-margin">
-				<p:panelGrid columns="2">
+				<p:panelGrid columns="3">
 					<p:outputLabel value="Total requirements:" class="boldtext"/>
 					<p:outputLabel value="#{uiStatisticsBean.requirementsTotalCount}"/>
+					<p:outputLabel value=""/>
 					<p:outputLabel value="Verified requirements:"/>
-					<p:outputLabel value="#{uiStatisticsBean.getVerifiedRequirements().size()} (#{uiStatisticsBean.getVerifiedRequirementsPercentage()}%)"/>
+					<p:outputLabel value="#{uiStatisticsBean.getVerifiedRequirements().size()}"/>
+					<p:outputLabel value="#{uiStatisticsBean.getVerifiedRequirementsPercentage()}%"/>
 					<p:outputLabel value="Obsolete requirements:"/>
 					<p:outputLabel value="#{uiStatisticsBean.getObsoleteRequirements().size()}"/>
+					<p:outputLabel value=""/>
 					<p:outputLabel value="Overall progress:"/>
+					<p:outputLabel value="-"/>
 					<p:outputLabel value="#{uiStatisticsBean.project.calculateProgressOnProject()}%"/>
 					<p:outputLabel value="Total tasks:" class="boldtext"/>
 					<p:outputLabel value="#{uiStatisticsBean.getTasksTotalCount('all')}"/>
+					<p:outputLabel value=""/>
 					<p:outputLabel value=" - Drafts:"/>
 					<p:outputLabel value="#{uiStatisticsBean.getTasksTotalCount('draft')}"/>
+					<p:outputLabel value=""/>
 					<p:outputLabel value=" - In progress:"/>
 					<p:outputLabel value="#{uiStatisticsBean.getTasksTotalCount('in progress')}"/>
+					<p:outputLabel value=""/>
 					<p:outputLabel value=" - Waiting:"/>
 					<p:outputLabel value="#{uiStatisticsBean.getTasksTotalCount('waiting')}"/>
+					<p:outputLabel value=""/>
 					<p:outputLabel value=" - To be clarified:"/>
 					<p:outputLabel value="#{uiStatisticsBean.getTasksTotalCount('clarify')}"/>
+					<p:outputLabel value=""/>
 					<p:outputLabel value=" - Complete:"/>
 					<p:outputLabel value="#{uiStatisticsBean.getTasksTotalCount('complete')}"/>
+					<p:outputLabel value=""/>
 					<p:outputLabel value="Total issues:" class="boldtext"/>
 					<p:outputLabel value="#{uiStatisticsBean.getIssuesTotalCount()}"/>
+					<p:outputLabel value=""/>
 					<p:outputLabel value="Open issues:"/>
-					<p:outputLabel value="#{uiStatisticsBean.getOpenIssuesTotalCount()} (#{uiStatisticsBean.getOpenIssuesPercentage()}%)"/>
+					<p:outputLabel value="#{uiStatisticsBean.getOpenIssuesTotalCount()}"/>
+					<p:outputLabel value="#{uiStatisticsBean.getOpenIssuesPercentage()}%"/>
 				</p:panelGrid>
 			</p:panel>
 

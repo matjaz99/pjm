@@ -24,16 +24,8 @@
 		</p:panel>
 		<p:panel>
 			<div class="card">
-				<p:badge value="2" severity="info">
-					<i class="pi pi-calendar" style="font-size: 4rem"></i>
-				</p:badge>
-			</div>
-			<p:outputLabel value="Calendar" class="boldtext"/>
-		</p:panel>
-		<p:panel>
-			<div class="card">
 				<p:badge value="#{uiProjectBean.project.meetingTemplates.list.size()}" severity="info">
-					<i class="pi pi-users" style="font-size: 4rem"></i>
+					<i class="pi pi-calendar" style="font-size: 4rem"></i>
 				</p:badge>
 			</div>
 			<p:link outcome="meetingManager" value="Meetings" class="boldtext">
@@ -87,6 +79,14 @@
 				<i class="pi pi-file" style="font-size: 4rem"></i>
 			</div>
 			<p:link outcome="notes" value="Notes" class="boldtext">
+				<f:param name="projectId" value="#{uiProjectBean.project.id}"/>
+			</p:link>
+		</p:panel>
+		<p:panel>
+			<div class="card">
+				<i class="pi pi-tags" style="font-size: 4rem"></i>
+			</div>
+			<p:link outcome="tags" value="Tags" class="boldtext">
 				<f:param name="projectId" value="#{uiProjectBean.project.id}"/>
 			</p:link>
 		</p:panel>
