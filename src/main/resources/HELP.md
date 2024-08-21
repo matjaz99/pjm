@@ -25,3 +25,4 @@ Examples:
 - `TAG: network` - search all tags containing word network
 - `GROUP: new functionality` - search by group
 - `ASSIGNEE: John` - search by assignee (case sensitive!)
+
