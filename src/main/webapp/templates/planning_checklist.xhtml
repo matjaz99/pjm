@@ -14,7 +14,7 @@
 								   value="#{uiPlanningBean.npiOpened}"
 								   onIcon="pi pi-check" offIcon="pi pi-times"
 								   style="width:6rem" >
-				<p:ajax event="valueChange" listener="#{uiPlanningBean.npiOpenedValueChange}" update="growl" />
+				<p:ajax event="valueChange" listener="#{uiPlanningBean.checklistItemChecked(Checklist.ITEM_FP_NPI_OPENED)}" update="growl" />
 			</p:selectBooleanButton>
 			<p:outputLabel value="#{Checklist.ITEM_FP_NPI_OPENED}" style="margin-left: 20px;"/>
 			<br/><br/>
@@ -22,24 +22,40 @@
 								   value="#{uiPlanningBean.rdProjectOpened}"
 								   onIcon="pi pi-check" offIcon="pi pi-times"
 								   style="width:6rem" >
-				<p:ajax event="valueChange" listener="#{uiPlanningBean.rdProjectOpenedValueChange}" update="growl" />
+				<p:ajax event="valueChange" listener="#{uiPlanningBean.checklistItemChecked(Checklist.ITEM_FP_RD_PROJECT_OPENED)}" update="growl" />
 			</p:selectBooleanButton>
 			<p:outputLabel value="#{Checklist.ITEM_FP_RD_PROJECT_OPENED}" style="margin-left: 20px;"/>
+			<br/><br/>
+			<p:selectBooleanButton onLabel="Yes" offLabel="No"
+								   value="#{uiPlanningBean.risksDefined}"
+								   onIcon="pi pi-check" offIcon="pi pi-times"
+								   style="width:6rem" >
+				<p:ajax event="valueChange" listener="#{uiPlanningBean.checklistItemChecked(Checklist.ITEM_FP_RISKS_DEFINED)}" update="growl" />
+			</p:selectBooleanButton>
+			<p:outputLabel value="#{Checklist.ITEM_FP_RISKS_DEFINED}" style="margin-left: 20px;"/>
 			<br/><br/>
 			<p:selectBooleanButton onLabel="Yes" offLabel="No"
 								   value="#{uiPlanningBean.b100Reached}"
 								   onIcon="pi pi-check" offIcon="pi pi-times"
 								   style="width:6rem" >
-				<p:ajax event="valueChange" listener="#{uiPlanningBean.b100ReachedValueChange}" update="growl" />
+				<p:ajax event="valueChange" listener="#{uiPlanningBean.checklistItemChecked(Checklist.ITEM_FP_B100_REACHED)}" update="growl" />
 			</p:selectBooleanButton>
 			<p:outputLabel value="#{Checklist.ITEM_FP_B100_REACHED}" style="margin-left: 20px;"/>
+			<br/><br/>
+			<p:selectBooleanButton onLabel="Yes" offLabel="No"
+								   value="#{uiPlanningBean.b600Reached}"
+								   onIcon="pi pi-check" offIcon="pi pi-times"
+								   style="width:6rem" >
+				<p:ajax event="valueChange" listener="#{uiPlanningBean.checklistItemChecked(Checklist.ITEM_FP_B600_REACHED)}" update="growl" />
+			</p:selectBooleanButton>
+			<p:outputLabel value="#{Checklist.ITEM_FP_B600_REACHED}" style="margin-left: 20px;"/>
 		</p:panel>
 		<p:panel header="RRC">
 			<p:selectBooleanButton onLabel="Yes" offLabel="No"
 								   value="#{uiPlanningBean.requirementsDefined}"
 								   onIcon="pi pi-check" offIcon="pi pi-times"
 								   style="width:6rem" >
-				<p:ajax event="valueChange" listener="#{uiPlanningBean.requirementsDefinedValueChange}" update="growl" />
+				<p:ajax event="valueChange" listener="#{uiPlanningBean.checklistItemChecked(Checklist.ITEM_RRC_REQUIREMENTS_DEFINED)}" update="growl" />
 			</p:selectBooleanButton>
 			<p:outputLabel value="#{Checklist.ITEM_RRC_REQUIREMENTS_DEFINED}" style="margin-left: 20px;"/>
 			<br/><br/>
@@ -47,7 +63,7 @@
 								   value="#{uiPlanningBean.rrcCollectionReady}"
 								   onIcon="pi pi-check" offIcon="pi pi-times"
 								   style="width:6rem" >
-				<p:ajax event="valueChange" listener="#{uiPlanningBean.rrcCollectionReadyValueChange}" update="growl" />
+				<p:ajax event="valueChange" listener="#{uiPlanningBean.checklistItemChecked(Checklist.ITEM_RRC_COLLECTION_READY)}" update="growl" />
 			</p:selectBooleanButton>
 			<p:outputLabel value="#{Checklist.ITEM_RRC_COLLECTION_READY}" style="margin-left: 20px;"/>
 			<br/><br/>
@@ -57,23 +73,51 @@
 								   value="#{uiPlanningBean.productReleaseOpened}"
 								   onIcon="pi pi-check" offIcon="pi pi-times"
 								   style="width:6rem" >
-				<p:ajax event="valueChange" listener="#{uiPlanningBean.productReleaseOpenedValueChange}" update="growl" />
+				<p:ajax event="valueChange" listener="#{uiPlanningBean.checklistItemChecked(Checklist.ITEM_ITCM_PRODUCT_RELEASE)}" update="growl" />
 			</p:selectBooleanButton>
 			<p:outputLabel value="#{Checklist.ITEM_ITCM_PRODUCT_RELEASE}" style="margin-left: 20px;"/>
 			<br/><br/>
+			<p:selectBooleanButton onLabel="Yes" offLabel="No"
+								   value="#{uiPlanningBean.reqsGenerated}"
+								   onIcon="pi pi-check" offIcon="pi pi-times"
+								   style="width:6rem" >
+				<p:ajax event="valueChange" listener="#{uiPlanningBean.checklistItemChecked(Checklist.ITEM_ITCM_REQS_GENERATED)}" update="growl" />
+			</p:selectBooleanButton>
+			<p:outputLabel value="#{Checklist.ITEM_ITCM_REQS_GENERATED}" style="margin-left: 20px;"/>
+			<br/><br/>
+			<p:selectBooleanButton onLabel="Yes" offLabel="No"
+								   value="#{uiPlanningBean.primaveraHours}"
+								   onIcon="pi pi-check" offIcon="pi pi-times"
+								   style="width:6rem" >
+				<p:ajax event="valueChange" listener="#{uiPlanningBean.checklistItemChecked(Checklist.ITEM_ITCM_PRIMAVERA_HOURS)}" update="growl" />
+			</p:selectBooleanButton>
+			<p:outputLabel value="#{Checklist.ITEM_ITCM_PRIMAVERA_HOURS}" style="margin-left: 20px;"/>
 		</p:panel>
 		<p:panel header="Misc">
 			<p:selectBooleanButton onLabel="Yes" offLabel="No"
 								   value="#{uiPlanningBean.effortEstimated}"
 								   onIcon="pi pi-check" offIcon="pi pi-times"
 								   style="width:6rem" >
-				<p:ajax event="valueChange" listener="#{uiPlanningBean.effortEstimatedValueChange}" update="growl" />
+				<p:ajax event="valueChange" listener="#{uiPlanningBean.checklistItemChecked(Checklist.ITEM_EFFORT_ESTIMATED)}" update="growl" />
 			</p:selectBooleanButton>
 			<p:outputLabel value="#{Checklist.ITEM_EFFORT_ESTIMATED}" style="margin-left: 20px;"/>
 			<br/><br/>
+			<p:selectBooleanButton onLabel="Yes" offLabel="No"
+								   value="#{uiPlanningBean.gitlabProjectOpened}"
+								   onIcon="pi pi-check" offIcon="pi pi-times"
+								   style="width:6rem" >
+				<p:ajax event="valueChange" listener="#{uiPlanningBean.checklistItemChecked(Checklist.ITEM_GITLAB_PROJECT_OPENED)}" update="growl" />
+			</p:selectBooleanButton>
+			<p:outputLabel value="#{Checklist.ITEM_GITLAB_PROJECT_OPENED}" style="margin-left: 20px;"/>
+			<br/><br/>
+			<p:selectBooleanButton onLabel="Yes" offLabel="No"
+								   value="#{uiPlanningBean.sbbOpened}"
+								   onIcon="pi pi-check" offIcon="pi pi-times"
+								   style="width:6rem" >
+				<p:ajax event="valueChange" listener="#{uiPlanningBean.checklistItemChecked(Checklist.ITEM_ITSIM_SBB_OPENED)}" update="growl" />
+			</p:selectBooleanButton>
+			<p:outputLabel value="#{Checklist.ITEM_ITSIM_SBB_OPENED}" style="margin-left: 20px;"/>
 		</p:panel>
-		<br/><br/>
-
 
 
 	</p:panelGrid>

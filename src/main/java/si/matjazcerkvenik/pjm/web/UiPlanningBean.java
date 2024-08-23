@@ -4,6 +4,7 @@ import org.primefaces.event.SelectEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import si.matjazcerkvenik.pjm.model.Checklist;
+import si.matjazcerkvenik.pjm.model.ChecklistItem;
 import si.matjazcerkvenik.pjm.util.DAO;
 import si.matjazcerkvenik.pjm.util.Utils;
 
@@ -113,11 +114,17 @@ public class UiPlanningBean extends UiBean implements Serializable {
 
     private boolean npiOpened;
     private boolean rdProjectOpened;
+    private boolean risksDefined;
     private boolean requirementsDefined;
     private boolean rrcCollectionReady;
     private boolean effortEstimated;
     private boolean productReleaseOpened;
     private boolean b100Reached;
+    private boolean b600Reached;
+    private boolean gitlabProjectOpened;
+    private boolean primaveraHours;
+    private boolean reqsGenerated;
+    private boolean sbbOpened;
 
     public boolean isNpiOpened() {
         npiOpened = project.getPlanningChecklist().getChecklistItem(Checklist.ITEM_FP_NPI_OPENED).isChecked();
@@ -126,13 +133,6 @@ public class UiPlanningBean extends UiBean implements Serializable {
 
     public void setNpiOpened(boolean npiOpened) {
         this.npiOpened = npiOpened;
-    }
-
-    public void npiOpenedValueChange() {
-        project.getPlanningChecklist().getChecklistItem(Checklist.ITEM_FP_NPI_OPENED).setChecked(npiOpened);
-        project.getPlanningChecklist().getChecklistItem(Checklist.ITEM_FP_NPI_OPENED).setCheckedDate(Utils.getXmlGregorianCalendarNow());
-        DAO.getInstance().saveProject(project);
-        growlInfoMessage("Checked");
     }
 
     public boolean isB100Reached() {
@@ -144,13 +144,6 @@ public class UiPlanningBean extends UiBean implements Serializable {
         this.b100Reached = b100Reached;
     }
 
-    public void b100ReachedValueChange() {
-        project.getPlanningChecklist().getChecklistItem(Checklist.ITEM_FP_B100_REACHED).setChecked(b100Reached);
-        project.getPlanningChecklist().getChecklistItem(Checklist.ITEM_FP_B100_REACHED).setCheckedDate(Utils.getXmlGregorianCalendarNow());
-        DAO.getInstance().saveProject(project);
-        growlInfoMessage("Checked");
-    }
-
     public boolean isRdProjectOpened() {
         rdProjectOpened = project.getPlanningChecklist().getChecklistItem(Checklist.ITEM_FP_RD_PROJECT_OPENED).isChecked();
         return rdProjectOpened;
@@ -158,13 +151,6 @@ public class UiPlanningBean extends UiBean implements Serializable {
 
     public void setRdProjectOpened(boolean rdProjectOpened) {
         this.rdProjectOpened = rdProjectOpened;
-    }
-
-    public void rdProjectOpenedValueChange() {
-        project.getPlanningChecklist().getChecklistItem(Checklist.ITEM_FP_RD_PROJECT_OPENED).setChecked(rdProjectOpened);
-        project.getPlanningChecklist().getChecklistItem(Checklist.ITEM_FP_RD_PROJECT_OPENED).setCheckedDate(Utils.getXmlGregorianCalendarNow());
-        DAO.getInstance().saveProject(project);
-        growlInfoMessage("Checked");
     }
 
     public boolean isRequirementsDefined() {
@@ -176,13 +162,6 @@ public class UiPlanningBean extends UiBean implements Serializable {
         this.requirementsDefined = requirementsDefined;
     }
 
-    public void requirementsDefinedValueChange() {
-        project.getPlanningChecklist().getChecklistItem(Checklist.ITEM_RRC_REQUIREMENTS_DEFINED).setChecked(requirementsDefined);
-        project.getPlanningChecklist().getChecklistItem(Checklist.ITEM_RRC_REQUIREMENTS_DEFINED).setCheckedDate(Utils.getXmlGregorianCalendarNow());
-        DAO.getInstance().saveProject(project);
-        growlInfoMessage("Checked");
-    }
-
     public boolean isRrcCollectionReady() {
         rrcCollectionReady = project.getPlanningChecklist().getChecklistItem(Checklist.ITEM_RRC_COLLECTION_READY).isChecked();
         return rrcCollectionReady;
@@ -190,13 +169,6 @@ public class UiPlanningBean extends UiBean implements Serializable {
 
     public void setRrcCollectionReady(boolean rrcCollectionReady) {
         this.rrcCollectionReady = rrcCollectionReady;
-    }
-
-    public void rrcCollectionReadyValueChange() {
-        project.getPlanningChecklist().getChecklistItem(Checklist.ITEM_RRC_COLLECTION_READY).setChecked(rrcCollectionReady);
-        project.getPlanningChecklist().getChecklistItem(Checklist.ITEM_RRC_COLLECTION_READY).setCheckedDate(Utils.getXmlGregorianCalendarNow());
-        DAO.getInstance().saveProject(project);
-        growlInfoMessage("Checked");
     }
 
     public boolean isEffortEstimated() {
@@ -208,13 +180,6 @@ public class UiPlanningBean extends UiBean implements Serializable {
         this.effortEstimated = effortEstimated;
     }
 
-    public void effortEstimatedValueChange() {
-        project.getPlanningChecklist().getChecklistItem(Checklist.ITEM_EFFORT_ESTIMATED).setChecked(effortEstimated);
-        project.getPlanningChecklist().getChecklistItem(Checklist.ITEM_EFFORT_ESTIMATED).setCheckedDate(Utils.getXmlGregorianCalendarNow());
-        DAO.getInstance().saveProject(project);
-        growlInfoMessage("Checked");
-    }
-
     public boolean isProductReleaseOpened() {
         productReleaseOpened = project.getPlanningChecklist().getChecklistItem(Checklist.ITEM_ITCM_PRODUCT_RELEASE).isChecked();
         return productReleaseOpened;
@@ -224,10 +189,95 @@ public class UiPlanningBean extends UiBean implements Serializable {
         this.productReleaseOpened = productReleaseOpened;
     }
 
-    public void productReleaseOpenedValueChange() {
-        project.getPlanningChecklist().getChecklistItem(Checklist.ITEM_ITCM_PRODUCT_RELEASE).setChecked(productReleaseOpened);
-        project.getPlanningChecklist().getChecklistItem(Checklist.ITEM_ITCM_PRODUCT_RELEASE).setCheckedDate(Utils.getXmlGregorianCalendarNow());
+    public boolean isRisksDefined() {
+        risksDefined = project.getPlanningChecklist().getChecklistItem(Checklist.ITEM_FP_RISKS_DEFINED).isChecked();
+        return risksDefined;
+    }
+
+    public void setRisksDefined(boolean risksDefined) {
+        this.risksDefined = risksDefined;
+    }
+
+    public boolean isB600Reached() {
+        b600Reached = project.getPlanningChecklist().getChecklistItem(Checklist.ITEM_FP_B600_REACHED).isChecked();
+        return b600Reached;
+    }
+
+    public void setB600Reached(boolean b600Reached) {
+        this.b600Reached = b600Reached;
+    }
+
+    public boolean isGitlabProjectOpened() {
+        gitlabProjectOpened = project.getPlanningChecklist().getChecklistItem(Checklist.ITEM_GITLAB_PROJECT_OPENED).isChecked();
+        return gitlabProjectOpened;
+    }
+
+    public void setGitlabProjectOpened(boolean gitlabProjectOpened) {
+        this.gitlabProjectOpened = gitlabProjectOpened;
+    }
+
+    public boolean isPrimaveraHours() {
+        primaveraHours = project.getPlanningChecklist().getChecklistItem(Checklist.ITEM_ITCM_PRIMAVERA_HOURS).isChecked();
+        return primaveraHours;
+    }
+
+    public void setPrimaveraHours(boolean primaveraHours) {
+        this.primaveraHours = primaveraHours;
+    }
+
+    public boolean isReqsGenerated() {
+        reqsGenerated = project.getPlanningChecklist().getChecklistItem(Checklist.ITEM_ITCM_REQS_GENERATED).isChecked();
+        return reqsGenerated;
+    }
+
+    public void setReqsGenerated(boolean reqsGenerated) {
+        this.reqsGenerated = reqsGenerated;
+    }
+
+    public boolean isSbbOpened() {
+        sbbOpened = project.getPlanningChecklist().getChecklistItem(Checklist.ITEM_ITSIM_SBB_OPENED).isChecked();
+        return sbbOpened;
+    }
+
+    public void setSbbOpened(boolean sbbOpened) {
+        this.sbbOpened = sbbOpened;
+    }
+
+    public void checklistItemChecked(String item) {
+
+        ChecklistItem checklistItem = project.getPlanningChecklist().getChecklistItem(item);
+
+        if (item.equals(Checklist.ITEM_FP_NPI_OPENED)) {
+            checklistItem.setChecked(npiOpened);
+        } else if (item.equals(Checklist.ITEM_FP_RD_PROJECT_OPENED)) {
+            checklistItem.setChecked(rdProjectOpened);
+        } else if (item.equals(Checklist.ITEM_FP_RISKS_DEFINED)) {
+            checklistItem.setChecked(risksDefined);
+        } else if (item.equals(Checklist.ITEM_FP_B100_REACHED)) {
+            checklistItem.setChecked(b100Reached);
+        } else if (item.equals(Checklist.ITEM_FP_B600_REACHED)) {
+            checklistItem.setChecked(b600Reached);
+        } else if (item.equals(Checklist.ITEM_RRC_REQUIREMENTS_DEFINED)) {
+            checklistItem.setChecked(requirementsDefined);
+        } else if (item.equals(Checklist.ITEM_RRC_COLLECTION_READY)) {
+            checklistItem.setChecked(rrcCollectionReady);
+        } else if (item.equals(Checklist.ITEM_ITCM_REQS_GENERATED)) {
+            checklistItem.setChecked(reqsGenerated);
+        } else if (item.equals(Checklist.ITEM_ITCM_PRODUCT_RELEASE)) {
+            checklistItem.setChecked(productReleaseOpened);
+        } else if (item.equals(Checklist.ITEM_ITCM_PRIMAVERA_HOURS)) {
+            checklistItem.setChecked(primaveraHours);
+        } else if (item.equals(Checklist.ITEM_EFFORT_ESTIMATED)) {
+            checklistItem.setChecked(effortEstimated);
+        } else if (item.equals(Checklist.ITEM_GITLAB_PROJECT_OPENED)) {
+            checklistItem.setChecked(gitlabProjectOpened);
+        } else if (item.equals(Checklist.ITEM_ITSIM_SBB_OPENED)) {
+            checklistItem.setChecked(sbbOpened);
+        }
+
+        checklistItem.setCheckedDate(Utils.getXmlGregorianCalendarNow());
         DAO.getInstance().saveProject(project);
         growlInfoMessage("Checked");
+
     }
 }

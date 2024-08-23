@@ -17,11 +17,12 @@ public class Checklist implements Serializable {
     public static final String ITEM_FP_B600_REACHED = "B600";
     public static final String ITEM_RRC_REQUIREMENTS_DEFINED = "Requirements defined";
     public static final String ITEM_RRC_COLLECTION_READY = "RRC collection ready";
-    public static final String ITEM_RRC_REQS_GENERATED = "REQs generated";
+    public static final String ITEM_ITCM_REQS_GENERATED = "REQs generated";
     public static final String ITEM_ITCM_PRODUCT_RELEASE = "PR opened";
     public static final String ITEM_ITCM_PRIMAVERA_HOURS = "PV hours";
     public static final String ITEM_EFFORT_ESTIMATED = "Effort estimated";
     public static final String ITEM_GITLAB_PROJECT_OPENED = "Gitlab project opened";
+    public static final String ITEM_ITSIM_SBB_OPENED = "SBB opened";
 
 
     public static final String ITEM_B600_REPORT = "B600 report";
