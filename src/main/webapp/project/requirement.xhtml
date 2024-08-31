@@ -348,6 +348,9 @@
 							<f:param name="tskId" value="#{tsk.id}" />
 						</h:link>
 					</p:column>
+					<p:column headerText="Effort (MH)">
+						<p:outputLabel value="#{tsk.estimatedEffort}"/>
+					</p:column>
 					<p:column headerText="Status">
 						<p:tag styleClass="mr-2" severity="#{uiRequirementBean.convertStatusToSeverity(tsk.status)}" value="#{tsk.status}"></p:tag>
 					</p:column>

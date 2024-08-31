@@ -110,6 +110,7 @@
                 <task created="2023-09-16T10:25:27.194+02:00" id="110e9647" lastModified="2023-12-01T00:41:12.554+01:00">
                     <assignee memberRefId="540e9ef5"/>
                     <description>&lt;p&gt;Use jakarta.xml.bind&lt;/p&gt;</description>
+                    <estimatedEffort>16</estimatedEffort>
                     <status>Complete</status>
                     <title>Implement jaxb model</title>
                 </task>
@@ -140,59 +141,70 @@
                 <task created="2023-09-16T18:45:52.307+02:00" id="bd88d9e8" lastModified="2023-09-30T21:33:35.822+02:00">
                     <assignee memberRefId="80669f04"/>
                     <description>&lt;p&gt;Model zahtev&lt;/p&gt;</description>
+                    <estimatedEffort>8</estimatedEffort>
                     <status>Complete</status>
                     <title>Model requirementsov</title>
                 </task>
                 <task created="2023-09-16T18:46:08.256+02:00" id="febe215b" lastModified="2023-09-16T18:46:08.256+02:00">
                     <assignee memberRefId="540e9ef5"/>
+                    <estimatedEffort>2</estimatedEffort>
                     <status>Complete</status>
                     <title>Pripenjanje tagov</title>
                 </task>
                 <task created="2023-09-16T18:46:21.250+02:00" id="3e9d1689" lastModified="2023-09-16T18:46:21.250+02:00">
                     <assignee memberRefId="edb1d233"/>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Complete</status>
                     <title>Pripenjanje issuev</title>
                 </task>
                 <task created="2023-09-16T18:46:29.259+02:00" id="dbe74d9e" lastModified="2023-09-16T18:46:29.259+02:00">
                     <assignee memberRefId="540e9ef5"/>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Complete</status>
                     <title>Dodajanje komentarjev</title>
                 </task>
                 <task created="2023-09-16T18:46:39.260+02:00" id="f257f63a" lastModified="2023-09-16T18:46:39.260+02:00">
                     <assignee memberRefId="540e9ef5"/>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Complete</status>
                     <title>Dodajanje taskov</title>
                 </task>
                 <task created="2023-09-18T00:17:44.496+02:00" id="dc7f088f" lastModified="2023-11-16T22:28:56.805+01:00">
                     <assignee memberRefId="03a1fdd1"/>
                     <description>&lt;p&gt;Toggle between edit mode and normal output.&lt;/p&gt;</description>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Complete</status>
                     <title>Edit description</title>
                 </task>
                 <task created="2023-11-24T01:12:25.174+01:00" id="c4e8763b" lastModified="2024-04-12T00:04:13.825+02:00">
                     <assignee memberRefId="6234a6a3"/>
                     <description>&lt;p&gt;Glej &amp;#39;Verified&amp;#39; zahtevo&lt;/p&gt;</description>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Complete</status>
                     <title>Dodaj approved (stestirano)</title>
                 </task>
                 <task created="2023-12-01T00:42:06.662+01:00" id="2280da1a" lastModified="2023-12-01T00:42:54.477+01:00">
                     <assignee memberRefId="6234a6a3"/>
                     <description>&lt;p&gt;Zahteve je možno grupirati v &lt;span style="color:rgb( 230 , 0 , 0 )"&gt;funkcionalne grupe&lt;/span&gt;. Npr. omrežja, vmesniki, aplikacija, logi...&lt;/p&gt;</description>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Complete</status>
                     <title>Dodaj grupo na requirement</title>
                 </task>
                 <task created="2023-12-28T00:00:30.935+01:00" id="4e7a085a" lastModified="2024-02-17T01:26:58.481+01:00">
                     <assignee memberRefId="edb1d233"/>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Complete</status>
                     <title>Dodaj ITCM link na zahtevo</title>
                 </task>
                 <task created="2023-12-28T00:00:47.141+01:00" id="7960ce2c" lastModified="2024-02-17T01:27:09.301+01:00">
                     <assignee memberRefId="6234a6a3"/>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Complete</status>
                     <title>Dodaj RRC link na zahtevo</title>
                 </task>
                 <task created="2024-04-28T11:26:17.874+02:00" id="6fd964e7" lastModified="2024-04-28T11:26:17.874+02:00">
                     <assignee/>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Draft</status>
                     <title>Hide complete</title>
                 </task>
@@ -219,11 +231,13 @@
             <tasks>
                 <task created="2023-09-16T18:33:22.271+02:00" id="fa5071e5" lastModified="2023-09-16T18:33:22.271+02:00">
                     <assignee/>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Draft</status>
                     <title>DAO write to file</title>
                 </task>
                 <task created="2023-09-16T18:33:37.129+02:00" id="33f65394" lastModified="2023-09-16T18:33:37.129+02:00">
                     <assignee/>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Draft</status>
                     <title>DAO read file</title>
                 </task>
@@ -250,6 +264,7 @@
             <tasks>
                 <task created="2023-09-16T10:25:27.195+02:00" id="89de3318" lastModified="2023-09-16T10:25:27.195+02:00">
                     <assignee memberRefId="edb1d233"/>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Complete</status>
                     <title>Dodaj komentarje na requirement</title>
                 </task>
@@ -296,21 +311,25 @@
             <tasks>
                 <task created="2023-09-16T10:25:27.195+02:00" id="452676c1" lastModified="2023-09-16T10:25:27.195+02:00">
                     <assignee memberRefId="edb1d233"/>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Complete</status>
                     <title>Implement</title>
                 </task>
                 <task created="2023-11-24T00:55:02.533+01:00" id="aa2644fa" lastModified="2023-11-24T00:55:12.481+01:00">
                     <assignee memberRefId="6234a6a3"/>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>In progress</status>
                     <title>Dodaj status rejected</title>
                 </task>
                 <task created="2023-12-01T00:37:14.793+01:00" id="46502937" lastModified="2023-12-01T00:37:18.685+01:00">
                     <assignee memberRefId="03a1fdd1"/>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Complete</status>
                     <title>Dodeljevanje taskov članom teama</title>
                 </task>
                 <task created="2023-12-04T21:48:52.291+01:00" id="9660f152" lastModified="2023-12-04T21:49:00.041+01:00">
                     <assignee memberRefId="edb1d233"/>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Complete</status>
                     <title>Gumb za avtomatično kreiranje taskov (analiza, implementacija, dokumentacija)</title>
                 </task>
@@ -348,6 +367,7 @@
             <tasks>
                 <task created="2023-09-16T18:15:47.503+02:00" id="a2a6b0ef" lastModified="2023-09-16T18:15:47.503+02:00">
                     <assignee memberRefId="80669f04"/>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Draft</status>
                     <title>Model releasov</title>
                 </task>
@@ -374,16 +394,19 @@
             <tasks>
                 <task created="2023-09-16T18:25:58.250+02:00" id="03e8700a" lastModified="2023-09-16T18:25:58.250+02:00">
                     <assignee/>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Draft</status>
                     <title>Analyze which PF component to use</title>
                 </task>
                 <task created="2023-09-16T18:26:11.961+02:00" id="6731dfab" lastModified="2023-09-16T18:26:11.961+02:00">
                     <assignee/>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Draft</status>
                     <title>Implement model</title>
                 </task>
                 <task created="2023-09-16T18:26:26.485+02:00" id="bd3a53b6" lastModified="2023-09-16T18:26:26.485+02:00">
                     <assignee/>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Draft</status>
                     <title>Page view</title>
                 </task>
@@ -410,16 +433,19 @@
             <tasks>
                 <task created="2023-09-16T18:30:45.259+02:00" id="829b05b0" lastModified="2023-12-01T00:51:27.405+01:00">
                     <assignee memberRefId="03a1fdd1"/>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Complete</status>
                     <title>Model sestankov</title>
                 </task>
                 <task created="2023-09-16T18:30:56.117+02:00" id="3ec270c7" lastModified="2023-12-01T00:51:38.075+01:00">
                     <assignee memberRefId="80669f04"/>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Complete</status>
                     <title>Zapisnik sestanka</title>
                 </task>
                 <task created="2023-09-16T18:31:08.039+02:00" id="cb6e1840" lastModified="2023-09-16T18:31:08.039+02:00">
                     <assignee/>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Draft</status>
                     <title>Koledar</title>
                 </task>
@@ -446,6 +472,7 @@
             <tasks>
                 <task created="2023-09-16T18:13:29.493+02:00" id="e8d47751" lastModified="2023-09-16T18:13:29.493+02:00">
                     <assignee/>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Complete</status>
                     <title>Implementacija</title>
                 </task>
@@ -471,6 +498,7 @@
             <tasks>
                 <task created="2023-09-16T10:25:27.195+02:00" id="7c51a837" lastModified="2023-09-16T10:25:27.195+02:00">
                     <assignee/>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Complete</status>
                     <title>Dodaj growl</title>
                 </task>
@@ -497,32 +525,38 @@
             <tasks>
                 <task created="2023-09-16T10:25:27.195+02:00" id="01f2a8ac" lastModified="2023-09-16T10:25:27.195+02:00">
                     <assignee/>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Complete</status>
                     <title>Model tagov</title>
                 </task>
                 <task created="2023-09-16T10:25:27.195+02:00" id="fc711f80" lastModified="2023-09-16T10:25:27.195+02:00">
                     <assignee/>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Complete</status>
                     <title>Izbira barve</title>
                 </task>
                 <task created="2023-09-16T10:25:27.195+02:00" id="9e76ff6e" lastModified="2023-09-16T10:25:27.195+02:00">
                     <assignee/>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Complete</status>
                     <title>Spreminjanje barve</title>
                 </task>
                 <task created="2023-09-16T10:25:27.195+02:00" id="1a425d90" lastModified="2023-09-16T10:25:27.195+02:00">
                     <assignee/>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Complete</status>
                     <title>Dialog za kreiranje tagov</title>
                 </task>
                 <task created="2023-09-16T10:25:27.195+02:00" id="37214a4b" lastModified="2023-09-16T10:25:27.195+02:00">
                     <assignee/>
                     <description>&lt;p&gt;Brisanje tag definitionov in iz requirementsov.&lt;/p&gt;</description>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Complete</status>
                     <title>Brisanje tagov</title>
                 </task>
                 <task created="2024-05-27T20:06:25.581+02:00" id="d8eff7a3" lastModified="2024-05-27T20:06:25.581+02:00">
                     <assignee/>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Draft</status>
                     <title>Zmanjšaj tage, ker so preveliki</title>
                 </task>
@@ -530,12 +564,12 @@
             <title>Tags (labels)</title>
             <verified>false</verified>
         </requirement>
-        <requirement created="2023-09-11T21:14:06.486+02:00" id="65e76145" lastModified="2024-05-27T20:07:22.310+02:00">
+        <requirement created="2023-09-11T21:14:06.486+02:00" id="65e76145" lastModified="2024-08-31T12:53:26.099+02:00">
             <comments>
                 <comment created="2023-09-11T21:14:23.360+02:00" id="691d29aa" lastModified="2023-09-11T21:14:23.360+02:00">kk</comment>
             </comments>
             <description>&lt;p&gt;Iskanje zahtev po:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;imenu&lt;/li&gt;&lt;li&gt;vsebini&lt;/li&gt;&lt;li&gt;grupi&lt;/li&gt;&lt;li&gt;tagu (kombinacije AND, OR)&lt;/li&gt;&lt;li&gt;text (name, content, comment, issue, task name, task content)&lt;/li&gt;&lt;/ul&gt;</description>
-            <group>undefined</group>
+            <group>searching</group>
             <issues>
                 <issue created="2023-11-20T22:21:27.513+01:00" id="2ef93a73">
                     <problem>A je to lahko search funkcija?</problem>
@@ -561,13 +595,21 @@
             <tasks>
                 <task created="2023-09-11T21:14:29.198+02:00" id="752323e5" lastModified="2023-12-01T01:04:46.174+01:00">
                     <assignee memberRefId="80669f04"/>
+                    <estimatedEffort>24</estimatedEffort>
                     <status>Complete</status>
                     <title>Implement</title>
                 </task>
                 <task created="2024-05-27T20:07:22.310+02:00" id="5717d208" lastModified="2024-05-27T20:07:22.310+02:00">
                     <assignee/>
+                    <estimatedEffort>40</estimatedEffort>
                     <status>Draft</status>
                     <title>Iskanje po več tagih (AND in OR)</title>
+                </task>
+                <task created="2024-08-31T12:53:26.099+02:00" id="58da22ef">
+                    <assignee/>
+                    <estimatedEffort>4</estimatedEffort>
+                    <status>Draft</status>
+                    <title>Iskanje po prioriteti</title>
                 </task>
             </tasks>
             <title>Search</title>
@@ -592,16 +634,19 @@
             <tasks>
                 <task created="2023-09-16T18:27:27.787+02:00" id="16f5f277" lastModified="2023-09-29T21:35:17.675+02:00">
                     <assignee memberRefId="540e9ef5"/>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Complete</status>
                     <title>Add timestamps</title>
                 </task>
                 <task created="2023-09-16T18:27:44.761+02:00" id="5ce75b53" lastModified="2023-09-16T18:27:44.761+02:00">
                     <assignee/>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Draft</status>
                     <title>Milestones</title>
                 </task>
                 <task created="2023-09-16T18:28:06.031+02:00" id="1477f2b7" lastModified="2023-09-16T18:28:06.031+02:00">
                     <assignee/>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Draft</status>
                     <title>Checkboxes</title>
                 </task>
@@ -628,16 +673,19 @@
             <tasks>
                 <task created="2023-09-16T18:23:30.238+02:00" id="71b8f72c" lastModified="2023-09-16T18:23:30.238+02:00">
                     <assignee/>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Complete</status>
                     <title>Issues model</title>
                 </task>
                 <task created="2023-09-16T18:23:46.193+02:00" id="7d1a1987" lastModified="2023-09-16T18:23:46.193+02:00">
                     <assignee/>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Complete</status>
                     <title>Issues page</title>
                 </task>
                 <task created="2023-09-16T18:24:16.643+02:00" id="f9edca44" lastModified="2023-09-16T18:24:16.643+02:00">
                     <assignee/>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Complete</status>
                     <title>Issues modify and resolve</title>
                 </task>
@@ -664,27 +712,32 @@
             <tasks>
                 <task created="2023-09-17T22:51:08.488+02:00" id="bc014a93" lastModified="2023-09-17T22:51:08.488+02:00">
                     <assignee memberRefId="edb1d233"/>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Complete</status>
                     <title>Statistics page</title>
                 </task>
                 <task created="2023-09-17T22:51:26.079+02:00" id="0180fdc5" lastModified="2023-09-17T22:51:26.079+02:00">
                     <assignee/>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Complete</status>
                     <title>Barchart za statuse taskov</title>
                 </task>
                 <task created="2024-05-27T20:13:27.806+02:00" id="a020769f" lastModified="2024-05-27T20:13:27.806+02:00">
                     <assignee/>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Draft</status>
                     <title>Sortiraj zahteve po tagih</title>
                 </task>
                 <task created="2024-05-27T21:49:07.749+02:00" id="775ce3a1" lastModified="2024-05-27T21:49:07.749+02:00">
                     <assignee/>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Draft</status>
                     <title>Procent verified</title>
                 </task>
                 <task created="2024-05-27T23:11:38.695+02:00" id="620d9bd9" lastModified="2024-05-27T23:12:28.025+02:00">
                     <assignee/>
                     <description>&lt;p&gt;Tabela s kolonami: total, verified, percentage done&lt;/p&gt;</description>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Draft</status>
                     <title>Statistika by group</title>
                 </task>
@@ -721,12 +774,14 @@
                 <task created="2023-09-17T23:52:40.633+02:00" id="b47233a2" lastModified="2023-11-20T22:20:21.345+01:00">
                     <assignee memberRefId="03a1fdd1"/>
                     <description>&lt;p&gt;Potrebno filtrirati issue glede na &lt;span class="ql-font-monospace"&gt;resolve&lt;/span&gt; status.&lt;/p&gt;</description>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Complete</status>
                     <title>Na projektu se tudi za resolvane issue prikaže trikotnik</title>
                 </task>
                 <task created="2023-11-22T02:00:24.665+01:00" id="647ce42a" lastModified="2023-12-01T00:54:21.431+01:00">
                     <assignee memberRefId="80669f04"/>
                     <description>&lt;p&gt;Če vpišeš solution, potem se pa posodobi lastModified. To je čudno, ker se pri resolve kljukici kliče ista metoda.&lt;/p&gt;</description>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>In progress</status>
                     <title>Ko je issue resolvan, se ne posodobi lastModified na zahtevi</title>
                 </task>
@@ -754,16 +809,19 @@
             <tasks>
                 <task created="2023-09-21T01:37:41.937+02:00" id="7d2f2de7" lastModified="2023-09-21T01:37:41.937+02:00">
                     <assignee/>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Draft</status>
                     <title>GUI - gumb</title>
                 </task>
                 <task created="2023-09-21T01:37:54.524+02:00" id="c0f7f5cf" lastModified="2023-09-21T01:37:54.524+02:00">
                     <assignee/>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Draft</status>
                     <title>Backup logika</title>
                 </task>
                 <task created="2023-11-16T23:49:30.608+01:00" id="0c71cf7a" lastModified="2023-11-16T23:49:30.608+01:00">
                     <assignee/>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Draft</status>
                     <title>Avtomatski periodični backup</title>
                 </task>
@@ -789,12 +847,14 @@
             <tasks>
                 <task created="2023-09-21T01:43:34.554+02:00" id="c35ff73a" lastModified="2023-09-21T01:43:39.588+02:00">
                     <assignee/>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Complete</status>
                     <title>Dodaj potrditev pred izbrisom</title>
                 </task>
                 <task created="2023-11-16T23:45:15.048+01:00" id="30486b9e" lastModified="2023-11-16T23:45:34.726+01:00">
                     <assignee memberRefId="03a1fdd1"/>
                     <description>&lt;p&gt;Skoči na naslednjo / prejšnjo zahtevo.&lt;/p&gt;</description>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Draft</status>
                     <title>Dodaj gumba Next in Previous</title>
                 </task>
@@ -821,6 +881,7 @@
             <tasks>
                 <task created="2023-11-20T22:15:31.754+01:00" id="ad33d5fe" lastModified="2023-11-20T22:15:38.054+01:00">
                     <assignee memberRefId="6f5a68f1"/>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Complete</status>
                     <title>Podpora za avtomatsko shranjevanje</title>
                 </task>
@@ -849,6 +910,7 @@
             <tasks>
                 <task created="2023-11-16T23:30:10.530+01:00" id="9b0bb1ed" lastModified="2023-11-16T23:30:10.530+01:00">
                     <assignee memberRefId="6f5a68f1"/>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Draft</status>
                     <title>Shranjevanje v xml</title>
                 </task>
@@ -875,6 +937,7 @@
             <tasks>
                 <task created="2023-12-01T00:49:06.753+01:00" id="3f8629f8" lastModified="2023-12-01T00:49:10.293+01:00">
                     <assignee memberRefId="6234a6a3"/>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Complete</status>
                     <title>Implementirati</title>
                 </task>
@@ -902,6 +965,7 @@
             <tasks>
                 <task created="2023-12-01T00:48:38.620+01:00" id="56da26aa" lastModified="2023-12-01T00:48:44.597+01:00">
                     <assignee memberRefId="80669f04"/>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Complete</status>
                     <title>Implementirati</title>
                 </task>
@@ -928,16 +992,19 @@
             <tasks>
                 <task created="2024-02-17T01:24:32.320+01:00" id="b987b2f9" lastModified="2024-02-17T01:24:55.549+01:00">
                     <assignee memberRefId="03a1fdd1"/>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Complete</status>
                     <title>Projects view implementation</title>
                 </task>
                 <task created="2024-02-17T01:24:50.573+01:00" id="d4fb8b03" lastModified="2024-02-17T01:25:02.983+01:00">
                     <assignee memberRefId="80669f04"/>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Complete</status>
                     <title>Add progress bar</title>
                 </task>
                 <task created="2024-02-17T01:26:28.703+01:00" id="2708f731" lastModified="2024-03-26T23:32:58.669+01:00">
                     <assignee memberRefId="6f5a68f1"/>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Complete</status>
                     <title>Implement sorting (radio buttons)</title>
                 </task>
@@ -986,11 +1053,13 @@
             <tasks>
                 <task created="2024-04-18T22:29:03.137+02:00" id="b77eec57" lastModified="2024-04-21T00:32:30.552+02:00">
                     <assignee memberRefId="6234a6a3"/>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Complete</status>
                     <title>Označi projekt kot Favorite (značka)</title>
                 </task>
                 <task created="2024-04-18T22:29:43.948+02:00" id="6f839e1d" lastModified="2024-04-21T00:32:39.269+02:00">
                     <assignee memberRefId="540e9ef5"/>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Complete</status>
                     <title>Dodaj linke na vrhu okna</title>
                 </task>
@@ -1017,6 +1086,7 @@
             <tasks>
                 <task created="2024-02-22T01:05:47.749+01:00" id="ea48b081" lastModified="2024-02-22T01:05:51.422+01:00">
                     <assignee memberRefId="edb1d233"/>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Complete</status>
                     <title>Implement task</title>
                 </task>
@@ -1061,6 +1131,7 @@
             <tasks>
                 <task created="2024-02-22T01:08:52.550+01:00" id="4ba7874e" lastModified="2024-02-22T01:08:55.772+01:00">
                     <assignee memberRefId="6f5a68f1"/>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Complete</status>
                     <title>Implement task</title>
                 </task>
@@ -1104,16 +1175,19 @@
             <tasks>
                 <task created="2024-03-24T22:01:13.765+01:00" id="9e290e29" lastModified="2024-04-18T22:43:12.348+02:00">
                     <assignee memberRefId="03a1fdd1"/>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Complete</status>
                     <title>Checkbox na zahtevi</title>
                 </task>
                 <task created="2024-04-18T22:21:55.747+02:00" id="a0d1924b" lastModified="2024-04-18T22:21:55.747+02:00">
                     <assignee/>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Draft</status>
                     <title>Skrij obsolete zahteve - gumb on/off</title>
                 </task>
                 <task created="2024-04-18T22:22:18.603+02:00" id="95624087" lastModified="2024-04-28T11:24:05.708+02:00">
                     <assignee/>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>In progress</status>
                     <title>Obsolete zahtev ne upoštevaj v statistiki</title>
                 </task>
@@ -1140,6 +1214,7 @@
             <tasks>
                 <task created="2024-03-24T22:01:34.102+01:00" id="e65c2804" lastModified="2024-03-26T00:25:49.940+01:00">
                     <assignee memberRefId="6f5a68f1"/>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Complete</status>
                     <title>Implement task</title>
                 </task>
@@ -1172,16 +1247,19 @@
             <tasks>
                 <task created="2024-04-09T23:12:21.185+02:00" id="9e6c3b45" lastModified="2024-04-09T23:12:21.185+02:00">
                     <assignee/>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Draft</status>
                     <title>Analyze task</title>
                 </task>
                 <task created="2024-04-09T23:12:22.184+02:00" id="195664dd" lastModified="2024-04-09T23:12:22.184+02:00">
                     <assignee/>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Draft</status>
                     <title>Implement task</title>
                 </task>
                 <task created="2024-04-09T23:12:23.152+02:00" id="a70274e1" lastModified="2024-04-09T23:12:23.152+02:00">
                     <assignee/>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Draft</status>
                     <title>Document task</title>
                 </task>
@@ -1208,41 +1286,49 @@
             <tasks>
                 <task created="2024-04-14T21:07:29.855+02:00" id="419f7fc6" lastModified="2024-04-14T21:08:23.285+02:00">
                     <assignee memberRefId="6f5a68f1"/>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Complete</status>
                     <title>Issues icon</title>
                 </task>
                 <task created="2024-04-14T21:07:37.704+02:00" id="ea807356" lastModified="2024-04-14T21:08:32.087+02:00">
                     <assignee memberRefId="edb1d233"/>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Complete</status>
                     <title>Fade-out star</title>
                 </task>
                 <task created="2024-04-14T21:07:46.222+02:00" id="ebf5f539" lastModified="2024-04-14T21:08:45.340+02:00">
                     <assignee memberRefId="80669f04"/>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Complete</status>
                     <title>Obsolete icon</title>
                 </task>
                 <task created="2024-04-14T21:07:54.375+02:00" id="17affb2f" lastModified="2024-04-14T21:08:57.538+02:00">
                     <assignee memberRefId="6234a6a3"/>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Complete</status>
                     <title>Verified icon</title>
                 </task>
                 <task created="2024-04-14T21:08:01.843+02:00" id="def8b359" lastModified="2024-04-14T21:08:01.843+02:00">
                     <assignee/>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Draft</status>
                     <title>Important icon</title>
                 </task>
                 <task created="2024-04-14T21:08:10.813+02:00" id="a5610e5b" lastModified="2024-04-18T22:38:37.075+02:00">
                     <assignee memberRefId="80669f04"/>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Complete</status>
                     <title>Waiting tasks icon</title>
                 </task>
                 <task created="2024-04-14T21:08:19.098+02:00" id="b7b5c542" lastModified="2024-04-14T21:08:19.098+02:00">
                     <assignee memberRefId="6f5a68f1"/>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Draft</status>
                     <title>Clarify tasks icon</title>
                 </task>
                 <task created="2024-04-18T22:39:06.978+02:00" id="8509e86f" lastModified="2024-04-18T22:39:12.535+02:00">
                     <assignee memberRefId="540e9ef5"/>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>In progress</status>
                     <title>Verified icon se resetira, če narediš nov task</title>
                 </task>
@@ -1312,16 +1398,19 @@
             <tasks>
                 <task created="2024-05-27T20:13:51.444+02:00" id="dba64662" lastModified="2024-05-27T20:13:51.444+02:00">
                     <assignee/>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Draft</status>
                     <title>Search meetings</title>
                 </task>
                 <task created="2024-05-27T20:14:06.746+02:00" id="18bcf76c" lastModified="2024-05-27T20:14:06.746+02:00">
                     <assignee/>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Draft</status>
                     <title>Search requirements</title>
                 </task>
                 <task created="2024-05-27T20:14:14.781+02:00" id="0f978776" lastModified="2024-05-27T20:14:14.781+02:00">
                     <assignee/>
+                    <estimatedEffort>0</estimatedEffort>
                     <status>Draft</status>
                     <title>Search tasks</title>
                 </task>
@@ -1345,6 +1434,23 @@
             <tags/>
             <tasks/>
             <title>Knowledge base</title>
+            <verified>false</verified>
+        </requirement>
+        <requirement created="2024-08-31T12:56:11.058+02:00" id="3a16fa13" lastModified="2024-08-31T12:56:11.059+02:00">
+            <comments/>
+            <group>undefined</group>
+            <issues/>
+            <itcmLink>
+                <href>-</href>
+            </itcmLink>
+            <obsolete>false</obsolete>
+            <priority>P3</priority>
+            <rrcLink>
+                <href>-</href>
+            </rrcLink>
+            <tags/>
+            <tasks/>
+            <title>Problems</title>
             <verified>false</verified>
         </requirement>
     </requirements>

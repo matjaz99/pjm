@@ -17,6 +17,7 @@ public class Task implements Serializable {
     private Assignee assignee = new Assignee();
     private XMLGregorianCalendar created;
     private XMLGregorianCalendar lastModified;
+    private int estimatedEffort;
 
     public String getId() {
         return id;
@@ -83,5 +84,14 @@ public class Task implements Serializable {
     @XmlAttribute(name = "lastModified")
     public void setLastModified(XMLGregorianCalendar lastModified) {
         this.lastModified = lastModified;
+    }
+
+    public int getEstimatedEffort() {
+        return estimatedEffort;
+    }
+
+    @XmlElement(name = "estimatedEffort")
+    public void setEstimatedEffort(int estimatedEffort) {
+        this.estimatedEffort = estimatedEffort;
     }
 }
