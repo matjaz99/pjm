@@ -23,6 +23,7 @@
 					<p:inplace editor="true" style="font-weight: bold; font-size: 24px;">
 						<p:inputText value="#{uiRequirementBean.requirementTitle}" required="true" label="text" size="60"/>
 					</p:inplace>
+					<p:outputLabel value="(∑: #{uiRequirementBean.requirement.getRequirementTotalEstimatedEffort()} MH)" />
 				</p:outputPanel>
 				<p:outputLabel value="[#{uiRequirementBean.requirement.group}]"/>
 			</h:form>

@@ -245,4 +245,16 @@ public class Requirement implements Serializable {
         if (age < factors[3]) return "#E6F0FF ";
         return "white";
     }
+
+    /**
+     * Sum of all efforts on tasks.
+     * @return cumulative effort
+     */
+    public int getRequirementTotalEstimatedEffort() {
+        int sum = 0;
+        for (Task t : tasks.getList()) {
+            sum = sum + t.getEstimatedEffort();
+        }
+        return sum;
+    }
 }

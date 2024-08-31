@@ -15,79 +15,101 @@
 				<p:menuitem value="Project plan"/>
 			</p:breadCrumb>
 
-			<p:outputLabel value="Project plan" style="font-weight: bold; font-size: 24px;"/>
+			<p:outputLabel value="Project plan" class="boldtext" style="font-size: 2rem;"/>
 
 			<h:form id="projectData">
 
-				<h:panelGroup layout="block">
-					<p:panelGrid columns="3">
-
-						<p:outputLabel value="Project name: " class="boldtext"/>
-						<p:outputLabel value="#{uiPlanningBean.project.name}" />
-						<p:link value="Requirements summary" outcome="/project/summary">
-							<f:param name="projectId" value="#{uiPlanningBean.project.id}" />
-						</p:link>
-
-						<p:outputLabel value="Project filepath: " class="boldtext"/>
-						<p:outputLabel value="#{uiPlanningBean.project.projectPath}" />
-						<p:link outcome="members" value="Project team">
-							<f:param name="projectId" value="#{uiPlanningBean.project.id}"/>
-						</p:link>
-
-						<p:outputLabel value="Project created: " class="boldtext"/>
-						<p:outputLabel value="#{uiPlanningBean.project.created}" />
-						<p:outputLabel value="" />
-
-						<p:outputLabel for="startedDate" value="Project start: " />
-						<p:datePicker id="startedDate" value="#{uiPlanningBean.startedDate}" >
-							<p:ajax event="dateSelect"	listener="#{uiPlanningBean.onStartedDateSelect}" update="projectData" />
-						</p:datePicker>
-						<p:outputLabel value="" />
-
-						<p:outputLabel for="plannedEndDate" value="Planned end: " />
-						<p:datePicker id="plannedEndDate" value="#{uiPlanningBean.plannedEndDate}" >
-							<p:ajax event="dateSelect"	listener="#{uiPlanningBean.onPlannedEndDateSelect}" update="projectData" />
-						</p:datePicker>
-						<p:outputLabel value="" />
-
-						<p:outputLabel for="expectedEndDate" value="Expected end: " />
-						<p:datePicker id="expectedEndDate" value="#{uiPlanningBean.expectedEndDate}" >
-							<p:ajax event="dateSelect"	listener="#{uiPlanningBean.onExpectedEndDateSelect}" update="projectData" />
-						</p:datePicker>
-						<p:outputLabel value="" />
-
-						<p:outputLabel value="State: " class="boldtext"/>
-						<p:selectOneMenu id="projectStateMenu" value="#{uiPlanningBean.project.state}"
-										 dynamic="true">
-							<f:selectItem itemLabel="Planning" itemValue="Planning"/>
-							<f:selectItem itemLabel="On-hold" itemValue="On-hold"/>
-							<f:selectItem itemLabel="Active" itemValue="Active"/>
-							<f:selectItem itemLabel="Completed" itemValue="Completed"/>
-							<f:selectItem itemLabel="Hidden" itemValue="Hidden"/>
-							<p:ajax event="valueChange" listener="#{uiPlanningBean.projectStateChangeEvent()}" update="growl, projectStateMenu"/>
-						</p:selectOneMenu>
-						<p:outputLabel value="" />
-
-						<p:outputLabel value="Favorite project: " class="boldtext"/>
-						<p:selectBooleanCheckbox value="#{uiPlanningBean.project.favorite}" itemLabel="Is favorite">
-							<p:ajax update="growl" listener="#{uiPlanningBean.favoriteChangeEvent()}"/>
-						</p:selectBooleanCheckbox>
-
-					</p:panelGrid>
-				</h:panelGroup>
+				<p:outputLabel value="Project name: " class="boldtext"/>
+				<p:outputLabel value="#{uiPlanningBean.project.name}" />
+				<br/>
+				<p:outputLabel value="Project filepath: " class="boldtext"/>
+				<p:outputLabel value="#{uiPlanningBean.project.projectPath}" />
+				<br/>
+				<p:outputLabel value="Project file created: " class="boldtext"/>
+				<p:outputLabel value="#{uiPlanningBean.project.created}" />
+				<br/>
+				<p:outputLabel value="Favorite project: " class="boldtext"/>
+				<p:selectBooleanCheckbox value="#{uiPlanningBean.project.favorite}" itemLabel="Is favorite">
+					<p:ajax update="growl" listener="#{uiPlanningBean.favoriteChangeEvent()}"/>
+				</p:selectBooleanCheckbox>
+				<br/>
+				<p:outputLabel value="State: " class="boldtext"/>
+				<p:selectOneMenu id="projectStateMenu" value="#{uiPlanningBean.project.state}" dynamic="true">
+					<f:selectItem itemLabel="Planning" itemValue="Planning"/>
+					<f:selectItem itemLabel="On-hold" itemValue="On-hold"/>
+					<f:selectItem itemLabel="Active" itemValue="Active"/>
+					<f:selectItem itemLabel="Completed" itemValue="Completed"/>
+					<f:selectItem itemLabel="Hidden" itemValue="Hidden"/>
+					<p:ajax event="valueChange" listener="#{uiPlanningBean.projectStateChangeEvent()}" update="growl, projectStateMenu"/>
+				</p:selectOneMenu>
 
 				<br/>
+				<br/>
+				<p:outputLabel value="Milestones" class="boldtext" style="font-size: 1.5rem;"/>
+				<br/>
+				<p:panelGrid columns="3">
+					<p:panel header="Project start">
+						<p:inplace editor="true">
+							<p:datePicker value="#{uiPlanningBean.startedDate}" >
+								<p:ajax event="dateSelect"	listener="#{uiPlanningBean.onStartedDateSelect}" update="projectData" />
+							</p:datePicker>
+						</p:inplace>
+					</p:panel>
+					<p:panel header="Planned end">
+						<p:inplace editor="true">
+							<p:datePicker value="#{uiPlanningBean.plannedEndDate}" >
+								<p:ajax event="dateSelect"	listener="#{uiPlanningBean.onPlannedEndDateSelect}" update="projectData" />
+							</p:datePicker>
+						</p:inplace>
+					</p:panel>
+					<p:panel header="Expected end">
+						<p:inplace editor="true">
+							<p:datePicker value="#{uiPlanningBean.expectedEndDate}" >
+								<p:ajax event="dateSelect"	listener="#{uiPlanningBean.onExpectedEndDateSelect}" update="projectData" />
+							</p:datePicker>
+						</p:inplace>
+					</p:panel>
+				</p:panelGrid>
+
+				<br/><br/>
+				<p:outputLabel value="Efforts" class="boldtext" style="font-size: 1.5rem;"/>
+				<br/>
+				<p:panelGrid columns="3">
+					<p:panel header="Planned effort (MH)">
+						<p:inplace editor="true">
+							<p:inputText value="#{uiPlanningBean.project.plannedEffort}" label="text" size="10"/>
+							<p:ajax event="save" listener="#{uiPlanningBean.saveProjectModifications('Planned effort updated')}" update="projectData, growl" />
+						</p:inplace>
+					</p:panel>
+					<p:panel header="Estimated effort (MH)">
+						<p:outputLabel value="#{uiPlanningBean.project.getTotalEstimatedEffort()}" />
+					</p:panel>
+					<p:panel header="Comment">
+						<p:outputLabel value="#{(uiPlanningBean.project.plannedEffort > uiPlanningBean.project.getTotalEstimatedEffort() ? 'Project is overplanned' : 'Project is underplanned')}"/>
+					</p:panel>
+				</p:panelGrid>
+
+				<br/>
+				<br/>
+
 
 				<ui:include src="/templates/planning_checklist.xhtml" />
 
 
 			</h:form>
 
+			<br/>
+			<p:link value="Requirements summary" outcome="/project/summary">
+				<f:param name="projectId" value="#{uiPlanningBean.project.id}" />
+			</p:link>
+			<br/>
+			<p:link outcome="members" value="Project team">
+				<f:param name="projectId" value="#{uiPlanningBean.project.id}"/>
+			</p:link>
 
 
 			<br/>
-			<hr/>
-			<p:outputLabel value="Notes" style="font-weight: bold; font-size: 24px;"/>
+			<p:outputLabel value="Project notes" class="boldtext" style="font-size: 1.5rem;"/>
 
 			<h:form id="editorForm">
 

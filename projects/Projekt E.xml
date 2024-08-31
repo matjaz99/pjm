@@ -153,33 +153,33 @@
                 </task>
                 <task created="2023-09-16T18:46:21.250+02:00" id="3e9d1689" lastModified="2023-09-16T18:46:21.250+02:00">
                     <assignee memberRefId="edb1d233"/>
-                    <estimatedEffort>0</estimatedEffort>
+                    <estimatedEffort>2</estimatedEffort>
                     <status>Complete</status>
                     <title>Pripenjanje issuev</title>
                 </task>
                 <task created="2023-09-16T18:46:29.259+02:00" id="dbe74d9e" lastModified="2023-09-16T18:46:29.259+02:00">
                     <assignee memberRefId="540e9ef5"/>
-                    <estimatedEffort>0</estimatedEffort>
+                    <estimatedEffort>4</estimatedEffort>
                     <status>Complete</status>
                     <title>Dodajanje komentarjev</title>
                 </task>
                 <task created="2023-09-16T18:46:39.260+02:00" id="f257f63a" lastModified="2023-09-16T18:46:39.260+02:00">
                     <assignee memberRefId="540e9ef5"/>
-                    <estimatedEffort>0</estimatedEffort>
+                    <estimatedEffort>2</estimatedEffort>
                     <status>Complete</status>
                     <title>Dodajanje taskov</title>
                 </task>
                 <task created="2023-09-18T00:17:44.496+02:00" id="dc7f088f" lastModified="2023-11-16T22:28:56.805+01:00">
                     <assignee memberRefId="03a1fdd1"/>
                     <description>&lt;p&gt;Toggle between edit mode and normal output.&lt;/p&gt;</description>
-                    <estimatedEffort>0</estimatedEffort>
+                    <estimatedEffort>1</estimatedEffort>
                     <status>Complete</status>
                     <title>Edit description</title>
                 </task>
                 <task created="2023-11-24T01:12:25.174+01:00" id="c4e8763b" lastModified="2024-04-12T00:04:13.825+02:00">
                     <assignee memberRefId="6234a6a3"/>
                     <description>&lt;p&gt;Glej &amp;#39;Verified&amp;#39; zahtevo&lt;/p&gt;</description>
-                    <estimatedEffort>0</estimatedEffort>
+                    <estimatedEffort>1</estimatedEffort>
                     <status>Complete</status>
                     <title>Dodaj approved (stestirano)</title>
                 </task>
@@ -605,7 +605,7 @@
                     <status>Draft</status>
                     <title>Iskanje po več tagih (AND in OR)</title>
                 </task>
-                <task created="2024-08-31T12:53:26.099+02:00" id="58da22ef">
+                <task created="2024-08-31T12:53:26.099+02:00" id="58da22ef" lastModified="2024-08-31T12:53:26.099+02:00">
                     <assignee/>
                     <estimatedEffort>4</estimatedEffort>
                     <status>Draft</status>

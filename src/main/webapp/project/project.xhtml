@@ -101,7 +101,7 @@
 					</p:column>
 					<p:column headerText="Progress">
 						<p:progressBar value="#{uiProjectBean.calculateProgressOnRequirement(req.id)}" labelTemplate="{value}%" displayOnly="true"/>
-						<p:outputLabel value="Tasks: #{req.tasks.list.size()}, Prio: #{req.priority}"/>
+						<p:outputLabel value="Tasks: #{req.tasks.list.size()}, Prio: #{req.priority}, ∑: #{req.getRequirementTotalEstimatedEffort()} MH" style="font-size: 0.8em;"/>
 					</p:column>
 					<p:column headerText="Action">
 						<p:link href="#{req.itcmLink.href}"

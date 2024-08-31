@@ -46,6 +46,7 @@ public class Project implements Serializable {
     private Meetings meetingHistory = new Meetings();
     private Map<String, Alarm> activeAlarms = new HashMap<>();
     private LinkedList<HistoryItem> historyItems = new LinkedList<>();
+    private int plannedEffort;
 
     public String getId() {
         return id;
@@ -207,6 +208,15 @@ public class Project implements Serializable {
         this.planningChecklist = planningChecklist;
     }
 
+    public int getPlannedEffort() {
+        return plannedEffort;
+    }
+
+    @XmlElement(name = "plannedEffort")
+    public void setPlannedEffort(int plannedEffort) {
+        this.plannedEffort = plannedEffort;
+    }
+
     public Meetings getMeetingTemplates() {
         return meetingTemplates;
     }
@@ -347,6 +357,14 @@ public class Project implements Serializable {
             }
         }
         return (int) complete * 100 / all;
+    }
+
+    public int getTotalEstimatedEffort() {
+        int sum = 0;
+        for (Requirement r : requirements.getList()) {
+            sum = sum + r.getRequirementTotalEstimatedEffort();
+        }
+        return sum;
     }
 
 
