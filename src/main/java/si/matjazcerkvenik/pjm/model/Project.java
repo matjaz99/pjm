@@ -47,6 +47,7 @@ public class Project implements Serializable {
     private Map<String, Alarm> activeAlarms = new HashMap<>();
     private LinkedList<HistoryItem> historyItems = new LinkedList<>();
     private int plannedEffort;
+    private Problems problems = new Problems();
 
     public String getId() {
         return id;
@@ -215,6 +216,25 @@ public class Project implements Serializable {
     @XmlElement(name = "plannedEffort")
     public void setPlannedEffort(int plannedEffort) {
         this.plannedEffort = plannedEffort;
+    }
+
+    public Problems getProblems() {
+        return problems;
+    }
+
+    @XmlElement(name = "problems")
+    public void setProblems(Problems problems) {
+        this.problems = problems;
+    }
+
+    public void addNewProblem(Problem problem) {
+        problems.addNewProblem(problem);
+    }
+
+    public List<Problem> getUnsolvedProblems() {
+        return problems.getList().stream()
+                .filter(p -> !p.isSolved())
+                .collect(Collectors.toList());
     }
 
     public Meetings getMeetingTemplates() {

@@ -17,9 +17,9 @@
 
 		<p:scrollTop />
 
-		<div id="headerFrame">
-			<ui:include src="/templates/header_links.xhtml"/>
-		</div>
+		<ui:insert name="headerFrame">
+			<ui:include src="/components/header_quick_links.xhtml"/>
+		</ui:insert>
 
 		<div id="contentFrame">
 			<h:panelGrid columns="1" cellpadding="5" cellspacing="0" width="100%">
@@ -29,9 +29,9 @@
 			</h:panelGrid>
 		</div>
 
-		<div id="footerFrame">
-			<ui:include src="/templates/footer.xhtml"/>
-		</div>
+		<ui:insert name="footerFrame">
+			<ui:include src="/components/footer.xhtml"/>
+		</ui:insert>
 
 		<p:confirmDialog global="true" showEffect="fade" hideEffect="fade"
 						 responsive="true" width="350"

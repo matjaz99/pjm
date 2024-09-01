@@ -1,0 +1,78 @@
+<ui:composition template="/templates/pageTemplate.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pjm="http://pjm.io/facelets">
+
+	<div id="contentFrame">
+		<ui:define name="contentFrame">
+
+			<p:breadCrumb>
+				<p:menuitem value="Home" url="/pjm"/>
+				<p:menuitem value="#{uiProblemsBean.project.name}" url="/pjm/project/project.xhtml?projectId=#{uiProblemsBean.project.id}"/>
+				<p:menuitem value="Problems" url="/pjm/project/problems.xhtml?projectId=#{uiProblemsBean.project.id}"/>
+				<p:menuitem value="#{uiProblemsBean.problem.title}" url="/pjm/project/problem.xhtml?projectId=#{uiProblemsBean.project.id}&amp;problemId=#{uiProblemsBean.problem.id}}"/>
+			</p:breadCrumb>
+
+			<h:form id="titleForm">
+				<p:outputPanel id="titlePanel">
+					<p:inplace editor="true" style="font-weight: bold; font-size: 24px;">
+						<p:inputText value="#{uiProblemsBean.problem.title}" required="true" label="text" size="60"/>
+						<p:ajax event="save" listener="#{uiProblemsBean.saveProjectModifications('Problem title updated')}" update="titleForm, growl" />
+					</p:inplace>
+				</p:outputPanel>
+			</h:form>
+
+			<h:form id="editProblemForm">
+				<p:panelGrid columns="3">
+					<p:panel>
+						<p:commandButton value="Save"
+										 action="#{uiProblemsBean.saveProjectModifications('Project saved')}"
+										 update="growl editProblemForm"
+										 icon="pi pi-pencil"
+										 styleClass="ui-button-outlined"/>
+					</p:panel>
+					<p:panel>
+						<p:outputLabel value="Priority: "/>
+						<p:selectOneMenu id="problemPrioMenu" value="#{uiProblemsBean.problem.priority}" dynamic="true">
+							<f:selectItem itemLabel="1" itemValue="1"/>
+							<f:selectItem itemLabel="2" itemValue="2"/>
+							<f:selectItem itemLabel="3" itemValue="3"/>
+							<f:selectItem itemLabel="4" itemValue="4"/>
+							<f:selectItem itemLabel="5" itemValue="5"/>
+							<p:ajax event="valueChange" listener="#{uiProblemsBean.saveProjectModifications('Project saved')}" update="growl, editProblemForm"/>
+						</p:selectOneMenu>
+					</p:panel>
+					<p:panel>
+						<p:outputLabel value="Solved: "/>
+						<p:selectBooleanButton onLabel="Yes" offLabel="No"
+											   value="#{uiProblemsBean.problem.solved}"
+											   onIcon="pi pi-check" offIcon="pi pi-times"
+											   style="width:6rem" >
+							<p:ajax event="valueChange" listener="#{uiProblemsBean.saveProjectModifications('Project saved')}" update="growl" />
+						</p:selectBooleanButton>
+					</p:panel>
+				</p:panelGrid>
+
+				<p:panel id="editProblemPanel">
+					<p:textEditor widgetVar="problemDescriptionEditor"
+								  value="#{uiProblemsBean.problem.description}"
+								  height="300"
+								  placeholder="Your content"
+								  secure="true">
+						<ui:include src="/components/texteditor_facet_toolbar.xhtml" />
+					</p:textEditor>
+				</p:panel>
+
+			</h:form>
+
+
+
+
+		</ui:define>
+	</div>
+
+</ui:composition>
+

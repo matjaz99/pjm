@@ -1,5 +1,10 @@
 # Help
 
+### Efforts
+
+**Planned effort** is what managers think it would take to complete the project.  
+**Estimated effort** is sum of all efforts on tasks, as they are estimated by assignees.
+
 ### Searching
 
 Search for given text (operator contains) in:
@@ -23,6 +28,6 @@ Syntax: `<LABEL>: text`
 
 Examples:
 - `TAG: network` - search all tags containing word network
-- `GROUP: new functionality` - search by group
+- `GROUP: security` - search by group
 - `ASSIGNEE: John` - search by assignee (case sensitive!)
 

@@ -50,6 +50,10 @@
             <url-pattern>/templates/*</url-pattern>
         </web-resource-collection>
         <web-resource-collection>
+            <web-resource-name>The /components folder</web-resource-name>
+            <url-pattern>/components/*</url-pattern>
+        </web-resource-collection>
+        <web-resource-collection>
             <web-resource-name>The /WEB-INF folder</web-resource-name>
             <url-pattern>/WEB-INF/*</url-pattern>
         </web-resource-collection>

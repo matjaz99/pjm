@@ -68,6 +68,7 @@
     </members>
     <name>Projekt E</name>
     <notes>&lt;p&gt;To je ta projekt.&lt;/p&gt;</notes>
+    <plannedEffort>0</plannedEffort>
     <plannedEnd>2023-11-15T00:00:00.000+01:00</plannedEnd>
     <planningChecklist>
         <item checked="false" checkedDate="2024-04-09T23:16:08.630+02:00" name="NPI opened"></item>
@@ -77,14 +78,43 @@
         <item checked="false" name="Effort estimated"></item>
         <item checked="false" name="B100"></item>
     </planningChecklist>
+    <problems>
+        <problem created="2024-09-01T22:19:30.240+02:00" id="6c63ad8a" lastModified="2024-09-01T22:19:30.240+02:00">
+            <description>&lt;p&gt;Pišeš besedilo, pritisneš Save in stran se osveži brez novega teksta. Zelo redko in pod neznanimi okoliščinami, kljub temu, da je bila stran osvežena.&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;</description>
+            <priority>1</priority>
+            <solved>false</solved>
+            <title>Shranjevanje včasih ne deluje</title>
+        </problem>
+        <problem created="2024-09-01T22:30:05.150+02:00" id="1f131c8e" lastModified="2024-09-01T22:30:05.151+02:00">
+            <description>&lt;p&gt;adasdfasdfad&lt;/p&gt;</description>
+            <priority>2</priority>
+            <solved>true</solved>
+            <title>kr neki</title>
+        </problem>
+        <problem created="2024-09-01T22:39:32.835+02:00" id="d51c4e6e" lastModified="2024-09-01T22:39:32.835+02:00">
+            <priority>3</priority>
+            <solved>true</solved>
+            <title>rrrr</title>
+        </problem>
+        <problem created="2024-09-01T23:07:15.892+02:00" id="97328014" lastModified="2024-09-01T23:07:15.892+02:00">
+            <priority>4</priority>
+            <solved>true</solved>
+            <title>fafsd</title>
+        </problem>
+        <problem created="2024-09-01T23:07:39.446+02:00" id="f082b11b" lastModified="2024-09-01T23:07:39.446+02:00">
+            <priority>5</priority>
+            <solved>true</solved>
+            <title>ewwewerer</title>
+        </problem>
+    </problems>
     <projectNotes/>
     <projectStarted>2023-08-01T00:00:00.000+02:00</projectStarted>
     <requirements>
-        <requirement created="2023-09-16T10:25:27.194+02:00" id="REQ-01" lastModified="2024-04-12T00:12:13.722+02:00">
+        <requirement created="2023-09-16T10:25:27.194+02:00" id="REQ-01" lastModified="2024-09-01T22:37:26.035+02:00">
             <comments>
                 <comment id="42bd5e4c" lastModified="2023-08-30T00:25:33.792+02:00">fghfghfgf</comment>
             </comments>
-            <description>&lt;p&gt;Shranjevanje v &lt;span style="color:rgb( 255 , 153 , 0 )"&gt;xml&lt;/span&gt; file. Vsi XML fajli so v direktoriju projects.&lt;/p&gt;&lt;p&gt;Vsaka &lt;span style="color:rgb( 0 , 138 , 0 );background-color:rgb( 255 , 255 , 0 )"&gt;sprememba&lt;/span&gt; se sproti shrani. Xml file se prepiše z novim.&lt;/p&gt;</description>
+            <description>&lt;p&gt;Shranjevanje v &lt;span style="color:rgb( 255 , 153 , 0 )"&gt;xml&lt;/span&gt; file. Vsi XML fajli so v direktoriju projects.&lt;/p&gt;&lt;p&gt;Vsaka &lt;span style="background-color:rgb( 255 , 255 , 0 );color:rgb( 0 , 138 , 0 )"&gt;sprememba&lt;/span&gt; se sproti shrani. Xml file se prepiše z novim.&lt;/p&gt;</description>
             <group>undefined</group>
             <issues>
                 <issue created="2023-09-15T23:35:58.185+02:00" id="e8d128fd">
@@ -93,15 +123,15 @@
                     <solution>bbbbb</solution>
                 </issue>
             </issues>
-            <itcmLink id="fae008ca">
-                <description>R-132</description>
-                <href>http://vmpowerbi1/ReportServer/Pages/ReportViewer.aspx?/CM/REPORT_Request_Description&amp;rs:Command=Render&amp;rs:ClearSession=True&amp;rc:Parameters=False&amp;Request_ID=R-132</href>
+            <itcmLink id="b2415d24">
+                <description>-</description>
+                <href>http://vmpowerbi1/ReportServer/Pages/ReportViewer.aspx?/CM/REPORT_Request_Description&amp;rs:Command=Render&amp;rs:ClearSession=True&amp;rc:Parameters=False&amp;Request_ID=-</href>
             </itcmLink>
             <obsolete>false</obsolete>
             <priority>P3</priority>
-            <rrcLink id="0aabe0f7">
+            <rrcLink id="c9acafbe">
                 <description>RRC</description>
-                <href>http://</href>
+                <href>-</href>
             </rrcLink>
             <tags>
                 <tag id="3d21859c" refId="4a6c3d9e"></tag>
@@ -116,7 +146,7 @@
                 </task>
             </tasks>
             <title>Persistenca</title>
-            <verified>false</verified>
+            <verified>true</verified>
         </requirement>
         <requirement created="2023-09-16T10:25:27.194+02:00" id="REQ-02" lastModified="2024-04-28T11:26:17.874+02:00">
             <comments>
@@ -315,10 +345,10 @@
                     <status>Complete</status>
                     <title>Implement</title>
                 </task>
-                <task created="2023-11-24T00:55:02.533+01:00" id="aa2644fa" lastModified="2023-11-24T00:55:12.481+01:00">
+                <task created="2023-11-24T00:55:02.533+01:00" id="aa2644fa" lastModified="2024-09-01T22:36:41.443+02:00">
                     <assignee memberRefId="6234a6a3"/>
                     <estimatedEffort>0</estimatedEffort>
-                    <status>In progress</status>
+                    <status>Waiting</status>
                     <title>Dodaj status rejected</title>
                 </task>
                 <task created="2023-12-01T00:37:14.793+01:00" id="46502937" lastModified="2023-12-01T00:37:18.685+01:00">

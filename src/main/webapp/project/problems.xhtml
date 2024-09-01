@@ -10,16 +10,48 @@
 
 			<p:breadCrumb>
 				<p:menuitem value="Home" url="/pjm"/>
-				<p:menuitem value="#{uiAlarmsBean.project.name}" url="/pjm/project/project.xhtml?projectId=#{uiAlarmsBean.project.id}"/>
-				<p:menuitem value="Alarms"/>
+				<p:menuitem value="#{uiProblemsBean.project.name}" url="/pjm/project/project.xhtml?projectId=#{uiProblemsBean.project.id}"/>
+				<p:menuitem value="Problems"/>
 			</p:breadCrumb>
 
 			<p:outputLabel value="Problems" class="boldtext"/>
 
-			<br/>
+			<hr/>
+
+			<ui:include src="/components/dialog_new_problem.xhtml" />
+			<p:commandButton value="New problem" type="button" icon="pi pi-plus-circle"
+							 onclick="PF('newProblemDialog').show()" styleClass="ui-button-outlined"/>
 
 
 
+			<h:form id="problemsForm">
+
+				<p:dataTable id="problemsTable"
+							 value="#{uiProblemsBean.project.problems.list}" var="p"
+							 cellpadding="0" cellspacing="0">
+					<p:column headerText="Title">
+						<p:avatar label="#{p.priority + ''}adaaaasfsd" dynamicColor="true" lightness="50" styleClass="ml-2"/>
+						<p:link value="#{p.title}"
+								outcome="/project/problem"
+								style="margin-left: 5px; font-size: 1.1rem; #{req.obsolete == true ? 'text-decoration: line-through;' : ''};">
+							<f:param name="projectId" value="#{uiProblemsBean.project.id}" />
+							<f:param name="problemId" value="#{p.id}" />
+						</p:link>
+					</p:column>
+					<p:column headerText="Solved">
+						<p:outputLabel value="#{p.solved}"/>
+					</p:column>
+					<p:column headerText="Action">
+						<p:commandButton value="Delete"
+										 action="#{uiProblemsBean.deleteProblemAction(p.id)}"
+										 update="growl problemsForm"
+										 styleClass="ui-button-danger ui-button-flat mr-2" >
+							<p:confirm message="Are you sure you want to delete problem?" icon="pi pi-info-circle"/>
+						</p:commandButton>
+					</p:column>
+				</p:dataTable>
+
+			</h:form>
 
 		</ui:define>
 	</div>
