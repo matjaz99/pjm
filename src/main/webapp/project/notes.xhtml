@@ -17,40 +17,22 @@
 
 			<p:outputLabel value="Notes" class="boldtext"/>
 
+			<ui:include src="/components/dialog_new_note.xhtml" />
 			<p:commandButton value="New note" type="button" icon="pi pi-external-link"
 							 onclick="PF('newNoteDialog').show()" styleClass="ui-button-outlined"/>
-			<p:dialog header="New note" widgetVar="newNoteDialog"
-					  showEffect="fade" hideEffect="explode" closable="false" closeOnEscape="true">
-				<h:form id="newNoteForm">
-					<p:inputText value="#{uiNotesBean.newNoteTitle}" size="60"
-								 required="true" requiredMessage="Missing title" placeholder="Title">
-					</p:inputText>
-					<br/>
-					<br/>
-					<p:inputText value="#{uiNotesBean.newNoteDesc}" size="60"
-								 required="true" requiredMessage="Missing description" placeholder="Description">
-					</p:inputText>
-					<br/>
-					<br/>
-					<p:commandButton type="button"
-									 value="Cancel"
-									 onclick="PF('newNoteDialog').hide();"
-									 style="width: 5rem"
-									 styleClass="ui-button-flat mr-2" />
-					<p:commandButton value="Add"
-									 action="#{uiNotesBean.addNewNoteAction}"
-									 update="growl newNoteForm notesForm"
-									 oncomplete="PF('newNoteDialog').hide();"
-									 styleClass="ui-button mr-2"
-									 style="width: 6rem"/>
-				</h:form>
-			</p:dialog>
+
 
 
 			<h:form id="notesForm">
 				<ui:repeat var="note" value="#{uiNotesBean.project.projectNotes.list}">
 					<p:panel id="handlepnl" header="#{note.title}">
-						<h:outputText value="#{note.description}"/>
+						<p:outputLabel value="#{note.description}"/>
+						<p:commandButton value="Delete"
+										 action="#{uiNotesBean.deleteNoteAction(note.id)}"
+										 update="growl notesForm"
+										 styleClass="ui-button-danger ui-button-flat mr-2" >
+							<p:confirm message="Are you sure you want to delete note?" icon="pi pi-info-circle"/>
+						</p:commandButton>
 					</p:panel>
 					<p:draggable for="handlepnl" handle=".ui-panel-titlebar"/>
 				</ui:repeat>

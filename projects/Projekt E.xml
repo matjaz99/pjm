@@ -86,10 +86,10 @@
             <title>Shranjevanje včasih ne deluje</title>
         </problem>
         <problem created="2024-09-01T22:30:05.150+02:00" id="1f131c8e" lastModified="2024-09-01T22:30:05.151+02:00">
-            <description>&lt;p&gt;adasdfasdfad&lt;/p&gt;</description>
+            <description>&lt;p&gt;It is possible to create two tags with the same name. Each gets its own ID, so each can be assigned to request, which causes confusion.&lt;/p&gt;</description>
             <priority>2</priority>
-            <solved>true</solved>
-            <title>kr neki</title>
+            <solved>false</solved>
+            <title>Duplicate tags</title>
         </problem>
         <problem created="2024-09-01T22:39:32.835+02:00" id="d51c4e6e" lastModified="2024-09-01T22:39:32.835+02:00">
             <priority>3</priority>
@@ -107,7 +107,16 @@
             <title>ewwewerer</title>
         </problem>
     </problems>
-    <projectNotes/>
+    <projectNotes>
+        <note id="64e48475">
+            <description>This is just a short comment.</description>
+            <title>My first note</title>
+        </note>
+        <note id="735cbb83">
+            <description>kkokom</description>
+            <title>asdf</title>
+        </note>
+    </projectNotes>
     <projectStarted>2023-08-01T00:00:00.000+02:00</projectStarted>
     <requirements>
         <requirement created="2023-09-16T10:25:27.194+02:00" id="REQ-01" lastModified="2024-09-01T22:37:26.035+02:00">

@@ -1,0 +1,34 @@
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+
+	<p:dialog header="New note" widgetVar="newNoteDialog"
+			  showEffect="fade" hideEffect="explode" closable="false" closeOnEscape="true">
+		<h:form id="newNoteForm">
+			<p:inputText value="#{uiNotesBean.newNoteTitle}" size="60"
+						 required="true" requiredMessage="Missing title" placeholder="Title">
+			</p:inputText>
+			<br/>
+			<br/>
+			<p:inputText value="#{uiNotesBean.newNoteDesc}" size="60"
+						 required="true" requiredMessage="Missing description" placeholder="Description">
+			</p:inputText>
+			<br/>
+			<br/>
+			<p:commandButton type="button"
+							 value="Cancel"
+							 onclick="PF('newNoteDialog').hide();"
+							 style="width: 5rem"
+							 styleClass="ui-button-flat mr-2" />
+			<p:commandButton value="Add"
+							 action="#{uiNotesBean.addNewNoteAction}"
+							 update="growl newNoteForm notesForm"
+							 oncomplete="PF('newNoteDialog').hide();"
+							 styleClass="ui-button mr-2"
+							 style="width: 6rem"/>
+		</h:form>
+	</p:dialog>
+    
+</ui:composition>

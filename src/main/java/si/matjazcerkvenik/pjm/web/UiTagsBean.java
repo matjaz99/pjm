@@ -61,6 +61,13 @@ public class UiTagsBean extends UiBean implements Serializable {
 
     public void addNewTagAction() {
         if (Utils.isNullOrEmpty(newTagTitle)) return;
+        // check if exists
+        for (Tag existingTag : project.getTagDefinitions().getList()) {
+            if (existingTag.getName().equals(newTagTitle)) {
+                growlInfoMessage("Tag already exists");
+                return;
+            }
+        }
         if (!newTagColor.startsWith("#")) newTagColor = "#" + newTagColor;
         Tag t = new Tag();
         t.setId(Utils.getMd5ChecksumShortSalted(newTagTitle));
