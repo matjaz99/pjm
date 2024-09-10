@@ -24,10 +24,19 @@
 
 
 
+
 			<h:form id="problemsForm">
 
+				<p:outputLabel value="Hide solved: "/>
+				<p:selectBooleanButton onLabel="On" offLabel="Off"
+									   value="#{uiProblemsBean.hideSolved}"
+									   onIcon="pi pi-check" offIcon="pi pi-times"
+									   style="width: 6rem;" >
+					<p:ajax update="problemsForm" />
+				</p:selectBooleanButton>
+
 				<p:dataTable id="problemsTable"
-							 value="#{uiProblemsBean.project.problems.list}" var="p"
+							 value="#{uiProblemsBean.getFilteredProblems()}" var="p"
 							 cellpadding="0" cellspacing="0">
 					<p:column headerText="Title">
 						<p:avatar label="#{p.priority + ''}adaaaasfsd" dynamicColor="true" lightness="50" styleClass="ml-2"/>

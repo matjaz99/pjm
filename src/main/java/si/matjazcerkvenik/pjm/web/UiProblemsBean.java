@@ -13,7 +13,9 @@ import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import java.io.Serializable;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @ManagedBean
 @ViewScoped
@@ -24,6 +26,7 @@ public class UiProblemsBean extends UiBean implements Serializable {
     private static final Logger logger = LoggerFactory.getLogger(UiProblemsBean.class);
 
     private Problem problem;
+    private boolean hideSolved;
 
 
 
@@ -46,6 +49,25 @@ public class UiProblemsBean extends UiBean implements Serializable {
     public void setProblem(Problem problem) {
         this.problem = problem;
     }
+
+    public boolean isHideSolved() {
+        return hideSolved;
+    }
+
+    public void setHideSolved(boolean hideSolved) {
+        this.hideSolved = hideSolved;
+    }
+
+    public List<Problem> getFilteredProblems() {
+        if (hideSolved) {
+            return project.getUnsolvedProblems();
+        } else {
+            return project.getProblems().getList();
+        }
+    }
+
+
+    // NEW PROBLEM
 
     private String newProblemTitle;
 
