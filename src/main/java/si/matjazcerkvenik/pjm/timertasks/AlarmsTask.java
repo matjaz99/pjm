@@ -50,6 +50,19 @@ public class AlarmsTask extends TimerTask {
                 }
             }
 
+            // check requirements without estimated effort
+            for (Requirement r : project.getRequirements().getList()) {
+                if (r.getRequirementTotalEstimatedEffort() == 0 && !r.isObsolete()) {
+                    Alarm a = new Alarm();
+                    a.setName("No estimated effort");
+                    a.setAddInfo("Estimate effort");
+                    a.setSeverity("warning");
+                    a.setHref("/project/requirement.xhtml?projectId=" + project.getId() + "&reqId=" + r.getId());
+                    a.setId(Utils.getMd5ChecksumShort(a.getName() + r.getTitle()));
+                    project.raiseAlarm(a);
+                }
+            }
+
             // check requirements with clarify tasks
             for (Requirement r : project.getRequirements().getList()) {
                 for (Task t : r.getTasks().getList()) {

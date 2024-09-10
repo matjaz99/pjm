@@ -31,3 +31,27 @@ Examples:
 - `GROUP: security` - search by group
 - `ASSIGNEE: John` - search by assignee (case sensitive!)
 
+
+
+### Alarms
+
+#### Alarm: No estimated effort
+
+Alarm is raised for every requirement with sum of estimated efforts equal to 0.
+Obsolete requirements are excluded.
+
+#### Alarm: There are requirements without tasks
+
+Each requirement should have at least one task. If there are no tasks, alarm is raised.
+
+#### Alarm: Task is waiting for more than N days
+
+If a task is in state `waiting` for more than 7 days, alarm is raised.
+
+#### Alarm: Clarification is needed
+
+There is a task in state `clarify`, alarm is raised.
+
+#### Alarm: There are opened issues!
+
+Obviously there are unresolved issues on the requirement and alarm is raised.
