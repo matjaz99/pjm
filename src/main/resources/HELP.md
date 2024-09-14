@@ -5,6 +5,13 @@
 **Planned effort** is what managers think it would take to complete the project.  
 **Estimated effort** is sum of all efforts on tasks, as they are estimated by assignees.
 
+### Milestones
+
+**Project start** is when project is started (aka. NPI-50 or B100)
+**Planned end** is initial estimation when the project should end. Should not be changed once set.
+**Expected end** is moving date when the project should end according to current progress.
+**Completed end** is when project state was changed to `Completed`.
+
 ### Searching
 
 Search for given text (operator contains) in:

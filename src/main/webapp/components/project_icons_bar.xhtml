@@ -56,7 +56,9 @@
 			<div class="card">
 				<i class="pi pi-sitemap" style="font-size: 4rem"></i>
 			</div>
-			<p:outputLabel value="Testbed" class="boldtext"/>
+			<p:link outcome="testbeds" value="Testbed" class="boldtext">
+				<f:param name="projectId" value="#{uiProjectBean.project.id}"/>
+			</p:link>
 		</p:panel>
 		<p:panel>
 			<div class="card">

@@ -49,6 +49,8 @@ public class Project implements Serializable {
     private int plannedEffort;
     private Problems problems = new Problems();
 
+    private Testbeds testbeds = new Testbeds();
+
     public String getId() {
         return id;
     }
@@ -235,6 +237,15 @@ public class Project implements Serializable {
         return problems.getList().stream()
                 .filter(p -> !p.isSolved())
                 .collect(Collectors.toList());
+    }
+
+    public Testbeds getTestbeds() {
+        return testbeds;
+    }
+
+    @XmlElement(name = "testbeds")
+    public void setTestbeds(Testbeds testbeds) {
+        this.testbeds = testbeds;
     }
 
     public Meetings getMeetingTemplates() {

@@ -93,7 +93,7 @@
 
 			<h:form id="effortEstimationForm">
 				<p:outputPanel>
-					<p:outputLabel for="@next" value="Estimated effort: " class="boldtext"/>
+					<p:outputLabel for="@next" value="Estimated effort (MH): " class="boldtext"/>
 					<p:inplace editor="true">
 						<p:inputText value="#{uiTaskBean.task.estimatedEffort}" label="text" size="8"/>
 						<p:ajax event="save" listener="#{uiTaskBean.saveProjectModifications('Effort updated')}" update="effortEstimationForm, growl" />

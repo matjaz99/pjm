@@ -58,6 +58,11 @@ public class UiAppBean implements Serializable {
                 .collect(Collectors.toList());
     }
 
+    /**
+     * Return true if the project is visible in selected state filter.
+     * @param project
+     * @return true if visible
+     */
     private boolean checkProject(Project project) {
         if (radioButtonSelectedProjects.equals(Project.PROJECT_STATE_HIDDEN)) {
             // show only if hidden is selected
@@ -66,8 +71,7 @@ public class UiAppBean implements Serializable {
             if (project.getState().equals(Project.PROJECT_STATE_HIDDEN)) return false;
         }
 
-        if (radioButtonSelectedProjects.equals("All")) {
-            return true;
+        if (radioButtonSelectedProjects.equals("All")) { return true;
         } else if (radioButtonSelectedProjects.equals(Project.PROJECT_STATE_PLANNING)) {
             if (project.getState().equals(Project.PROJECT_STATE_PLANNING)) return true;
         } else if (radioButtonSelectedProjects.equals(Project.PROJECT_STATE_ONHOLD)) {
@@ -96,7 +100,7 @@ public class UiAppBean implements Serializable {
      * This method works slightly different that <code>Ui.ProjectBean.calculateProgressOnRequirement</code>
      * because it takes into account also requirements without tasks. In this case it is assumed that
      * requirement is not fulfilled and counts as 1 incomplete task.
-     * @param projectId
+     * @param projectId id
      * @return progress in percentage
      */
     public int calculateProgressOnProject(String projectId) {
