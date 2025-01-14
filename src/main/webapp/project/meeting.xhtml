@@ -34,6 +34,10 @@
 					<p:datePicker id="plannedDate" value="#{uiMeetingBean.plannedMeetingDate}" >
 						<p:ajax event="dateSelect"	listener="#{uiMeetingBean.onPlannedMeetingDateSelect}" update="meetingDataForm" />
 					</p:datePicker>
+					<p:rating id="rating" value="#{uiMeetingBean.meeting.rating}">
+						<p:ajax event="rate" listener="#{uiMeetingBean.onRate}" update="meetingDataForm"/>
+						<p:ajax event="cancel" listener="#{uiMeetingBean.onCancel}" update="meetingDataForm"/>
+					</p:rating>
 				</p:panel>
 			</h:form>
 
@@ -92,7 +96,7 @@
 									 styleClass="ui-button-outlined"/>
 				</p:panel>
 
-				<p:poll interval="60" listener="#{uiMeetingBean.saveProjectModifications('Automatically saved')}" update="growl"/>
+				<p:poll interval="6000000" listener="#{uiMeetingBean.saveProjectModifications('Automatically saved')}" update="growl"/>
 
 			</h:form>
 

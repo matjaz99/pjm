@@ -18,7 +18,9 @@ public class Meeting implements Serializable {
     private String title;
     private String description;
     private XMLGregorianCalendar plannedDate;
+    // concluded actually means archived (not editable anymore)
     private boolean concluded = false;
+    private int rating;
 
     public String getId() {
         return id;
@@ -65,13 +67,24 @@ public class Meeting implements Serializable {
         this.concluded = concluded;
     }
 
+    public int getRating() {
+        return rating;
+    }
 
-
-
+    @XmlAttribute
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
 
     // other methods
 
     public String getPlannedDateAndOnlyTheDate() {
         return Utils.getFormattedTimestamp(plannedDate, PjmDateFormat.DATE_SI);
+    }
+
+    public boolean isPastTheDate() {
+        if (plannedDate == null) return false;
+        if (System.currentTimeMillis() >= Utils.getMillis(plannedDate)) return true;
+        return false;
     }
 }

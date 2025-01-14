@@ -29,6 +29,13 @@
 					</p:column>
 					<p:column headerText="Planned date">
 						<p:outputLabel value="#{meet.plannedDateAndOnlyTheDate}"/>
+						<p:tag style="margin-left: 10px;"
+							   severity="#{meet.isPastTheDate() == true ? 'danger' : 'success'}"
+							   value="#{meet.isPastTheDate() == true ? 'Passed' : 'Upcoming'}">
+						</p:tag>
+					</p:column>
+					<p:column headerText="Importance">
+						<p:rating id="ratingDisabled" value="#{meet.rating}" readonly="true"/>
 					</p:column>
 					<p:column headerText="Action">
 						<p:commandButton value="Archive"
@@ -73,7 +80,7 @@
 			</p:dialog>
 
 			<p:panel>
-				<p:outputLabel value="Meeting history" style="font-weight: bold; font-size: 24px;"/>
+				<p:outputLabel value="Meeting archive" style="font-weight: bold; font-size: 24px;"/>
 				<h:form id="meetingHistoryForm">
 					<p:dataTable id="historyTable"
 								 value="#{uiMeetingBean.project.meetingHistory.list}" var="meet"
@@ -86,6 +93,9 @@
 						</p:column>
 						<p:column headerText="Concluded date">
 							<p:outputLabel value="#{meet.plannedDateAndOnlyTheDate}"/>
+						</p:column>
+						<p:column headerText="Importance">
+							<p:rating id="ratingDisabled" value="#{meet.rating}" readonly="true"/>
 						</p:column>
 						<p:column headerText="Action">
 							<p:commandButton value="Delete"

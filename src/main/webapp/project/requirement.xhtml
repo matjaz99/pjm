@@ -103,7 +103,7 @@
 					</p:textEditor>
 				</p:panel>
 
-				<p:poll interval="#{uiRequirementBean.editModeOn ? 60 : 999999}" listener="#{uiRequirementBean.saveRequirementChanges()}" update="growl"/>
+				<p:poll interval="#{uiRequirementBean.editModeOn ? 6000000 : 9999999}" listener="#{uiRequirementBean.saveRequirementChanges()}" update="growl"/>
 
 			</h:form>
 

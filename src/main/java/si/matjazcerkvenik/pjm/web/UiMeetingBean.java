@@ -1,5 +1,6 @@
 package si.matjazcerkvenik.pjm.web;
 
+import org.primefaces.event.RateEvent;
 import org.primefaces.event.SelectEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -72,6 +73,16 @@ public class UiMeetingBean extends UiBean implements Serializable {
         meeting.setPlannedDate(Utils.dateToGregorianCalendar(plannedMeetingDate));
         saveProjectModifications("Saved");
         growlInfoMessage("Date modified");
+    }
+
+    public void onRate(RateEvent<Integer> rateEvent) {
+        meeting.setRating(rateEvent.getRating());
+        saveProjectModifications("Saved");
+    }
+
+    public void onCancel() {
+        meeting.setRating(0);
+        saveProjectModifications("Saved");
     }
 
 
