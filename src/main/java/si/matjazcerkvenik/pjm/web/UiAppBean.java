@@ -13,8 +13,10 @@ import si.matjazcerkvenik.pjm.util.Utils;
 import si.matjazcerkvenik.pjm.util.Props;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
 import javax.faces.event.ValueChangeEvent;
 import javax.faces.model.SelectItem;
 import javax.faces.model.SelectItemGroup;
@@ -127,6 +129,14 @@ public class UiAppBean implements Serializable {
         if (newProjectName == null) {
             logger.warn("addNewProjectAction: name is null");
             return;
+        }
+        for (Project p : projects) {
+            if (p.getName().equalsIgnoreCase(newProjectName)) {
+                logger.warn("addNewProjectAction: project with the same name already exist");
+                FacesContext.getCurrentInstance().
+                        addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Project already exist", null));
+                return;
+            }
         }
         Project p = new Project();
         p.setName(newProjectName);
