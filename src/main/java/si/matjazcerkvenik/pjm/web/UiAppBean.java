@@ -39,6 +39,8 @@ public class UiAppBean implements Serializable {
 
     public AlarmsTask alarmsTask;
 
+    private boolean hideSolved;
+
     @PostConstruct
     public void init() {
         if (projects == null) {
@@ -169,6 +171,24 @@ public class UiAppBean implements Serializable {
     }
 
 
+
+
+    /* Problems view */
+
+    public boolean isHideSolved() {
+        return hideSolved;
+    }
+
+    public void setHideSolved(boolean hideSolved) {
+        this.hideSolved = hideSolved;
+    }
+
+
+
+
+
+
+    /* Load help */
 
     public String getHelp() {
 

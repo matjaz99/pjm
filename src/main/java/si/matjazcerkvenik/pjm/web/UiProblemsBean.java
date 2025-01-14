@@ -26,7 +26,7 @@ public class UiProblemsBean extends UiBean implements Serializable {
     private static final Logger logger = LoggerFactory.getLogger(UiProblemsBean.class);
 
     private Problem problem;
-    private boolean hideSolved;
+
 
 
 
@@ -50,16 +50,10 @@ public class UiProblemsBean extends UiBean implements Serializable {
         this.problem = problem;
     }
 
-    public boolean isHideSolved() {
-        return hideSolved;
-    }
 
-    public void setHideSolved(boolean hideSolved) {
-        this.hideSolved = hideSolved;
-    }
 
     public List<Problem> getFilteredProblems() {
-        if (hideSolved) {
+        if (uiAppBean.isHideSolved()) {
             return project.getUnsolvedProblems();
         } else {
             return project.getProblems().getList();
