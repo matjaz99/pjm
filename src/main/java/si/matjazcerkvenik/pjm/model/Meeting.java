@@ -84,7 +84,20 @@ public class Meeting implements Serializable {
 
     public boolean isPastTheDate() {
         if (plannedDate == null) return false;
-        if (System.currentTimeMillis() >= Utils.getMillis(plannedDate)) return true;
+        if ((System.currentTimeMillis() + 12 * 3600 * 1000) >= Utils.getMillis(plannedDate)) return true;
         return false;
+    }
+
+    /**
+     * Return abstract representation of this object.
+     * @return ai
+     */
+    public AbstractItem toAbstractItem() {
+        AbstractItem ai = new AbstractItem();
+        ai.setTitle(this.title);
+        ai.setItemType("meeting");
+        ai.setText(this.description);
+        ai.setUrl("/project/meeting?meetingId=" + this.id);
+        return ai;
     }
 }

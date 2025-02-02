@@ -43,6 +43,23 @@ hr {
 }
 
 
+/* Badges; similar to tags */
+
+.customer-badge {
+    border-radius: 2px;
+    padding: .25em .5rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: .3px;
+}
+
+.customer-badge.status-qualified {
+    background-color: #c8e6c9;
+    color: #256029;
+}
+
+
 
 .ui-panel {
     padding: 0px;

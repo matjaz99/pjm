@@ -257,4 +257,17 @@ public class Requirement implements Serializable {
         }
         return sum;
     }
+
+    /**
+     * Return abstract representation of this object.
+     * @return ai
+     */
+    public AbstractItem toAbstractItem() {
+        AbstractItem ai = new AbstractItem();
+        ai.setTitle(this.title);
+        ai.setItemType("requirement");
+        ai.setText(this.description);
+        ai.setUrl("/project/requirement?reqId=" + this.id);
+        return ai;
+    }
 }

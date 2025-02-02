@@ -100,4 +100,18 @@ public class Problem implements Serializable {
     public void setSolvedDate(XMLGregorianCalendar solvedDate) {
         this.solvedDate = solvedDate;
     }
+
+    /**
+     * Return abstract representation of this object.
+     * @return ai
+     */
+    public AbstractItem toAbstractItem() {
+        AbstractItem ai = new AbstractItem();
+        ai.setTitle(this.title);
+        ai.setItemType("problem");
+        ai.setText(this.description);
+        ai.setUrl("/project/problem?problemId=" + this.id);
+        return ai;
+    }
+
 }

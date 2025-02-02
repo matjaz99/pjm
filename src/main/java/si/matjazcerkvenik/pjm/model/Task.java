@@ -94,4 +94,18 @@ public class Task implements Serializable {
     public void setEstimatedEffort(int estimatedEffort) {
         this.estimatedEffort = estimatedEffort;
     }
+
+    /**
+     * Return abstract representation of this object.
+     * @return ai
+     */
+    public AbstractItem toAbstractItem(String reqId) {
+        AbstractItem ai = new AbstractItem();
+        ai.setTitle(this.title);
+        ai.setItemType("task");
+        ai.setText(this.description);
+        ai.setUrl("/project/task?tskId=" + this.id + "&reqId=" + reqId);
+        return ai;
+    }
+
 }

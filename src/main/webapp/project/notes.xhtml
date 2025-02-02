@@ -25,7 +25,7 @@
 
 			<h:form id="notesForm">
 				<ui:repeat var="note" value="#{uiNotesBean.project.projectNotes.list}">
-					<p:panel id="handlepnl" header="#{note.title}">
+					<p:panel id="notepanel" header="#{note.title}">
 						<p:outputLabel value="#{note.description}"/>
 						<p:commandButton value="Delete"
 										 action="#{uiNotesBean.deleteNoteAction(note.id)}"
@@ -34,7 +34,7 @@
 							<p:confirm message="Are you sure you want to delete note?" icon="pi pi-info-circle"/>
 						</p:commandButton>
 					</p:panel>
-					<p:draggable for="handlepnl" handle=".ui-panel-titlebar"/>
+					<p:draggable for="notepanel" handle=".ui-panel-titlebar"/>
 				</ui:repeat>
 			</h:form>
 

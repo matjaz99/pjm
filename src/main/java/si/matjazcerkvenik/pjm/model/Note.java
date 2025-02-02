@@ -50,4 +50,17 @@ public class Note implements Serializable {
     public void setCreated(XMLGregorianCalendar created) {
         this.created = created;
     }
+
+    /**
+     * Return abstract representation of this object.
+     * @return ai
+     */
+    public AbstractItem toAbstractItem() {
+        AbstractItem ai = new AbstractItem();
+        ai.setTitle(this.title);
+        ai.setItemType("note");
+        ai.setText(this.description);
+        ai.setUrl("/project/notes");
+        return ai;
+    }
 }

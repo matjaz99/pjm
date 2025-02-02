@@ -28,34 +28,35 @@
 			<br/>
 
 			<h:form id="buttonsForm">
-			<p:outputLabel id="reqHeader" value="Project requirements (#{uiProjectBean.requirements.size()})" style="font-weight: bold; font-size: 24px;"/>
-			<p:panelGrid columns="3">
-				<p:panel>
-				<p:commandButton value="New requirement" type="button" icon="pi pi-external-link"
-							 onclick="PF('newReqDialog').show()" styleClass="ui-button-outlined"/>
-				</p:panel>
-				<p:panel>
-					<i class="pi pi-file-edit" style="font-size: 2.3rem" />
-					<a href="/pjm/help/help.xhtml">
-						<i class="pi pi-question-circle" style="font-size: 2.3rem; color: #333333;" />
-					</a>
-				</p:panel>
-				<p:panel>
-					<span class="ui-input-icon-left">
-						<i class="pi pi-search" />
-						<p:inputText value="#{uiProjectBean.searchText}" label="text" size="40" placeholder="Search">
-							<p:ajax event="keyup" update="requirementsForm reqHeader" />
-						</p:inputText>
-					</span>
-				</p:panel>
-			</p:panelGrid>
+				<p:outputLabel id="reqHeader" value="Project requirements (#{uiProjectBean.getReqListSize()})" style="font-weight: bold; font-size: 24px;"/>
+				<p:panelGrid columns="3">
+					<p:panel>
+					<p:commandButton value="New requirement" type="button" icon="pi pi-external-link"
+								 onclick="PF('newReqDialog').show()" styleClass="ui-button-outlined"/>
+					</p:panel>
+					<p:panel>
+						<i class="pi pi-file-edit" style="font-size: 2.3rem" />
+						<a href="/pjm/help/help.xhtml">
+							<i class="pi pi-question-circle" style="font-size: 2.3rem; color: #333333;" />
+						</a>
+					</p:panel>
+					<p:panel>
+						<span class="ui-input-icon-left">
+							<i class="pi pi-search" />
+							<p:inputText value="#{uiProjectBean.searchText}" label="text" size="40" placeholder="Search">
+								<p:ajax event="keyup" update="requirementsForm reqHeader" />
+							</p:inputText>
+						</span>
+					</p:panel>
+				</p:panelGrid>
 			</h:form>
 
 			<h:form id="requirementsForm">
 
 				<p:dataTable id="requirementsTable"
 							 value="#{uiProjectBean.requirements}" var="req"
-							 cellpadding="0" cellspacing="0">
+							 cellpadding="0" cellspacing="0"
+							 rendered="#{uiProjectBean.searchText == null ? true : false}">
 					<p:column headerText="Title">
 						<p:link value="#{req.title}"
 								outcome="/project/requirement"
@@ -97,7 +98,6 @@
 						<p:outputLabel value="" style="margin-right: 0.5em;" rendered="#{req.verified}">
 							<span class="pi pi-verified" style="color: green; font-size: 1.7rem" />
 						</p:outputLabel>
-
 					</p:column>
 					<p:column headerText="Progress">
 						<p:progressBar value="#{uiProjectBean.calculateProgressOnRequirement(req.id)}" labelTemplate="{value}%" displayOnly="true"/>
@@ -116,6 +116,28 @@
 						</p:commandButton>
 					</p:column>
 				</p:dataTable>
+
+
+
+				<p:dataTable id="abstractItemsTable"
+							 value="#{uiProjectBean.abstractItems}" var="aitem"
+							 cellpadding="0" cellspacing="0"
+							 rendered="#{uiProjectBean.searchText != null ? true : false}">
+					<p:column headerText="Title">
+						<p:avatar label="#{aitem.itemType.toUpperCase()}123" dynamicColor="true"></p:avatar>
+						<p:link value="#{aitem.title}"
+								outcome="#{aitem.url}"
+								style="margin-left: 10px; margin-right: 10px;">
+							<f:param name="projectId" value="#{uiProjectBean.project.id}" />
+						</p:link>
+						<span class="customer-badge status-qualified">#{aitem.itemType}</span>
+					</p:column>
+					<p:column headerText="Text">
+						<p:outputLabel value="#{aitem.text}"/>
+					</p:column>
+				</p:dataTable>
+
+
 
 			</h:form>
 

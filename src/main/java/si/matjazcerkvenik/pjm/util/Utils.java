@@ -112,6 +112,22 @@ public class Utils {
         return resp;
     }
 
+    public static String intToRomanNumber(int num) {
+        // Arrays containing the Roman numeral equivalents for ones, tens, hundreds, and thousands places
+        String[] thousands = {"", "M", "MM", "MMM"};
+        String[] hundreds = {"", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"};
+        String[] tens = {"", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"};
+        String[] ones = {"", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"};
+
+        // Extract each digit from the number
+        String roman = thousands[num / 1000] +
+                hundreds[(num % 1000) / 100] +
+                tens[(num % 100) / 10] +
+                ones[num % 10];
+
+        return roman;
+    }
+
 
     public static XMLGregorianCalendar getXmlGregorianCalendarNow() {
         Date current_date = new Date();

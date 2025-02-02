@@ -51,6 +51,7 @@ public class UiProjectBean extends UiBean implements Serializable {
 
     public void setSearchText(String searchText) {
         this.searchText = searchText;
+        if (this.searchText.length() == 0) this.searchText = null;
     }
 
     /**
@@ -151,6 +152,134 @@ public class UiProjectBean extends UiBean implements Serializable {
         }
         return new ArrayList<>(map.values());
     }
+
+    public List<AbstractItem> getAbstractItems() {
+//        if (Utils.isNullOrEmpty(searchText)) return project.getRequirements().getList();
+        // use map to avoid duplicates
+        Map<String, AbstractItem> map = new HashMap<>();
+        for (Requirement r : project.getRequirements().getList()) {
+
+            // TODO support operators AND and OR
+
+            if (searchText.startsWith("TAG:")) {
+
+                String[] searchTextArray = searchText.split(":");
+                if (searchTextArray.length < 2) return new ArrayList<>(map.values());
+                String searchTag = searchTextArray[1].trim();
+                // get tag id
+                String tagId = null;
+                for (Tag t : project.getTagDefinitions().getList()) {
+                    if (t.getName().toLowerCase().startsWith(searchTag.toLowerCase())) {
+                        tagId = t.getId();
+                    }
+                }
+                // search requirements for tag with refId
+                for (Tag t : r.getTags().getList()) {
+                    if (tagId != null && tagId.equals(t.getRefId())) {
+                        if (!map.containsKey(r.getId())) map.put(r.getId(), r.toAbstractItem());
+                    }
+                }
+
+            } else if (searchText.startsWith("ASSIGNEE:") || searchText.startsWith("ASS:")) {
+
+                String[] searchTextArray = searchText.split(":");
+                if (searchTextArray.length < 2) return new ArrayList<>(map.values());
+                String searchAssignee = searchTextArray[1].trim();
+                for (Member m : project.getMembers().getList()) {
+                    // first search members to get member ID
+                    if (m.getName().startsWith(searchAssignee) || m.getLastName().startsWith(searchAssignee)) {
+                        for (Task t : r.getTasks().getList()) {
+                            if (t.getAssignee() != null && t.getAssignee().getMemberRefId() != null && t.getAssignee().getMemberRefId().equalsIgnoreCase(m.getId())) {
+                                if (!map.containsKey(t.getId())) map.put(t.getId(), t.toAbstractItem(r.getId()));
+                            }
+                        }
+                    }
+                }
+
+
+            } else if (searchText.startsWith("GROUP:")) {
+
+                String[] searchTextArray = searchText.split(":");
+                if (searchTextArray.length < 2) return new ArrayList<>(map.values());
+                String searchGroup = searchTextArray[1].trim();
+                if (r.getGroup().toLowerCase().startsWith(searchGroup)) {
+                    if (!map.containsKey(r.getId())) map.put(r.getId(), r.toAbstractItem());
+                }
+
+            } else {
+                // search all fields
+                if (r.getTitle().toLowerCase().contains(searchText.toLowerCase())) {
+                    if (!map.containsKey(r.getId())) map.put(r.getId(), r.toAbstractItem());
+                }
+                if (r.getDescription() != null && r.getDescription().toLowerCase().contains(searchText.toLowerCase())) {
+                    // TODO clean description of html code (from text formatting) or search will not work
+                    if (!map.containsKey(r.getId())) map.put(r.getId(), r.toAbstractItem());
+                }
+
+                // search tasks
+                for (Task t : r.getTasks().getList()) {
+                    if (t.getTitle().toLowerCase().contains(searchText.toLowerCase())) {
+                        if (!map.containsKey(t.getId())) map.put(t.getId(), t.toAbstractItem(r.getId()));
+                    }
+                    if (t.getDescription() != null && t.getDescription().toLowerCase().contains(searchText.toLowerCase())) {
+                        if (!map.containsKey(t.getId())) map.put(t.getId(), t.toAbstractItem(r.getId()));
+                    }
+                }
+
+                // search issues
+                for (Issue i : r.getIssues().getList()) {
+                    if (!Utils.isNullOrEmpty(i.getProblem()) && i.getProblem().toLowerCase().contains(searchText.toLowerCase())) {
+                        if (!map.containsKey(r.getId())) map.put(r.getId(), r.toAbstractItem());
+                    }
+                    if (!Utils.isNullOrEmpty(i.getSolution()) && i.getSolution().toLowerCase().contains(searchText.toLowerCase())) {
+                        if (!map.containsKey(r.getId())) map.put(r.getId(), r.toAbstractItem());
+                    }
+                }
+
+                // search comments
+                for (Comment c : r.getComments().getList()) {
+                    if (!Utils.isNullOrEmpty(c.getDescription()) && c.getDescription().toLowerCase().contains(searchText.toLowerCase())) {
+                        if (!map.containsKey(r.getId())) map.put(r.getId(), r.toAbstractItem());
+                    }
+                }
+            }
+
+            // search meetings
+            for (Meeting m : project.getMeetingHistory().getList()) {
+                if (!Utils.isNullOrEmpty(m.getDescription()) && m.getDescription().toLowerCase().contains(searchText.toLowerCase())) {
+                    if (!map.containsKey(m.getId())) map.put(m.getId(), m.toAbstractItem());
+                }
+            }
+
+            for (Meeting m : project.getMeetingTemplates().getList()) {
+                if (!Utils.isNullOrEmpty(m.getDescription()) && m.getDescription().toLowerCase().contains(searchText.toLowerCase())) {
+                    if (!map.containsKey(m.getId())) map.put(m.getId(), m.toAbstractItem());
+                }
+            }
+
+            // search problems
+            for (Problem p : project.getProblems().getList()) {
+                if (!Utils.isNullOrEmpty(p.getDescription()) && p.getDescription().toLowerCase().contains(searchText.toLowerCase())) {
+                    if (!map.containsKey(p.getId())) map.put(p.getId(), p.toAbstractItem());
+                }
+            }
+
+            // search notes
+            for (Note n : project.getProjectNotes().getList()) {
+                if (!Utils.isNullOrEmpty(n.getDescription()) && n.getDescription().toLowerCase().contains(searchText.toLowerCase())) {
+                    if (!map.containsKey(n.getId())) map.put(n.getId(), n.toAbstractItem());
+                }
+            }
+
+        }
+        return new ArrayList<>(map.values());
+    }
+
+    public int getReqListSize() {
+        if (searchText == null) return getRequirements().size();
+        return getAbstractItems().size();
+    }
+
 
     public int calculateProgressOnRequirement(String reqId) {
         for (Requirement r : project.getRequirements().getList()) {
