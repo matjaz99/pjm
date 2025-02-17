@@ -303,6 +303,9 @@ public class UiProjectBean extends UiBean implements Serializable {
         for (Meeting m : project.getMeetingHistory().getList()) {
             list.addAll(m.getHashtags());
         }
+        for (Problem p : project.getProblems().getList()) {
+            list.addAll(p.getHashtags());
+        }
         return list;
     }
 
