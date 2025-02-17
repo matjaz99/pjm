@@ -37,6 +37,11 @@
 					<p:column headerText="Importance">
 						<p:rating id="ratingDisabled" value="#{meet.rating}" readonly="true"/>
 					</p:column>
+					<p:column headerText="Hashtags">
+						<ui:repeat var="ht" value="#{meet.hashtags}">
+							<p:outputLabel value="#{ht.name} " />
+						</ui:repeat>
+					</p:column>
 					<p:column headerText="Action">
 						<p:commandButton value="Archive"
 										 action="#{uiMeetingBean.archiveMeetingAction(meet.id)}"

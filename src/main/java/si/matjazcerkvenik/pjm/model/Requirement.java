@@ -270,4 +270,14 @@ public class Requirement implements Serializable {
         ai.setUrl("/project/requirement?reqId=" + this.id);
         return ai;
     }
+
+    public List<Hashtag> getHashtags() {
+        List<Hashtag> htList = new ArrayList<>();
+        List<String> list = Utils.findHashtags(description);
+        for (String s : list) {
+            Hashtag ht = new Hashtag(s, "/project/requirement?reqId=" + this.id);
+            htList.add(ht);
+        }
+        return htList;
+    }
 }

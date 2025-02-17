@@ -48,6 +48,11 @@
 					<p:outputLabel value="#{uiMeetingBean.meeting.description}" escape="false" />
 				</p:panel>
 
+				<p:panel>
+					<ui:repeat var="ht" value="#{uiMeetingBean.meeting.hashtags}">
+						<p:outputLabel value="#{ht.name} " style="font-family: monospace; font-size: 0.8em; color: #2030D0;"/>
+					</ui:repeat>
+				</p:panel>
 
 				<p:panel rendered="#{!uiMeetingBean.meeting.concluded}">
 					<p:textEditor widgetVar="editor2"

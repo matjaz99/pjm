@@ -10,4 +10,8 @@
             <component-type>SingleTag</component-type>
         </component>
     </tag>
+    <tag>
+        <tag-name>hashtag</tag-name>
+        <source>taglib/hashtag.xhtml</source>
+    </tag>
 </facelet-taglib>

@@ -2,9 +2,12 @@ package si.matjazcerkvenik.pjm.model;
 
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
+import si.matjazcerkvenik.pjm.util.Utils;
 
 import javax.xml.datatype.XMLGregorianCalendar;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Note implements Serializable {
 
@@ -62,5 +65,15 @@ public class Note implements Serializable {
         ai.setText(this.description);
         ai.setUrl("/project/notes");
         return ai;
+    }
+
+    public List<Hashtag> getHashtags() {
+        List<Hashtag> htList = new ArrayList<>();
+        List<String> list = Utils.findHashtags(description);
+        for (String s : list) {
+            Hashtag ht = new Hashtag(s, "/project/notes");
+            htList.add(ht);
+        }
+        return htList;
     }
 }

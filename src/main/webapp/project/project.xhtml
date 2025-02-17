@@ -39,6 +39,9 @@
 						<a href="/pjm/help/help.xhtml">
 							<i class="pi pi-question-circle" style="font-size: 2.3rem; color: #333333;" />
 						</a>
+						<a href="/pjm/project/hashtags.xhtml?projectId=#{uiProjectBean.project.id}">
+							<i class="pi pi-hashtag" style="font-size: 2.3rem; color: #333333;" />
+						</a>
 					</p:panel>
 					<p:panel>
 						<span class="ui-input-icon-left">
@@ -102,6 +105,10 @@
 					<p:column headerText="Progress">
 						<p:progressBar value="#{uiProjectBean.calculateProgressOnRequirement(req.id)}" labelTemplate="{value}%" displayOnly="true"/>
 						<p:outputLabel value="Tasks: #{req.tasks.list.size()}, Prio: #{req.priority}, ∑: #{req.getRequirementTotalEstimatedEffort()} MH" style="font-size: 0.8em;"/>
+						<br/>
+						<ui:repeat var="ht" value="#{req.hashtags}">
+							<p:outputLabel value="#{ht.name} " style="font-family: monospace; font-size: 0.8em; color: #2030D0;" />
+						</ui:repeat>
 					</p:column>
 					<p:column headerText="Action">
 						<p:link href="#{req.itcmLink.href}"

@@ -2,9 +2,12 @@ package si.matjazcerkvenik.pjm.model;
 
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
+import si.matjazcerkvenik.pjm.util.Utils;
 
 import javax.xml.datatype.XMLGregorianCalendar;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Task implements Serializable {
 
@@ -106,6 +109,16 @@ public class Task implements Serializable {
         ai.setText(this.description);
         ai.setUrl("/project/task?tskId=" + this.id + "&reqId=" + reqId);
         return ai;
+    }
+
+    public List<Hashtag> getHashtags(String reqId) {
+        List<Hashtag> htList = new ArrayList<>();
+        List<String> list = Utils.findHashtags(description);
+        for (String s : list) {
+            Hashtag ht = new Hashtag(s, "/project/task?tskId=" + this.id + "&reqId=" + reqId);
+            htList.add(ht);
+        }
+        return htList;
     }
 
 }

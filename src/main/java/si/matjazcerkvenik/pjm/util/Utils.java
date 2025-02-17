@@ -20,9 +20,9 @@ import javax.xml.datatype.XMLGregorianCalendar;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
+import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Utils {
 
@@ -216,4 +216,32 @@ public class Utils {
         String result = getMd5Checksum(s + System.currentTimeMillis());
         return result.substring(0, 8);
     }
+
+
+
+    public static List<String> findHashtags(String text) {
+        Map<String, Object> hashtagsMap = new HashMap<>();
+
+        if (Utils.isNullOrEmpty(text)) return new ArrayList<>(hashtagsMap.keySet());
+
+        Pattern pattern = Pattern.compile("#\\w+");
+//        Pattern pattern = Pattern.compile("#[^0-9]+[a-zA-Z_]+");
+        Matcher matcher = pattern.matcher(text);
+        while (matcher.find()) {
+            String s = matcher.group();
+            if (s.length() < 4) continue;
+            if (s.startsWith("#xfeff")) continue;
+//            Pattern p1 = Pattern.compile("#\\d+");
+//            Matcher m1 = pattern.matcher(text);
+//            if (m1.find()) continue;
+            hashtagsMap.put(s, null);
+        }
+        return new ArrayList<>(hashtagsMap.keySet());
+    }
+
+    public static void main(String... args) {
+        String text = "This is some tekst. #text It's raining on a sunny day. #34, #22aaa, #sunnyDay, #rain. \n in tako naprej #naprej...";
+        findHashtags(text);
+    }
+
 }

@@ -206,13 +206,19 @@ public class UiProjectBean extends UiBean implements Serializable {
                     if (!map.containsKey(r.getId())) map.put(r.getId(), r.toAbstractItem());
                 }
 
+            } else if (searchText.startsWith("#")) {
+
+                // TODO search hashtags
+                if (r.getGroup().toLowerCase().startsWith("TODO")) {
+                    if (!map.containsKey(r.getId())) map.put(r.getId(), r.toAbstractItem());
+                }
+
             } else {
                 // search all fields
                 if (r.getTitle().toLowerCase().contains(searchText.toLowerCase())) {
                     if (!map.containsKey(r.getId())) map.put(r.getId(), r.toAbstractItem());
                 }
                 if (r.getDescription() != null && r.getDescription().toLowerCase().contains(searchText.toLowerCase())) {
-                    // TODO clean description of html code (from text formatting) or search will not work
                     if (!map.containsKey(r.getId())) map.put(r.getId(), r.toAbstractItem());
                 }
 
@@ -278,6 +284,26 @@ public class UiProjectBean extends UiBean implements Serializable {
     public int getReqListSize() {
         if (searchText == null) return getRequirements().size();
         return getAbstractItems().size();
+    }
+
+    public List<Hashtag> getHashtags() {
+        List<Hashtag> list = new ArrayList<>();
+        for (Requirement r : project.getRequirements().getList()) {
+            list.addAll(r.getHashtags());
+            for (Task t : r.getTasks().getList()) {
+                list.addAll(t.getHashtags(r.getId()));
+            }
+        }
+        for (Note n : project.getProjectNotes().getList()) {
+            list.addAll(n.getHashtags());
+        }
+        for (Meeting m : project.getMeetingTemplates().getList()) {
+            list.addAll(m.getHashtags());
+        }
+        for (Meeting m : project.getMeetingHistory().getList()) {
+            list.addAll(m.getHashtags());
+        }
+        return list;
     }
 
 

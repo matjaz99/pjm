@@ -100,4 +100,14 @@ public class Meeting implements Serializable {
         ai.setUrl("/project/meeting?meetingId=" + this.id);
         return ai;
     }
+
+    public List<Hashtag> getHashtags() {
+        List<Hashtag> htList = new ArrayList<>();
+        List<String> list = Utils.findHashtags(description);
+        for (String s : list) {
+            Hashtag ht = new Hashtag(s, "/project/meeting?meetingId=" + this.id);
+            htList.add(ht);
+        }
+        return htList;
+    }
 }
