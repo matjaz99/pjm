@@ -2,9 +2,12 @@ package si.matjazcerkvenik.pjm.model;
 
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
+import si.matjazcerkvenik.pjm.util.Utils;
 
 import javax.xml.datatype.XMLGregorianCalendar;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Problem implements Serializable {
 
