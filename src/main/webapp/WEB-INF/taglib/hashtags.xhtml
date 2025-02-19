@@ -4,8 +4,8 @@
         xmlns:p="http://primefaces.org/ui">
 
 
-    <ui:repeat var="ht" value="#{uiMeetingBean.meeting.hashtags}">
-        <p:outputLabel value="#{name} " style="font-family: monospace; font-size: 0.8em; color: #2030D0;"/>
+    <ui:repeat var="ht" value="#{value}">
+        <p:outputLabel value="#{ht.name} " style="font-family: monospace; font-size: 0.8em; color: #2030D0;"/>
     </ui:repeat>
 
 </ui:composition>

@@ -54,6 +54,25 @@
 							value="#{uiRequirementBean.requirement.itcmLink.description}" target="_blank"/>
 					<p:link href="#{uiRequirementBean.requirement.rrcLink.href}"
 							value="#{uiRequirementBean.requirement.rrcLink.description}" target="_blank"/>
+					<pjm:hashtags value="#{uiRequirementBean.requirement.hashtags}">
+					</pjm:hashtags>
+					<p:outputPanel>
+						<p:outputLabel rendered="#{uiRequirementBean.requirement.getFadeOutStarColor(uiConfigBean.getFadeOutConfig()).equals('white') ? false : true}">
+							<span class="pi pi-star-fill" style="color: #{uiRequirementBean.requirement.getFadeOutStarColor(uiConfigBean.getFadeOutConfig())}; font-size: 1.7rem" />
+						</p:outputLabel>
+						<p:outputLabel rendered="#{uiRequirementBean.requirement.getOpenIssues().size() > 0 ? true : false}" >
+							<span class="pi pi-exclamation-triangle" style="color: red; font-size: 1.7rem" />
+						</p:outputLabel>
+						<p:outputLabel value="" style="color: orange; margin-right: 0.5em;" rendered="#{uiRequirementBean.requirement.getTasksByStatus('waiting').size() > 0}">
+							<span class="pi pi-stopwatch" style="font-size: 1.7rem" />
+						</p:outputLabel>
+						<p:outputLabel id="obsolete-flag-#{uiRequirementBean.requirement.id}" value="" style="margin-right: 0.5em;" rendered="#{uiRequirementBean.requirement.obsolete}">
+							<span class="pi pi-times" style="font-size: 1.7rem" />
+						</p:outputLabel>
+						<p:outputLabel value="" style="margin-right: 0.5em;" rendered="#{uiRequirementBean.requirement.verified}">
+							<span class="pi pi-verified" style="color: green; font-size: 1.7rem" />
+						</p:outputLabel>
+					</p:outputPanel>
 				</p:panelGrid>
 
 				<p:panel id="reqDescPanel" rendered="#{!uiRequirementBean.editModeOn}">

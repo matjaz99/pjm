@@ -38,9 +38,8 @@
 						<p:rating id="ratingDisabled" value="#{meet.rating}" readonly="true"/>
 					</p:column>
 					<p:column headerText="Hashtags">
-						<ui:repeat var="ht" value="#{meet.hashtags}">
-							<p:outputLabel value="#{ht.name} " />
-						</ui:repeat>
+						<pjm:hashtags value="#{meet.hashtags}">
+						</pjm:hashtags>
 					</p:column>
 					<p:column headerText="Action">
 						<p:commandButton value="Archive"
@@ -101,6 +100,10 @@
 						</p:column>
 						<p:column headerText="Importance">
 							<p:rating id="ratingDisabled" value="#{meet.rating}" readonly="true"/>
+						</p:column>
+						<p:column headerText="Hashtags">
+							<pjm:hashtags value="#{meet.hashtags}">
+							</pjm:hashtags>
 						</p:column>
 						<p:column headerText="Action">
 							<p:commandButton value="Delete"

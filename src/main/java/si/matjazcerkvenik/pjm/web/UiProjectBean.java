@@ -208,13 +208,59 @@ public class UiProjectBean extends UiBean implements Serializable {
 
             } else if (searchText.startsWith("#")) {
 
-                // TODO search hashtags
-                if (r.getGroup().toLowerCase().startsWith("TODO")) {
-                    if (!map.containsKey(r.getId())) map.put(r.getId(), r.toAbstractItem());
+                // search hashtags in requirements
+                for (Hashtag ht : r.getHashtags()) {
+                    if (ht.getName().toLowerCase().startsWith(searchText)) {
+                        if (!map.containsKey(r.getId())) map.put(r.getId(), r.toAbstractItem());
+                    }
                 }
 
+                // search hashtags in tasks
+                for (Task t : r.getTasks().getList()) {
+                    for (Hashtag ht : t.getHashtags(r.getId())) {
+                        if (ht.getName().toLowerCase().startsWith(searchText)) {
+                            if (!map.containsKey(t.getId())) map.put(t.getId(), t.toAbstractItem(r.getId()));
+                        }
+                    }
+                }
+
+                // search hashtags in meetings
+                for (Meeting m : project.getMeetingTemplates().getList()) {
+                    for (Hashtag ht : m.getHashtags()) {
+                        if (ht.getName().toLowerCase().startsWith(searchText)) {
+                            if (!map.containsKey(m.getId())) map.put(m.getId(), m.toAbstractItem());
+                        }
+                    }
+                }
+                for (Meeting m : project.getMeetingHistory().getList()) {
+                    for (Hashtag ht : m.getHashtags()) {
+                        if (ht.getName().toLowerCase().startsWith(searchText)) {
+                            if (!map.containsKey(m.getId())) map.put(m.getId(), m.toAbstractItem());
+                        }
+                    }
+                }
+
+                // search hashtags in notes
+                for (Note n : project.getProjectNotes().getList()) {
+                    for (Hashtag ht : n.getHashtags()) {
+                        if (ht.getName().toLowerCase().startsWith(searchText)) {
+                            if (!map.containsKey(n.getId())) map.put(n.getId(), n.toAbstractItem());
+                        }
+                    }
+                }
+
+                // search hashtags in problems
+                for (Problem p : project.getProblems().getList()) {
+                    for (Hashtag ht : p.getHashtags()) {
+                        if (ht.getName().toLowerCase().startsWith(searchText)) {
+                            if (!map.containsKey(p.getId())) map.put(p.getId(), p.toAbstractItem());
+                        }
+                    }
+                }
+
+
             } else {
-                // search all fields
+                // search title and description in requirements
                 if (r.getTitle().toLowerCase().contains(searchText.toLowerCase())) {
                     if (!map.containsKey(r.getId())) map.put(r.getId(), r.toAbstractItem());
                 }
@@ -286,6 +332,10 @@ public class UiProjectBean extends UiBean implements Serializable {
         return getAbstractItems().size();
     }
 
+    /**
+     * Used in hashtags.xhtml
+     * @return
+     */
     public List<Hashtag> getHashtags() {
         List<Hashtag> list = new ArrayList<>();
         for (Requirement r : project.getRequirements().getList()) {

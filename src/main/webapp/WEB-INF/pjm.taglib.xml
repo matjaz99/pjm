@@ -11,7 +11,7 @@
         </component>
     </tag>
     <tag>
-        <tag-name>hashtag</tag-name>
-        <source>taglib/hashtag.xhtml</source>
+        <tag-name>hashtags</tag-name>
+        <source>taglib/hashtags.xhtml</source>
     </tag>
 </facelet-taglib>

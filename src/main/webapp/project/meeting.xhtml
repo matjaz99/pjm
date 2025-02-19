@@ -25,7 +25,6 @@
 						<p:inputText value="#{uiMeetingBean.meetingTitle}" required="true" label="text" size="60"/>
 					</p:inplace>
 				</p:outputPanel>
-
 				<p:panel rendered="#{uiMeetingBean.meeting.concluded}">
 					<p:outputLabel for="plannedDate" value="Meeting date: #{uiMeetingBean.meeting.plannedDate}" />
 				</p:panel>
@@ -39,19 +38,15 @@
 						<p:ajax event="cancel" listener="#{uiMeetingBean.onCancel}" update="meetingDataForm"/>
 					</p:rating>
 				</p:panel>
+				<p:panel>
+					<pjm:hashtags value="#{uiMeetingBean.meeting.hashtags}">
+					</pjm:hashtags>
+				</p:panel>
 			</h:form>
-
-			<br/>
 
 			<h:form id="meetingForm">
 				<p:panel rendered="#{uiMeetingBean.meeting.concluded}">
 					<p:outputLabel value="#{uiMeetingBean.meeting.description}" escape="false" />
-				</p:panel>
-
-				<p:panel>
-					<ui:repeat var="ht" value="#{uiMeetingBean.meeting.hashtags}">
-						<p:outputLabel value="#{ht.name} " style="font-family: monospace; font-size: 0.8em; color: #2030D0;"/>
-					</ui:repeat>
 				</p:panel>
 
 				<p:panel rendered="#{!uiMeetingBean.meeting.concluded}">

@@ -108,6 +108,7 @@ public class Meeting implements Serializable {
             Hashtag ht = new Hashtag(s, "/project/meeting?meetingId=" + this.id);
             htList.add(ht);
         }
+        System.out.println("Meeting: ht-size: " + htList.size() + "; ==" + htList.toString());
         return htList;
     }
 }
