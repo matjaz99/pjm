@@ -28,9 +28,9 @@ Search for given text (operator contains) in:
 there are html tags inserted in the text.
 
 
-### Search by label
+### Search by keyword
 
-Syntax: `<LABEL>: text`
+Syntax: `<KEYWORD>: text`
 
 
 Examples:
@@ -39,6 +39,26 @@ Examples:
 - `ASSIGNEE: John` - search by assignee (case sensitive!)
 
 
+### Search by hashtag
+
+Syntax: `#text`
+
+### Hashtags
+
+Hashtags are labels, which can be included in any text. Hashtag syntax: `whitespace` + `#` + `word`.  
+Word may contain: [a-zA-Z0-9_]. Any other character will break hasthag consistency.
+Hashtag should be at least 4 characters long (including #).
+
+#### Examples
+Valid hashtags:
+- #hello123
+- #lifeIsBeautiful
+- #great_555,
+
+Invalid tags:
+- #A (too short)
+- high#memory (hashtag not found)
+- #AAA-123 (hashtag is #AAA only)
 
 ### Alarms
 
