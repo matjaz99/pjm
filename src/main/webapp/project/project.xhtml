@@ -35,12 +35,21 @@
 								 onclick="PF('newReqDialog').show()" styleClass="ui-button-outlined"/>
 					</p:panel>
 					<p:panel>
-						<i class="pi pi-file-edit" style="font-size: 2.3rem" />
-						<a href="/pjm/help/help.xhtml">
-							<i class="pi pi-question-circle" style="font-size: 2.3rem; color: #333333;" />
+						<i class="pi pi-file-edit" style="font-size: 2.3rem; color: #333333; margin-right: 5px;" />
+						<a href="/pjm/project/members.xhtml?projectId=#{uiProjectBean.project.id}">
+							<i class="pi pi-users" style="font-size: 2.3rem; color: #333333; margin-right: 5px;" />
+						</a>
+						<a href="/pjm/project/tags.xhtml?projectId=#{uiProjectBean.project.id}">
+							<i class="pi pi-tags" style="font-size: 2.3rem; color: #333333; margin-right: 5px;" />
 						</a>
 						<a href="/pjm/project/hashtags.xhtml?projectId=#{uiProjectBean.project.id}">
-							<i class="pi pi-hashtag" style="font-size: 2.3rem; color: #333333;" />
+							<i class="pi pi-hashtag" style="font-size: 2.3rem; color: #333333; margin-right: 5px;" />
+						</a>
+						<a href="/pjm/project/history.xhtml?projectId=#{uiProjectBean.project.id}">
+							<i class="pi pi-history" style="font-size: 2.3rem; color: #333333; margin-right: 5px;" />
+						</a>
+						<a href="/pjm/help/help.xhtml">
+							<i class="pi pi-question-circle" style="font-size: 2.3rem; color: #333333; margin-right: 5px;" />
 						</a>
 					</p:panel>
 					<p:panel>

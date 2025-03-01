@@ -8,8 +8,16 @@
 	<p:panelGrid columns="12">
 		<p:panel>
 			<div class="card">
+				<i class="pi pi-globe" style="font-size: 4rem"></i>
+			</div>
+			<p:link outcome="/top/top" value="--ALL--" class="boldtext">
+				<f:param name="projectId" value="#{uiProjectBean.project.id}"/>
+			</p:link>
+		</p:panel>
+		<p:panel>
+			<div class="card">
 				<p:badge value="#{uiProjectBean.project.calculateProgressOnProject()}%" severity="info">
-					<i class="pi pi-globe" style="font-size: 4rem"></i>
+					<i class="pi pi-box" style="font-size: 4rem"></i>
 				</p:badge>
 			</div>
 			<p:link outcome="planning" value="Project" class="boldtext">
@@ -46,9 +54,9 @@
 		</p:panel>
 		<p:panel>
 			<div class="card">
-				<i class="pi pi-link" style="font-size: 4rem"></i>
+				<i class="pi pi-book" style="font-size: 4rem"></i>
 			</div>
-			<p:link outcome="links" value="Links" class="boldtext">
+			<p:link outcome="manuals" value="Manuals" class="boldtext">
 				<f:param name="projectId" value="#{uiProjectBean.project.id}"/>
 			</p:link>
 		</p:panel>
@@ -90,17 +98,9 @@
 		</p:panel>
 		<p:panel>
 			<div class="card">
-				<i class="pi pi-tags" style="font-size: 4rem"></i>
+				<i class="pi pi-link" style="font-size: 4rem"></i>
 			</div>
-			<p:link outcome="tags" value="Tags" class="boldtext">
-				<f:param name="projectId" value="#{uiProjectBean.project.id}"/>
-			</p:link>
-		</p:panel>
-		<p:panel>
-			<div class="card">
-				<i class="pi pi-history" style="font-size: 4rem"></i>
-			</div>
-			<p:link outcome="history" value="History" class="boldtext">
+			<p:link outcome="links" value="Links" class="boldtext">
 				<f:param name="projectId" value="#{uiProjectBean.project.id}"/>
 			</p:link>
 		</p:panel>

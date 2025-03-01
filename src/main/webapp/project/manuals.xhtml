@@ -1,0 +1,24 @@
+<ui:composition template="/templates/pageTemplate.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pjm="http://pjm.io/facelets">
+
+	<div id="contentFrame">
+		<ui:define name="contentFrame">
+
+			<p:breadCrumb>
+				<p:menuitem value="Home" url="/pjm"/>
+				<p:menuitem value="#{uiTestbedBean.project.name}" url="/pjm/project/project.xhtml?projectId=#{uiTestbedBean.project.id}"/>
+				<p:menuitem value="Manuals"/>
+			</p:breadCrumb>
+
+
+
+		</ui:define>
+	</div>
+
+</ui:composition>
+
