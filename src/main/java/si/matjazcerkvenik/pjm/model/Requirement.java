@@ -275,7 +275,7 @@ public class Requirement implements Serializable {
         List<Hashtag> htList = new ArrayList<>();
         List<String> list = Utils.findHashtags(description);
         for (String s : list) {
-            Hashtag ht = new Hashtag(s, "/project/requirement?reqId=" + this.id);
+            Hashtag ht = new Hashtag(s, title, "/project/requirement?reqId=" + this.id);
             htList.add(ht);
         }
         return htList;

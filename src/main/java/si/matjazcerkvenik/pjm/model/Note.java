@@ -71,7 +71,7 @@ public class Note implements Serializable {
         List<Hashtag> htList = new ArrayList<>();
         List<String> list = Utils.findHashtags(description);
         for (String s : list) {
-            Hashtag ht = new Hashtag(s, "/project/notes");
+            Hashtag ht = new Hashtag(s, title, "/project/notes");
             htList.add(ht);
         }
         return htList;

@@ -218,19 +218,22 @@ public class Utils {
     }
 
 
-
+    /**
+     * Check the text with regular expression and find words starting with # character.
+     * @param text
+     * @return list of hashtags
+     */
     public static List<String> findHashtags(String text) {
         Map<String, Object> hashtagsMap = new HashMap<>();
 
         if (Utils.isNullOrEmpty(text)) return new ArrayList<>(hashtagsMap.keySet());
 
-        Pattern pattern = Pattern.compile("#\\w+");
+        Pattern pattern = Pattern.compile("\\s+#\\w+");
 //        Pattern pattern = Pattern.compile("#[^0-9]+[a-zA-Z_]+");
         Matcher matcher = pattern.matcher(text);
         while (matcher.find()) {
             String s = matcher.group();
             if (s.length() < 4) continue;
-            if (s.startsWith("#xfeff")) continue;
 //            Pattern p1 = Pattern.compile("#\\d+");
 //            Matcher m1 = pattern.matcher(text);
 //            if (m1.find()) continue;

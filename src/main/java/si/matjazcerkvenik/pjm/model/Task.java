@@ -115,7 +115,7 @@ public class Task implements Serializable {
         List<Hashtag> htList = new ArrayList<>();
         List<String> list = Utils.findHashtags(description);
         for (String s : list) {
-            Hashtag ht = new Hashtag(s, "/project/task?tskId=" + this.id + "&reqId=" + reqId);
+            Hashtag ht = new Hashtag(s, title, "/project/task?tskId=" + this.id + "&reqId=" + reqId);
             htList.add(ht);
         }
         return htList;

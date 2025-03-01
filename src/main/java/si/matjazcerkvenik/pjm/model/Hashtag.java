@@ -2,20 +2,30 @@ package si.matjazcerkvenik.pjm.model;
 
 public class Hashtag {
 
-    public String name;
-    public String refUri;
+    private String tagName;
+    private String title;
+    private String refUri;
 
-    public Hashtag(String name, String refUri) {
-        this.name = name;
+    public Hashtag(String tagName, String title, String refUri) {
+        this.tagName = tagName;
+        this.title = title;
         this.refUri = refUri;
     }
 
-    public String getName() {
-        return name;
+    public String getTagName() {
+        return tagName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTagName(String tagName) {
+        this.tagName = tagName;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getRefUri() {

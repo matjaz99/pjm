@@ -105,10 +105,9 @@ public class Meeting implements Serializable {
         List<Hashtag> htList = new ArrayList<>();
         List<String> list = Utils.findHashtags(description);
         for (String s : list) {
-            Hashtag ht = new Hashtag(s, "/project/meeting?meetingId=" + this.id);
+            Hashtag ht = new Hashtag(s, title, "/project/meeting?meetingId=" + this.id);
             htList.add(ht);
         }
-        System.out.println("Meeting: ht-size: " + htList.size() + "; ==" + htList.toString());
         return htList;
     }
 }

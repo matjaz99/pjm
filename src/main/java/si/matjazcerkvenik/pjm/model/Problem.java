@@ -121,7 +121,7 @@ public class Problem implements Serializable {
         List<Hashtag> htList = new ArrayList<>();
         List<String> list = Utils.findHashtags(this.description);
         for (String s : list) {
-            Hashtag ht = new Hashtag(s, "/project/problem?problemId=" + this.id);
+            Hashtag ht = new Hashtag(s, title, "/project/problem?problemId=" + this.id);
             htList.add(ht);
         }
         return htList;
