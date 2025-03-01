@@ -41,6 +41,7 @@ public class Project implements Serializable {
     private String notes;
     private Notes projectNotes = new Notes();
     private Members members = new Members();
+    private Manuals manuals = new Manuals();
     private Checklist planningChecklist = new Checklist();
     private Meetings meetingTemplates = new Meetings();
     private Meetings meetingHistory = new Meetings();
@@ -200,6 +201,19 @@ public class Project implements Serializable {
 
     public void addNewMember(Member member) {
         members.addNewMember(member);
+    }
+
+    public Manuals getManuals() {
+        return manuals;
+    }
+
+    @XmlElement(name = "manuals")
+    public void setManuals(Manuals manuals) {
+        this.manuals = manuals;
+    }
+
+    public void addNewManual(Manual manual) {
+        manuals.addNewManual(manual);
     }
 
     public Checklist getPlanningChecklist() {

@@ -1,0 +1,29 @@
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+
+	<p:dialog header="New manual" widgetVar="newManualDialog"
+			  showEffect="fade" hideEffect="explode" closable="false" closeOnEscape="true">
+		<h:form id="newManualForm">
+			<p:inputText value="#{uiManualsBean.newManualTitle}" size="60"
+						 required="true" requiredMessage="Missing title" placeholder="Title">
+			</p:inputText>
+			<br/>
+			<br/>
+			<p:commandButton type="button"
+							 value="Cancel"
+							 onclick="PF('newManualDialog').hide();"
+							 style="width: 5rem"
+							 styleClass="ui-button-flat mr-2" />
+			<p:commandButton value="Add"
+							 action="#{uiManualsBean.addNewManualAction}"
+							 update="growl newManualForm manualsForm"
+							 oncomplete="PF('newManualDialog').hide();"
+							 styleClass="ui-button mr-2"
+							 style="width: 6rem"/>
+		</h:form>
+	</p:dialog>
+    
+</ui:composition>

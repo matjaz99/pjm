@@ -15,7 +15,52 @@
 				<p:menuitem value="Manuals"/>
 			</p:breadCrumb>
 
+			<p:outputLabel value="Manuals" style="font-weight: bold; font-size: 24px;"/>
 
+			<ui:include src="/components/dialog_new_manual.xhtml" />
+			<p:commandButton value="New manual" type="button" icon="pi pi-external-link"
+							 onclick="PF('newManualDialog').show()" styleClass="ui-button-outlined"/>
+
+			<h:form id="manualsForm">
+
+				<p:dataView var="man" value="#{uiManualsBean.allManuals}"
+							gridIcon="pi pi-th-large" listIcon="pi pi-bars"
+							layout="grid">
+
+					<p:dataViewGridItem>
+						<p:card style="margin: 10px;">
+							<f:facet name="title">
+								<p:outputLabel value="#{man.title}"/>
+							</f:facet>
+							<f:facet name="subtitle">
+								<p:outputLabel value="#{man.refProjectName}"/>
+							</f:facet>
+
+							<p>#{man.summary}</p>
+
+							<f:facet name="footer">
+								<p:commandButton value="Edit" styleClass="ui-button-info ui-button-flat mr-2"/>
+								<p:commandButton value="Delete"
+												 action="#{uiManualsBean.deleteManualAction(man.id)}"
+												 update="growl manualsForm"
+												 styleClass="ui-button-danger ui-button-flat mr-2" >
+									<p:confirm message="Are you sure you want to delete manual?" icon="pi pi-info-circle"/>
+								</p:commandButton>
+							</f:facet>
+						</p:card>
+					</p:dataViewGridItem>
+
+					<p:dataViewListItem>
+						<p:outputLabel value="#{man.title}" style="font-size: 1.7rem; color: #333333;"/>
+						<br/>
+						<p:outputLabel value="#{man.refProjectName}" style="font-size: 1.1rem; color: #888888;"/>
+						<br/>
+						<p style="font-size: 0.8rem; color: #333333;">#{man.summary}</p>
+					</p:dataViewListItem>
+				</p:dataView>
+
+
+			</h:form>
 
 		</ui:define>
 	</div>

@@ -88,6 +88,10 @@ public class DAO {
                 }
             }
 
+            for (Manual m : project.getManuals().getList()) {
+                m.setRefProjectName(project.getName());
+            }
+
         } catch (JAXBException e) {
             logger.error("DAO:loadProject: JAXBException: ", e);
         }
