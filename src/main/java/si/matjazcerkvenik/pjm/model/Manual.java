@@ -19,6 +19,7 @@ public class Manual implements Serializable {
     private String summary;
     private String description;
     private String refProjectName;
+    private String refProjectId;
 
     public String getId() {
         return id;
@@ -63,6 +64,15 @@ public class Manual implements Serializable {
     @XmlTransient
     public void setRefProjectName(String refProjectName) {
         this.refProjectName = refProjectName;
+    }
+
+    public String getRefProjectId() {
+        return refProjectId;
+    }
+
+    @XmlTransient
+    public void setRefProjectId(String refProjectId) {
+        this.refProjectId = refProjectId;
     }
 
     /**

@@ -11,7 +11,7 @@
 
 			<p:breadCrumb>
 				<p:menuitem value="Home" url="/pjm"/>
-				<p:menuitem value="#{uiTestbedBean.project.name}" url="/pjm/project/project.xhtml?projectId=#{uiTestbedBean.project.id}"/>
+				<p:menuitem value="#{uiManualsBean.project.name}" url="/pjm/project/project.xhtml?projectId=#{uiManualsBean.project.id}"/>
 				<p:menuitem value="Manuals"/>
 			</p:breadCrumb>
 
@@ -30,7 +30,7 @@
 					<p:dataViewGridItem>
 						<p:card style="margin: 10px;">
 							<f:facet name="title">
-								<p:outputLabel value="#{man.title}"/>
+								<p:outputLabel value="#{man.title}" style="font-size: 1.0em;"/>
 							</f:facet>
 							<f:facet name="subtitle">
 								<p:outputLabel value="#{man.refProjectName}"/>
@@ -39,7 +39,11 @@
 							<p>#{man.summary}</p>
 
 							<f:facet name="footer">
-								<p:commandButton value="Edit" styleClass="ui-button-info ui-button-flat mr-2"/>
+								<p:link href="/pjm/project/manual.xhtml"
+										value="Open" style="margin-right: 10px;">
+									<f:param name="projectId" value="#{man.refProjectId}" />
+									<f:param name="manualId" value="#{man.id}" />
+								</p:link>
 								<p:commandButton value="Delete"
 												 action="#{uiManualsBean.deleteManualAction(man.id)}"
 												 update="growl manualsForm"

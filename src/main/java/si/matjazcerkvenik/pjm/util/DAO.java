@@ -90,6 +90,7 @@ public class DAO {
 
             for (Manual m : project.getManuals().getList()) {
                 m.setRefProjectName(project.getName());
+                m.setRefProjectId(project.getId());
             }
 
         } catch (JAXBException e) {

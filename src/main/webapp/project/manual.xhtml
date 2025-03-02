@@ -1,0 +1,64 @@
+<ui:composition template="/templates/pageTemplate.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pjm="http://pjm.io/facelets">
+
+	<div id="contentFrame">
+		<ui:define name="contentFrame">
+
+			<p:breadCrumb>
+				<p:menuitem value="Home" url="/pjm"/>
+				<p:menuitem value="#{uiManualsBean.project.name}" url="/pjm/project/project.xhtml?projectId=#{uiManualsBean.project.id}"/>
+				<p:menuitem value="Manuals" url="/pjm/project/manuals.xhtml?projectId=#{uiManualsBean.project.id}"/>
+				<p:menuitem value="#{uiManualsBean.manual.title}" url="/pjm/project/manual.xhtml?projectId=#{uiManualsBean.project.id}&amp;manualId=#{uiManualsBean.manual.id}"/>
+			</p:breadCrumb>
+
+			<h:form id="titleForm">
+				<p:outputPanel id="titlePanel">
+					<p:inplace editor="true" style="font-weight: bold; font-size: 24px;">
+						<p:inputText value="#{uiManualsBean.manual.title}" required="true" label="text" size="60"/>
+						<p:ajax event="save" listener="#{uiManualsBean.saveProjectModifications('Manual title updated')}" update="titleForm, growl" />
+					</p:inplace>
+				</p:outputPanel>
+			</h:form>
+
+
+			<h:form id="editManualForm">
+				<p:panel>
+					<p:inputTextarea rows="6" cols="80" counter="display" maxlength="1024"
+									 counterTemplate="{0} characters remaining."
+									 value="#{uiManualsBean.manual.summary}"/>
+					<br/>
+					<p:outputLabel id="display" class="block" style="font-size: 0.8em;" />
+				</p:panel>
+				<p:panel>
+					<p:commandButton value="Save"
+									 action="#{uiManualsBean.saveProjectModifications('Manual saved')}"
+									 update="growl editManualForm"
+									 icon="pi pi-pencil"
+									 styleClass="ui-button-outlined"/>
+				</p:panel>
+
+				<p:panel id="editManualPanel">
+					<p:textEditor widgetVar="manualDescriptionEditor"
+								  value="#{uiManualsBean.manual.description}"
+								  height="300"
+								  placeholder="Your content"
+								  secure="true">
+						<ui:include src="/components/texteditor_facet_toolbar.xhtml" />
+					</p:textEditor>
+				</p:panel>
+
+			</h:form>
+
+
+
+
+		</ui:define>
+	</div>
+
+</ui:composition>
+

@@ -37,7 +37,7 @@ public class Project implements Serializable {
     private Requirements requirements = new Requirements();
     private Tags tagDefinitions = new Tags();
     private Links links = new Links();
-    /** These notes are shown in planning view */
+    /** These notes are shown in planning view!! */
     private String notes;
     private Notes projectNotes = new Notes();
     private Members members = new Members();

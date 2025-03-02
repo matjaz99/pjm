@@ -5,6 +5,8 @@ import jakarta.xml.bind.annotation.XmlElement;
 
 import javax.xml.datatype.XMLGregorianCalendar;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Testbed implements Serializable {
 
@@ -12,6 +14,7 @@ public class Testbed implements Serializable {
 
     private String id;
     private String title;
+    private List<Server> servers = new ArrayList<>();
 
 
     public String getId() {
@@ -32,5 +35,17 @@ public class Testbed implements Serializable {
         this.title = title;
     }
 
+    public List<Server> getServers() {
+        return servers;
+    }
+
+    @XmlElement(name = "server")
+    public void setServers(List<Server> servers) {
+        this.servers = servers;
+    }
+
+    public void addNewServer(Server server) {
+        servers.add(server);
+    }
 
 }
