@@ -1,0 +1,66 @@
+<ui:composition template="/templates/pageTemplate.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pjm="http://pjm.io/facelets">
+
+	<div id="contentFrame">
+		<ui:define name="contentFrame">
+
+			<p:breadCrumb>
+				<p:menuitem value="Home" url="/pjm"/>
+				<p:menuitem value="#{uiTestbedsBean.project.name}" url="/pjm/project/project.xhtml?projectId=#{uiTestbedsBean.project.id}"/>
+				<p:menuitem value="Testbeds" url="/pjm/project/testbeds.xhtml?projectId=#{uiTestbedsBean.project.id}"/>
+				<p:menuitem value="#{uiTestbedsBean.testbed.title}" url="/pjm/project/testbed.xhtml?projectId=#{uiTestbedsBean.project.id}&amp;testbedId=#{uiTestbedsBean.testbed.id}"/>
+			</p:breadCrumb>
+
+			<h:form id="titleForm">
+				<p:outputPanel id="titlePanel">
+					<p:inplace editor="true" style="font-weight: bold; font-size: 24px;">
+						<p:inputText value="#{uiTestbedsBean.testbed.title}" required="true" label="text" size="60"/>
+						<p:ajax event="save" listener="#{uiTestbedsBean.saveProjectModifications('Testbed title updated')}" update="titleForm, growl" />
+					</p:inplace>
+				</p:outputPanel>
+			</h:form>
+
+
+			<h:form id="testbedForm">
+				<p:dataTable value="#{uiTestbedsBean.testbed.services}" var="srv"
+							 cellpadding="0" cellspacing="0">
+					<p:column headerText="Connection string">
+						<p:inplace editor="true">
+							<p:inputText value="#{srv.connectionString}" required="true" label="text"/>
+							<p:ajax event="save" listener="#{uiTestbedsBean.saveProjectModifications('Saved')}" update="growl testbedForm" />
+						</p:inplace>
+					</p:column>
+					<p:column headerText="Details">
+						<p:outputLabel value="Hostname: #{srv.hostname}" />
+						<br/>
+						<p:outputLabel value="User/Pass: #{srv.username}/#{srv.password}" />
+						<br/>
+						<p:outputLabel value="Schema: #{srv.schema}" />
+					</p:column>
+					<p:column headerText="Host status">
+						TODO
+					</p:column>
+					<p:column headerText="Service status">
+						TODO
+					</p:column>
+					<p:column headerText="Actions">
+						TODO ENABLE_MONITOR, DELETE
+					</p:column>
+				</p:dataTable>
+
+			</h:form>
+
+			<ui:include src="/components/dialog_new_service.xhtml" />
+			<p:commandButton value="New service" type="button" icon="pi pi-external-link"
+							 onclick="PF('newServiceDialog').show()" styleClass="ui-button-outlined"/>
+
+		</ui:define>
+	</div>
+
+</ui:composition>
+

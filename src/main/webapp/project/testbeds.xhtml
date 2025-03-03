@@ -11,11 +11,54 @@
 
 			<p:breadCrumb>
 				<p:menuitem value="Home" url="/pjm"/>
-				<p:menuitem value="#{uiTestbedBean.project.name}" url="/pjm/project/project.xhtml?projectId=#{uiTestbedBean.project.id}"/>
-				<p:menuitem value="Testbed"/>
+				<p:menuitem value="#{uiTestbedsBean.project.name}" url="/pjm/project/project.xhtml?projectId=#{uiTestbedsBean.project.id}"/>
+				<p:menuitem value="Testbeds"/>
 			</p:breadCrumb>
 
+			<p:outputLabel value="Testbeds" style="font-weight: bold; font-size: 24px;"/>
 
+			<ui:include src="/components/dialog_new_testbed.xhtml" />
+			<p:commandButton value="New manual" type="button" icon="pi pi-external-link"
+							 onclick="PF('newTestbedDialog').show()" styleClass="ui-button-outlined"/>
+
+			<h:form id="testbedsForm">
+
+				<p:dataView var="tb" value="#{uiTestbedsBean.project.testbeds.list}"
+							gridIcon="pi pi-th-large" listIcon="pi pi-bars"
+							layout="grid">
+
+					<p:dataViewGridItem>
+						<p:card style="margin: 10px;">
+							<f:facet name="title">
+								<p:outputLabel value="#{tb.title}" style="font-size: 1.0em;"/>
+							</f:facet>
+							<f:facet name="subtitle">
+								<p:outputLabel value="Testbed"/>
+							</f:facet>
+
+							<f:facet name="footer">
+								<p:link href="/pjm/project/testbed.xhtml"
+										value="Open" style="margin-right: 10px;">
+									<f:param name="projectId" value="#{uiTestbedsBean.project.id}" />
+									<f:param name="testbedId" value="#{tb.id}" />
+								</p:link>
+								<p:commandButton value="Delete"
+												 action="#{uiTestbedsBean.deleteTestbedAction(tb.id)}"
+												 update="growl testbedsForm"
+												 styleClass="ui-button-danger ui-button-flat mr-2" >
+									<p:confirm message="Are you sure you want to delete test environment?" icon="pi pi-info-circle"/>
+								</p:commandButton>
+							</f:facet>
+						</p:card>
+					</p:dataViewGridItem>
+
+					<p:dataViewListItem>
+						<p:outputLabel value="#{tb.title}" style="font-size: 1.3rem; color: #333333;"/>
+					</p:dataViewListItem>
+				</p:dataView>
+
+
+			</h:form>
 
 		</ui:define>
 	</div>

@@ -3,7 +3,6 @@ package si.matjazcerkvenik.pjm.model;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 
-import javax.xml.datatype.XMLGregorianCalendar;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +13,7 @@ public class Testbed implements Serializable {
 
     private String id;
     private String title;
-    private List<Server> servers = new ArrayList<>();
+    private List<Service> services = new ArrayList<>();
 
 
     public String getId() {
@@ -35,17 +34,17 @@ public class Testbed implements Serializable {
         this.title = title;
     }
 
-    public List<Server> getServers() {
-        return servers;
+    public List<Service> getServices() {
+        return services;
     }
 
-    @XmlElement(name = "server")
-    public void setServers(List<Server> servers) {
-        this.servers = servers;
+    @XmlElement(name = "service")
+    public void setServices(List<Service> services) {
+        this.services = services;
     }
 
-    public void addNewServer(Server server) {
-        servers.add(server);
+    public void addNewService(Service server) {
+        services.add(server);
     }
 
 }

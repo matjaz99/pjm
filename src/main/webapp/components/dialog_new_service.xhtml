@@ -1,0 +1,29 @@
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+
+	<p:dialog header="New service" widgetVar="newServiceDialog"
+			  showEffect="fade" hideEffect="explode" closable="false" closeOnEscape="true">
+		<h:form id="newServiceForm">
+			<p:inputText value="#{uiTestbedsBean.newServiceConnectionString}" size="60"
+						 required="true" requiredMessage="Missing URL" placeholder="ssh://usr:pass@host:22/context">
+			</p:inputText>
+			<br/>
+			<br/>
+			<p:commandButton type="button"
+							 value="Cancel"
+							 onclick="PF('newServiceDialog').hide();"
+							 style="width: 5rem"
+							 styleClass="ui-button-flat mr-2" />
+			<p:commandButton value="Add"
+							 action="#{uiTestbedsBean.addNewServiceAction}"
+							 update="growl newServiceForm testbedForm"
+							 oncomplete="PF('newServiceDialog').hide();"
+							 styleClass="ui-button mr-2"
+							 style="width: 6rem"/>
+		</h:form>
+	</p:dialog>
+    
+</ui:composition>

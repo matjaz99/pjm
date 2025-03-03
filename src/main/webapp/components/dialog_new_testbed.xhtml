@@ -1,0 +1,29 @@
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+
+	<p:dialog header="New test environment" widgetVar="newTestbedDialog"
+			  showEffect="fade" hideEffect="explode" closable="false" closeOnEscape="true">
+		<h:form id="newTestbedForm">
+			<p:inputText value="#{uiTestbedsBean.newTestbedTitle}" size="60"
+						 required="true" requiredMessage="Missing title" placeholder="Title">
+			</p:inputText>
+			<br/>
+			<br/>
+			<p:commandButton type="button"
+							 value="Cancel"
+							 onclick="PF('newTestbedDialog').hide();"
+							 style="width: 5rem"
+							 styleClass="ui-button-flat mr-2" />
+			<p:commandButton value="Add"
+							 action="#{uiTestbedsBean.addNewTestbedAction}"
+							 update="growl newTestbedForm testbedsForm"
+							 oncomplete="PF('newTestbedDialog').hide();"
+							 styleClass="ui-button mr-2"
+							 style="width: 6rem"/>
+		</h:form>
+	</p:dialog>
+    
+</ui:composition>
