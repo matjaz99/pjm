@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import si.matjazcerkvenik.pjm.model.ChecklistItem;
 import si.matjazcerkvenik.pjm.model.Project;
 import si.matjazcerkvenik.pjm.timertasks.AlarmsTask;
+import si.matjazcerkvenik.pjm.timertasks.MonitoringTask;
 import si.matjazcerkvenik.pjm.util.DAO;
 import si.matjazcerkvenik.pjm.util.Utils;
 import si.matjazcerkvenik.pjm.util.Props;
@@ -41,19 +42,25 @@ public class UiAppBean implements Serializable {
 
     public AlarmsTask alarmsTask;
 
+    private MonitoringTask monitoringTask;
+
     private boolean hideSolved;
 
     @PostConstruct
     public void init() {
         if (projects == null) {
             projects = DAO.getInstance().loadAllProjects();
-            logger.info("init");
+            logger.info("app initialized");
         }
 
         periodicTimer = new Timer("PeriodicTimer");
         alarmsTask = new AlarmsTask(projects);
         periodicTimer.schedule(alarmsTask, 30 * 1000, 5 * 60 * 1000);
         logger.info("periodic timer started");
+
+        monitoringTask = new MonitoringTask(projects);
+        monitoringTask.start();
+        logger.info("monitoring task started");
     }
 
     public List<Project> getProjects() {

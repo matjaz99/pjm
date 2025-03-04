@@ -84,6 +84,7 @@ public class UiTestbedsBean extends UiBean implements Serializable {
 
 
 
+    private String newServiceDescription;
     private String newServiceConnectionString;
 
     public String getNewServiceConnectionString() {
@@ -94,15 +95,38 @@ public class UiTestbedsBean extends UiBean implements Serializable {
         this.newServiceConnectionString = newServiceConnectionString;
     }
 
+    public String getNewServiceDescription() {
+        return newServiceDescription;
+    }
+
+    public void setNewServiceDescription(String newServiceDescription) {
+        this.newServiceDescription = newServiceDescription;
+    }
+
     public void addNewServiceAction() {
         if (Utils.isNullOrEmpty(newServiceConnectionString)) return;
         Service s = new Service();
         s.setId(Utils.getMd5ChecksumShortSalted(newServiceConnectionString));
         s.setConnectionString(newServiceConnectionString);
+        s.setDescription(newServiceDescription);
         testbed.addNewService(s);
         logger.info("new service: " + newServiceConnectionString);
         DAO.getInstance().saveProject(project);
         newServiceConnectionString = null;
+        newServiceDescription = null;
         growlInfoMessage("New service created");
+    }
+
+    public void deleteServiceAction(String id) {
+        for (Iterator<Service> it = testbed.getServices().iterator(); it.hasNext();) {
+            Service s = it.next();
+            if (s.getId().equals(id)) {
+                it.remove();
+                logger.info("deleteServiceAction: id: " + id);
+                break;
+            }
+        }
+        DAO.getInstance().saveProject(project);
+        growlInfoMessage("Service deleted");
     }
 }

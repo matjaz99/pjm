@@ -228,22 +228,23 @@ public class Utils {
 
         if (Utils.isNullOrEmpty(text)) return new ArrayList<>(hashtagsMap.keySet());
 
-        Pattern pattern = Pattern.compile("\\s+#\\w+");
+        Pattern pattern = Pattern.compile("#\\w{3,100}");
 //        Pattern pattern = Pattern.compile("#[^0-9]+[a-zA-Z_]+");
         Matcher matcher = pattern.matcher(text);
         while (matcher.find()) {
-            String s = matcher.group();
-            if (s.length() < 4) continue;
+            String s = matcher.group().trim();
+//            if (s.length() < 4) continue;
 //            Pattern p1 = Pattern.compile("#\\d+");
 //            Matcher m1 = pattern.matcher(text);
 //            if (m1.find()) continue;
+//            System.out.println(s);
             hashtagsMap.put(s, null);
         }
         return new ArrayList<>(hashtagsMap.keySet());
     }
 
     public static void main(String... args) {
-        String text = "This is some tekst. #text It's raining on a sunny day. #34, #22aaa, #sunnyDay, #rain. \n in tako naprej #naprej...";
+        String text = "#this is some tekst. #text It's raining. #34, #22aaa, #sunnyDay, (#brackets), #rain. \n in tako naprej #naprej \n#novaVrstica...";
         findHashtags(text);
     }
 
