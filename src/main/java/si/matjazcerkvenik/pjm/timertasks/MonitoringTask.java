@@ -26,7 +26,7 @@ public class MonitoringTask extends Thread {
         while (true) {
 
             try {
-                Thread.sleep(60 * 1000);
+                Thread.sleep(15 * 1000);
             } catch (InterruptedException e) {
 
             }
