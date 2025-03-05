@@ -31,6 +31,8 @@ public class MonitoringTask extends Thread {
 
             }
 
+            System.out.println("Periodic monitoring started");
+
             for (Project p : projects) {
                 for (Testbed t : p.getTestbeds().getList()) {
                     for (Service s : t.getServices()) {
@@ -49,26 +51,29 @@ public class MonitoringTask extends Thread {
     }
 
     private boolean icmp(String hostname) {
+        boolean result = false;
         try {
             InetAddress ia = InetAddress.getByName(hostname);
-            if (ia.isReachable(5000)) return true;
+            if (ia.isReachable(5000)) result = true;
         } catch (UnknownHostException e) {
 //            System.out.println("UnknownHostException: " + hostname + "; " + e.getMessage());
         } catch (IOException e) {
 //            System.out.println("IOException: " + e.getMessage());
         }
-        return false;
+        System.out.println("Ping: " + hostname + "; " + result);
+        return result;
     }
 
     private boolean checkPort(String hostname, String port) {
-        if (Utils.isNullOrEmpty(port)) return false;
+        boolean result = false;
+        if (Utils.isNullOrEmpty(port)) return result;
         try (Socket sock = new Socket(hostname, Integer.parseInt(port))) {
             sock.close();
-            return true;
+            result = true;
         } catch (ConnectException e) {
-            return false;
         } catch (IOException e) {
-            return false;
         }
+        System.out.println("CheckPort: " + hostname + ":" + port + "; " + result);
+        return result;
     }
 }
