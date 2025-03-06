@@ -38,7 +38,7 @@ public class MonitoringTask extends Thread {
                     for (Service s : t.getServices()) {
 
                         s.setIcmpStatus(icmp(s.getHostname()));
-//                        s.setPortStatus(checkPort(s.getHostname(), s.getPort()));
+                        s.setPortStatus(checkPort(s.getHostname(), s.getPort()));
 
                     }
                 }
