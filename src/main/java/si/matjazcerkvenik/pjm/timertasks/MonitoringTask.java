@@ -9,7 +9,6 @@ import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.List;
-import java.util.TimerTask;
 
 public class MonitoringTask extends Thread {
 
@@ -26,42 +25,46 @@ public class MonitoringTask extends Thread {
         while (true) {
 
             try {
-                Thread.sleep(15 * 1000);
+                Thread.sleep(60 * 1000);
             } catch (InterruptedException e) {
-
             }
-
-            System.out.println(">>> Periodic monitoring started");
 
             for (Project p : projects) {
                 for (Testbed t : p.getTestbeds().getList()) {
                     for (Service s : t.getServices()) {
 
-                        s.setIcmpStatus(icmp(s.getHostname()));
+                        if (Utils.isNullOrEmpty(s.getIpAddress())) s.setIpAddress(resolveIpAddress(s.getHostname()));
+                        if (!s.isMonitoringActive()) continue;
+                        s.setIcmpStatus(icmpPing(s.getHostname()));
                         s.setPortStatus(checkPort(s.getHostname(), s.getPort()));
 
                     }
                 }
             }
 
-
         }
-
 
     }
 
-    private boolean icmp(String hostname) {
+    private String resolveIpAddress(String hostname) {
+        String ip = "n/a";
+        try {
+            InetAddress ia = InetAddress.getByName(hostname);
+            ip = ia.getHostAddress();
+        } catch (UnknownHostException e) {
+            ip = "UnknownHostException";
+        } catch (Exception e) {
+        }
+        return ip;
+    }
+
+    private boolean icmpPing(String hostname) {
         boolean result = false;
         try {
             InetAddress ia = InetAddress.getByName(hostname);
-            System.out.println("Start ping: " + hostname + "; " + ia.getAddress()[0] + "; " + ia.getAddress()[1] + "; " + ia.getAddress()[2] + "; " + ia.getAddress()[3]);
             if (ia.isReachable(5000)) result = true;
-        } catch (UnknownHostException e) {
-            System.out.println("UnknownHostException: " + hostname + "; " + e.getMessage());
-        } catch (IOException e) {
-            System.out.println("IOException: " + e.getMessage());
+        } catch (Exception e) {
         }
-        System.out.println("End ping: " + hostname + "; " + result);
         return result;
     }
 
@@ -74,7 +77,6 @@ public class MonitoringTask extends Thread {
         } catch (ConnectException e) {
         } catch (IOException e) {
         }
-        System.out.println("CheckPort: " + hostname + ":" + port + "; " + result);
         return result;
     }
 }

@@ -28,7 +28,7 @@
 
 			<h:form id="testbedForm">
 				<ui:repeat var="srv" value="#{uiTestbedsBean.testbed.services}">
-					<p:panel id="servicePanel" header="#{note.title}">
+					<p:panel id="servicePanel" header="#{srv.hostname} /#{srv.context}">
 						<p:inplace editor="true">
 							<p:inputText value="#{srv.connectionString}" required="true" label="text"/>
 							<p:ajax event="save" listener="#{uiTestbedsBean.saveProjectModifications('Saved')}" update="growl testbedForm" />
@@ -40,10 +40,14 @@
 						<p:link href="#{srv.generatedConnectionString}"
 								value="#{srv.generatedConnectionString}" style="margin-right: 10px;">
 						</p:link>
+						<p:outputLabel value="IP address: #{srv.ipAddress}"/>
 						<p:outputLabel value="ICMP: "/>
 						<i class="pi pi-circle-fill" style="font-size: 0.8rem; color: #{srv.icmpStatus ? '#11FF11' : '#FF1111'}"></i>
-						<p:outputLabel value=" Port: "/>
+						<p:outputLabel value="Port: "/>
 						<i class="pi pi-circle-fill" style="font-size: 0.8rem; color: #{srv.portStatus ? '#11FF11' : '#FF1111'}"></i>
+						<p:toggleSwitch value="#{srv.monitoringActive}">
+							<p:ajax listener="#{uiTestbedsBean.saveProjectModifications('Monitor toggled')}" update="growl"/>
+						</p:toggleSwitch>
 						<p:commandButton value="Delete"
 										 action="#{uiTestbedsBean.deleteServiceAction(srv.id)}"
 										 update="growl testbedForm"
