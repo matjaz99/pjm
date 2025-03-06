@@ -17,6 +17,7 @@ services:
     volumes:
       - /var/log:/opt/pjm/log
       - ./projects:/opt/pjm/projects
+      - ./hosts:/etc/hosts
     deploy:
       mode: replicated
       replicas: 1
