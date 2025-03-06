@@ -31,14 +31,14 @@ public class MonitoringTask extends Thread {
 
             }
 
-            System.out.println("Periodic monitoring started");
+            System.out.println(">>> Periodic monitoring started");
 
             for (Project p : projects) {
                 for (Testbed t : p.getTestbeds().getList()) {
                     for (Service s : t.getServices()) {
 
                         s.setIcmpStatus(icmp(s.getHostname()));
-                        s.setPortStatus(checkPort(s.getHostname(), s.getPort()));
+//                        s.setPortStatus(checkPort(s.getHostname(), s.getPort()));
 
                     }
                 }
@@ -54,13 +54,14 @@ public class MonitoringTask extends Thread {
         boolean result = false;
         try {
             InetAddress ia = InetAddress.getByName(hostname);
+            System.out.println("Start ping: " + hostname + "; " + ia.getAddress()[0] + "; " + ia.getAddress()[1] + "; " + ia.getAddress()[2] + "; " + ia.getAddress()[3]);
             if (ia.isReachable(5000)) result = true;
         } catch (UnknownHostException e) {
-//            System.out.println("UnknownHostException: " + hostname + "; " + e.getMessage());
+            System.out.println("UnknownHostException: " + hostname + "; " + e.getMessage());
         } catch (IOException e) {
-//            System.out.println("IOException: " + e.getMessage());
+            System.out.println("IOException: " + e.getMessage());
         }
-        System.out.println("Ping: " + hostname + "; " + result);
+        System.out.println("End ping: " + hostname + "; " + result);
         return result;
     }
 
