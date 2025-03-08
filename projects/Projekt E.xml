@@ -3,32 +3,33 @@
     <expectedEnd>2025-08-21T00:00:00.000+02:00</expectedEnd>
     <favorite>true</favorite>
     <links/>
+    <manuals/>
     <meetingHistory>
-        <meeting concluded="true" plannedDate="2023-10-15T00:00:00.000+02:00">
+        <meeting concluded="true" plannedDate="2023-10-15T00:00:00.000+02:00" rating="0">
             <description>&lt;p&gt;sdfgs sdsdfg &lt;/p&gt;</description>
             <id>1667750e</id>
             <title>B100 meeting</title>
         </meeting>
-        <meeting concluded="true" plannedDate="2023-10-16T00:00:00.000+02:00">
+        <meeting concluded="true" plannedDate="2023-10-16T00:00:00.000+02:00" rating="0">
             <id>c6c09fa0</id>
             <title>sdfgsfdhh</title>
         </meeting>
-        <meeting concluded="true">
+        <meeting concluded="true" rating="0">
             <id>4daf64a0</id>
             <title>bxfsdfs</title>
         </meeting>
-        <meeting concluded="true" plannedDate="2023-11-22T00:00:00.000+01:00">
+        <meeting concluded="true" plannedDate="2023-11-22T00:00:00.000+01:00" rating="0">
             <id>ffc9d3c0</id>
             <title>asdfd</title>
         </meeting>
     </meetingHistory>
     <meetingTemplates>
-        <meeting concluded="false" plannedDate="2023-10-15T00:00:00.000+02:00">
+        <meeting concluded="false" plannedDate="2023-10-15T00:00:00.000+02:00" rating="0">
             <description>&lt;p&gt;kkk&lt;/p&gt;&lt;p&gt;klkmlkmlkml&lt;/p&gt;</description>
             <id>68f9601d</id>
             <title>Kick-off meeting</title>
         </meeting>
-        <meeting concluded="false" plannedDate="2023-11-29T00:00:00.000+01:00">
+        <meeting concluded="false" plannedDate="2023-11-29T00:00:00.000+01:00" rating="0">
             <description>&lt;p&gt;adfas&lt;/p&gt;</description>
             <id>ba0242be</id>
             <title>Sestanek za metrike</title>
@@ -77,6 +78,13 @@
         <item checked="false" name="RRC collection ready"></item>
         <item checked="false" name="Effort estimated"></item>
         <item checked="false" name="B100"></item>
+        <item checked="false" name="Risks defined"/>
+        <item checked="false" name="B600"/>
+        <item checked="false" name="PR opened"/>
+        <item checked="false" name="REQs generated"/>
+        <item checked="false" name="PV hours"/>
+        <item checked="false" name="Gitlab project opened"/>
+        <item checked="false" name="SBB opened"/>
     </planningChecklist>
     <problems>
         <problem created="2024-09-01T22:19:30.240+02:00" id="6c63ad8a" lastModified="2024-09-01T22:19:30.240+02:00">
@@ -1511,4 +1519,25 @@
         <tag color="#fa0000" id="a93b8eb8">rejected</tag>
         <tag color="#56ce6e" id="afcc6d06">idea</tag>
     </tagDefs>
+    <testbeds>
+        <testbed id="98650ec2">
+            <service id="a7c6c99c" monitor="true">
+                <connectionString>ssh://192.168.1.100</connectionString>
+                <description>Server 1</description>
+            </service>
+            <service id="b3506b46" monitor="false">
+                <connectionString>ssh://root:password@ubuntu-vm</connectionString>
+                <description>Ubuntu server</description>
+            </service>
+            <service id="0a9d2686" monitor="false">
+                <connectionString>http://ubuntu-vm:7073/eventlogger</connectionString>
+                <description>Eventlogger</description>
+            </service>
+            <service id="a21b6346" monitor="true">
+                <connectionString>https://admin:password@ubuntu-vm:5601</connectionString>
+                <description>OpenSearch</description>
+            </service>
+            <title>My test env</title>
+        </testbed>
+    </testbeds>
 </project>

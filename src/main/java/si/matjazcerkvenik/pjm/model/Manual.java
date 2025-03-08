@@ -82,9 +82,9 @@ public class Manual implements Serializable {
     public AbstractItem toAbstractItem() {
         AbstractItem ai = new AbstractItem();
         ai.setTitle(this.title);
-        ai.setItemType("note");
+        ai.setItemType("manual");
         ai.setText(this.description);
-        ai.setUrl("/project/notes");
+        ai.setUrl("/project/manual?manualId=" + this.id);
         return ai;
     }
 
@@ -92,7 +92,7 @@ public class Manual implements Serializable {
         List<Hashtag> htList = new ArrayList<>();
         List<String> list = Utils.findHashtags(description);
         for (String s : list) {
-            Hashtag ht = new Hashtag(s, title, "/project/notes");
+            Hashtag ht = new Hashtag(s, title, "/project/manual?manualId=" + this.id);
             htList.add(ht);
         }
         return htList;

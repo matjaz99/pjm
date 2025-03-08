@@ -23,6 +23,11 @@
 
 			<h:form id="manualsForm">
 
+				<p:outputLabel value="Show manuals from all projects: "/>
+				<p:toggleSwitch value="#{uiAppBean.showManualsForAllProjects}">
+					<p:ajax listener="#{uiManualsBean.saveProjectModifications('Monitor toggled')}" update="manualsForm"/>
+				</p:toggleSwitch>
+
 				<p:dataView var="man" value="#{uiManualsBean.allManuals}"
 							gridIcon="pi pi-th-large" listIcon="pi pi-bars"
 							layout="grid">
@@ -35,9 +40,7 @@
 							<f:facet name="subtitle">
 								<p:outputLabel value="#{man.refProjectName}"/>
 							</f:facet>
-
 							<p>#{man.summary}</p>
-
 							<f:facet name="footer">
 								<p:link href="/pjm/project/manual.xhtml"
 										value="Open" style="margin-right: 10px;">

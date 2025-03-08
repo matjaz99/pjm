@@ -51,11 +51,15 @@ public class UiManualsBean extends UiBean implements Serializable {
     }
 
     public List<Manual> getAllManuals() {
-        List<Manual> list = new ArrayList<>();
-        for (Project p : uiAppBean.getProjects()) {
-            list.addAll(p.getManuals().getList());
+        if (uiAppBean.isShowManualsForAllProjects()) {
+            List<Manual> list = new ArrayList<>();
+            for (Project p : uiAppBean.getProjects()) {
+                list.addAll(p.getManuals().getList());
+            }
+            return list;
+        } else {
+            return project.getManuals().getList();
         }
-        return list;
     }
 
 

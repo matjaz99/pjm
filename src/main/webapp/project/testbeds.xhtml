@@ -33,9 +33,9 @@
 								<p:outputLabel value="#{tb.title}" style="font-size: 1.0em;"/>
 							</f:facet>
 							<f:facet name="subtitle">
-								<p:outputLabel value="Services: #{tb.services.size()}"/>
+								<p:outputLabel value="#{uiTestbedsBean.project.name}"/>
 							</f:facet>
-
+							<p:outputLabel value="Services: #{tb.services.size()}"/>
 							<f:facet name="footer">
 								<p:link href="/pjm/project/testbed.xhtml"
 										value="Open" style="margin-right: 10px;">

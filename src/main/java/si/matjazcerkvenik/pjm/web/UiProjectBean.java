@@ -258,6 +258,15 @@ public class UiProjectBean extends UiBean implements Serializable {
                     }
                 }
 
+                // search hashtags in manuals
+                for (Manual m : project.getManuals().getList()) {
+                    for (Hashtag ht : m.getHashtags()) {
+                        if (ht.getTagName().toLowerCase().startsWith(searchText)) {
+                            if (!map.containsKey(m.getId())) map.put(m.getId(), m.toAbstractItem());
+                        }
+                    }
+                }
+
 
             } else {
                 // search title and description in requirements
@@ -320,6 +329,13 @@ public class UiProjectBean extends UiBean implements Serializable {
             for (Note n : project.getProjectNotes().getList()) {
                 if (!Utils.isNullOrEmpty(n.getDescription()) && n.getDescription().toLowerCase().contains(searchText.toLowerCase())) {
                     if (!map.containsKey(n.getId())) map.put(n.getId(), n.toAbstractItem());
+                }
+            }
+
+            // search manuals
+            for (Manual m : project.getManuals().getList()) {
+                if (!Utils.isNullOrEmpty(m.getDescription()) && m.getDescription().toLowerCase().contains(searchText.toLowerCase())) {
+                    if (!map.containsKey(m.getId())) map.put(m.getId(), m.toAbstractItem());
                 }
             }
 

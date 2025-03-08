@@ -46,6 +46,8 @@ public class UiAppBean implements Serializable {
 
     private boolean hideSolved;
 
+    private boolean showManualsForAllProjects;
+
     @PostConstruct
     public void init() {
         if (projects == null) {
@@ -198,6 +200,19 @@ public class UiAppBean implements Serializable {
 
     public void setHideSolved(boolean hideSolved) {
         this.hideSolved = hideSolved;
+    }
+
+
+
+
+    /* Manuals view */
+
+    public boolean isShowManualsForAllProjects() {
+        return showManualsForAllProjects;
+    }
+
+    public void setShowManualsForAllProjects(boolean showManualsForAllProjects) {
+        this.showManualsForAllProjects = showManualsForAllProjects;
     }
 
 
