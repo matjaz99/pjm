@@ -3,7 +3,9 @@ package si.matjazcerkvenik.pjm.timertasks;
 import si.matjazcerkvenik.pjm.model.*;
 import si.matjazcerkvenik.pjm.util.Utils;
 
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.TimerTask;
 
 public class AlarmsTask extends TimerTask {
@@ -21,7 +23,14 @@ public class AlarmsTask extends TimerTask {
 
         for (Project project : projects) {
 
-            project.getActiveAlarms().clear();
+//            project.getActiveAlarms().clear();
+            Iterator<Map.Entry<String, Alarm>> it = project.getActiveAlarms().entrySet().iterator();
+            while (it.hasNext()) {
+                Map.Entry<String, Alarm> entry = it.next();
+                if (entry.getValue().getName().equalsIgnoreCase("Ping failed")) continue;
+                if (entry.getValue().getName().equalsIgnoreCase("Port closed")) continue;
+                it.remove();
+            }
 
             // check if all requirements have tasks
             List<Requirement> reqsNoTask = project.getRequirementsWithoutTasks();

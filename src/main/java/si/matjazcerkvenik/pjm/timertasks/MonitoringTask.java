@@ -38,6 +38,20 @@ public class MonitoringTask extends Thread {
                         s.setIcmpStatus(icmpPing(s.getHostname()));
                         s.setPortStatus(checkPort(s.getHostname(), s.getPort()));
 
+                        if (!s.isIcmpStatus()) {
+                            Alarm a = new Alarm(Utils.getMd5ChecksumShort(s.getId() + "Ping failed"), "Ping failed", s.getHostname(), "danger");
+                            p.raiseAlarm(a);
+                        } else {
+                            p.clearAlarm(Utils.getMd5ChecksumShort(s.getId() + "Ping failed"));
+                        }
+
+                        if (!s.isPortStatus()) {
+                            Alarm a = new Alarm(Utils.getMd5ChecksumShort(s.getId() + "Port closed"), "Port closed", s.getHostname() + ":" + s.getPort(), "danger");
+                            p.raiseAlarm(a);
+                        } else {
+                            p.clearAlarm(Utils.getMd5ChecksumShort(s.getId() + "Port closed"));
+                        }
+
                     }
                 }
             }

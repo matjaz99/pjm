@@ -346,6 +346,10 @@ public class Project implements Serializable {
         if (!activeAlarms.containsKey(a.getId())) activeAlarms.put(a.getId(), a);
     }
 
+    public void clearAlarm(String alarmId) {
+        if (activeAlarms.containsKey(alarmId)) activeAlarms.remove(alarmId);
+    }
+
     public List<Issue> getOpenIssues() {
         List<Issue> list = new ArrayList<>();
         for (Requirement req : requirements.getList()) {

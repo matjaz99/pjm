@@ -233,7 +233,7 @@ public class Utils {
         Matcher matcher = pattern.matcher(text);
         while (matcher.find()) {
             String s = matcher.group().trim();
-            if (s.startsWith("#x") && s.length() == 6) continue;
+            if (s.startsWith("#x")) continue; // some html url-encoded escaped character
 //            if (s.length() < 4) continue;
 //            Pattern p1 = Pattern.compile("#\\d+");
 //            Matcher m1 = pattern.matcher(text);

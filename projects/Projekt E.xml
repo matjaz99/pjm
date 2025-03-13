@@ -78,13 +78,13 @@
         <item checked="false" name="RRC collection ready"></item>
         <item checked="false" name="Effort estimated"></item>
         <item checked="false" name="B100"></item>
-        <item checked="false" name="Risks defined"/>
-        <item checked="false" name="B600"/>
-        <item checked="false" name="PR opened"/>
-        <item checked="false" name="REQs generated"/>
-        <item checked="false" name="PV hours"/>
-        <item checked="false" name="Gitlab project opened"/>
-        <item checked="false" name="SBB opened"/>
+        <item checked="false" name="Risks defined"></item>
+        <item checked="false" name="B600"></item>
+        <item checked="false" name="PR opened"></item>
+        <item checked="false" name="REQs generated"></item>
+        <item checked="false" name="PV hours"></item>
+        <item checked="false" name="Gitlab project opened"></item>
+        <item checked="false" name="SBB opened"></item>
     </planningChecklist>
     <problems>
         <problem created="2024-09-01T22:19:30.240+02:00" id="6c63ad8a" lastModified="2024-09-01T22:19:30.240+02:00">
@@ -1529,13 +1529,25 @@
                 <connectionString>ssh://root:password@ubuntu-vm</connectionString>
                 <description>Ubuntu server</description>
             </service>
-            <service id="0a9d2686" monitor="false">
+            <service id="0a9d2686" monitor="true">
                 <connectionString>http://ubuntu-vm:7073/eventlogger</connectionString>
                 <description>Eventlogger</description>
             </service>
-            <service id="a21b6346" monitor="true">
+            <service id="a21b6346" monitor="false">
                 <connectionString>https://admin:password@ubuntu-vm:5601</connectionString>
                 <description>OpenSearch</description>
+            </service>
+            <service id="3cf73217" monitor="true">
+                <connectionString>http://elasticvm:7073/eventlogger</connectionString>
+                <description>Eventlogger on elasticvm</description>
+            </service>
+            <service id="7424595f" monitor="true">
+                <connectionString>https://ubuntu-vm/prometheus</connectionString>
+                <description>Prometheus on ubuntu-vm</description>
+            </service>
+            <service id="14f028cb" monitor="false">
+                <connectionString>ubuntu-vm</connectionString>
+                <description>ubuntu-vm VM</description>
             </service>
             <title>My test env</title>
         </testbed>
